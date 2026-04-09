@@ -160,6 +160,87 @@
 ## 1.2. Solution Profile
  
 ### 1.2.1. Antecedentes y problemática
+
+<table>
+    <tr>
+      <td rowspan="2"><strong>What</strong></td>
+      <td>¿Cuál es el problema?</td>
+      <td>El problema central es la alta vulnerabilidad y pérdida de autonomía en adultos mayores debido a problemas de movilidad y fragilidad física. Al quedar bajo el cuidado de otros, se genera una dependencia crítica; sin embargo, el riesgo real se inicia cuando los cuidadores (familiares o médicos) no pueden estar físicamente presentes. En esos momentos, cualquier accidente se convierte en una crisis que nadie puede detectar a tiempo.</td>
+    </tr>
+    <tr>
+      <td>¿Cuál es la relación con la persona en cuestión?</td>
+      <td>La relación es de dependencia y urgencia médica. Ante una caída, el cuerpo de un adulto mayor sufre daños graves (como fracturas de cadera o traumatismos) que requieren transporte inmediato a un centro clínico. El dilema es que, si no hay nadie al lado, el tiempo de respuesta es nulo, lo que agrava drásticamente el pronóstico de salud. Foll entra como ese "vigilante virtual" que conecta al paciente con su red de apoyo cuando la presencia física falla.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>When</strong></td>
+      <td>¿Cuándo sucede el problema?</td>
+      <td>El problema es latente y totalmente impredecible; puede ocurrir en cualquier momento del día o la noche, sin importar cuántas medidas de prevención se tomen. El factor crítico es que, una vez ocurre el accidente, el margen para actuar y salvar la movilidad del paciente es sumamente corto.</td>
+    </tr>
+    <tr>
+      <td>¿Cuándo utiliza el cliente el producto?</td>
+      <td>El ecosistema se activa de forma simultanea: el dispositivo IoT monitorea 24/7 de manera pasiva, pero el cliente (familiar o médico) interactúa intensamente con la solución en el segundo exacto en que ocurre la caída y se dispara la notificación de alerta, permitiendo una reacción inmediata.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Where</strong></td>
+      <td>¿Dónde está el cliente cuando utiliza el producto?</td>
+      <td>Gracias a la conectividad en la nube, el responsable del adulto mayor puede estar en cualquier parte del mundo (en el trabajo, viajando o en su propio hogar) y aun así tener el control total para actuar, ya sea despachando una ambulancia, contactando a un vecino o acudiendo él mismo al lugar del incidente.</td>
+    </tr>
+    <tr>
+      <td>¿A dónde se dirige?</td>
+      <td>La solución se dirige hacia la implementación de un modelo de rescate práctico y ágil. El objetivo es eliminar la sobrecarga de información innecesaria y procesos lentos, para que el flujo desde la detección hasta el auxilio médico sea lo más directo y efectivo posible.</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>Who</strong></td>
+      <td>¿Quiénes están involucrados?</td>
+      <td>El ecosistema involucra a tres actores principales: los adultos mayores (usuarios del dispositivo físico), los apoderados o familiares responsables (receptores de alertas en la app) y el personal médico especializado (usuarios de la plataforma web para gestión clínica y seguimiento).</td>
+    </tr>
+    <tr>
+      <td>¿A quiénes les sucede el problema?</td>
+      <td>Principalmente a los adultos mayores que enfrentan el riesgo físico de caer, pero también a sus cuidadores, quienes sufren un desgaste emocional y psicológico debido a la preocupación constante y el miedo de que un accidente ocurra mientras ellos no están presentes.</td>
+    </tr>
+    <tr>
+      <td>¿Quién lo utiliza?</td>
+      <td>La solución es un ecosistema compartido: los mayores usan el hardware (discreto y cómodo), los apoderados gestionan las alertas de uno o varios pacientes desde el móvil, y los médicos utilizan la plataforma web para llevar el historial detallado de incidentes y detectar patrones de riesgo.</td>
+    </tr>
+    <tr>
+      <td><strong>Why</strong></td>
+      <td>¿Cuál es la causa del problema?</td>
+      <td>La causa raíz es la falta de presencia constante de los cuidadores. Debido a compromisos laborales, sociales o familiares, es imposible estar físicamente al cuidado del adulto mayor el 100% del tiempo. Esto genera una inquietud constante sobre la seguridad del ser querido y la necesidad de una herramienta que actúe inmediatamente cuando el factor humano no está disponible.</td>
+    </tr>
+    <tr>
+      <td rowspan="4"><strong>How</strong></td>
+      <td>¿En qué condiciones nuestros clientes usan el producto?</td>
+      <td>Se utiliza en entornos que exigen alta confiabilidad y rapidez, como hogares privados o centros geriátricos. El producto está diseñado para ser accesible, adaptable a diferentes perfiles de pacientes y, sobre todo, para brindar una comodidad que no interfiera con la vida diaria del usuario.</td>
+    </tr>
+    <tr>
+      <td>¿Cómo nos conocieron nuestros compradores?</td>
+      <td>Principalmente mediante las recomendaciones de otros familiares o amigos que pasaron por situaciones similares. También a través de canales profesionales, como personal médico y clínicas que confían en Foll como una herramienta de soporte preventivo.</td>
+    </tr>
+    <tr>
+      <td>¿Cómo prefieren nuestros consumidores acceder a nuestro producto?</td>
+      <td>Los cuidadores prefieren la inmediatez de la app móvil, ya que es el dispositivo que siempre tienen a la mano. En contraste, el personal médico prefiere la plataforma web, que les ofrece una visión más amplia y profesional para gestionar grandes volúmenes de registros y expedientes clínicos de manera organizada.</td>
+    </tr>
+    <tr>
+      <td>¿Qué llevó a la persona a esa situación?</td>
+      <td>La necesidad imperativa de garantizar la seguridad de sus seres queridos sin sacrificar su propia vida laboral o personal, buscando eliminar la ansiedad de "qué pasará si no estoy ahí" mediante una supervisión tecnológica inteligente.</td>
+    </tr>
+<tr>
+  <td><strong>How Much</strong></td>
+  <td>¿Qué tanto afecta el problema y cuánto cuesta no actuar?</td>
+  <td>
+    En el Perú, las caídas representan una de las principales causas de morbilidad en adultos mayores. 
+    Según el Ministerio de Salud, estos eventos son más frecuentes en personas mayores de 70 años y pueden ocasionar fracturas, hospitalizaciones y pérdida de autonomía (Minsa, 2026).
+    Estudios realizados en Lima indican que aproximadamente <strong>1 de cada 3</strong> adultos mayores atendidos en servicios de salud ha sufrido al menos una caída en el último año, con consecuencias físicas, emocionales y funcionales significativas (Castillo Paulino, 2024).
+    El costo de atención por una caída con fractura en hospitales de nivel III puede superar los 
+    <strong>S/ 8,000 – S/ 20,000</strong>, considerando hospitalización, cirugía, medicamentos y rehabilitación, lo que genera una carga económica importante para familias y aseguradoras (SUSALUD, 2024).
+    La evidencia nacional coincide con el principio de la <strong>“Hora Dorada”</strong>: una atención rápida reduce complicaciones, mortalidad y secuelas. En adultos mayores peruanos, el riesgo de mortalidad post‑trauma es considerablemente mayor que en adultos jóvenes, especialmente en lesiones de cadera y cráneo (Castillo Paulino, 2024).
+    En este contexto, soluciones como <strong>Foll</strong> permiten reducir tiempos de respuesta, evitar complicaciones y disminuir los costos asociados a hospitalización prolongada y rehabilitación tardía.
+  </td>
+</tr>
+
+</tr>
+
+</table>
  
 ### 1.2.2. Lean UX Process
  
