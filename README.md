@@ -51,17 +51,40 @@
 </p>
 <br>
 
+---
+
+
+<br>
+
+<h1 align="center">Registro de versiones del Informe</h1>
+</br>
+<table>
+            <tr>
+                <th>Versión</th>
+                <th>Fecha</th>
+                <th>Autor</th>
+                <th>Descripción de modificaciones</th>
+            </tr>
+<tr>
+    <td>0</td>
+    <td>08/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Creación del reporte.</td>
+</tr>
+</table>
+
+---
 
 
 # Project Report Collaboration Insights
 ## TB1
  
 ---
+
  
 # Contenido
  
 - [Student Outcome](#student-outcome)
-- [COURSE PROJECT](#course-project)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
@@ -123,9 +146,6 @@
  
 # Student Outcome
  
----
- 
-# COURSE PROJECT
  
 ---
  
@@ -223,21 +243,21 @@
  
 ## 4.2. Tactical-Level Domain-Driven Design
  
-### 4.2.X. Bounded Context: \<Bounded Context Name\>
+### 4.2.1. Bounded Context: \<Bounded Context Name\>
  
-#### 4.2.X.1. Domain Layer
+#### 4.2.1.1. Domain Layer
  
-#### 4.2.X.2. Interface Layer
+#### 4.2.1.2. Interface Layer
  
-#### 4.2.X.3. Application Layer
+#### 4.2.1.3. Application Layer
  
-#### 4.2.X.4. Infrastructure Layer
+#### 4.2.1.4. Infrastructure Layer
  
-#### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
  
-#### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
  
-##### 4.2.X.6.1. Bounded Context Domain Layer Class Diagrams
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
  
-##### 4.2.X.6.2. Bounded Context Database Design Diagram
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
  
