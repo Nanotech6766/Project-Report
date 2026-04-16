@@ -1,53 +1,54 @@
 # <center>Project Report</center>
 
 <p align="center">
-    <strong>Universidad Peruana de Ciencias Aplicadas</strong><br>
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png"></img><br>
-    <strong>Ingeniería de Software - 2026-10</strong><br>
-    <strong>Desarrollo de Soluciones IoT - 6766</strong><br>
-    <strong>Profesor: Marco Antonio Leon Baca</strong><br>
-    <br><strong>Informe del Trabajo Final</strong>
+    <strong>Universidad Peruana de Ciencias Aplicadas</strong><br>
+    <strong>Facultad de Ingeniería</strong><br><br><br>
+    <strong>Curso:</strong> 1ASI0572 - Desarrollo de Soluciones IOT<br>
+    <strong>NRC:</strong> 6766<br><br>
+    <strong>Nombre del Profesor: Marco Antonio Leon Baca</strong><br><br>
+    <br><strong>"Informe del Trabajo Final"</strong>
 </p>
 
 </p>
 
 <p align="center">
-    <strong>Startup: nanoTech</strong><br>
-    <strong>Producto: Foll</strong>
+    <strong>Nombre del grupo: nanoTech</strong><br>
+    <strong>Nombre del producto: Foll</strong>
 </p>
 
 <div style="text-align:center;">
-    <h3>Team Members:</h3>
+    <h3>Integrantes:</h3>
     <table align="center">
         <tr>
-            <th style="text-align:center;">Member</th>
             <th style="text-align:center;">Code</th>
+            <th style="text-align:center;">Apellidos y Nombres</th>
         </tr>
         <tr>
-            <td>Ariana Cecilia Agreda Sobrino</td>
             <td>u202315044</td>
+            <td>Agreda Sobrino, Ariana Cecilia</td>
         </tr>
         <tr>
-            <td>Claudia Valeria Belledonne Espinoza</td>
             <td>u202210259</td>
+            <td>Belledonne Espinoza, Claudia Valeria</td>
         </tr>
         <tr>
-            <td>Mauricio Daniel Elera Rodríguez</td>
             <td>u202313702</td>
+            <td>Elera Rodríguez, Mauricio Daniel</td>
         </tr>
         <tr>
-            <td>Saldaña Ayala, Fabiola del Rocío</td>
             <td>u202313773</td>
+            <td>Saldaña Ayala, Fabiola del Rocío</td>
         </tr>
         <tr>
-            <td>Vilca Saboya, Diego Alejandro</td>
             <td>u20231a778</td>
+            <td>Vilca Saboya, Diego Alejandro</td>
         </tr>
     </table>
 </div>
 
 <p align="center">
-    <strong>Abril, 2026</strong>
+    <strong>Lima - Abril, 2026</strong>
 </p>
 <br>
 
