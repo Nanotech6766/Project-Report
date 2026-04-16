@@ -246,33 +246,34 @@
  
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestro servicio ofrece una plataforma digital integral para el cuidado a distancia de adultos mayores, permitiendo que sus cuidadores principales o el personal médico encargado estén alerta ante accidentes que puedan ocurrir con sus familiares o pacientes, permitiéndoles actuar con la mayor prontitud posible.
+Nuestro servicio ofrece una plataforma digital integral para el cuidado a distancia de adultos mayores, permitiendo que sus cuidadores principales estén alerta ante accidentes que puedan ocurrir con sus familiares o pacientes, permitiéndoles actuar con la mayor prontitud posible.
 
 Hemos observado que un factor crítico en el cuidado geriátrico es la necesidad de una presencia física constante. Sin embargo, esta supervisión 24/7 no es una realidad para muchas personas que, a pesar de querer cuidar a sus seres queridos, deben atender responsabilidades laborales, reuniones, viajes o simplemente no pueden estar presentes el 100% del tiempo. Esta falta de monitoreo continuo causa que, ante una caída accidental, el tiempo de auxilio sea demasiado prolongado, derivando en complicaciones médicas graves o fatalidades evitables.
 
-¿Cómo podríamos mejorar la detección y comunicación de incidentes para que los familiares y médicos puedan actuar de inmediato, basándonos en la métrica de reducción del tiempo de respuesta ante emergencias y la disminución de falsas alarmas mediante el uso de inteligencia artificial?
+¿Cómo podríamos mejorar la detección y comunicación de incidentes para que los familiares y cuidadores responsables puedan actuar de inmediato, basándonos en la métrica de reducción del tiempo de respuesta ante emergencias y la disminución de falsas alarmas mediante el uso de inteligencia artificial?
+
  
 #### 1.2.2.2. Lean UX Assumptions
 
 **User Assumptions:**
 
 **¿Quién es mi usuario?**
-Nuestros usuarios se dividen en tres perfiles: el adulto mayor que porta el dispositivo IoT, el cuidador familiar que requiere tranquilidad y alertas inmediatas, y el personal médico que gestiona el historial de varios pacientes.
+Nuestros usuarios se dividen en dos perfiles: el adulto mayor que porta el dispositivo IoT, y el cuidador (familiar o personal de enfermería) que requiere tranquilidad y alertas inmediatas para una gestión eficiente de emergencias.
 
 **¿Dónde encaja nuestro producto en su trabajo o vida?**
-Se integra de forma orgánica en la rutina del adulto mayor como un accesorio diario; en la vida del cuidador como una herramienta de supervisión remota vía smartphone; y en el flujo del médico como un tablero de control para seguimiento preventivo.
+Se integra de forma orgánica en la rutina del adulto mayor como un accesorio diario; en la vida del cuidador como una herramienta de supervisión remota vía smartphone o web.
 
 **¿Qué problemas tiene nuestro producto que resolver?**
 Principalmente la ausencia de supervisión 24/7, el temor al desamparo tras un accidente doméstico y la carencia de registros de movilidad precisos para diagnósticos preventivos.
 
 **¿Cuándo y cómo es usado nuestro producto?**
-Se utiliza de manera pasiva y constante mediante el monitoreo del dispositivo. Se activa críticamente ante un patrón de impacto o caída, disparando alertas automáticas a la App y registrando el evento en la plataforma Web.
+Se utiliza de manera pasiva y constante mediante el monitoreo del dispositivo. Se activa críticamente ante un patrón de impacto o caída, disparando alertas automáticas a la App y Web.
 
 **¿Qué características son importantes?**
 La precisión del algoritmo de IA, la inmediatez de las notificaciones push, la autonomía de la batería y una interfaz clara que muestre información de emergencia (alergias, tipo de sangre, contactos) del paciente.
 
 **¿Cómo debe verse nuestro producto y cómo debe comportarse?**
-El hardware debe ser discreto, ergonómico y no estigmatizante. La App debe ser intuitiva, priorizando la urgencia y los pasos a seguir tras la alerta. La Web debe ser profesional, limpia y enfocada en la visualización de datos clínicos.
+El hardware debe ser discreto, ergonómico y no estigmatizante. Las plataformas deben ser intuitivas, priorizando la urgencia y los pasos a seguir tras la alerta. 
 
 **Business Assumptions:**
 
@@ -281,11 +282,12 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. La App debe ser 
 - Nuestros clientes primarios son familias con adultos mayores a cargo y centros de salud o residencias geriátricas.
 - El valor fundamental que el cliente busca es la tranquilidad mental y la seguridad de un auxilio oportuno.
 
+
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 - **Creemos que** implementar un modelo de Inteligencia Artificial que filtre movimientos cotidianos logrará reducir las falsas alarmas. **Sabremos que tenemos éxito cuando** observemos una reducción del 80% en las notificaciones erróneas durante las pruebas de uso diario en entornos domésticos.
-- **Creemos que** enviar alertas en tiempo real con geolocalización a los apoderados permitirá agilizar el auxilio médico. **Sabremos que tenemos éxito cuando** el tiempo promedio entre la detección de la caída y la confirmación de ayuda disminuya a menos de 20 minutos.
-- **Creemos que** proporcionar un panel web con el historial de incidentes a los médicos logrará identificar patrones de deterioro físico. **Sabremos que tenemos éxito cuando** al menos el 70% de los especialistas consultados utilicen los reportes de Foll para ajustar o recomendar nuevos tratamientos preventivos.
+- **Creemos que** enviar alertas en tiempo real con geolocalización a los cuidadores (familiares o enfermeros) permitirá agilizar el auxilio médico. **Sabremos que tenemos éxito cuando** el tiempo promedio entre la detección de la caída y la confirmación de ayuda disminuya a menos de 20 minutos.
+- **Creemos que** proporcionar un historial detallado de incidentes en la plataforma web permitirá a los cuidadores (familiares o enfermeros) monitorear el deterioro físico del adulto mayor. **Sabremos que tenemos éxito cuando** el 70% de los usuarios reporten que la información les permitió informar de manera precisa al médico tratante sobre patrones de riesgo durante las consultas de control.
 - **Creemos que** ofrecer una interfaz intuitiva mejorará la adopción por parte de personas con poca experiencia tecnológica. **Sabremos que hemos tenido éxito cuando** al menos el 90% de los usuarios nuevos logren enviar la confirmación de ayuda en menos de 15 minutos desde que reciben la notificación de alerta.
 
 #### 1.2.2.4. Lean UX Canvas
@@ -305,8 +307,7 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. La App debe ser 
         <ul>
             <li><strong>Dispositivo IoT:</strong> Sensor discreto con acelerómetro y giroscopio.</li>
             <li><strong>Algoritmo:</strong> Análisis de patrones de movimiento para filtrar caídas reales de falsas alarmas.</li>
-            <li><strong>App Móvil:</strong> Gestión de alertas en tiempo real y geolocalización para apoderados.</li>
-            <li><strong>Plataforma Web:</strong> Panel de control para médicos con historial clínico y patrones de riesgo.</li>
+            <li><strong>App Móvil y Plataforma Web:</strong> Gestión de alertas en tiempo real con geolocalización, y visualización de historial de incidentes.</li>
         </ul>
       </td>
       <td rowspan="2" valign="top" style="padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
@@ -324,8 +325,7 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. La App debe ser 
         <strong style="color: #2c3e50;">User & Customers</strong>
         <ul>
             <li><strong>Adulto Mayor:</strong> Usuario final que busca independencia y seguridad.</li>
-            <li><strong>Apoderado/Familiar:</strong> Cliente que busca tranquilidad y respuesta inmediata.</li>
-            <li><strong>Personal Médico:</strong> Usuario profesional que requiere datos precisos para prevención.</li>
+            <li><strong>Cuidadores (Familiares o Profesionales):</strong> Clientes que buscan tranquilidad y una herramienta eficiente para la gestión de emergencias y el seguimiento de la salud del adulto mayor.</li>
         </ul>
       </td>
       <td rowspan="2" valign="top" style="padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
@@ -352,19 +352,20 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. La App debe ser 
     <tr>
       <td rowspan="2" valign="top" style="padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
         <strong style="color: #2c3e50;">Hypotheses</strong><br>
-          <ul><li>Creemos que al automatizar la detección de caídas con IoT e IA, los familiares podrán reducir los tiempos de respuesta ante emergencias y mejorar la seguridad del adulto mayor.</li>
-          <li>Creemos que los médicos y cuidadores valorarán tener una única plataforma para consultar el historial de incidentes y visualizar patrones de riesgo preventivo.</li>
-          <li>Creemos que al ofrecer un producto con hardware ergonómico e interfaz simple, incluso los usuarios con poca familiaridad tecnológica podrán adoptarlo rápidamente.</li>
-          <li>Creemos que el envío de alertas con geolocalización permitirá a los responsables actuar de manera más eficiente y necesaria ante un accidente.</li>
+          <ul>
+          <li> Creemos que al automatizar la detección de caídas con IoT e IA, los familiares podrán reducir los tiempos de respuesta ante emergencias y mejorar la seguridad del adulto mayor.</li>
+<li>Creemos que los cuidadores valorarán tener una única plataforma para consultar el historial de incidentes y visualizar patrones de riesgo para informar al médico tratante.</li>
+<li> Creemos que al ofrecer un producto con hardware ergonómico e interfaz simple, incluso los usuarios con poca familiaridad tecnológica podrán adoptarlo rápidamente.</li>
+<li> Creemos que el envío de alertas con geolocalización permitirá a los responsables actuar de manera más eficiente y necesaria ante un accidente.</li>
         </ul>
       </td>
       <td rowspan="2" valign="top" style="padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
         <strong style="color: #2c3e50;">¿Cuál es la menor cantidad de trabajo para validar? </strong>
         <ul>
-            <li>Desarrollo de un prototipo con sensor básico conectado a Firebase.</li>
-            <li>App mínima que dispare una notificación push al detectar un impacto fuerte.</li>
-            <li>Simulaciones de caída controladas con 5 usuarios para validar precisión inicial.</li>
-            <li>Landing page para medir el interés de compra de familiares.</li>
+<li> Desarrollo de un prototipo con sensor básico conectado a Firebase.</li>
+<li>App mínima que dispare una notificación push al detectar un impacto fuerte.</li>
+<li>Simulaciones de caída controladas con 5 usuarios para validar la precisión inicial.</li>
+<li>Landing page para medir el interés de compra de familiares.</li>
         </ul>
       </td>
     </tr>
