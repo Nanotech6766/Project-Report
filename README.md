@@ -165,7 +165,8 @@
     <tr>
       <td rowspan="2"><strong>What</strong></td>
       <td>¿Cuál es el problema?</td>
-      <td>El problema central es la alta vulnerabilidad y pérdida de autonomía en adultos mayores debido a problemas de movilidad y fragilidad física. Al quedar bajo el cuidado de otros, se genera una dependencia crítica; sin embargo, el riesgo real se inicia cuando los cuidadores (familiares o médicos) no pueden estar físicamente presentes. En esos momentos, cualquier accidente se convierte en una crisis que nadie puede detectar a tiempo.</td>
+      <td>El problema central es la alta vulnerabilidad y pérdida de autonomía en adultos mayores debido a problemas de movilidad y fragilidad física. Al quedar bajo el cuidado de otros, se genera una dependencia crítica; sin embargo, el riesgo real se inicia cuando los cuidadores (familiares o enfermeros) no pueden estar físicamente presentes. En esos momentos, cualquier accidente se convierte en una crisis que nadie puede detectar a tiempo.
+</td>
     </tr>
     <tr>
       <td>¿Cuál es la relación con la persona en cuestión?</td>
@@ -178,12 +179,12 @@
     </tr>
     <tr>
       <td>¿Cuándo utiliza el cliente el producto?</td>
-      <td>El ecosistema se activa de forma simultanea: el dispositivo IoT monitorea 24/7 de manera pasiva, pero el cliente (familiar o médico) interactúa intensamente con la solución en el segundo exacto en que ocurre la caída y se dispara la notificación de alerta, permitiendo una reacción inmediata.</td>
+      <td>El ecosistema se activa de forma simultánea: el dispositivo IoT monitorea 24/7 de manera pasiva, pero el cliente (cuidador familiar o personal de enfermería) interactúa intensamente con la solución en el segundo exacto en que ocurre la caída y se dispara la notificación de alerta, permitiendo una reacción inmediata.</td>
     </tr>
     <tr>
       <td rowspan="2"><strong>Where</strong></td>
       <td>¿Dónde está el cliente cuando utiliza el producto?</td>
-      <td>Gracias a la conectividad en la nube, el responsable del adulto mayor puede estar en cualquier parte del mundo (en el trabajo, viajando o en su propio hogar) y aun así tener el control total para actuar, ya sea despachando una ambulancia, contactando a un vecino o acudiendo él mismo al lugar del incidente.</td>
+      <td>Gracias a la conectividad en la nube, el responsable del adulto mayor puede estar en cualquier parte del mundo (en el trabajo, viajando o en su propio hogar) y aun así tener el control total para actuar, ya sea despachando una ambulancia, contactando a un vecino o acudiendo él mismo al lugar del incidente. Solo requiere acceso a internet.</td>
     </tr>
     <tr>
       <td>¿A dónde se dirige?</td>
@@ -192,7 +193,7 @@
     <tr>
       <td rowspan="3"><strong>Who</strong></td>
       <td>¿Quiénes están involucrados?</td>
-      <td>El ecosistema involucra a tres actores principales: los adultos mayores (usuarios del dispositivo físico), los apoderados o familiares responsables (receptores de alertas en la app) y el personal médico especializado (usuarios de la plataforma web para gestión clínica y seguimiento).</td>
+      <td>El ecosistema involucra a dos actores principales: los adultos mayores, quienes son los usuarios que portan el dispositivo físico; y los cuidadores (familiares o profesionales), quienes gestionan las alertas mediante la aplicación.</td>
     </tr>
     <tr>
       <td>¿A quiénes les sucede el problema?</td>
@@ -200,7 +201,7 @@
     </tr>
     <tr>
       <td>¿Quién lo utiliza?</td>
-      <td>La solución es un ecosistema compartido: los mayores usan el hardware (discreto y cómodo), los apoderados gestionan las alertas de uno o varios pacientes desde el móvil, y los médicos utilizan la plataforma web para llevar el historial detallado de incidentes y detectar patrones de riesgo.</td>
+      <td>La solución es un ecosistema compartido: los mayores usan el hardware (discreto y cómodo), los apoderados gestionan las alertas de uno o varios pacientes desde el móvil con la aplicación o desde la computadora con la plataforma web.</td>
     </tr>
     <tr>
       <td><strong>Why</strong></td>
@@ -214,11 +215,11 @@
     </tr>
     <tr>
       <td>¿Cómo nos conocieron nuestros compradores?</td>
-      <td>Principalmente mediante las recomendaciones de otros familiares o amigos que pasaron por situaciones similares. También a través de canales profesionales, como personal médico y clínicas que confían en Foll como una herramienta de soporte preventivo.</td>
+      <td>Principalmente mediante las recomendaciones de otros familiares o amigos que pasaron por situaciones similares. También a través de canales de difusión entre residencias geriátricas.</td>
     </tr>
     <tr>
       <td>¿Cómo prefieren nuestros consumidores acceder a nuestro producto?</td>
-      <td>Los cuidadores prefieren la inmediatez de la app móvil, ya que es el dispositivo que siempre tienen a la mano. En contraste, el personal médico prefiere la plataforma web, que les ofrece una visión más amplia y profesional para gestionar grandes volúmenes de registros y expedientes clínicos de manera organizada.</td>
+      <td>Para flexibilidad de los cuidadores se implementa la versión app móvil, ya que proporciona una flexibilidad e inmediatez al tener el dispositivo a la mano; y también una plataforma web, en caso estos estén constantemente en labores de oficina.</td>
     </tr>
     <tr>
       <td>¿Qué llevó a la persona a esa situación?</td>
@@ -228,13 +229,7 @@
   <td><strong>How Much</strong></td>
   <td>¿Qué tanto afecta el problema y cuánto cuesta no actuar?</td>
   <td>
-    En el Perú, las caídas representan una de las principales causas de morbilidad en adultos mayores. 
-    Según el Ministerio de Salud, estos eventos son más frecuentes en personas mayores de 70 años y pueden ocasionar fracturas, hospitalizaciones y pérdida de autonomía (Minsa, 2026).
-    Estudios realizados en Lima indican que aproximadamente <strong>1 de cada 3</strong> adultos mayores atendidos en servicios de salud ha sufrido al menos una caída en el último año, con consecuencias físicas, emocionales y funcionales significativas (Castillo Paulino, 2024).
-    El costo de atención por una caída con fractura en hospitales de nivel III puede superar los 
-    <strong>S/ 8,000 – S/ 20,000</strong>, considerando hospitalización, cirugía, medicamentos y rehabilitación, lo que genera una carga económica importante para familias y aseguradoras (SUSALUD, 2024).
-    La evidencia nacional coincide con el principio de la <strong>“Hora Dorada”</strong>: una atención rápida reduce complicaciones, mortalidad y secuelas. En adultos mayores peruanos, el riesgo de mortalidad post‑trauma es considerablemente mayor que en adultos jóvenes, especialmente en lesiones de cadera y cráneo (Castillo Paulino, 2024).
-    En este contexto, soluciones como <strong>Foll</strong> permiten reducir tiempos de respuesta, evitar complicaciones y disminuir los costos asociados a hospitalización prolongada y rehabilitación tardía.
+    En el Perú, las caídas representan una de las principales causas de morbilidad en adultos mayores. Según el Ministerio de Salud, estos eventos son más frecuentes en personas mayores de 70 años y pueden ocasionar fracturas, hospitalizaciones y pérdida de autonomía (Minsa, 2026). Estudios realizados en Lima indican que aproximadamente 1 de cada 3 adultos mayores atendidos en servicios de salud ha sufrido al menos una caída en el último año, con consecuencias físicas, emocionales y funcionales significativas (Castillo Paulino, 2024). El costo de atención por una caída con fractura en hospitales de nivel III puede superar los S/ 8,000 - S/ 20,000, considerando hospitalización, cirugía, medicamentos y rehabilitación, lo que genera una carga económica importante para familias y aseguradoras (SUSALUD, 2024). La evidencia nacional coincide con el principio de la “Hora Dorada”: una atención rápida reduce complicaciones, mortalidad y secuelas. En adultos mayores peruanos, el riesgo de mortalidad post‑trauma es considerablemente mayor que en adultos jóvenes, especialmente en lesiones de cadera y cráneo (Castillo Paulino, 2024). En este contexto, soluciones como Foll permiten reducir tiempos de respuesta, evitar complicaciones y disminuir los costos asociados a hospitalización prolongada y rehabilitación tardía.
   </td>
 </tr>
 
