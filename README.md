@@ -102,6 +102,8 @@
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+    - [Segmento: Adultos Mayores](#segmento-adultos-mayores)
+    - [Segmento: Cuidadores de adultos mayores, familiares y personal de salud](#segmento-cuidadores-de-adultos-mayores-familiares-y-personal-de-salud)
 - [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -386,8 +388,51 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. Las plataformas 
 
  
 ## 1.3. Segmentos objetivo
- 
----
+
+### Segmento: Adultos Mayores
+
+**Descripción del segmento:**
+Este segmento está conformado por adultos mayores que mantienen un nivel de autonomía funcional, permitiéndoles realizar actividades cotidianas sin supervisión constante. Incluye a personas que viven solas o que, aunque conviven con familiares, pasan largos periodos del día sin compañía directa.
+
+**Características demográficas:**
+- Edad: 65 a 85 años  
+- Ubicación: Principalmente zonas urbanas  
+- Nivel socioeconómico: Medio y medio-bajo  
+- Nivel educativo: Variable (predominantemente educación básica o secundaria)
+- Nivel tecnológico: Bajo a Medio (familiarizados con el uso básico de smartphones para comunicación por voz y WhatsApp).
+
+**Características relevantes:**
+- Conservan movilidad y autonomía en actividades diarias  
+- Uso limitado o básico de tecnología  
+- Preferencia por soluciones simples y no invasivas  
+- Alta valoración de su independencia  
+
+**Sustento estadístico:**
+- Según el Ministerio de Salud (MINSA, 2026), las caídas más frecuentes en perssonas en mayores de 70 años en Lima.
+- Según la Unidad Geriátrica de la Clínica Alemana (Clínica Alemana, 2018), el riesgo de caídas aumenta progresivamente con la edad. Se estima que alrededor del 30% de las personas mayores de 65 años experimenta al menos una caída al año, cifra que se incrementa hasta un 50% en aquellos que superan los 80 años.
+
+### Segmento: Cuidadores de adultos mayores, familiares y personal de salud
+
+**Descripción del segmento:**
+Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmento es híbrido: incluye a familiares directos (hijos o nietos) con responsabilidades laborales que les impiden estar presentes 24/7, y a cuidadores formales (enfermeros o técnicos en salud) que necesitan optimizar su labor de monitoreo.
+
+**Características demográficas:**
+- Edad: 20 a 60 años  
+- Ubicación: Zonas urbanas  
+- Nivel socioeconómico: Medio y medio-alto  
+- Nivel educativo: Secundaria completa o superior
+- Nivel tecnológico: Medio a Alto (usuarios intensivos de aplicaciones móviles y plataformas web para gestión de tareas y comunicación).
+
+**Características relevantes:**
+- Uso frecuente de smartphones y aplicaciones digitales  
+- Responsabilidad emocional y/o económica sobre el adulto mayor  
+- Limitaciones de tiempo debido a trabajo u otras responsabilidades  
+
+**Sustento estadístico:**
+- De acuerdo con SUSALUD (2024), el costo promedio de atención por una fractura de cadera derivada de una caída en Lima puede oscilar entre los S/ 8,000 y S/ 20,000, generando una carga económica crítica para las familias.
+- Estudios de carga emocional indican que el 85% de los cuidadores familiares en entornos urbanos experimentan niveles altos de ansiedad debido a la sobrecargar de cuidar de varios adultos mayores a la vez (Cruz Méndez et al., 2025). 
+
+
  
 # Capítulo II: Requirements Elicitation & Analysis
  
