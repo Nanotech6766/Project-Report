@@ -392,7 +392,7 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. Las plataformas 
 ### Segmento: Adultos Mayores
 
 **Descripción del segmento:**
-Este segmento está conformado por adultos mayores que mantienen un nivel de autonomía funcional, permitiéndoles realizar actividades cotidianas sin supervisión constante. Incluye a personas que viven solas o que, aunque conviven con familiares, pasan largos periodos del día sin compañía directa.
+Personas de la tercera edad que residen de forma independiente o con supervisión parcial en entornos urbanos. Se caracterizan por valorar profundamente su autonomía y privacidad. Debido a procesos naturales de envejecimiento, presentan una mayor fragilidad física y riesgos de movilidad, lo que los hace vulnerables ante accidentes domésticos sin compañía.
 
 **Características demográficas:**
 - Edad: 65 a 85 años  
