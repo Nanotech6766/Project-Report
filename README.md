@@ -559,6 +559,21 @@ En esta sección se identifican y describen los principales competidores (direct
 </table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
+
+Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han definido las siguientes estrategias y tácticas preliminares, diseñadas para contrarrestar las fortalezas de la competencia y capitalizar sus debilidades, considerando nuestro contexto tecnológico de Edge AI e IoT:
+
+**Estrategias para afrontar las fortalezas de la competencia:**
+* **Frente a la alta precisión médica (Philips Lifeline):** Se aprovechará el procesamiento local (Edge Gateway) para que la Inteligencia Artificial de Foll aprenda de los patrones de movimiento específicos de cada usuario en su propio hogar. Esta táctica permite igualar e incluso superar la precisión de los algoritmos estáticos de la competencia, al adaptar el sistema a la biomecánica única del paciente.
+* **Frente a la estética y deseabilidad (Apple Watch):** En lugar de competir creando una pantalla costosa, la estrategia será la **invisibilidad del hardware**. Foll se diseñará como un cinturón o accesorio imperceptible bajo la ropa, evitando la resistencia psicológica del usuario y el estigma social de llevar un "botón de auxilio" visible.
+
+**Tácticas para aprovechar las debilidades de la competencia:**
+* **Contra las falsas alarmas y la pérdida de control:** Dispositivos como el Apple Watch pueden asustar al usuario al iniciar conteos regresivos ruidosos para llamar al 911. La táctica de Foll es la inclusión de un **switch físico e intuitivo** en el cinturón que permite al adulto mayor cancelar inmediatamente una alerta falsa (por ejemplo, al sentarse bruscamente), empoderándolo y evitando el estrés innecesario a sus cuidadores.
+* **Contra los altos costos y modelos de retención:** Ante las elevadas suscripciones de Philips y Medical Guardian, Foll implementará una táctica de penetración de mercado con hardware de bajo costo (sensores básicos de acelerometría pero lo suficientemente buenos como para que la IA se alimente de datos más precisos) y un modelo de suscripción mensual altamente asequible enfocado en el uso de la plataforma en la nube y la app, democratizando el acceso a esta tecnología para familias de ingresos medios.
+* **Contra la baja autonomía de batería:** Al no requerir pantallas táctiles a color ni conexión LTE constante en el wearable (ya que el procesamiento fuerte se delega al Edge Gateway en la casa), Foll garantizará una duración de batería de varios días, asegurando la protección durante las madrugadas, momento crítico donde los smartwatches suelen estar cargándose.
+
+**Abordaje de Oportunidades y Amenazas:**
+* **Oportunidad (Alta penetración móvil en cuidadores):** Se focalizarán las campañas de marketing hacia los hijos o familiares responsables (cuidadores), destacando la app móvil de Foll como una herramienta que les devuelve la "tranquilidad y libertad" durante sus jornadas laborales, capitalizando su familiaridad con la gestión de servicios vía smartphone.
+* **Amenaza (Wearables genéricos de bajo costo):** Para evitar ser desplazados por pulseras inteligentes chinas que incorporen detección de caídas genérica, la táctica defensiva será centrar la propuesta de valor en el **historial clínico y los patrones de riesgo** que la IA de Foll ofrece en la plataforma web, proporcionando datos invaluables para los médicos geriatras, algo que una pulsera deportiva no entrega.
  
 ## 2.2. Entrevistas
  
