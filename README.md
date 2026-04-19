@@ -437,6 +437,16 @@ Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmen
 # Capítulo II: Requirements Elicitation & Analysis
  
 ## 2.1. Competidores
+En esta sección se identifican y describen los principales competidores (directos e indirectos) que ofrecen soluciones para la detección de caídas y monitoreo de adultos mayores. El mercado actual se divide entre dispositivos médicos tradicionales y tecnología de consumo masivo adaptada a la salud.
+
+* **Competidor 1: Apple Watch (Competidor Indirecto)**
+    El Apple Watch es un smartwatch de consumo masivo de la empresa Apple que incluye una función nativa de detección de caídas mediante sus acelerómetros y giroscopios integrados. Si detecta un impacto fuerte seguido de inmovilidad, emite alertas y puede contactar automáticamente a los servicios de emergencia (911) y a los contactos definidos. Su principal ventaja es que elimina por completo el estigma de "dispositivo para ancianos" por su diseño estético, pero presenta barreras de entrada por su alto costo inicial, la necesidad de estar integrado al ecosistema Apple y una autonomía de batería limitada (generalmente un día), lo que lo vuelve inviable para el monitoreo nocturno o continuo sin interrupciones.
+
+* **Competidor 2: Philips Lifeline (Competidor Directo)**
+    Es uno de los sistemas de alerta médica más tradicionales y reconocidos a nivel mundial. Su principal dispositivo es un colgante equipado con la tecnología AutoAlert, la cual detecta caídas y se comunica directamente con un centro de respuesta operado por humanos las 24 horas del día. Aunque goza de alta validación clínica y fiabilidad, su modelo de negocio se basa en suscripciones mensuales elevadas y su diseño de "botón de pánico" o colgante suele generar rechazo en adultos mayores independientes, quienes lo perciben como un elemento estigmatizante.
+
+* **Competidor 3: Medical Guardian (Competidor Directo)**
+    Empresa enfocada exclusivamente en el desarrollo de dispositivos wearables (relojes y colgantes, como el MGMini) para el cuidado y monitoreo de adultos mayores. Sus equipos cuentan con detección de caídas, GPS y botones de emergencia, conectándose de manera independiente a redes celulares sin requerir que el usuario posea un smartphone. Si bien es una solución integral y altamente funcional, sus costos de adquisición y tarifas de monitoreo mensual están diseñados principalmente para el mercado norteamericano, resultando poco accesibles para el mercado latinoamericano.
  
 ### 2.1.1. Análisis competitivo
  
