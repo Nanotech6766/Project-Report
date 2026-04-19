@@ -449,7 +449,115 @@ En esta sección se identifican y describen los principales competidores (direct
     Empresa enfocada exclusivamente en el desarrollo de dispositivos wearables (relojes y colgantes, como el MGMini) para el cuidado y monitoreo de adultos mayores. Sus equipos cuentan con detección de caídas, GPS y botones de emergencia, conectándose de manera independiente a redes celulares sin requerir que el usuario posea un smartphone. Si bien es una solución integral y altamente funcional, sus costos de adquisición y tarifas de monitoreo mensual están diseñados principalmente para el mercado norteamericano, resultando poco accesibles para el mercado latinoamericano.
  
 ### 2.1.1. Análisis competitivo
- 
+
+<table border="1" style="width: 100%; font-size: 11px; table-layout: fixed; word-wrap: break-word; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th colspan="6" style="padding: 5px; background-color: #f2f2f2;"><b>Competitive Analysis Landscape</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2" align="center" style="padding: 5px;">¿Por qué llevar a cabo este análisis?</td>
+      <td colspan="4" align="center" style="padding: 5px;">El objetivo de este análisis es evaluar cómo Foll se posiciona frente a soluciones comerciales y médicas de detección de caídas, identificando oportunidades para destacar mediante nuestra IA en el edge, ergonomía y control de falsas alarmas.</td>
+    </tr>
+    <tr>
+      <td colspan="2" rowspan="2" valign="top" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>Startup y Competidores</b></td>
+      <td valign="top" align="center" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>nanoTech</b></td>
+      <td valign="top" align="center" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>Apple Watch</b></td>
+      <td valign="top" align="center" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>Philips Lifeline</b></td>
+      <td valign="top" align="center" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>Medical Guardian</b></td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/nanotech-logo.png" alt="nanoTech Logo(falta implementar)" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/applewatch-logo.png" alt="Apple Watch Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/philips-lifeline-logo.jpg" alt="Philips Lifeline Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/medical-guardian-logo.png" alt="Medical Guardian Logo" height="60" /></td>
+    </tr>
+    <tr>
+      <td rowspan="2" valign="top" style="padding: 5px; width: 8%;"><b>Perfil</b></td>
+      <td valign="top" style="padding: 5px; width: 12%;">Overview</td>
+      <td valign="top" style="padding: 5px;">Ecosistema IoT compuesto por un cinturón discreto con sensores de movimiento y Edge AI para la detección precisa de caídas en adultos mayores, conectado a una app móvil y web para cuidadores.</td>
+      <td valign="top" style="padding: 5px;">Smartwatch de consumo masivo con funciones integradas de salud, que incluye algoritmo nativo de detección de caídas y llamadas automáticas de emergencia (SOS).</td>
+      <td valign="top" style="padding: 5px;">Sistema clásico de alerta médica (tipo colgante) equipado con tecnología AutoAlert, respaldado por un centro de respuesta humano disponible 24/7.</td>
+      <td valign="top" style="padding: 5px;">Dispositivos portátiles (relojes y botones) diseñados específicamente para el adulto mayor, enfocados en monitoreo GPS y alertas directas a redes de cuidado.</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
+      <td valign="top" style="padding: 5px;">Reduce falsas alarmas gracias a su IA que aprende en servidor local (Edge), formato de cinturón cómodo, e incluye un switch físico inmediato para cancelar alertas erróneas.</td>
+      <td valign="top" style="padding: 5px;">Dispositivo estéticamente deseable y no estigmatizante. Cuenta con un ecosistema robusto de monitoreo de salud integral.</td>
+      <td valign="top" style="padding: 5px;">Confianza de marca médica establecida e integración directa con un Call Center humano para despachar ambulancias de inmediato.</td>
+      <td valign="top" style="padding: 5px;">Batería de larga duración, conectividad independiente (sin smartphone) y diseño extremadamente simplificado para el usuario.</td>
+    </tr>
+    <tr>
+      <td rowspan="2" valign="top" style="padding: 5px;"><b>Perfil de Marketing</b></td>
+      <td valign="top" style="padding: 5px;">Mercado objetivo</td>
+      <td valign="top" style="padding: 5px;">Adultos mayores en riesgo de caída y sus cuidadores que buscan una solución precisa, asequible y con gestión directa de emergencias.</td>
+      <td valign="top" style="padding: 5px;">Público general y adultos mayores con afinidad tecnológica, o cuyos familiares los integran al ecosistema Apple.</td>
+      <td valign="top" style="padding: 5px;">Adultos mayores frágiles, con alto riesgo de complicaciones, que viven solos y necesitan asistencia profesional garantizada.</td>
+      <td valign="top" style="padding: 5px;">Adultos mayores activos o en casa, cuyos hijos/cuidadores necesitan tranquilidad a través del rastreo de ubicación.</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Estrategias de marketing</td>
+      <td valign="top" style="padding: 5px;">Marketing digital apelando a la tranquilidad de familiares, y alianzas B2B con centros geriátricos locales.</td>
+      <td valign="top" style="padding: 5px;">Marketing de consumo masivo, posicionamiento como artículo de estilo de vida y conectividad familiar ininterrumpida.</td>
+      <td valign="top" style="padding: 5px;">Alianzas institucionales con hospitales y publicidad en canales tradicionales (TV, radio).</td>
+      <td valign="top" style="padding: 5px;">SEO, marketing digital dirigido a cuidadores y alianzas con organizaciones de envejecimiento activo.</td>
+    </tr>
+    <tr>
+      <td rowspan="3" valign="top" style="padding: 5px;"><b>Perfil de Producto</b></td>
+      <td valign="top" style="padding: 5px;">Productos & Servicios</td>
+      <td valign="top" style="padding: 5px;">Hardware (Cinturón IoT y switch), Edge Gateway (IA), App Móvil y Plataforma Web (historial).</td>
+      <td valign="top" style="padding: 5px;">Apple Watch (hardware), App de Salud y conectividad con servicios de emergencia (911).</td>
+      <td valign="top" style="padding: 5px;">Colgante con detección AutoAlert, Comunicador Base y Aplicación Cares para red familiar.</td>
+      <td valign="top" style="padding: 5px;">MGMini (Smartwatch o colgante), Portal Web MyGuardian y centro de monitoreo propio.</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Precios & Costos</td>
+      <td valign="top" style="padding: 5px;">Hardware accesible (sensores + switch) + suscripción mensual económica para plataforma web/app.</td>
+      <td valign="top" style="padding: 5px;">Costo inicial elevado ($250-$400+ USD). Sin cuota mensual, pero requiere iPhone.</td>
+      <td valign="top" style="padding: 5px;">Costo de activación y suscripción mensual elevada (aprox. $50 USD/mes).</td>
+      <td valign="top" style="padding: 5px;">Dispositivo inicial ($150 USD aprox.) más suscripción mensual de monitoreo ($40-$50 USD).</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Canales de distribución (Web y/o Móvil) </td>
+      <td valign="top" style="padding: 5px;">E-commerce (Web), descarga de App gratuita y convenios directos con residencias.</td>
+      <td valign="top" style="padding: 5px;">Retailers masivos, operadoras móviles y tiendas oficiales Apple.</td>
+      <td valign="top" style="padding: 5px;">Venta web, agentes telefónicos y distribuidores de suministros médicos.</td>
+      <td valign="top" style="padding: 5px;">E-commerce y canales telefónicos orientados a consultoría familiar.</td>
+    </tr>
+    <tr>
+      <td rowspan="4" valign="top" style="padding: 5px;"><b>Análisis SWOT</b></td>
+      <td valign="top" style="padding: 5px;">Fortalezas</td>
+      <td valign="top" style="padding: 5px;">IA local (Edge) que filtra falsos positivos. Hardware discreto. Switch físico da control para evitar pánico.</td>
+      <td valign="top" style="padding: 5px;">Marca prestigiosa. Hardware de alta calidad. Libre del estigma de "dispositivo médico".</td>
+      <td valign="top" style="padding: 5px;">Fiabilidad médica comprobada. Algoritmo AutoAlert estudiado. Respuesta humana 24/7.</td>
+      <td valign="top" style="padding: 5px;">Ecosistema 100% para la usabilidad del adulto mayor. Independencia total de otros smart devices.</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Debilidades</td>
+      <td valign="top" style="padding: 5px;">Marca nueva sin validación clínica inicial. Requiere educar sobre el uso del Edge Gateway.</td>
+      <td valign="top" style="padding: 5px;">Batería dura 1 día. Curva de aprendizaje tecnológica alta para el adulto mayor.</td>
+      <td valign="top" style="padding: 5px;">Diseño en forma de botón/colgante genera estigma. Costo recurrente alto.</td>
+      <td valign="top" style="padding: 5px;">Tarifas mensuales elevadas. Menor reconocimiento de marca fuera de Norteamérica.</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Oportunidades</td>
+      <td valign="top" style="padding: 5px;">Mercado desatendido en Latam. Alta introducción de smartphones en cuidadores buscando opciones económicas.</td>
+      <td valign="top" style="padding: 5px;">Mayor alfabetización digital en nuevas generaciones. Funciones de salud preventivas.</td>
+      <td valign="top" style="padding: 5px;">Integración con sistemas de salud pública o seguros privados para subsidios.</td>
+      <td valign="top" style="padding: 5px;">Expansión a mercados latinoamericanos y alianzas con domótica (Smart Home).</td>
+    </tr>
+    <tr>
+      <td valign="top" style="padding: 5px;">Amenazas</td>
+      <td valign="top" style="padding: 5px;">Reducción de precios en Smartwatches genéricos. Resistencia inicial a usar un cinturón adicional.</td>
+      <td valign="top" style="padding: 5px;">Wearables chinos de bajo costo (Xiaomi, Amazfit) incluyendo detección de caídas.</td>
+      <td valign="top" style="padding: 5px;">Canibalización por dispositivos más invisibles (Smart Rings, ropa inteligente).</td>
+      <td valign="top" style="padding: 5px;">Quejas de usuarios por la retención en los modelos de suscripción.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
  
 ## 2.2. Entrevistas
