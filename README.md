@@ -468,6 +468,14 @@ A continuación, se presenta la matriz que evalúa la frecuencia e importancia d
 <strong>Diferencias:</strong> El registro de historial y la verificación de bienestar presentan la mayor brecha. El cuidador les asigna importancia alta por su rol de supervisión, mientras que el adulto mayor les otorga un nivel medio para evitar ser percibido como una carga o perder su independencia.
 
 ### 2.3.3. User Journey Mapping
+
+A continuación, se presentan los User Journey Maps creados para cada perfil de usuario definido en nuestros dos segmentos objetivo. Estos mapas permiten visualizar la experiencia actual y los puntos críticos de dolor, fundamentando así el diseño de nuestro prototipo.
+
+<strong>Segmento #1 - Adultos mayores:</strong><br>
+<img src="img/needfinding/journey1.png" width=800px>
+<br><br>
+<strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
+<img src="img/needfinding/journey2.png" width=800px><br>
  
 ### 2.3.4. Empathy Mapping
 
