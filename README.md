@@ -461,7 +461,25 @@ Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmen
 ### 2.3.4. Empathy Mapping
  
 ## 2.4. Big Picture EventStorming
- 
+Para entender y plantear la lógica del proyecto, en grupo nos juntamos para definir las principales funcionalidades y flujos que tendría Foll. A continuación se mostrarán los pasos realizados para el Big Picture Eventstorming el cual es un primer acercamiento a nuestra solución. 
+
+Url del Miro: <a href="https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=603482509922">https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=603482509922</a> 
+
+<br>
+
+<img src="img/eventstorming/big-picture/0.png" alt="Big Picture Event Storming" width="700"/>
+
+**Eventos principales**
+<img src="img/eventstorming/big-picture/1.png" alt="Big Picture Event Storming" width="700"/>
+
+**Eventos en orden cronológico**
+<img src="img/eventstorming/big-picture/2.1.png" alt="Big Picture Event Storming" width="700"/>
+<img src="img/eventstorming/big-picture/2.2.png" alt="Big Picture Event Storming" width="700"/>
+
+**Eventos con actores y sistemas externos**
+<img src="img/eventstorming/big-picture/3.1.png" alt="Big Picture Event Storming" width="700"/>
+<img src="img/eventstorming/big-picture/3.2.png" alt="Big Picture Event Storming" width="700"/>
+
 ## 2.5. Ubiquitous Language
  
 ---
