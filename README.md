@@ -453,12 +453,99 @@ Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmen
 ## 2.3. Needfinding
  
 ### 2.3.1. User Personas
+
+A continuación, se presentará los 2 user persona de acuerdo al segmento objetivo encontrado:
+
+<strong>Segmento #1 - Adultos mayores:</strong><br>
+<img src="img/needfinding/userpersona1.png" width=800px>
+<br><br>
+<strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
+<img src="img/needfinding/userpersona2.png" width=800px><br>
  
 ### 2.3.2. User Task Matrix
- 
+
+Para el análisis de las actividades críticas en el cuidado del adulto mayor, se han identificado tres segmentos clave: el Adulto Mayor, quien busca preservar su integridad física; y el Familiar Cuidador, responsable de la supervisión y respuesta inmediata.
+A continuación, se presenta la matriz que evalúa la frecuencia e importancia de las tareas necesarias para cumplir estos objetivos de salud:
+<br>
+
+<table>
+    <tr>
+        <td>Task</td>
+        <td>Segmento 1<br>Adulto Mayor</td>
+        <td>Segmento 2<br>Cuidador</td>        
+    </tr>
+    <tr>
+        <td></td>
+        <td>Frecuencia / Importancia</td>
+        <td>Frecuencia / Importancia</td>        
+    </tr>
+    <tr>
+        <td>Mantener la integridad física durante los desplazamientos cotidianos</td>
+        <td>Alta / Alta</td>
+        <td>Alta / Alta</td>        
+    </tr>
+    <tr>
+        <td>Verificar el estado de bienestar y seguridad personal</td>
+        <td>Alta / Media</td>
+        <td>Alta / Alta</td>        
+    </tr>
+    <tr>
+        <td>Reaccionar ante caídas accidentales o impactos físicos críticos</td>
+        <td>Baja / Alta</td>
+        <td>Baja / Alta</td>        
+    </tr>
+    <tr>
+        <td>Coordinar el protocolo de auxilio y traslado a centros médicos</td>
+        <td>Baja / Alta</td>
+        <td>Baja / Alta</td>        
+    </tr>
+    <tr>
+        <td>Comunicar incidentes de pérdida de equilibrio o mareos leves</td>
+        <td>Media / Alta</td>
+        <td>Media / Alta</td>        
+    </tr>
+    <tr>
+        <td>Documentar el historial de incidentes físicos para consultas médicas</td>
+        <td>Media / Media</td>
+        <td>Media / Alta</td>        
+    </tr>
+    <tr>
+        <td>Identificar y mitigar riesgos de caídas en el entorno doméstico</td>
+        <td>Baja / Media</td>
+        <td>Media / Media</td>        
+    </tr>
+    <tr>
+        <td>Gestionar la carga emocional y tranquilidad del entorno familiar</td>
+        <td>Alta / Alta</td>
+        <td>Alta / Alta</td>        
+    </tr>
+</table>
+
+<strong>Tareas críticas:</strong> La integridad física y la tranquilidad emocional son las tareas más frecuentes y vitales para ambos segmentos, ya que garantizan autonomía para el mayor y paz mental para el cuidador.
+<br><br>
+<strong>Coincidencias:</strong> Ambos coinciden en la importancia alta de las tareas de emergencia (reacción y traslado); aunque su frecuencia es baja, su ejecución oportuna es fundamental para salvar vidas.
+<br><br>
+<strong>Diferencias:</strong> El registro de historial y la verificación de bienestar presentan la mayor brecha. El cuidador les asigna importancia alta por su rol de supervisión, mientras que el adulto mayor les otorga un nivel medio para evitar ser percibido como una carga o perder su independencia.
+
 ### 2.3.3. User Journey Mapping
+
+A continuación, se presentan los User Journey Maps creados para cada perfil de usuario definido en nuestros dos segmentos objetivo. Estos mapas permiten visualizar la experiencia actual y los puntos críticos de dolor, fundamentando así el diseño de nuestro prototipo.
+
+<strong>Segmento #1 - Adultos mayores:</strong><br>
+<img src="img/needfinding/journey1.png" width=800px>
+<br><br>
+<strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
+<img src="img/needfinding/journey2.png" width=800px><br>
  
 ### 2.3.4. Empathy Mapping
+
+A continuación, se mostrarán los Empathy Mapping creados para cada perfil de usuario identificado en nuestros dos segmentos objetivo. Estos mapas nos ayudarán a comprender mejor a nuestros clientes y, así, optimizar la aplicación.
+
+<strong>Segmento #1 - Adultos mayores:</strong><br>
+<img src="img/needfinding/empathymap1.png" width=800px>
+<br><br>
+<strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
+<img src="img/needfinding/empathymap2.png" width=800px><br>
  
 ## 2.4. Big Picture EventStorming
 Para entender y plantear la lógica del proyecto, en grupo nos juntamos para definir las principales funcionalidades y flujos que tendría Foll. A continuación se mostrarán los pasos realizados para el Big Picture Eventstorming el cual es un primer acercamiento a nuestra solución. 
