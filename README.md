@@ -469,10 +469,10 @@ En esta sección se identifican y describen los principales competidores (direct
       <td valign="top" align="center" style="padding: 5px; width: 20%; background-color: #f9f9f9;"><b>Medical Guardian</b></td>
     </tr>
     <tr>
-      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/nanotech-logo.png" alt="nanoTech Logo(falta implementar)" height="60" /></td>
-      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/applewatch-logo.png" alt="Apple Watch Logo" height="60" /></td>
-      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/philips-lifeline-logo.jpg" alt="Philips Lifeline Logo" height="60" /></td>
-      <td valign="top" align="center" style="padding: 5px;"><img src="assets/images/competitors/medical-guardian-logo.png" alt="Medical Guardian Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="img/competitors/nanotech-logo.png" alt="nanoTech Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="img/competitors/applewatch-logo.png" alt="Apple Watch Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="img/competitors/philips-lifeline-logo.jpg" alt="Philips Lifeline Logo" height="60" /></td>
+      <td valign="top" align="center" style="padding: 5px;"><img src="img/competitors/medical-guardian-logo.png" alt="Medical Guardian Logo" height="60" /></td>
     </tr>
     <tr>
       <td rowspan="2" valign="top" style="padding: 5px; width: 8%;"><b>Perfil</b></td>
