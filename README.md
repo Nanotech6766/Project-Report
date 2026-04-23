@@ -702,6 +702,32 @@ Url del Miro: <a href="https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=60
 
 ## 2.5. Ubiquitous Language
  
+A continuación, se presenta el lenguaje ubicuo que permite establecer un lenguaje común entre todos los miembros del equipo de desarollo y expertos de dominio. De esta manera, se reducen las malinterpretaciones y se mejora la comunicación entre todos los involucrados en el proyecto de software, asegurando que el software desarrollado sea realmente útil y relevante para el negocio.
+
+* **Elderly Patient / Adulto Mayor:** La persona que lleva puesto el cinturón inteligente y a la que estamos protegiendo.
+* **Caregiver / Cuidador:** El enfermero, médico o familiar que usa la aplicación para vigilar al adulto mayor y recibir sus alertas.
+* **Medical Profile / Perfil Médico:** La ficha técnica con los datos de salud importantes del paciente (tipo de sangre, alergias, etc.).
+* **Emergency Contacts / Contactos de Emergencia:** La lista de personas externas a las que el sistema llamará si el personal del asilo no responde rápido.
+* **Pairing / Vinculación:** El paso donde le decimos al sistema: "Este cinturón físico específico le pertenece a este abuelito en particular".
+
+* **Movement Data / Datos de Movimiento:** Los números exactos de fuerza e inclinación que el cinturón está sintiendo a cada segundo.
+* **Possible Fall Event / Evento de Posible Caída:** Cuando el sistema siente un golpe fuerte, pero todavía estamos esperando para confirmar si fue una caída real o si solo se sentó de golpe.
+* **Edge Processing / Procesamiento Local:** La "magia matemática" que ocurre directamente en las computadoras del asilo para decidir rapidísimo si hubo una caída, sin tener que esperar a que el internet responda.
+* **False Positive / Falso Positivo:** Una falsa alarma. Ocurre cuando el cinturón detecta un golpe, pero el abuelito presiona el botón para decir "estoy bien".
+
+* **Confirmed Fall / Caída Confirmada:** Una emergencia real. Es cuando el cinturón detectó una caída y nadie canceló la alarma a tiempo.
+* **Verification Timer / Temporizador de Verificación:** Los segundos de "gracia" o cuenta regresiva que le damos al paciente para apagar la alarma antes de asustar a los enfermeros.
+* **Help on the Way / Ayuda en Camino:** El mensaje que aparece cuando un enfermero ve la alerta en su celular y presiona "Yo me encargo de ir a revisarlo".
+* **Fall History / Historial de Caídas:** El diario digital donde se guardan todos los tropiezos o caídas de un paciente para que el doctor los estudie después.
+
+* **GPS Location / Ubicación GPS:** El punto exacto en el mapa donde se encuentra el adulto mayor al momento de la emergencia.
+* **Preferred Medical Center / Centro Médico Preferido:** El hospital o clínica a donde se debe llevar al paciente si la caída es grave.
+* **Ambulance Requested / Ambulancia Solicitada:** Cuando el sistema o el cuidador piden ayuda externa porque la emergencia es muy grave.
+
+* **Smart Belt / Cinturón Inteligente:** El aparato completo que se pone el paciente en la cintura.
+* **Biomechanical Sensor / Sensor Biomecánico [Sensor]:** El chip interno que "siente" hacia dónde se mueve o si se cae el paciente.
+* **Local Audio Alarm / Alarma Local Sonora [Actuador]:** La bocina del cinturón que hace un ruido fuerte para avisar a los que están cerca que el abuelito se cayó.
+* **Confirmation Motor / Motor de Confirmación [Actuador]:** La pieza que hace vibrar el cinturón para preguntarle al paciente: "¿Te caíste?.
 ---
  
 # Capítulo III: Requirements Specification
