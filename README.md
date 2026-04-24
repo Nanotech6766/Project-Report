@@ -736,6 +736,11 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
  
 ## 3.2. Impact Mapping
  
+ En esta sección, se ha llevado a cabo la creación del Impact Mapping, partiendo de las metas comerciales establecidas para los user personas. Se han identificado los impactos deseados, los entregables necesarios y se han relacionado con las historias de usuario correspondientes.
+
+
+ <img alt="Impact Mapping" src="img/impact-mapping/impact-mapping.png" />
+
 ## 3.3. Product Backlog
  
 ---
