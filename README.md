@@ -780,6 +780,43 @@ En esta sección, se detalla los requisitos funcionales del ecosistema "Foll" es
  <img alt="Impact Mapping" src="img/impact-mapping/impact-mapping.png" />
 
 ## 3.3. Product Backlog
+
+En esta sección se presenta el Product Backlog del proyecto, el cual contiene una lista priorizada de todas las funcionalidades para el desarrollo del Ecosistema de Foll
+
+La priorización se ha realizado considerando el valor que cada ítem aporta al negocio, la complejidad técnica y la dependencia entre tareas. Este backlog servirá como guía para el equipo de desarrollo durante las diferentes fases del proyecto, asegurando que se enfoquen en entregar el mayor valor posible en cada iteración.
+
+| # Orden | User Story Id | Título | Descripción | Story Points (1 / 2 / 3 / 5 / 8) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | US01 | Visualización de propuesta de valor | Como visitante de la landing page, quiero visualizar una explicación sobre cómo la IA detecta caídas, para comprender el beneficio principal del producto. | 2 |
+| 2 | US02 | Visualización de planes | Como visitante de la landing page, quiero revisar los costos de adquisición y suscripción, para evaluar la viabilidad de implementar la solución en mi familia. | 2 |
+| 3 | US03 | Testimonios de confiabilidad | Como visitante de la landing page, quiero leer testimonios de otras familias, para validar la eficacia del dispositivo en la vida real. | 3 |
+| 4 | US04 | Contacto comercial | Como visitante de la landing page, quiero enviar mis datos a través de un formulario, para que un asesor se comunique conmigo y resolver mis dudas. | 3 |
+| 5 | US05 | Creación de cuenta cuidador | Como cuidador, quiero crear una cuenta en el sistema, para acceder al ecosistema de monitoreo de Foll. | 3 |
+| 6 | US06 | Creación de perfil de paciente | Como cuidador, quiero registrar un perfil para el adulto mayor a mi cargo, para gestionar su información médica. | 3 |
+| 7 | US09 | Permiso de monitoreo | Como adulto mayor, quiero aceptar la solicitud de vinculación de un cuidador, para otorgar permiso de que reciba mis alertas. | 2 |
+| 8 | US10 | Vinculación del cinturón | Como adulto mayor, quiero registrar el código serial del cinturón en mi cuenta, para que el sistema asocie el hardware conmigo. | 5 |
+| 9 | TS01 | Captura y envío de telemetría | Como Developer, quiero desarrollar el firmware del cinturón IoT, para que lea los datos del sensor y los transmita al Edge Gateway. | 8 |
+| 10 | TS02 | Detección Edge AI | Como Developer, quiero implementar el algoritmo matemático/IA en el servidor Edge, para determinar si los datos corresponden a una caída real. | 8 |
+| 11 | TS03 | Endpoint de persistencia | Como Developer, quiero exponer un endpoint RESTful seguro en la nube, para guardar los incidentes confirmados por el Edge. | 5 |
+| 12 | US12 | Recepción de alerta remota | Como cuidador, quiero recibir una notificación en tiempo real con la ubicación GPS, para reaccionar de inmediato ante la caída. | 5 |
+| 13 | US11 | Cancelación física de alerta | Como adulto mayor, quiero presionar el botón del cinturón en caso no sea una caída, para cancelar el falso positivo. | 3 |
+| 14 | US13 | Confirmación de auxilio | Como cuidador, quiero informar en la app que estoy en camino a la emergencia, para coordinar esfuerzos con el resto de familiares. | 3 |
+| 15 | US16 | Visualización médica en emergencia | Como paramédico o cuidador, quiero ver las alergias y tipo de sangre directamente en la pantalla de la alerta, para aplicar el tratamiento médico correcto de inmediato. | 2 |
+| 16 | TS04 | Monitoreo de batería | Como Developer, quiero desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware, para alertar sobre niveles críticos de energía. | 3 |
+| 17 | US08 | Adición de contactos secundarios | Como cuidador, quiero guardar contactos telefónicos de otros familiares, para asegurar el auxilio en caso yo esté ausente. | 2 |
+| 18 | US14 | Escalamiento telefónico | Como adulto mayor, quiero que llamen automáticamente a mis contactos secundarios, para que me auxilien si mi cuidador no responde. | 8 |
+| 19 | US15 | Solicitud de ambulancia | Como adulto mayor, quiero que el sistema solicite una ambulancia si nadie contesta, para asegurar mi integridad. | 5 |
+| 20 | US07 | Actualización de datos médicos | Como cuidador, quiero editar el tipo de sangre y las alergias del adulto mayor, para mantener su historial clínico actualizado ante cualquier emergencia. | 2 |
+| 21 | US17 | Consulta de historial | Como cuidador, quiero consultar una lista de las caídas pasadas, para identificar frecuencias de riesgo. | 3 |
+| 22 | US18 | Filtro de falsos positivos | Como cuidador, quiero filtrar las alertas canceladas por el paciente, para evaluar si está sufriendo de mareos o inestabilidad leves. | 2 |
+| 23 | US19 | Visualización de estadísticas | Como cuidador, quiero ver un gráfico mensual de incidentes, para comprender la tendencia de la salud del adulto mayor. | 5 |
+| 24 | US20 | Exportación de reporte clínico | Como cuidador, quiero descargar el historial de caídas en formato PDF, para enviárselo directamente al médico tratante antes de la cita. | 5 |
+
+A continuación se muestra el enlace al tablero de Trello donde se gestiona el Product Backlog, junto con una captura de pantalla representativa:
+
+https://trello.com/b/0wcO99Dl/foll-product-backlog
+
+<img alt="Product Backlog Trello" src="img/product-backlog/foll-product-backlog.png" width="900"/>
  
 ---
  
