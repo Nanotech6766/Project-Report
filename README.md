@@ -159,18 +159,87 @@
 ## 1.1. Startup Profile
  
 ### 1.1.1. Descripción de la Startup
+
+Somos un equipo de estudiantes de Ingeniería de Software de la UPC, unidos por la convicción de que la tecnología sólo tiene sentido cuando se pone al servicio de la humanidad. Nos define una profunda pasión por la innovación y un compromiso genuino con el bienestar social. Nuestra startup nace con el propósito de utilizar las herramientas digitales no sólo para optimizar procesos, sino para transformar realidades y proteger lo que más importa: la vida y la tranquilidad de las familias.
+
+Nuestra visión se centra en darle una voz y seguridad a quienes muchas veces quedan olvidados por el ritmo acelerado de la modernidad. Buscamos romper la barrera de la soledad y la vulnerabilidad, transformando la tecnología en un acompañante silencioso pero vigilante. Creemos firmemente que la innovación debe ser inclusiva y empática, permitiendo que las personas de la tercera edad mantengan su independencia mientras sus seres queridos recuperan la paz mental.
+
+Misión
+Desarrollar soluciones tecnológicas accesibles y humanas que garanticen una respuesta inmediata ante emergencias geriátricas, priorizando siempre la dignidad y la autonomía de los adultos mayores.
+
+Visión
+Consolidarnos como la plataforma de cuidado preventivo más confiable de la región, siendo reconocidos por nuestra capacidad de conectar a las personas a través de la innovación y el compromiso social.
+
  
 ### 1.1.2. Perfiles de integrantes del equipo
+
 
 <table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
   <tr>
     <td style="width: 150px; text-align: center;">
-      <img src="img/profile-photos/"  width="520"></img>
+      <img src="img/profile-photos/ariana.png"  width="520"></img>
     </td>
       <td>
-          <p align="center"><strong>NOMBRE - CODE ALUMNO</strong></p>
+          <p align="center"><strong>Ariana Agreda - u202315044</strong></p>
           <p align="justify">
-            DESCRIPCION
+            Mi nombre es Ariana Agreda, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona creativa, responsable y comprometida con cada tarea. Por ello, estoy dispuesta a dedicar un gran esfuerzo y apoyo para que logremos los mejores resultados para el proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/claudia.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Claudia Belledonne - u202210259</strong></p>
+          <p align="justify">
+            Mi nombre es Claudia Belledonne, tengo 21 años y me encuentro en mi cuarto año de Ingeniería de Software en la UPC.
+            En general, soy alguien creativa, responsable, dedicada y manejo bien el hacer muchas tareas a la vez.
+            Para este trabajo, me comprometo a brindar mi máximo esfuerzo y dedicación.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/mauricio.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Mauricio Elera - u202313702</strong></p>
+          <p align="justify">
+            Mi nombre es Mauricio Elera, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona proactiva, organizada y con muchas ganas de aprender. Estoy comprometido con el trabajo en equipo y dispuesto a aportar todo lo necesario para que nuestro proyecto sea exitoso.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/diego.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Diego Vilca - u20231a778</strong></p>
+          <p align="justify">
+             Estudio la carrera de Ingeniería de Software, tengo 20 años y actualmente me encuentro cursando el 7mo ciclo de dicha carrera. Tengo conocimientos en C++, C#, Python, Java, HTML, CSS, JavaScript y Vue. Me considero una persona con responsabilidad, optimismo y honestidad, cualidades que considero fundamentales para una colaboración efectiva en equipo y un buen desarrollo en este proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/fabiola.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Fabiola Saldaña - u202313773</strong></p>
+          <p align="justify">
+             Mi nombre es Fabiola Saldaña, tengo 20 años y actualmente curso el 7mo ciclo de la carrera de Ingeniería de Software. En lo personal busco aprender constantemente y me considero alguien responsable, proactiva y dedicada con mis trabajos. Es por ello que me comprometo apoyar al equipo con mis habilidades y conocimientos para alcanzar los mejores resultados.
           </p>
     </td>
   </tr>
