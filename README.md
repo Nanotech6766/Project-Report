@@ -983,12 +983,28 @@ El resto de contextos serán modelados en las siguientes secciones mediante Boun
 ### 4.1.3. Software Architecture
  
 #### 4.1.3.1. Software Architecture System Landscape Diagram
- 
+
+<img width="4750" height="1150" alt="Landscape-dark" src="https://github.com/user-attachments/assets/b7489d75-1015-41e1-8191-fddba3a7a558" />
+
+<br>
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
+
+<img width="3170" height="1150" alt="SystemContext-dark (1)" src="https://github.com/user-attachments/assets/c52bfdca-c4a6-4095-bc44-996d92365fe1" />
+
+<br>
  
 #### 4.1.3.3. Software Architecture Container Level Diagrams
+
+<img width="7070" height="2288" alt="ContainerView-dark" src="https://github.com/user-attachments/assets/1a7d2e45-5c28-4dfc-a15f-f1156dea5fd7" />
+
+<br>
  
 #### 4.1.3.4. Software Architecture Deployment Diagrams
+
+<img width="3820" height="1608" alt="DeploymentView-dark" src="https://github.com/user-attachments/assets/17cb30a4-65e2-4e0c-a527-1b3d00c3a357" />
+
+<br>
  
 ## 4.2. Tactical-Level Domain-Driven Design
  
