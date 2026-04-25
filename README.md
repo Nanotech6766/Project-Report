@@ -823,10 +823,83 @@ https://trello.com/b/0wcO99Dl/foll-product-backlog
 # Capítulo IV: Solution Software Design
  
 ## 4.1. Strategic-Level Domain-Driven Design
+
+En esta sección se desarrolla la parte estratégica de Domain-Driven Design. El propósito fundamental es traducir la complejidad del entorno de hardware IoT y la gestión de emergencias en límites arquitectónicos claros que reflejen el verdadero valor del negocio: la salvaguarda de la vida y la respuesta oportuna. Para lograr esta alineación, se detalla el proceso de descubrimiento y modelado de Bounded Contexts a partir del Design-Level EventStorming, la orquestación de sus interacciones mediante Context Mapping, y la consolidación de estas decisiones en una arquitectura de software integral y escalable documentada bajo el estándar C4.
  
 ### 4.1.1. Design-Level EventStorming
  
 #### 4.1.1.1. Candidate Context Discovery
+
+En esta sección se presenta el proceso seguido por el equipo para el descubrimiento y clasificación de bounded contexts candidatos a partir del Event Storming de Diseño realizado previamente. El objetivo fue identificar los límites naturales del dominio del sistema de monitoreo y detección de caídas, determinar cuáles son las partes core del negocio y cuáles cumplen roles de apoyo o genéricos, con el fin de priorizar los esfuerzos de diseño y arquitectura en aquellos elementos que aportan el mayor valor estratégico.
+
+**Preparación de la sesión:**
+
+La sesión de Candidate Context Discovery se desarrolló tomando como insumo principal el taller de Event Storming. Para esta dinámica se utilizaron:
+
+- La línea de tiempo de eventos del dominio.
+- Los clusters iniciales de eventos generados a partir de los flujos de hardware (Embedded/Edge) y software (App/Cloud).
+- Los eventos clave (pivotal events) que marcaban cambios de estado críticos, como "Evento de posible caída detectado" o "Alerta de emergencia emitida".
+
+El equipo documentó la evolución de la categorización mediante representaciones visuales del tablero de trabajo.
+
+**Técnica aplicada: *Start-with-Value***
+
+Para este proyecto se aplicó la técnica *Start-with-Value*, cuyo principio consiste en priorizar aquellas partes del dominio que representan el mayor valor para el negocio y el usuario final (en este caso, la preservación de la salud y la atención rápida de emergencias). Esta técnica permitió separar con claridad qué bounded contexts debían ser considerados como Core, y cuáles como Supporting o Generic.
+
+El proceso se organizó en tres pasos principales:
+
+1. **Identificación de valor estratégico:** El equipo analizó qué componentes del sistema IoT y de la plataforma generan el valor directo. Se determinó que el valor reside en la precisión de la detección en tiempo real y la eficacia del protocolo de respuesta médica, más no en la simple gestión de cuentas.
+
+   ![Identificación de valor estratégico](./img/candidate-context-discovery/candidate-context-discovery-step1.png)
+
+2. **Agrupación de eventos en torno al valor:** Se revisaron los clusters de eventos, destacando los flujos de hardware (captura de sensores y edge computing) y los protocolos de emergencia como los de mayor impacto vital.
+
+   ![Agrupación de eventos en torno al valor](./img/candidate-context-discovery/candidate-context-discovery-step2.png)
+
+3. **Clasificación Core, Supporting, Generic:** Los contextos se categorizaron según su aporte al propósito principal del sistema y el nivel de complejidad algorítmica y de negocio.
+
+   ![Clasificación Core, Supporting, Generic](./img/candidate-context-discovery/candidate-context-discovery-step3.jpg)
+
+**Candidate Contexts identificados**
+
+El análisis permitió identificar los siguientes bounded contexts candidatos:
+
+| Candidate Context | Eventos Clave Asociados | Clasificación | Descripción | Justificación |
+| :--- | :--- | :--- | :--- | :--- |
+| **IAM** | Cuidador autenticado, Cuenta adulto mayor creada, Adulto mayor vinculado mediante código QR, Dispositivos vinculado a usuario. | Generic | Gestión de identidades, perfiles médicos básicos, emparejamiento de dispositivos y control de accesos. | Es necesario para que el sistema opere y asigne roles, pero no es el diferenciador; existen soluciones estándar de identidad que pueden cubrirlo. |
+| **Embedded System** | Datos de movimiento capturados por el sistema embebido, Datos de sensores enviados a la capa Edge, Botón de cancelación presionado. | Supporting | Adquisición de datos brutos en tiempo real mediante hardware IoT y filtrado inicial de usuario. | Es fundamental para alimentar el sistema (IoT), pero su lógica es de recolección de datos, apoyando directamente al motor de análisis principal. |
+| **Edge** | Patrón de movimiento analizado, Evento de posible caída detectado, Alerta sonora activada, Caída confirmada. | Core | Procesamiento local avanzado e inferencia de patrones de movimiento para la detección autónoma de caídas. | Es el corazón tecnológico del sistema. Procesar en el Edge reduce la latencia, no depende de la nube constante y representa la innovación diferencial del negocio. |
+| **Notifications** | Notificación enviada a la aplicación, Alerta de llamada iniciada, Intento de contacto fallido, Cuidador notificado responde a la alerta. | Supporting | Enrutamiento de alertas, gestión de reintentos y confirmaciones de recepción multicanal. | Soporta el flujo de comunicación crítica asegurando la entrega de mensajes, apoyándose en integraciones de terceros (SMS, Push, Llamadas). |
+| **Emergency** | Alerta de emergencia emitida, Ubicación de GPS obtenida, Ninguno de los cuidadores responde tras varios intentos, Ambulancia solicitada. | Core | Orquestación del protocolo crítico de salvaguarda, escalamiento de no-respuesta y gestión de historial de incidencias. | Representa el valor final e irrenunciable para el usuario: coordinar el rescate médico de forma autónoma cuando cada segundo cuenta. |
+
+**Clasificación estratégica**
+
+Como parte del análisis *Start-with-Value*, se representó gráficamente la clasificación de los bounded contexts en una matriz de dos ejes:
+
+- **Business Differentiation (eje X):** Grado en que el contexto aporta valor estratégico, innovación o diferenciación en el mercado de la salud y el cuidado de adultos mayores.
+- **Model Complexity (eje Y):** Nivel de complejidad algorítmica (ej. análisis de patrones) y de reglas de negocio requerido para implementar y mantener el contexto.
+
+En esta matriz de clasificación de bounded contexts, se distribuyeron los contextos en los tres tipos:
+
+- **Core:** Edge, Emergency.
+- **Supporting:** Embedded System, Notifications.
+- **Generic:** IAM.
+
+![Matriz de clasificación de bounded contexts](./img/candidate-context-discovery/candidate-context-discovery-strategic-classification.png)
+
+**Resultados**
+
+Se definieron cinco bounded contexts candidatos en total, estructurados de la siguiente manera:
+
+- **2 Core** (Edge, Emergency), enfocados en la detección inteligente y la salvaguarda de la vida.
+- **2 Supporting** (Embedded System, Notifications), encargados de la recolección de datos y el enrutamiento de avisos.
+- **1 Generic** (IAM), para la gestión de acceso e identidades.
+
+![Candidate Contexts finales](./img/candidate-context-discovery/candidate-context-discovery-results.png)
+
+La aplicación de la técnica *Start-with-Value* permitió asegurar que la atención principal del diseño táctico y las decisiones arquitectónicas (como DDD y Clean Architecture) se concentren en los contextos de Edge y Emergency, dado que allí reside la propuesta de valor crítica y diferenciadora de la solución.
+
+El resto de contextos serán modelados en las siguientes secciones mediante Bounded Context Canvas y Domain Message Flows, garantizando consistencia y claridad en la comunicación entre los microservicios y los componentes embebidos.
  
 #### 4.1.1.2. Domain Message Flows Modeling
  
