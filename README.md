@@ -150,7 +150,53 @@
 ---
  
 # Student Outcome
- 
+ <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
+    <thead>
+        <tr style="background-color: #f2f2f2; text-align: left;">
+            <th style="padding: 10px; width: 25%;">Criterio específico</th>
+            <th style="padding: 10px; width: 50%;">Acciones realizadas</th>
+            <th style="padding: 10px; width: 25%;">Conclusiones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 10px;"><strong>Trabaja en equipo para proporcionar liderazgo en forma conjunta</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Durante el desarrollo del proyecto, asumí el liderazgo en la definición y validación del problema. Al encargarme del Lean UX Process y el Needfinding (elaborando los User Personas, Empathy Mapping y Journey Mapping), tomé la iniciativa de guiar al equipo en la comprensión profunda del usuario. Esto permitió sentar bases sólidas para el Startup y Solution Profile, orientando las decisiones del equipo hacia una solución con verdadero valor.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
+            </td>
+        </tr>
+                <tr>
+            <td style="padding: 10px;"><strong>Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Para fomentar la colaboración, socialicé activamente los hallazgos del Lean UX Process con todo el equipo. Planifiqué las metas de validación estructurando los Problem y Hypothesis Statements, asegurándome de que todos los miembros comprendieran los antecedentes y la problemática, manteniendo un entorno donde las ideas de todos enriquecieran el diseño de la solución.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
+            </td>
+        </tr>
+    </tbody>
+</table>
  
 ---
  
@@ -159,18 +205,87 @@
 ## 1.1. Startup Profile
  
 ### 1.1.1. Descripción de la Startup
+
+Somos un equipo de estudiantes de Ingeniería de Software de la UPC, unidos por la convicción de que la tecnología sólo tiene sentido cuando se pone al servicio de la humanidad. Nos define una profunda pasión por la innovación y un compromiso genuino con el bienestar social. Nuestra startup nace con el propósito de utilizar las herramientas digitales no sólo para optimizar procesos, sino para transformar realidades y proteger lo que más importa: la vida y la tranquilidad de las familias.
+
+Nuestra visión se centra en darle una voz y seguridad a quienes muchas veces quedan olvidados por el ritmo acelerado de la modernidad. Buscamos romper la barrera de la soledad y la vulnerabilidad, transformando la tecnología en un acompañante silencioso pero vigilante. Creemos firmemente que la innovación debe ser inclusiva y empática, permitiendo que las personas de la tercera edad mantengan su independencia mientras sus seres queridos recuperan la paz mental.
+
+Misión
+Desarrollar soluciones tecnológicas accesibles y humanas que garanticen una respuesta inmediata ante emergencias geriátricas, priorizando siempre la dignidad y la autonomía de los adultos mayores.
+
+Visión
+Consolidarnos como la plataforma de cuidado preventivo más confiable de la región, siendo reconocidos por nuestra capacidad de conectar a las personas a través de la innovación y el compromiso social.
+
  
 ### 1.1.2. Perfiles de integrantes del equipo
+
 
 <table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
   <tr>
     <td style="width: 150px; text-align: center;">
-      <img src="img/profile-photos/"  width="520"></img>
+      <img src="img/profile-photos/ariana.png"  width="520"></img>
     </td>
       <td>
-          <p align="center"><strong>NOMBRE - CODE ALUMNO</strong></p>
+          <p align="center"><strong>Ariana Agreda - u202315044</strong></p>
           <p align="justify">
-            DESCRIPCION
+            Mi nombre es Ariana Agreda, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona creativa, responsable y comprometida con cada tarea. Por ello, estoy dispuesta a dedicar un gran esfuerzo y apoyo para que logremos los mejores resultados para el proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/claudia.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Claudia Belledonne - u202210259</strong></p>
+          <p align="justify">
+            Mi nombre es Claudia Belledonne, tengo 21 años y me encuentro en mi cuarto año de Ingeniería de Software en la UPC.
+            En general, soy alguien creativa, responsable, dedicada y manejo bien el hacer muchas tareas a la vez.
+            Para este trabajo, me comprometo a brindar mi máximo esfuerzo y dedicación.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/mauricio.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Mauricio Elera - u202313702</strong></p>
+          <p align="justify">
+            Mi nombre es Mauricio Elera, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona proactiva, organizada y con muchas ganas de aprender. Estoy comprometido con el trabajo en equipo y dispuesto a aportar todo lo necesario para que nuestro proyecto sea exitoso.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/diego.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Diego Vilca - u20231a778</strong></p>
+          <p align="justify">
+             Estudio la carrera de Ingeniería de Software, tengo 20 años y actualmente me encuentro cursando el 7mo ciclo de dicha carrera. Tengo conocimientos en C++, C#, Python, Java, HTML, CSS, JavaScript y Vue. Me considero una persona con responsabilidad, optimismo y honestidad, cualidades que considero fundamentales para una colaboración efectiva en equipo y un buen desarrollo en este proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/fabiola.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Fabiola Saldaña - u202313773</strong></p>
+          <p align="justify">
+             Mi nombre es Fabiola Saldaña, tengo 20 años y actualmente curso el 7mo ciclo de la carrera de Ingeniería de Software. En lo personal busco aprender constantemente y me considero alguien responsable, proactiva y dedicada con mis trabajos. Es por ello que me comprometo apoyar al equipo con mis habilidades y conocimientos para alcanzar los mejores resultados.
           </p>
     </td>
   </tr>
