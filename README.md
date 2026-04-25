@@ -136,7 +136,7 @@
       - [4.1.3.3. Software Architecture Container Level Diagrams](#4133-software-architecture-container-level-diagrams)
       - [4.1.3.4. Software Architecture Deployment Diagrams](#4134-software-architecture-deployment-diagrams)
   - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
-    - [4.2.1. Bounded Context: \<Bounded Context Name\>](#421-bounded-context-bounded-context-name)
+    - [4.2.1. Bounded Context: IAM](#421-bounded-context-iam)
       - [4.2.1.1. Domain Layer](#4211-domain-layer)
       - [4.2.1.2. Interface Layer](#4212-interface-layer)
       - [4.2.1.3. Application Layer](#4213-application-layer)
@@ -919,21 +919,470 @@ El resto de contextos serán modelados en las siguientes secciones mediante Boun
  
 ## 4.2. Tactical-Level Domain-Driven Design
  
-### 4.2.1. Bounded Context: \<Bounded Context Name\>
- 
+### 4.2.1. Bounded Context: IAM
+
+---
+
 #### 4.2.1.1. Domain Layer
- 
+
+Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion, autorizacion y vinculacion entre usuarios y dispositivos, aplicando reglas de negocio sin depender de frameworks externos.
+
+##### Entities
+
+###### `User`
+**Proposito:** Representa a cualquier persona registrada en el sistema. Puede ser un Adulto Mayor o un Cuidador. Es la entidad central del BC IAM y raiz de su agregado.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `UserId` | private | Identificador unico del usuario |
+| `email` | `Email` | private | Correo electronico, unico en el sistema |
+| `passwordHash` | `PasswordHash` | private | Hash de la contrasena del usuario |
+| `role` | `Role` | private | Rol asignado: `ELDERLY_USER` o `CAREGIVER` |
+| `fullName` | `string` | private | Nombre completo del usuario |
+| `phoneNumber` | `string` | private | Numero de telefono para notificaciones de emergencia |
+| `isActive` | `boolean` | private | Indica si la cuenta esta habilitada |
+| `createdAt` | `DateTime` | private | Fecha de creacion de la cuenta |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `activate()` | `void` | public | Habilita la cuenta del usuario |
+| `deactivate()` | `void` | public | Deshabilita la cuenta sin eliminarla |
+| `changePassword(newHash: PasswordHash)` | `void` | public | Actualiza el hash de contrasena validando reglas de negocio |
+| `hasRole(role: Role)` | `boolean` | public | Verifica si el usuario tiene un rol especifico |
+
+###### `Device`
+**Proposito:** Representa un dispositivo ESP32 registrado en el sistema. Un dispositivo debe estar vinculado a exactamente un Adulto Mayor para operar.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `DeviceId` | private | Identificador unico del dispositivo |
+| `macAddress` | `string` | private | Direccion MAC del ESP32, inmutable tras registro |
+| `alias` | `string` | private | Nombre legible asignado por el usuario (ej. "Pulsera de papa") |
+| `ownerId` | `UserId` | private | ID del Adulto Mayor al que esta vinculado |
+| `status` | `DeviceStatus` | private | Estado: `ACTIVE`, `INACTIVE`, `UNBOUND` |
+| `registeredAt` | `DateTime` | private | Fecha de vinculacion al sistema |
+| `lastSeenAt` | `DateTime` | private | Ultimo heartbeat recibido desde el dispositivo |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `bind(ownerId: UserId)` | `void` | public | Vincula el dispositivo a un Adulto Mayor |
+| `unbind()` | `void` | public | Desvincula el dispositivo, poniendolo en estado `UNBOUND` |
+| `activate()` | `void` | public | Cambia el estado a `ACTIVE` |
+| `deactivate()` | `void` | public | Cambia el estado a `INACTIVE` |
+| `updateLastSeen(timestamp: DateTime)` | `void` | public | Actualiza el timestamp del ultimo heartbeat |
+| `isBound()` | `boolean` | public | Retorna true si el dispositivo tiene un dueno asignado |
+
+###### `CareRelationship`
+**Proposito:** Representa el vinculo entre un Adulto Mayor y su Cuidador. Controla quien tiene permiso de monitorear a quien y gestionar sus alertas.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `RelationshipId` | private | Identificador unico de la relacion |
+| `elderlyUserId` | `UserId` | private | ID del Adulto Mayor |
+| `caregiverId` | `UserId` | private | ID del Cuidador |
+| `status` | `RelationshipStatus` | private | Estado: `PENDING`, `ACTIVE`, `REVOKED` |
+| `invitationToken` | `string` | private | Token unico para aceptar la invitacion |
+| `createdAt` | `DateTime` | private | Fecha de creacion de la invitacion |
+| `acceptedAt` | `DateTime` | private | Fecha en que el Cuidador acepto |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `accept()` | `void` | public | El Cuidador acepta la relacion, cambia estado a `ACTIVE` |
+| `revoke()` | `void` | public | Cualquiera de las partes revoca la relacion |
+| `isPending()` | `boolean` | public | Verifica si la relacion aun no fue aceptada |
+| `isActive()` | `boolean` | public | Verifica si la relacion esta vigente |
+
+##### Value Objects
+
+###### `UserId`
+**Proposito:** Encapsula el identificador unico de un usuario. Garantiza que el ID nunca sea nulo ni vacio.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `UUID` | Valor del identificador |
+
+###### `DeviceId`
+**Proposito:** Encapsula el identificador unico de un dispositivo.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `UUID` | Valor del identificador |
+
+###### `Email`
+**Proposito:** Encapsula y valida la direccion de correo electronico. Garantiza formato valido en construccion.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `string` | Direccion de email validada |
+
+| Metodo | Descripcion |
+|---|---|
+| `validate(raw: string)` | Lanza excepcion de dominio si el formato es invalido |
+
+###### `PasswordHash`
+**Proposito:** Encapsula el hash de contrasena. Nunca almacena ni expone el texto plano.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `string` | Hash bcrypt de la contrasena |
+
+###### `Role`
+**Proposito:** Enumeracion que define los roles posibles dentro del sistema.
+
+| Valor | Descripcion |
+|---|---|
+| `ELDERLY_USER` | Adulto Mayor que porta el dispositivo |
+| `CAREGIVER` | Persona encargada de monitorear y recibir alertas |
+
+###### `DeviceStatus`
+**Proposito:** Enumeracion que describe el estado operativo de un dispositivo.
+
+| Valor | Descripcion |
+|---|---|
+| `ACTIVE` | Dispositivo vinculado y operando |
+| `INACTIVE` | Dispositivo vinculado pero apagado o sin senal |
+| `UNBOUND` | Dispositivo sin dueno asignado |
+
+###### `RelationshipStatus`
+**Proposito:** Enumeracion que describe el estado del vinculo Adulto-Cuidador.
+
+| Valor | Descripcion |
+|---|---|
+| `PENDING` | Invitacion enviada, aun no aceptada |
+| `ACTIVE` | Vinculo confirmado y activo |
+| `REVOKED` | Vinculo revocado por alguna de las partes |
+
+##### Aggregates
+
+###### `UserAggregate`
+**Root:** `User`  
+**Proposito:** Agrupa a `User` con su `Device` vinculado y sus `CareRelationship` activas. Garantiza que todas las modificaciones al usuario y sus relaciones pasen por la raiz, manteniendo consistencia.
+
+###### `DeviceAggregate`
+**Root:** `Device`  
+**Proposito:** Gestiona el ciclo de vida del dispositivo de forma independiente. La vinculacion y desvinculacion siempre ocurren a traves de este agregado.
+
+##### Domain Services
+
+###### `AuthenticationDomainService`
+**Proposito:** Contiene la logica de autenticacion que no pertenece naturalmente a ninguna entidad individual. Verifica credenciales y delega la emision de tokens a infraestructura.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `validateCredentials(email: Email, rawPassword: string, user: User)` | `boolean` | Verifica que la contrasena ingresada coincida con el hash almacenado |
+
+###### `DeviceBindingDomainService`
+**Proposito:** Encapsula las reglas de negocio para vincular y desvincular dispositivos. Garantiza que un dispositivo no sea vinculado a mas de un usuario simultaneamente.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `canBind(device: Device, user: User)` | `boolean` | Valida que el dispositivo este en estado `UNBOUND` y el usuario sea `ELDERLY_USER` |
+| `canUnbind(device: Device, requesterId: UserId)` | `boolean` | Valida que quien solicita la desvinculacion sea el dueno o un administrador |
+
+##### Repository Interfaces
+
+###### `IUserRepository`
+**Proposito:** Abstraccion del repositorio de usuarios. Definida en dominio, implementada en infraestructura.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findById(id: UserId)` | `User \| null` | Busca un usuario por su ID |
+| `findByEmail(email: Email)` | `User \| null` | Busca un usuario por su email |
+| `save(user: User)` | `void` | Persiste un usuario nuevo o actualizado |
+| `delete(id: UserId)` | `void` | Elimina un usuario del sistema |
+
+###### `IDeviceRepository`
+**Proposito:** Abstraccion del repositorio de dispositivos.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findById(id: DeviceId)` | `Device \| null` | Busca un dispositivo por su ID |
+| `findByMacAddress(mac: string)` | `Device \| null` | Busca un dispositivo por su MAC address |
+| `findByOwnerId(ownerId: UserId)` | `Device \| null` | Retorna el dispositivo vinculado a un Adulto Mayor |
+| `save(device: Device)` | `void` | Persiste un dispositivo nuevo o actualizado |
+
+###### `ICareRelationshipRepository`
+**Proposito:** Abstraccion del repositorio de vinculos Adulto-Cuidador.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findByElderlyUserId(id: UserId)` | `CareRelationship \| null` | Retorna la relacion activa del Adulto Mayor |
+| `findByCaregiverId(id: UserId)` | `CareRelationship[]` | Retorna todas las relaciones de un Cuidador |
+| `findByInvitationToken(token: string)` | `CareRelationship \| null` | Busca una relacion por token de invitacion |
+| `save(relationship: CareRelationship)` | `void` | Persiste una relacion nueva o actualizada |
+
+---
+
 #### 4.2.1.2. Interface Layer
- 
+
+Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints HTTP REST. Los controllers reciben las solicitudes, delegan inmediatamente a la Application Layer y retornan la respuesta formateada. No contienen logica de negocio.
+
+##### `AuthController`
+**Proposito:** Gestiona los endpoints de autenticacion: registro, login y logout.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `POST` | `/api/v1/auth/register` | `RegisterUserCommandHandler` | Registra un nuevo usuario (Adulto Mayor o Cuidador) |
+| `POST` | `/api/v1/auth/login` | `LoginCommandHandler` | Autentica credenciales y retorna JWT + refresh token |
+| `POST` | `/api/v1/auth/refresh` | `RefreshTokenCommandHandler` | Renueva el JWT usando el refresh token |
+| `POST` | `/api/v1/auth/logout` | `LogoutCommandHandler` | Invalida el refresh token del usuario |
+
+##### `UserController`
+**Proposito:** Expone operaciones sobre el perfil del usuario autenticado.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `GET` | `/api/v1/users/me` | `GetCurrentUserQueryHandler` | Retorna el perfil del usuario autenticado |
+| `PUT` | `/api/v1/users/me` | `UpdateUserProfileCommandHandler` | Actualiza nombre o telefono del usuario |
+| `PUT` | `/api/v1/users/me/password` | `ChangePasswordCommandHandler` | Cambia la contrasena del usuario autenticado |
+| `DELETE` | `/api/v1/users/me` | `DeactivateUserCommandHandler` | Desactiva la cuenta del usuario |
+
+##### `DeviceController`
+**Proposito:** Gestiona el registro y vinculacion de dispositivos ESP32.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `POST` | `/api/v1/devices` | `RegisterDeviceCommandHandler` | Registra un nuevo ESP32 en el sistema |
+| `POST` | `/api/v1/devices/{deviceId}/bind` | `BindDeviceCommandHandler` | Vincula el dispositivo al Adulto Mayor autenticado |
+| `DELETE` | `/api/v1/devices/{deviceId}/bind` | `UnbindDeviceCommandHandler` | Desvincula el dispositivo de su dueno actual |
+| `GET` | `/api/v1/devices/me` | `GetMyDeviceQueryHandler` | Retorna el dispositivo vinculado al usuario autenticado |
+| `PATCH` | `/api/v1/devices/{deviceId}/status` | `UpdateDeviceStatusCommandHandler` | Actualiza el estado del dispositivo (heartbeat edge) |
+
+##### `CareRelationshipController`
+**Proposito:** Gestiona el flujo de invitacion y vinculacion entre Adulto Mayor y Cuidador.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `POST` | `/api/v1/care-relationships/invite` | `InviteCaregiverCommandHandler` | El Adulto Mayor invita a un Cuidador por email |
+| `POST` | `/api/v1/care-relationships/accept` | `AcceptInvitationCommandHandler` | El Cuidador acepta la invitacion usando el token |
+| `DELETE` | `/api/v1/care-relationships/{id}` | `RevokeCareRelationshipCommandHandler` | Cualquiera de las partes revoca el vinculo |
+| `GET` | `/api/v1/care-relationships/me` | `GetMyCareRelationshipQueryHandler` | Retorna la relacion activa del usuario autenticado |
+
+---
+
 #### 4.2.1.3. Application Layer
- 
+
+Esta capa orquesta los flujos de negocio del BC IAM. Los Command Handlers ejecutan operaciones de escritura y los Query Handlers resuelven lecturas. Ninguno contiene logica de dominio: la delegan a las entidades y domain services correspondientes.
+
+##### Command Handlers
+
+###### `RegisterUserCommandHandler`
+**Proposito:** Orquesta el registro de un nuevo usuario en el sistema.
+
+**Command:** `RegisterUserCommand { fullName, email, rawPassword, role, phoneNumber }`
+
+**Flujo:**
+1. Verifica que no exista un usuario con el mismo email via `IUserRepository`.
+2. Crea el `PasswordHash` usando `IPasswordHashingService`.
+3. Construye la entidad `User` con los value objects correspondientes.
+4. Persiste via `IUserRepository`.
+5. Publica evento `UserRegisteredEvent`.
+
+###### `LoginCommandHandler`
+**Proposito:** Valida credenciales y emite tokens de sesion.
+
+**Command:** `LoginCommand { email, rawPassword }`
+
+**Flujo:**
+1. Busca el usuario por email via `IUserRepository`.
+2. Delega validacion de credenciales a `AuthenticationDomainService`.
+3. Si es valido, solicita JWT y refresh token a `ITokenService`.
+4. Retorna `LoginResult { accessToken, refreshToken, expiresIn }`.
+
+###### `RefreshTokenCommandHandler`
+**Proposito:** Renueva el JWT de un usuario con sesion activa.
+
+**Command:** `RefreshTokenCommand { refreshToken }`
+
+**Flujo:**
+1. Valida el refresh token via `ITokenService`.
+2. Extrae el `UserId` del token.
+3. Verifica que el usuario este activo via `IUserRepository`.
+4. Emite un nuevo JWT y retorna.
+
+###### `LogoutCommandHandler`
+**Proposito:** Invalida el refresh token activo del usuario.
+
+**Command:** `LogoutCommand { refreshToken }`
+
+**Flujo:**
+1. Valida el refresh token via `ITokenService`.
+2. Llama a `ITokenService.revoke(refreshToken)` para anadirlo a la blacklist.
+
+###### `BindDeviceCommandHandler`
+**Proposito:** Vincula un ESP32 registrado a un Adulto Mayor.
+
+**Command:** `BindDeviceCommand { deviceId, requesterId }`
+
+**Flujo:**
+1. Recupera el `Device` via `IDeviceRepository`.
+2. Recupera el `User` via `IUserRepository`.
+3. Verifica elegibilidad con `DeviceBindingDomainService.canBind()`.
+4. Ejecuta `device.bind(ownerId)`.
+5. Persiste via `IDeviceRepository`.
+6. Publica evento `DeviceBoundEvent`.
+
+###### `UnbindDeviceCommandHandler`
+**Proposito:** Desvincula un dispositivo de su Adulto Mayor actual.
+
+**Command:** `UnbindDeviceCommand { deviceId, requesterId }`
+
+**Flujo:**
+1. Recupera el `Device` via `IDeviceRepository`.
+2. Valida autorizacion con `DeviceBindingDomainService.canUnbind()`.
+3. Ejecuta `device.unbind()`.
+4. Persiste via `IDeviceRepository`.
+
+###### `InviteCaregiverCommandHandler`
+**Proposito:** El Adulto Mayor genera una invitacion para un Cuidador.
+
+**Command:** `InviteCaregiverCommand { elderlyUserId, caregiverEmail }`
+
+**Flujo:**
+1. Verifica que el Cuidador exista y tenga rol `CAREGIVER` via `IUserRepository`.
+2. Verifica que no exista ya una relacion activa via `ICareRelationshipRepository`.
+3. Genera un `invitationToken` unico.
+4. Crea y persiste la `CareRelationship` en estado `PENDING`.
+5. Publica evento `CaregiverInvitedEvent` para que `Notifications` envie el email de invitacion.
+
+###### `AcceptInvitationCommandHandler`
+**Proposito:** El Cuidador acepta la invitacion y activa el vinculo.
+
+**Command:** `AcceptInvitationCommand { invitationToken, caregiverId }`
+
+**Flujo:**
+1. Busca la relacion por `invitationToken` via `ICareRelationshipRepository`.
+2. Verifica que la relacion este en estado `PENDING`.
+3. Verifica que el `caregiverId` coincida.
+4. Ejecuta `relationship.accept()`.
+5. Persiste via `ICareRelationshipRepository`.
+
+###### `RevokeCareRelationshipCommandHandler`
+**Proposito:** Revoca el vinculo entre Adulto Mayor y Cuidador.
+
+**Command:** `RevokeCareRelationshipCommand { relationshipId, requesterId }`
+
+**Flujo:**
+1. Recupera la relacion via `ICareRelationshipRepository`.
+2. Valida que `requesterId` sea una de las dos partes.
+3. Ejecuta `relationship.revoke()`.
+4. Persiste via `ICareRelationshipRepository`.
+
+##### Event Handlers
+
+###### `UserRegisteredEventHandler`
+**Proposito:** Reacciona al evento `UserRegisteredEvent`. Puede delegar al BC `Notifications` el envio de un email de bienvenida.
+
+**Evento:** `UserRegisteredEvent { userId, email, role }`
+
+###### `DeviceBoundEventHandler`
+**Proposito:** Reacciona al evento `DeviceBoundEvent`. Actualiza el estado del dispositivo y puede notificar al Cuidador vinculado que hay un dispositivo activo.
+
+**Evento:** `DeviceBoundEvent { deviceId, ownerId }`
+
+---
+
 #### 4.2.1.4. Infrastructure Layer
+
+Esta capa provee las implementaciones concretas de las interfaces definidas en el Domain Layer y gestiona la comunicacion con sistemas externos como la base de datos relacional y los servicios de tokens.
+
+##### Repository Implementations
+
+###### `UserRepositoryImpl`
+**Proposito:** Implementacion concreta de `IUserRepository`. Accede a la base de datos relacional MySQL para persistir y recuperar usuarios.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL (`Pomelo.EntityFrameworkCore.MySql`)
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findById(id)` | `DbContext.Users.FirstOrDefaultAsync(u => u.Id == id)` con indice primario sobre `user_id` |
+| `findByEmail(email)` | `DbContext.Users.FirstOrDefaultAsync(u => u.Email == email)` con indice unico sobre columna `email` |
+| `save(user)` | `DbContext.Users.Update(user)` + `SaveChangesAsync()`, EF Core resuelve insert vs update automaticamente |
+| `delete(id)` | Soft delete: `UPDATE users SET is_active = 0 WHERE user_id = ?`, nunca eliminacion fisica |
+
+###### `DeviceRepositoryImpl`
+**Proposito:** Implementacion concreta de `IDeviceRepository`. Gestiona la persistencia de dispositivos ESP32 garantizando integridad referencial con la tabla de usuarios.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findById(id)` | `DbContext.Devices.FirstOrDefaultAsync(d => d.Id == id)` |
+| `findByMacAddress(mac)` | Query sobre columna `mac_address` con indice unico; garantiza unicidad a nivel de base de datos |
+| `findByOwnerId(ownerId)` | `DbContext.Devices.FirstOrDefaultAsync(d => d.OwnerId == ownerId && d.Status == ACTIVE)` |
+| `save(device)` | `DbContext.Devices.Update(device)` + `SaveChangesAsync()`. La FK `owner_id -> users.user_id` garantiza que no exista un dispositivo sin dueno valido |
+
+###### `CareRelationshipRepositoryImpl`
+**Proposito:** Implementacion concreta de `ICareRelationshipRepository`. La naturaleza relacional de este vinculo (Adulto Mayor <-> Cuidador) se beneficia directamente de las constraints de MySQL.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findByElderlyUserId(id)` | Query filtrando `elderly_user_id = ?` y `status = 'ACTIVE'` con FK validada contra tabla `users` |
+| `findByCaregiverId(id)` | Query filtrando `caregiver_id = ?`, retorna todos los estados; JOIN implicito validado por FK |
+| `findByInvitationToken(token)` | Query sobre columna `invitation_token` con indice unico |
+| `save(relationship)` | `DbContext.CareRelationships.Update(rel)` + `SaveChangesAsync()`. Ambas FKs (`elderly_user_id`, `caregiver_id`) son validadas por MySQL antes de persistir |
+
+##### External Service Implementations
+
+###### `JwtTokenServiceImpl`
+**Proposito:** Implementacion concreta de `ITokenService`. Emite, valida y revoca JWT dentro del ecosistema .NET.  
+**Tecnologia:** .NET + `System.IdentityModel.Tokens.Jwt` + `Microsoft.AspNetCore.Authentication.JwtBearer`
+
+| Metodo | Descripcion |
+|---|---|
+| `generate(userId, role)` | Crea un `JwtSecurityToken` con claims `sub`, `role` y `exp`; firmado con clave simetrica HS256 configurable via `appsettings.json` |
+| `validate(token)` | Usa `JwtSecurityTokenHandler.ValidateToken()` con `TokenValidationParameters` definidos en startup; lanza `SecurityTokenException` si invalido |
+| `revoke(refreshToken)` | Persiste el token revocado en tabla `token_blacklist` en MySQL con columna `expires_at` para limpieza automatica por job |
+| `refresh(refreshToken)` | Valida el refresh token contra `token_blacklist`, extrae claims y emite nuevo access token |
+
+###### `BcryptPasswordHashingServiceImpl`
+**Proposito:** Implementacion concreta de `IPasswordHashingService`. Hashea y verifica contrasenas de forma segura.  
+**Tecnologia:** .NET + `BCrypt.Net-Next` (NuGet)
+
+| Metodo | Descripcion |
+|---|---|
+| `hash(rawPassword)` | `BCrypt.HashPassword(rawPassword, workFactor: 12)` genera hash con salt aleatorio embebido |
+| `verify(rawPassword, hash)` | `BCrypt.Verify(rawPassword, hash)` compara en tiempo constante, retorna booleano |
+
+###### `InvitationEmailServiceImpl`
+**Proposito:** Envia el correo de invitacion al Cuidador cuando el Adulto Mayor lo invita al sistema.  
+**Tecnologia:** .NET + `SendGrid` (NuGet SDK)
+
+| Metodo | Descripcion |
+|---|---|
+| `sendInvitation(caregiverEmail, invitationToken, elderlyName)` | Construye un `SendGridMessage` con template HTML, embebe el link de aceptacion con el token y lo despacha via `SendGridClient.SendEmailAsync()` |
+
+##### Database Configuration
+
+###### `IamDbContext`
+**Proposito:** Clase que extiende `DbContext` de Entity Framework Core. Configura los mappings entre las entidades del dominio y las tablas MySQL del BC IAM, define constraints, indices y relaciones a nivel de ORM.  
+**Tecnologia:** Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`
+
+**Tablas gestionadas:**
+
+| Tabla | Entidad mapeada | Constraint destacada |
+|---|---|---|
+| `users` | `User` | PK `user_id`, indice unico `email` |
+| `devices` | `Device` | PK `device_id`, indice unico `mac_address`, FK `owner_id -> users.user_id` |
+| `care_relationships` | `CareRelationship` | PK `relationship_id`, FK `elderly_user_id -> users.user_id`, FK `caregiver_id -> users.user_id`, indice unico `invitation_token` |
+| `token_blacklist` | *(tabla de infraestructura)* | PK `token_id`, indice sobre `expires_at` para limpieza periodica |
  
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+![IAM - Component Level Diagram](./img/tactical-ddd/iam/component.svg)
+
+Este diagrama de componentes (C4 Nivel 3) ilustra la arquitectura interna y el flujo de ejecucion del contenedor `IAM Service`. Muestra como el Bounded Context esta descompuesto de forma coherente con los principios de Arquitectura Limpia (`Interface`, `Application`, `Domain` e `Infrastructure`). El diagrama traza el recorrido de las peticiones desde clientes externos (App Movil y Web) hacia los controladores REST, delegando la orquestacion en los command handlers (CQRS), interactuando con las reglas de negocio en agregados de dominio y finalizando con la persistencia en MySQL mediante implementaciones concretas de repositorios.
  
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
  
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+![IAM - Domain Layer Class Diagram](./img/tactical-ddd/iam/class.svg)
+
+Este diagrama de clases UML ilustra el modelo conceptual y estructural del dominio IAM. Presenta a `User` y `Device` como raices de sus respectivos agregados, detallando atributos encapsulados (Value Objects), metodos y enumeraciones que materializan las reglas de negocio. Ademas, expone las relaciones de cardinalidad con `CareRelationship`, las interfaces de repositorio que definen contratos de persistencia y los domain services encargados de logica transversal (como autenticacion y vinculacion), manteniendo el nucleo del sistema agnostico a cualquier tecnologia de infraestructura.
  
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+![IAM - Database Design Diagram](./img/tactical-ddd/iam/db.svg)
+
+Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de datos relacional (MySQL) para el Bounded Context IAM. Detalla las tablas principales (`USERS`, `DEVICES` y `CARE_RELATIONSHIPS`), sus columnas y tipos de datos. El diagrama destaca llaves primarias (PK), llaves foraneas (FK) y restricciones de unicidad (UK) que garantizan integridad referencial, reflejando como se almacena la relacion entre usuarios, sus dispositivos hardware asignados y sus vinculos de cuidado.
  
