@@ -984,7 +984,7 @@ El resto de contextos serán modelados en las siguientes secciones mediante Boun
  
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
-<img width="4750" height="1150" alt="Landscape-dark" src="https://github.com/user-attachments/assets/b7489d75-1015-41e1-8191-fddba3a7a558" />
+<img width="4750" height="1150" alt="Landscape-dark (1)" src="https://github.com/user-attachments/assets/0c05f4d9-3378-49cd-80b1-1f54bf072354" />
 
 <br>
 
