@@ -150,7 +150,53 @@
 ---
  
 # Student Outcome
- 
+ <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
+    <thead>
+        <tr style="background-color: #f2f2f2; text-align: left;">
+            <th style="padding: 10px; width: 25%;">Criterio específico</th>
+            <th style="padding: 10px; width: 50%;">Acciones realizadas</th>
+            <th style="padding: 10px; width: 25%;">Conclusiones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 10px;"><strong>Trabaja en equipo para proporcionar liderazgo en forma conjunta</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Durante el desarrollo del proyecto, asumí el liderazgo en la definición y validación del problema. Al encargarme del Lean UX Process y el Needfinding (elaborando los User Personas, Empathy Mapping y Journey Mapping), tomé la iniciativa de guiar al equipo en la comprensión profunda del usuario. Esto permitió sentar bases sólidas para el Startup y Solution Profile, orientando las decisiones del equipo hacia una solución con verdadero valor.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
+            </td>
+        </tr>
+                <tr>
+            <td style="padding: 10px;"><strong>Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Para fomentar la colaboración, socialicé activamente los hallazgos del Lean UX Process con todo el equipo. Planifiqué las metas de validación estructurando los Problem y Hypothesis Statements, asegurándome de que todos los miembros comprendieran los antecedentes y la problemática, manteniendo un entorno donde las ideas de todos enriquecieran el diseño de la solución.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
+            </td>
+        </tr>
+    </tbody>
+</table>
  
 ---
  
