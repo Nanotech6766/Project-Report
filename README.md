@@ -121,6 +121,7 @@
   - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. User Stories](#31-user-stories)
+    - [Epic Stories](#epic-stories)
   - [3.2. Impact Mapping](#32-impact-mapping)
   - [3.3. Product Backlog](#33-product-backlog)
 - [Capítulo IV: Solution Software Design](#capítulo-iv-solution-software-design)
@@ -827,7 +828,79 @@ https://trello.com/b/0wcO99Dl/foll-product-backlog
 En esta sección se desarrolla la parte estratégica de Domain-Driven Design. El propósito fundamental es traducir la complejidad del entorno de hardware IoT y la gestión de emergencias en límites arquitectónicos claros que reflejen el verdadero valor del negocio: la salvaguarda de la vida y la respuesta oportuna. Para lograr esta alineación, se detalla el proceso de descubrimiento y modelado de Bounded Contexts a partir del Design-Level EventStorming, la orquestación de sus interacciones mediante Context Mapping, y la consolidación de estas decisiones en una arquitectura de software integral y escalable documentada bajo el estándar C4.
  
 ### 4.1.1. Design-Level EventStorming
- 
+
+En esta sección de Design-Level EventStorming planteamos una versión revisada y mejorada del modelado general del dominio. El propósito es llegar al mayor nivel de detalle posible, explicando la secuencia de eventos de Foll en componentes de software para así tener un mayor entendimiento de las funcionalidades y flujos que tendrá el proyecto. 
+
+<img src="img/eventstorming/0.png" alt="Event Storming" width="700"/>
+
+**Paso 1：Exploración desestructurada**
+<img src="img/eventstorming/1.png" alt="Event Storming" width="700"/>
+
+**Paso 2：Línea de tiempo**
+<img src="img/eventstorming/2.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/2.2.png" alt="Event Storming" width="700"/>
+
+**Paso 3：Puntos de dolor**
+<img src="img/eventstorming/3.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/3.2.png" alt="Event Storming" width="700"/>
+
+**Paso 4：Puntos clave**
+<img src="img/eventstorming/4.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/4.2.png" alt="Event Storming" width="700"/>
+
+**Paso 5：Comandos**
+
+<img src="img/eventstorming/5.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/5.2.png" alt="Event Storming" width="700"/>
+
+**Paso 6：Políticas**
+
+<img src="img/eventstorming/6.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/6.2.png" alt="Event Storming" width="700"/>
+
+**Paso 7：Modelos de lectura**
+
+<img src="img/eventstorming/7.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/7.2.png" alt="Event Storming" width="700"/>
+
+**Paso 8：Sistemas externos**
+
+<img src="img/eventstorming/8.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/8.2.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/8.3.png" alt="Event Storming" width="700"/>
+
+**Paso 9：Agregados**
+
+<img src="img/eventstorming/9.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/9.2.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/9.3.png" alt="Event Storming" width="700"/>
+
+**Paso 10：Bounded Contexts**<br>
+En este último paso, se sintetizaron los flujos principales para determinar los bounded contexts con los que desarrollaríamos Foll.
+
+<img src="img/eventstorming/10.png" alt="Event Storming" width="700"/> <br>
+
+**IAM context** <br>
+En este bounded context se trabaja la lógica de la autenticación, creación de cuentas, permisos para monitorear a los adultos mayores y la vinculación con el dispositivo iot. 
+ <br>
+<img src="img/eventstorming/10-iam.png" alt="Event Storming" width="700"/>
+
+**Emergency management context**<br>
+En Emergency management se centra en la respuesta del aplicativo y web cuando se detecta una caída para asegurar la seguridad del adulto mayor afectado.
+<img src="img/eventstorming/10-emergency.png" alt="Event Storming" width="700"/>
+
+**Embedded systems context**<br>
+En él se concentra la lógica para que el dispositivo iot pueda interpretar la información que recibe de los sensores, de manera que detetcte la caída y esa alerta sea enviada al resto del aplicativo Foll.<br>
+<img src="img/eventstorming/10-embedded.png" alt="Event Storming" width="700"/>
+
+**Edge context**<br>
+En este bounded context se recibe la data procesada para activar el protocolo de verificación y que sirva de puente con el bounded context de emergency management. <br>
+<img src="img/eventstorming/10-edge.png" alt="Event Storming" width="700"/>
+
+**Notifications context**<br>
+Se controla la lógica de envío de mensajes, llamadas y alertas en caso se detecte una caída.<br>
+<img src="img/eventstorming/10-notifications.png" alt="Event Storming" width="700"/>
+
 #### 4.1.1.1. Candidate Context Discovery
 
 En esta sección se presenta el proceso seguido por el equipo para el descubrimiento y clasificación de bounded contexts candidatos a partir del Event Storming de Diseño realizado previamente. El objetivo fue identificar los límites naturales del dominio del sistema de monitoreo y detección de caídas, determinar cuáles son las partes core del negocio y cuáles cumplen roles de apoyo o genéricos, con el fin de priorizar los esfuerzos de diseño y arquitectura en aquellos elementos que aportan el mayor valor estratégico.
