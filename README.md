@@ -694,11 +694,149 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 ## 2.2. Entrevistas
  
 ### 2.2.1. Diseño de entrevistas
+
+<strong>Segmento objetivo 1: Adultos mayores</strong><br>
+- ¿Alguna vez ha tenido un tropiezo o una caída estando solo en casa o fuera de ella? Si la respuesta es sí: ¿Qué ocurrió exactamente y qué fue lo más difícil de ese momento?
+- ¿Hay actividades que evita realizar cuando está solo por miedo a resbalar o caer?
+- En caso de ocurrirle un accidente como caerse, ¿Tiene forma de contactarse con sus familiares o pedir ayuda?
+- Si tuviera que usar un sensor pequeño todos los días por su seguridad, ¿en qué parte del cuerpo le resultaría más cómodo y fácil de olvidar que lo lleva puesto?
+- Entre las siguientes opciones, ¿cuál prefiere?: ¿En el cinturón o la cintura, como un collar, como una pulsera, o fijado a la pierna?
+- ¿Hay algún tipo de accesorio que definitivamente rechazaría usar porque le resulta incómodo para dormir, para sentarse, o para alguna otra actividad?
+- ¿Se sentiría cómodo usando este dispositivo sabiendo que no lo está grabando ni vigilando, sino que procesa sus movimientos de forma privada y solo avisa a su familia o persona responsable si ocurre una emergencia real? 
+<br><br>
+
+<strong>Segmento objetivo 2 : Cuidadores de adultos mayores</strong><br>
+
+- ¿Cuál es su relación con el adulto mayor y cuántas horas al día suele pasar esta persona sin supervisión presencial?
+- ¿Alguna vez han vivido la situación angustiante en la que su familiar sufre una caída estando solo y nadie se entera de inmediato?
+- Si la respuesta es sí: ¿Cuánto tiempo pasó hasta que se dieron cuenta o recibieron ayuda, y cómo impactó ese evento en la confianza de ambos al estar solos en casa?
+- Sabiendo que este dispositivo detecta caídas automáticamente y alerta en tiempo real, ¿por qué medio preferiría recibir esa notificación para reaccionar lo más rápido posible (por ejemplo, un SMS inmediato, una llamada automática o una notificación en una aplicación)?
+- A diferencia de los "botones de pánico" tradicionales, este sistema actúa solo sin que el adulto mayor deba hacer nada si se encuentra aturdido. ¿Qué tanto valor (del 1 al 10) le ve a esta automatización para su tranquilidad mental diaria?
+- El monitoreo constante puede generar preocupación por la privacidad. ¿Le da tranquilidad saber que el dispositivo procesa los datos localmente, evitando enviar información personal a través de redes inseguras?
+- En un futuro, ¿estaría dispuesto a permitir que los datos de movimiento se usen de forma completamente anónima para entrenar y mejorar la precisión de la inteligencia artificial del dispositivo?
+
+<br>
  
 ### 2.2.2. Registro de entrevistas
+
+<strong> Segmento objetivo 1: Adultos mayores</strong><br>
+
+<strong>Entrevista #1</strong><br>
+- Nombre completo: Domingo Valverde
+- Edad: 84 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 0:00 s
+- Fin: 4:23 s
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/eeb1e233-f5c2-4063-b2c2-4be7f8ddab45" />
+
+<br><br>
+
+<strong>Entrevista #2</strong><br>
+- Nombre completo: Juan Valverde
+- Edad: 62 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo/Medio
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 4:24 s
+- Fin: 8:08 s
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/47dcc9b0-aa2e-4d40-afa8-f861c0c4e9a2" />
+
+<br><br>
+
+<strong>Entrevista #3</strong><br>
+- Nombre completo: Máximo Torres
+- Edad: 87 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 8:09 s
+- Fin: 15:28 s
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/1097c478-86a5-4d53-83f5-d07af7d1bf3e" />
+
+<br><br>		
+
+
+
+<strong>Segmento objetivo 2: Cuidadores de adultos mayores, familiares y personal de salud</strong><br>
+<strong>Entrevista #1</strong><br>
+- Nombre completo: Gabriel Zabala
+- Edad: 27 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 0:00 s
+- Fin: 2:54 s
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2613ce70-6900-4bbd-a694-3f34672ab039" />
+
+<br><br>
+
+
+<strong>Entrevista #2</strong><br>
+- Nombre completo: Santiago Baldeón
+- Edad: 19 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 2:54 s
+- Fin: 5:53 s
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/81c6020e-bdb5-4bdb-8892-dc6144a62144" />
+
+<br><br>
+
+<strong>Entrevista #3</strong><br>
+- Nombre completo: Sergio Iglesias
+- Edad: 20 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 5:53 s
+- Fin: 9:10 s
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d71bc62-610c-4f02-981e-503d89e0abc6" />
+
+
  
 ### 2.2.3. Análisis de entrevistas
- 
+
+<strong>Segmento objetivo 1: Adultos mayores</strong><br>
+- <strong>Contexto y perfil</strong><br>
+Los tres entrevistados tienen entre 62 y 87 años y viven en condiciones de relativa independencia, aunque con momentos de soledad en casa o en la calle. Ninguno reportó una caída grave dentro del hogar, pero sí experiencias de tropiezos en exterior, y en un caso un accidente de moto con pérdida de conocimiento. Esto es relevante: el riesgo percibido no siempre coincide con el riesgo real, y los adultos mayores tienden a minimizar su vulnerabilidad. <br>
+- <strong>Conciencia del riesgo: presente pero subestimada</strong><br>
+Los tres reconocen cierto nivel de riesgo, aunque lo expresan con matices. Uno de ellos evita actividades físicas cuando está solo por miedo a caerse. Otro es más confiado en su condición física pese a sus 87 años. El tercero, con 62 años, admite que algunas tareas no pueden hacerse solo. En todos los casos existe una tensión entre el deseo de independencia y la conciencia de que algo podría pasar sin que nadie se enterase. Este es el punto emocional más importante del segmento: no es el miedo a caerse, sino el miedo a quedarse solo sin poder pedir ayuda.<br>
+- <strong>Capacidad de pedir ayuda: el verdadero problema</strong><br>
+Cuando se les preguntó si podrían contactar a alguien en caso de accidente, las respuestas revelaron una limitación real: el celular no siempre está al alcance de la mano. Uno mencionó explícitamente que "a veces no lo tiene a mano". Otro dependió de una desconocida en la calle para levantarse, y de vecinos para avisar a su familia. Esto valida directamente que un sistema pasivo, que no requiere que el adulto mayor haga nada, es más adecuado que cualquier botón o llamada manual.<br>
+- <strong>Forma del dispositivo: pulsera como clara preferencia</strong><br>
+Los tres señalaron la muñeca como la zona más cómoda para llevar el sensor, asociándolo naturalmente con un reloj o pulsera. El cinturón/cintura fue mencionado como segunda opción. El collar fue rechazado de forma unánime por incomodidad, especialmente para dormir. Este dato es directo y accionable para el diseño físico del dispositivo.<br>
+<strong>Privacidad: sin barreras</strong><br>
+Al igual que en el segmento de cuidadores, la privacidad no genera rechazo. Los tres aceptaron bien el concepto de un dispositivo que procesa datos localmente y solo alerta en emergencias reales. Uno de ellos incluso lo vinculó con valores comunitarios: la tecnología como extensión de la red de apoyo entre vecinos y familia.<br>
+- <strong>Receptividad general: alta, pero con perfil de usuario que necesita simplicidad</strong><br>
+La propuesta fue bien recibida por los tres. No hubo objeciones al concepto. Sin embargo, este segmento tiene menor familiaridad tecnológica, lo que implica que el onboarding y la configuración del dispositivo deben ser manejados por el cuidador o familiar, no por el adulto mayor. El adulto mayor solo necesita ponérselo, nada más.
+
+<br><br>
+
+<strong>Segmento objetivo 2: Cuidadores de adultos mayores, familiares y personal de salud:</strong><br>
+- <strong>Contexto y perfil del segmento</strong><br>
+Los tres entrevistados son jóvenes adultos (19–27 años) que cuidan a adultos mayores de la familia, principalmente abuelos. El tiempo que pasa el adulto mayor sin supervisión varía bastante: desde 2 horas hasta 6–8 horas diarias, lo que refleja distintos niveles de exposición al riesgo y distintas urgencias en cada hogar.<br>
+- <strong>Problema validado: la caída como evento crítico no detectado</strong><br>
+Los tres casos confirmaron haber vivido una situación angustiante relacionada con caídas. En todos los casos el patrón fue el mismo: la caída ocurrió estando el adulto mayor solo, y el cuidador se enteró tarde, ya sea al volver a casa o por intervención de un tercero. Los tiempos sin atención variaron entre 10 minutos y 6 horas. Este punto es clave: no es el miedo abstracto a una caída lo que motiva al segmento, sino la experiencia directa de haberla vivido y no haber podido actuar a tiempo.<br>
+Un hallazgo importante es que los adultos mayores tienden a no reportar la caída por su cuenta, ya sea por orgullo, miedo a preocupar o, en casos como el del abuelo con Alzheimer, por incapacidad cognitiva. Esto refuerza directamente la propuesta de valor de un sistema automático que no dependa de la acción del adulto mayor.<br>
+- <strong>Recepción del producto: alta valoración de la automatización</strong><br>
+La característica más valorada fue que el sistema actúa solo, sin que el adulto mayor tenga que hacer nada. Los tres entrevistados reconocieron explícitamente que esto lo diferencia de un botón de pánico tradicional, que pierde utilidad precisamente en los escenarios más graves (caída con pérdida de conciencia, adulto mayor con demencia). Uno de los entrevistados llegó a señalar que los botones de pánico "no tienen sentido cuando hay una caída en la que ya no se puede interactuar", lo que valida directamente el core del producto.<br>
+- <strong>Canal de notificación preferido
+Hay consenso en que el canal preferido es la llamada telefónica o la notificación push, no los SMS. La razón es práctica: los jóvenes tienen el celular silenciado con frecuencia, y una llamada vibra de forma prolongada. Las notificaciones push también se consideran efectivas por su visibilidad inmediata. El SMS queda descartado como canal principal.<br>
+- <strong>Privacidad y datos: barrera baja en este segmento</strong><br>
+La preocupación por privacidad fue mínima en los tres casos. Todos indicaron que les parece bien que el dispositivo procese datos localmente, y también mostraron disposición a compartir datos de movimiento de forma anónima para mejorar el modelo. Esto simplifica decisiones de diseño y abre la puerta a estrategias de mejora continua del modelo de detección.<br>
+- <strong>Feedback de producto: falsos positivos como punto de fricción</strong><br>
+Un entrevistado señaló algo valioso: la necesidad de un mecanismo para descartar falsas alarmas, por ejemplo cuando el adulto mayor hace un movimiento brusco que no es una caída. Sugirió algo como un botón de "no pasa nada" en el dispositivo o en la app. Esto es un insight de UX relevante que debería considerarse en el diseño de la experiencia de alerta.
+
+
 ## 2.3. Needfinding
  
 ### 2.3.1. User Personas
