@@ -914,22 +914,25 @@ La priorización se ha realizado considerando el valor que cada ítem aporta al 
 | 6 | US06 | Creación de perfil de paciente | Como cuidador, quiero registrar un perfil para el adulto mayor a mi cargo, para gestionar su información médica. | 3 |
 | 7 | US09 | Permiso de monitoreo | Como adulto mayor, quiero aceptar la solicitud de vinculación de un cuidador, para otorgar permiso de que reciba mis alertas. | 2 |
 | 8 | US10 | Vinculación del cinturón | Como adulto mayor, quiero registrar el código serial del cinturón en mi cuenta, para que el sistema asocie el hardware conmigo. | 5 |
-| 9 | TS01 | Captura y envío de telemetría | Como Developer, quiero desarrollar el firmware del cinturón IoT, para que lea los datos del sensor y los transmita al Edge Gateway. | 8 |
-| 10 | TS02 | Detección Edge AI | Como Developer, quiero implementar el algoritmo matemático/IA en el servidor Edge, para determinar si los datos corresponden a una caída real. | 8 |
-| 11 | TS03 | Endpoint de persistencia | Como Developer, quiero exponer un endpoint RESTful seguro en la nube, para guardar los incidentes confirmados por el Edge. | 5 |
-| 12 | US12 | Recepción de alerta remota | Como cuidador, quiero recibir una notificación en tiempo real con la ubicación GPS, para reaccionar de inmediato ante la caída. | 5 |
-| 13 | US11 | Cancelación física de alerta | Como adulto mayor, quiero presionar el botón del cinturón en caso no sea una caída, para cancelar el falso positivo. | 3 |
-| 14 | US13 | Confirmación de auxilio | Como cuidador, quiero informar en la app que estoy en camino a la emergencia, para coordinar esfuerzos con el resto de familiares. | 3 |
-| 15 | US16 | Visualización médica en emergencia | Como paramédico o cuidador, quiero ver las alergias y tipo de sangre directamente en la pantalla de la alerta, para aplicar el tratamiento médico correcto de inmediato. | 2 |
-| 16 | TS04 | Monitoreo de batería | Como Developer, quiero desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware, para alertar sobre niveles críticos de energía. | 3 |
-| 17 | US08 | Adición de contactos secundarios | Como cuidador, quiero guardar contactos telefónicos de otros familiares, para asegurar el auxilio en caso yo esté ausente. | 2 |
-| 18 | US14 | Escalamiento telefónico | Como adulto mayor, quiero que llamen automáticamente a mis contactos secundarios, para que me auxilien si mi cuidador no responde. | 8 |
-| 19 | US15 | Solicitud de ambulancia | Como adulto mayor, quiero que el sistema solicite una ambulancia si nadie contesta, para asegurar mi integridad. | 5 |
-| 20 | US07 | Actualización de datos médicos | Como cuidador, quiero editar el tipo de sangre y las alergias del adulto mayor, para mantener su historial clínico actualizado ante cualquier emergencia. | 2 |
-| 21 | US17 | Consulta de historial | Como cuidador, quiero consultar una lista de las caídas pasadas, para identificar frecuencias de riesgo. | 3 |
-| 22 | US18 | Filtro de falsos positivos | Como cuidador, quiero filtrar las alertas canceladas por el paciente, para evaluar si está sufriendo de mareos o inestabilidad leves. | 2 |
-| 23 | US19 | Visualización de estadísticas | Como cuidador, quiero ver un gráfico mensual de incidentes, para comprender la tendencia de la salud del adulto mayor. | 5 |
-| 24 | US20 | Exportación de reporte clínico | Como cuidador, quiero descargar el historial de caídas en formato PDF, para enviárselo directamente al médico tratante antes de la cita. | 5 |
+| 9 | US21 | Generación de QR de perfil | Como usuario registrado del ecosistema, quiero seleccionar el perfil de un adulto mayor y mostrar un código QR, para permitir que otros cuidadores se vinculen rápidamente de forma presencial. | 3 |
+| 10 | US22 | Vinculación de paciente vía QR | Como cuidador, quiero utilizar la opción de "agregar adulto mayor" para escanear un código QR, para vincular rápidamente a un paciente que ya se encuentra registrado en el sistema. | 5 |
+| 11 | TS01 | Captura y envío de telemetría | Como Developer, quiero desarrollar el firmware del cinturón IoT, para que lea los datos del sensor y los transmita al Edge Gateway. | 8 |
+| 12 | TS05 | Pre-procesamiento de movimiento (Sistema Embebido) | Como Developer, quiero capturar y evaluar los patrones de movimiento directamente en el sistema embebido, para procesar los datos de los sensores y empaquetarlos limpiamente antes de enviarlos a la capa Edge. | 8 |
+| 13 | TS02 | Detección Edge AI | Como Developer, quiero implementar el algoritmo matemático/IA en el servidor Edge, para determinar si los datos corresponden a una caída real. | 8 |
+| 14 | TS03 | Endpoint de persistencia | Como Developer, quiero exponer un endpoint RESTful seguro en la nube, para guardar los incidentes confirmados por el Edge. | 5 |
+| 15 | US12 | Recepción de alerta remota | Como cuidador, quiero recibir una notificación en tiempo real con la ubicación GPS, para reaccionar de inmediato ante la caída. | 5 |
+| 16 | US11 | Protocolo de verificación de alerta local | Como adulto mayor, quiero que el cinturón active una alarma sonora tras detectar una caída y me permita presionar un botón, para cancelar el falso positivo antes de que se alerte a mis cuidadores. | 5 |
+| 17 | US13 | Confirmación de auxilio | Como cuidador, quiero informar en la app que estoy en camino a la emergencia, para coordinar esfuerzos con el resto de familiares. | 3 |
+| 18 | US16 | Visualización médica en emergencia | Como paramédico o cuidador, quiero ver las alergias y tipo de sangre directamente en la pantalla de la alerta, para aplicar el tratamiento médico correcto de inmediato. | 2 |
+| 19 | TS04 | Monitoreo de batería | Como Developer, quiero desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware, para alertar sobre niveles críticos de energía. | 3 |
+| 20 | US08 | Adición de contactos secundarios | Como cuidador, quiero guardar contactos telefónicos de otros familiares, para asegurar el auxilio en caso yo esté ausente. | 2 |
+| 21 | US14 | Escalamiento telefónico | Como adulto mayor, quiero que llamen automáticamente a mis contactos secundarios, para que me auxilien si mi cuidador no responde. | 8 |
+| 22 | US15 | Solicitud de ambulancia | Como adulto mayor, quiero que el sistema solicite una ambulancia si nadie contesta, para asegurar mi integridad. | 5 |
+| 23 | US07 | Actualización de datos médicos | Como cuidador, quiero editar el tipo de sangre y las alergias del adulto mayor, para mantener su historial clínico actualizado ante cualquier emergencia. | 2 |
+| 24 | US17 | Consulta de historial | Como cuidador, quiero consultar una lista de las caídas pasadas, para identificar frecuencias de riesgo. | 3 |
+| 25 | US18 | Filtro de falsos positivos | Como cuidador, quiero filtrar las alertas canceladas por el paciente, para evaluar si está sufriendo de mareos o inestabilidad leves. | 2 |
+| 26 | US19 | Visualización de estadísticas | Como cuidador, quiero ver un gráfico mensual de incidentes, para comprender la tendencia de la salud del adulto mayor. | 5 |
+| 27 | US20 | Exportación de reporte clínico | Como cuidador, quiero descargar el historial de caídas en formato PDF, para enviárselo directamente al médico tratante antes de la cita. | 5 |
 
 A continuación se muestra el enlace al tablero de Trello donde se gestiona el Product Backlog, junto con una captura de pantalla representativa:
 
