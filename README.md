@@ -238,6 +238,15 @@
       - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.4.6.1. Bounded Context Domain Layer Class Diagrams](#42461-bounded-context-domain-layer-class-diagrams)
         - [4.2.4.6.2. Bounded Context Database Design Diagram](#42462-bounded-context-database-design-diagram)
+    - [4.2.5. Bounded Context: Notifications](#425-bounded-context-notifications)
+      - [4.2.5.1. Domain Layer](#4251-domain-layer)
+      - [4.2.5.2. Interface Layer](#4252-interface-layer)
+      - [4.2.5.3. Application Layer](#4253-application-layer)
+      - [4.2.5.4. Infrastructure Layer](#4254-infrastructure-layer)
+      - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams](#4255-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams](#4256-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams](#42561-bounded-context-domain-layer-class-diagrams)
+        - [4.2.5.6.2. Bounded Context Database Design Diagram](#42562-bounded-context-database-design-diagram)
 
 - [Conclusiones](#Conclusiones)
 - [Bibliografía](#Bibliografía)
@@ -2821,6 +2830,190 @@ Este diagrama UML modela la emergencia como un agregado gobernado por `FallIncid
 ![Emergency Management - Database Design Diagram](./img/tactical-ddd/emergency/db-emer.svg)
 
 Este ERD define la persistencia MySQL para incidentes, heartbeat del dispositivo y configuracion de alertas. El uso de UUID como clave primaria facilita integracion con datos originados en Edge sin colisiones, mientras los indices priorizan consultas de incidentes activos e historicos recientes. El modelo evita acoplamiento fisico con IAM y mantiene la validacion referencial en capa de aplicacion.
+
+### 4.2.5. Bounded Context: Notifications
+
+---
+
+#### 4.2.5.1. Domain Layer
+
+Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo modela canales, plantillas y registros de envio.
+
+##### Entities
+
+###### `NotificationLog`
+**Proposito:** Aggregate Root que representa el rastro de una notificacion enviada. Es clave para auditoria y trazabilidad operacional.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `NotificationLogId` | private | Identificador unico del registro de envio |
+| `incidentId` | `IncidentId` | private | Referencia al incidente que origino la alerta |
+| `userId` | `UserId` | private | Usuario destinatario de la notificacion |
+| `channel` | `NotificationChannel` | private | Canal usado: `SMS`, `VOICE_CALL`, `PUSH_NOTIFICATION` |
+| `status` | `DeliveryStatus` | private | Estado de entrega: `PENDING`, `SENT`, `FAILED`, `DELIVERED` |
+| `errorMessage` | `string?` | private | Motivo tecnico de fallo cuando el envio no se completa |
+| `sentAt` | `DateTime` | private | Marca de tiempo del intento de envio |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `markAsFailed(reason: string)` | `void` | public | Marca el envio como `FAILED` y registra la razon tecnica |
+| `markAsDelivered()` | `void` | public | Marca el envio como `DELIVERED` cuando el proveedor confirma entrega |
+
+###### `NotificationTemplate`
+**Proposito:** Define plantillas estandarizadas para mantener consistencia de mensajes entre canales.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `NotificationTemplateId` | private | Identificador unico de la plantilla |
+| `type` | `NotificationTemplateType` | private | Tipo de plantilla: `FALL_ALARM`, `LOW_BATTERY` |
+| `bodyTemplate` | `string` | private | Cuerpo parametrizable del mensaje a enviar |
+
+##### Value Objects
+
+###### `NotificationChannel`
+**Proposito:** Enumeracion de canales soportados por el BC de notificaciones.
+
+| Valor | Descripcion |
+|---|---|
+| `SMS` | Mensaje de texto |
+| `VOICE_CALL` | Llamada automatizada de voz |
+| `PUSH_NOTIFICATION` | Notificacion push a app movil |
+
+###### `DeliveryStatus`
+**Proposito:** Enumeracion del estado de entrega de una notificacion.
+
+| Valor | Descripcion |
+|---|---|
+| `PENDING` | Pendiente de procesamiento |
+| `SENT` | Enviada al proveedor externo |
+| `FAILED` | Fallo de envio |
+| `DELIVERED` | Confirmada como entregada |
+
+##### Repository Interfaces
+
+###### `INotificationLogRepository`
+**Proposito:** Abstraccion de persistencia para el historial de notificaciones disparadas por incidentes y eventos operativos.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `save(log: NotificationLog)` | `void` | Persiste un registro nuevo o actualizado |
+| `findByIncidentId(incidentId: IncidentId)` | `List<NotificationLog>` | Retorna logs asociados al incidente |
+| `findFailedByIncidentId(incidentId: IncidentId)` | `List<NotificationLog>` | Retorna solo intentos fallidos para analisis o reintento |
+
+---
+
+#### 4.2.5.2. Interface Layer
+
+Este BC es de consumo interno entre microservicios. Expone endpoints privados para despacho de alertas.
+
+##### `InternalNotificationController`
+**Proposito:** Recibe solicitudes internas de envio y delega de inmediato a la capa de aplicacion.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `POST` | `/internal/notifications/dispatch` | `DispatchAlertCommandHandler` | Solicita despacho de alertas por los canales indicados |
+
+---
+
+#### 4.2.5.3. Application Layer
+
+Orquesta el envio multiplataforma de alertas y la actualizacion del estado de entrega por canal.
+
+##### Command Handlers
+
+###### `DispatchAlertCommandHandler`
+**Proposito:** Coordina el envio de notificaciones a multiples proveedores y consolida trazabilidad por cada canal.
+
+**Command:** `DispatchAlertCommand { incidentId, userId, channels, templateType, payload }`
+
+**Flujo:**
+1. Recibe la lista de canales activos para el usuario.
+2. Para cada canal, crea un `NotificationLog` con estado inicial `PENDING`.
+3. Resuelve la `NotificationTemplate` correspondiente al tipo de alerta.
+4. Invoca de forma asincrona al proveedor de infraestructura de cada canal.
+5. Actualiza cada `NotificationLog` como `SENT`, `DELIVERED` o `FAILED` segun la respuesta del proveedor.
+6. Persiste los resultados via `INotificationLogRepository`.
+
+---
+
+#### 4.2.5.4. Infrastructure Layer
+
+Implementa integraciones concretas con servicios de terceros para SMS, llamadas y push notifications.
+
+##### Provider Implementations
+
+###### `TwilioSmsProvider`
+**Proposito:** Implementacion para envio de SMS de emergencia con contexto del incidente.  
+**Tecnologia:** Twilio REST API.
+
+**Detalle de implementacion:**
+- Construye mensaje final a partir de plantilla y payload (ubicacion, hora, severidad).
+- Ejecuta envio via API de Twilio y captura identificador de mensaje.
+- Retorna resultado para actualizar `NotificationLog`.
+
+###### `TwilioVoiceProvider`
+**Proposito:** Implementacion para llamadas de voz automatizadas en incidentes criticos.  
+**Tecnologia:** Twilio Voice API + texto a voz.
+
+**Detalle de implementacion:**
+- Genera script de voz usando plantilla y variables del incidente.
+- Dispara llamada saliente al telefono configurado del Cuidador.
+- Retorna estado tecnico de llamada para trazabilidad.
+
+###### `FirebasePushProvider`
+**Proposito:** Implementacion para envio de push notifications a la app movil del Cuidador.  
+**Tecnologia:** Firebase Cloud Messaging (FCM).
+
+**Detalle de implementacion:**
+- Construye payload push con datos clave del incidente.
+- Publica mensaje al token/dispositivo registrado en FCM.
+- Devuelve confirmacion o error para auditoria en logs.
+
+##### Persistence Implementations
+
+###### `NotificationLogRepositoryImpl`
+**Proposito:** Implementacion concreta de `INotificationLogRepository`.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL.
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `save(log)` | `DbContext.NotificationLogs.Update(log)` + `SaveChangesAsync()` |
+| `findByIncidentId(incidentId)` | Query por `incident_id` ordenada por `sent_at DESC` |
+| `findFailedByIncidentId(incidentId)` | Query por `incident_id` y `status = FAILED` |
+
+##### Database Configuration
+
+###### `NotificationsDbContext`
+**Proposito:** Configura mappings ORM para logs y plantillas del BC Notifications.
+
+**Tablas gestionadas:**
+
+| Tabla | Entidad mapeada | Constraints destacadas |
+|---|---|---|
+| `notification_logs` | `NotificationLog` | PK `notification_log_id`, indice sobre `incident_id`, indice sobre `status` |
+| `notification_templates` | `NotificationTemplate` | PK `template_id`, indice unico sobre `type` |
+
+---
+
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Notifications - Component Level Diagram](./img/tactical-ddd/noti/component-noti.svg)
+
+Este diagrama muestra al BC Notifications como un gateway interno: recibe una orden de despacho y la distribuye a proveedores externos como Twilio y FCM. La orquestacion asincrona evita bloquear el flujo de emergencia mientras se esperan respuestas de red o telefonia. El objetivo principal es desacoplar el envio multicanal del resto de BCs.
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Notifications - Domain Layer Class Diagram](./img/tactical-ddd/noti/class-noti.svg)
+
+Este diagrama de clases destaca el patron Strategy mediante `INotificationProvider`, permitiendo agregar nuevos canales sin modificar la logica central. La aplicacion solo selecciona estrategia por canal y persiste trazabilidad en `NotificationLog`. Con este enfoque, extender a proveedores futuros (por ejemplo WhatsApp) es un cambio aditivo y de bajo riesgo.
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram
+
+![Notifications - Database Design Diagram](./img/tactical-ddd/noti/db-noti.svg)
+
+Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. El BC conserva evidencia de que una alerta fue despachada (`incidentId`, `userId`, canal y estado), manteniendo independencia de datos respecto a IAM. Asi se garantiza trazabilidad operativa y legal incluso si el perfil del usuario cambia o se elimina en otro contexto.
 
 
 # Conclusiones
