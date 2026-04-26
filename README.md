@@ -72,6 +72,66 @@
     <td>Ariana Agreda</td>
     <td>Creación del reporte.</td>
 </tr>
+<tr>
+    <td>1</td>
+    <td>10/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Desarrollo del Startup Profile y descripción detallada de la Startup.</td>
+</tr>
+<tr>
+    <td>1.1</td>
+    <td>12/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Elaboración del Lean UX Process, Problem Statements y Segmentos objetivo.</td>
+</tr>
+<tr>
+    <td>1.2</td>
+    <td>14/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Investigación de competidores, análisis competitivo y definición de estrategias.</td>
+</tr>
+<tr>
+    <td>1.3</td>
+    <td>16/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Diseño, registro y análisis de entrevistas con adultos mayores y cuidadores.</td>
+</tr>
+<tr>
+    <td>1.4</td>
+    <td>18/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Creación de User Personas, User Journey Mapping y Empathy Mapping.</td>
+</tr>
+<tr>
+    <td>1.5</td>
+    <td>20/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Especificación de User Stories, Impact Mapping y priorización del Product Backlog.</td>
+</tr>
+<tr>
+    <td>1.6</td>
+    <td>22/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Modelado de Big Picture EventStorming y Strategic-Level DDD.</td>
+</tr>
+<tr>
+    <td>1.7</td>
+    <td>23/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Diseño de la Arquitectura de Software.</td>
+</tr>
+<tr>
+    <td>1.8</td>
+    <td>24/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Modelado de Tactical-Level DDD para los Bounded Context</td>
+</tr>
+<tr>
+    <td>1.9</td>
+    <td>25/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Diseño de Base de Datos y diagramas de nivel de código</td>
+</tr>
 </table>
 
 ---
