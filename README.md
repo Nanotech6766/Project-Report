@@ -146,6 +146,10 @@
       - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
         - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
+
+- [Conclusiones](#Conclusiones)
+- [Bibliografía](#Bibliografía)
+- [Anexos](#Anexos)
  
 ---
  
@@ -1734,3 +1738,16 @@ Este diagrama de clases UML ilustra el modelo conceptual y estructural del domin
 
 Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de datos relacional (MySQL) para el Bounded Context IAM. Detalla las tablas principales (`USERS`, `DEVICES` y `CARE_RELATIONSHIPS`), sus columnas y tipos de datos. El diagrama destaca llaves primarias (PK), llaves foraneas (FK) y restricciones de unicidad (UK) que garantizan integridad referencial, reflejando como se almacena la relacion entre usuarios, sus dispositivos hardware asignados y sus vinculos de cuidado.
  
+
+# Conclusiones
+
+
+# Bibliografía
+- Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
+
+- Minsa. (2026, marzo 9). Minsa brinda recomendaciones para prevenir caídas en adultos mayores. Ministerio de Salud del Perú. https://www.gob.pe/institucion/minsa/noticias/1362772-minsa-brinda-recomendaciones-para-prevenir-caidas-en-adultos-mayores
+
+- Superintendencia Nacional de Salud. (2023). Boletín Estadístico 2023. SUSALUD – Gobierno del Perú. https://www.gob.pe/institucion/susalud/informes-publicaciones/4595872-boletin-estadistico-2023
+
+
+# Anexos
