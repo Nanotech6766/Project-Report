@@ -72,6 +72,66 @@
     <td>Ariana Agreda</td>
     <td>Creación del reporte.</td>
 </tr>
+<tr>
+    <td>1</td>
+    <td>10/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Desarrollo del Startup Profile y descripción detallada de la Startup.</td>
+</tr>
+<tr>
+    <td>1.1</td>
+    <td>12/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Elaboración del Lean UX Process, Problem Statements y Segmentos objetivo.</td>
+</tr>
+<tr>
+    <td>1.2</td>
+    <td>14/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Investigación de competidores, análisis competitivo y definición de estrategias.</td>
+</tr>
+<tr>
+    <td>1.3</td>
+    <td>16/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Diseño, registro y análisis de entrevistas con adultos mayores y cuidadores.</td>
+</tr>
+<tr>
+    <td>1.4</td>
+    <td>18/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Creación de User Personas, User Journey Mapping y Empathy Mapping.</td>
+</tr>
+<tr>
+    <td>1.5</td>
+    <td>20/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Especificación de User Stories, Impact Mapping y priorización del Product Backlog.</td>
+</tr>
+<tr>
+    <td>1.6</td>
+    <td>22/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Modelado de Big Picture EventStorming y Strategic-Level DDD.</td>
+</tr>
+<tr>
+    <td>1.7</td>
+    <td>23/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Diseño de la Arquitectura de Software.</td>
+</tr>
+<tr>
+    <td>1.8</td>
+    <td>24/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Modelado de Tactical-Level DDD para los Bounded Context</td>
+</tr>
+<tr>
+    <td>1.9</td>
+    <td>25/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Diseño de Base de Datos y diagramas de nivel de código</td>
+</tr>
 </table>
 
 ---
@@ -734,7 +794,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 0:00 s
 - Fin: 4:23 s
-<img width="500"  alt="image" src="https://github.com/user-attachments/assets/eeb1e233-f5c2-4063-b2c2-4be7f8ddab45" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista1.png" />
 
 <br><br>
 
@@ -747,7 +807,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 4:24 s
 - Fin: 8:08 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/47dcc9b0-aa2e-4d40-afa8-f861c0c4e9a2" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista2.png" />
 
 <br><br>
 
@@ -760,7 +820,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 8:09 s
 - Fin: 15:28 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/1097c478-86a5-4d53-83f5-d07af7d1bf3e" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista3.png" />
 
 <br><br>		
 
@@ -776,7 +836,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 0:00 s
 - Fin: 2:54 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/2613ce70-6900-4bbd-a694-3f34672ab039" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista4.png" />
 
 <br><br>
 
@@ -790,7 +850,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 2:54 s
 - Fin: 5:53 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/81c6020e-bdb5-4bdb-8892-dc6144a62144" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista5.png" />
 
 <br><br>
 
@@ -803,7 +863,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 5:53 s
 - Fin: 9:10 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d71bc62-610c-4f02-981e-503d89e0abc6" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista6.png" />
 
 
  
@@ -833,7 +893,7 @@ Los tres casos confirmaron haber vivido una situación angustiante relacionada c
 Un hallazgo importante es que los adultos mayores tienden a no reportar la caída por su cuenta, ya sea por orgullo, miedo a preocupar o, en casos como el del abuelo con Alzheimer, por incapacidad cognitiva. Esto refuerza directamente la propuesta de valor de un sistema automático que no dependa de la acción del adulto mayor.<br>
 - <strong>Recepción del producto: alta valoración de la automatización</strong><br>
 La característica más valorada fue que el sistema actúa solo, sin que el adulto mayor tenga que hacer nada. Los tres entrevistados reconocieron explícitamente que esto lo diferencia de un botón de pánico tradicional, que pierde utilidad precisamente en los escenarios más graves (caída con pérdida de conciencia, adulto mayor con demencia). Uno de los entrevistados llegó a señalar que los botones de pánico "no tienen sentido cuando hay una caída en la que ya no se puede interactuar", lo que valida directamente el core del producto.<br>
-- <strong>Canal de notificación preferido
+- <strong>Canal de notificación preferido</strong><br>
 Hay consenso en que el canal preferido es la llamada telefónica o la notificación push, no los SMS. La razón es práctica: los jóvenes tienen el celular silenciado con frecuencia, y una llamada vibra de forma prolongada. Las notificaciones push también se consideran efectivas por su visibilidad inmediata. El SMS queda descartado como canal principal.<br>
 - <strong>Privacidad y datos: barrera baja en este segmento</strong><br>
 La preocupación por privacidad fue mínima en los tres casos. Todos indicaron que les parece bien que el dispositivo procese datos localmente, y también mostraron disposición a compartir datos de movimiento de forma anónima para mejorar el modelo. Esto simplifica decisiones de diseño y abre la puerta a estrategias de mejora continua del modelo de detección.<br>
@@ -1771,6 +1831,21 @@ Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de dat
 
 # Conclusiones
 
+1. La validación del problema confirmó que la mayor vulnerabilidad no es la caída en sí, sino el aislamiento posterior; Foll soluciona esto mediante un sistema pasivo que alerta automáticamente sin depender de que el adulto mayor, quien suele estar aturdido o sin el celular a la mano, realice acción alguna.
+
+2. El procesamiento local mediante Edge AI representa el mayor diferencial técnico del proyecto, ya que permite que el algoritmo aprenda de los patrones biomecánicos específicos de cada usuario en su hogar, reduciendo drásticamente las falsas alarmas en comparación con algoritmos estáticos.
+
+3. El diseño del hardware como un cinturón imperceptible bajo la ropa es fundamental para la adopción del producto, ya que elimina el estigma social de "dispositivo médico" y la resistencia psicológica del usuario independiente, a diferencia de los colgantes o botones de pánico tradicionales.
+
+4. La aplicación de Domain-Driven Design permitió alinear la arquitectura de software con el valor del negocio, identificando los contextos de Edge y Emergency como el núcleo estratégico del sistema, asegurando que el desarrollo se concentre en la precisión de la detección y la rapidez de respuesta.
+
+5. El valor fundamental del ecosistema para el segmento de cuidadores es el alivio de la carga emocional y la ansiedad; la plataforma les devuelve la tranquilidad de saber que serán notificados con ubicación exacta e información médica solo cuando ocurra una emergencia real.
+
+6. Foll logra democratizar el acceso a la tecnología de cuidado preventivo en el contexto latinoamericano, ofreciendo una alternativa de bajo costo en hardware y suscripción frente a competidores internacionales cuyos precios y modelos de retención resultan inaccesibles para la mayoría de familias locales.
+
+7. La investigación de campo demostró una alta disposición de los usuarios a compartir datos de movimiento de forma anónima y procesarlos localmente, lo que valida la viabilidad de un modelo de mejora continua donde la inteligencia artificial del dispositivo se vuelve más precisa con el uso diario.
+
+<br>
 
 # Bibliografía
 - Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
