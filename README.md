@@ -1741,6 +1741,21 @@ Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de dat
 
 # Conclusiones
 
+1. La validación del problema confirmó que la mayor vulnerabilidad no es la caída en sí, sino el aislamiento posterior; Foll soluciona esto mediante un sistema pasivo que alerta automáticamente sin depender de que el adulto mayor, quien suele estar aturdido o sin el celular a la mano, realice acción alguna.
+
+2. El procesamiento local mediante Edge AI representa el mayor diferencial técnico del proyecto, ya que permite que el algoritmo aprenda de los patrones biomecánicos específicos de cada usuario en su hogar, reduciendo drásticamente las falsas alarmas en comparación con algoritmos estáticos.
+
+3. El diseño del hardware como un cinturón imperceptible bajo la ropa es fundamental para la adopción del producto, ya que elimina el estigma social de "dispositivo médico" y la resistencia psicológica del usuario independiente, a diferencia de los colgantes o botones de pánico tradicionales.
+
+4. La aplicación de Domain-Driven Design permitió alinear la arquitectura de software con el valor del negocio, identificando los contextos de Edge y Emergency como el núcleo estratégico del sistema, asegurando que el desarrollo se concentre en la precisión de la detección y la rapidez de respuesta.
+
+5. El valor fundamental del ecosistema para el segmento de cuidadores es el alivio de la carga emocional y la ansiedad; la plataforma les devuelve la tranquilidad de saber que serán notificados con ubicación exacta e información médica solo cuando ocurra una emergencia real.
+
+6. Foll logra democratizar el acceso a la tecnología de cuidado preventivo en el contexto latinoamericano, ofreciendo una alternativa de bajo costo en hardware y suscripción frente a competidores internacionales cuyos precios y modelos de retención resultan inaccesibles para la mayoría de familias locales.
+
+7. La investigación de campo demostró una alta disposición de los usuarios a compartir datos de movimiento de forma anónima y procesarlos localmente, lo que valida la viabilidad de un modelo de mejora continua donde la inteligencia artificial del dispositivo se vuelve más precisa con el uso diario.
+
+<br>
 
 # Bibliografía
 - Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
