@@ -1299,8 +1299,6 @@ El resto de contextos serán modelados en las siguientes secciones mediante Boun
  
 #### 4.1.1.2. Domain Message Flows Modeling
 
-### 4.1.1.2 Domain Message Flows Modeling
-
 En esta sección, el equipo presenta los Domain Message Flows, aplicando la técnica de *Domain Storytelling*. El propósito de esta fase es visualizar y documentar la coreografía y orquestación entre los diferentes *Bounded Contexts* identificados previamente, garantizando que colaboren de manera eficiente para resolver los casos de uso más críticos del sistema.
 
 Dado que el valor central del negocio reside en la detección autónoma de caídas y la activación inmediata de protocolos de rescate, los diagramas presentados a continuación ilustran la cadena secuencial de comunicación. Se mapea la interacción desde que los actores interactúan con los sistemas (hardware y software), detallando la dirección de los mensajes y clasificándolos estructuralmente en Comandos (*Commands*), Eventos (*Events*) y Consultas (*Queries*). 
