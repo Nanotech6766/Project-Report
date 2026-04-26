@@ -1298,7 +1298,35 @@ La aplicación de la técnica *Start-with-Value* permitió asegurar que la atenc
 El resto de contextos serán modelados en las siguientes secciones mediante Bounded Context Canvas y Domain Message Flows, garantizando consistencia y claridad en la comunicación entre los microservicios y los componentes embebidos.
  
 #### 4.1.1.2. Domain Message Flows Modeling
+
+En esta sección, el equipo presenta los Domain Message Flows, aplicando la técnica de *Domain Storytelling*. El propósito de esta fase es visualizar y documentar la coreografía y orquestación entre los diferentes *Bounded Contexts* identificados previamente, garantizando que colaboren de manera eficiente para resolver los casos de uso más críticos del sistema.
+
+Dado que el valor central del negocio reside en la detección autónoma de caídas y la activación inmediata de protocolos de rescate, los diagramas presentados a continuación ilustran la cadena secuencial de comunicación. Se mapea la interacción desde que los actores interactúan con los sistemas (hardware y software), detallando la dirección de los mensajes y clasificándolos estructuralmente en Comandos (*Commands*), Eventos (*Events*) y Consultas (*Queries*). 
+
+#### Scenario 1: Detección de anomalía y pre-alarma local
+**Objetivo:** Visualizar el flujo donde el hardware detecta un movimiento brusco, lo envía al procesador local (Edge) para su análisis, y este emite una alerta sonora al usuario para permitir la cancelación en caso de ser una falsa alarma.
+
+![Domain Message Flow - Detección de anomalía y pre-alarma local](img/domain-message-flow/scenario-1-deteccion-pre-alarma.png)
+
+
+#### Scenario 2: Confirmación de caída y recuperación de datos
+**Objetivo:** Ilustrar la comunicación que ocurre cuando el tiempo de advertencia finaliza sin respuesta del usuario. El contexto Edge confirma la caída, escala el evento a la nube (Emergency) y este consulta los datos médicos vitales y la lista de cuidadores (IAM).
+
+![Domain Message Flow - Confirmación de caída y recuperación de datos](img/domain-message-flow/scenario-2-confirmacion-recuperacion.png)
+
+
+#### Scenario 3: Emisión de alerta y respuesta del cuidador
+**Objetivo:** Modelar la distribución de la alerta crítica desde el sistema de emergencias hacia los cuidadores mediante el motor de notificaciones, finalizando con la recepción del aviso en la app móvil y la confirmación de asistencia por parte del cuidador.
+
+![Domain Message Flow - Emisión de alerta y respuesta del cuidador](img/domain-message-flow/scenario-3-emision-respuesta.png)
+
+
+#### Scenario 4: Sincronización del estado de emergencia
+**Objetivo:** Representar el flujo de actualización de estado, donde el sistema avisa al resto de la red de cuidadores que la emergencia ya está siendo atendida, evitando duplicidad de esfuerzos médicos y reduciendo el pánico.
+
+![Domain Message Flow - Sincronización del estado de emergencia](img/domain-message-flow/scenario-4-sincronizacion-estado.png)
  
+
 #### 4.1.1.3. Bounded Context Canvases
  
 ### 4.1.2. Context Mapping
