@@ -72,6 +72,66 @@
     <td>Ariana Agreda</td>
     <td>Creación del reporte.</td>
 </tr>
+<tr>
+    <td>1</td>
+    <td>10/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Desarrollo del Startup Profile y descripción detallada de la Startup.</td>
+</tr>
+<tr>
+    <td>1.1</td>
+    <td>12/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Elaboración del Lean UX Process, Problem Statements y Segmentos objetivo.</td>
+</tr>
+<tr>
+    <td>1.2</td>
+    <td>14/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Investigación de competidores, análisis competitivo y definición de estrategias.</td>
+</tr>
+<tr>
+    <td>1.3</td>
+    <td>16/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Diseño, registro y análisis de entrevistas con adultos mayores y cuidadores.</td>
+</tr>
+<tr>
+    <td>1.4</td>
+    <td>18/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Creación de User Personas, User Journey Mapping y Empathy Mapping.</td>
+</tr>
+<tr>
+    <td>1.5</td>
+    <td>20/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Especificación de User Stories, Impact Mapping y priorización del Product Backlog.</td>
+</tr>
+<tr>
+    <td>1.6</td>
+    <td>22/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Modelado de Big Picture EventStorming y Strategic-Level DDD.</td>
+</tr>
+<tr>
+    <td>1.7</td>
+    <td>23/04/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Diseño de la Arquitectura de Software.</td>
+</tr>
+<tr>
+    <td>1.8</td>
+    <td>24/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Modelado de Tactical-Level DDD para los Bounded Context</td>
+</tr>
+<tr>
+    <td>1.9</td>
+    <td>25/04/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Diseño de Base de Datos y diagramas de nivel de código</td>
+</tr>
 </table>
 
 ---
@@ -79,6 +139,11 @@
 
 # Project Report Collaboration Insights
 ## TB1
+
+<img width="1155" height="577" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
+<img width="1137" height="886" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
+<img width="1151" height="737" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
+
  
 ---
 
@@ -121,6 +186,7 @@
   - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. User Stories](#31-user-stories)
+    - [Epic Stories](#epic-stories)
   - [3.2. Impact Mapping](#32-impact-mapping)
   - [3.3. Product Backlog](#33-product-backlog)
 - [Capítulo IV: Solution Software Design](#capítulo-iv-solution-software-design)
@@ -181,11 +247,61 @@
       - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams](#4256-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams](#42561-bounded-context-domain-layer-class-diagrams)
         - [4.2.5.6.2. Bounded Context Database Design Diagram](#42562-bounded-context-database-design-diagram)
+
+- [Conclusiones](#Conclusiones)
+- [Bibliografía](#Bibliografía)
+- [Anexos](#Anexos)
  
 ---
  
 # Student Outcome
- 
+ <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
+    <thead>
+        <tr style="background-color: #f2f2f2; text-align: left;">
+            <th style="padding: 10px; width: 25%;">Criterio específico</th>
+            <th style="padding: 10px; width: 50%;">Acciones realizadas</th>
+            <th style="padding: 10px; width: 25%;">Conclusiones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 10px;"><strong>Trabaja en equipo para proporcionar liderazgo en forma conjunta</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Durante el desarrollo del proyecto, asumí el liderazgo en la definición y validación del problema. Al encargarme del Lean UX Process y el Needfinding (elaborando los User Personas, Empathy Mapping y Journey Mapping), tomé la iniciativa de guiar al equipo en la comprensión profunda del usuario. Esto permitió sentar bases sólidas para el Startup y Solution Profile, orientando las decisiones del equipo hacia una solución con verdadero valor.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
+            </td>
+        </tr>
+                <tr>
+            <td style="padding: 10px;"><strong>Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.</strong></td>
+            <td style="padding: 10px;">
+                <p><strong>Ariana Agreda</strong><br> <strong>TB1:</strong><br>
+                Para fomentar la colaboración, socialicé activamente los hallazgos del Lean UX Process con todo el equipo. Planifiqué las metas de validación estructurando los Problem y Hypothesis Statements, asegurándome de que todos los miembros comprendieran los antecedentes y la problemática, manteniendo un entorno donde las ideas de todos enriquecieran el diseño de la solución.</p>
+                <p><strong>Fabiola Saldaña</strong><br> <strong>TB1:</strong><br>
+                Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
+                <p><strong>Claudia Belledonne</strong><br> <strong>TB1:</strong><br>
+                Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
+                <p><strong>Mauricio Elera</strong><br> <strong>TB1:</strong><br>
+                Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
+                <p><strong>Diego Vilca</strong><br> <strong>TB1:</strong><br>
+                Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
+            </td>
+            <td style="padding: 10px; vertical-align: top;"> <strong>TB1:</strong><br>
+                Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
+            </td>
+        </tr>
+    </tbody>
+</table>
  
 ---
  
@@ -194,18 +310,87 @@
 ## 1.1. Startup Profile
  
 ### 1.1.1. Descripción de la Startup
+
+Somos un equipo de estudiantes de Ingeniería de Software de la UPC, unidos por la convicción de que la tecnología sólo tiene sentido cuando se pone al servicio de la humanidad. Nos define una profunda pasión por la innovación y un compromiso genuino con el bienestar social. Nuestra startup nace con el propósito de utilizar las herramientas digitales no sólo para optimizar procesos, sino para transformar realidades y proteger lo que más importa: la vida y la tranquilidad de las familias.
+
+Nuestra visión se centra en darle una voz y seguridad a quienes muchas veces quedan olvidados por el ritmo acelerado de la modernidad. Buscamos romper la barrera de la soledad y la vulnerabilidad, transformando la tecnología en un acompañante silencioso pero vigilante. Creemos firmemente que la innovación debe ser inclusiva y empática, permitiendo que las personas de la tercera edad mantengan su independencia mientras sus seres queridos recuperan la paz mental.
+
+Misión
+Desarrollar soluciones tecnológicas accesibles y humanas que garanticen una respuesta inmediata ante emergencias geriátricas, priorizando siempre la dignidad y la autonomía de los adultos mayores.
+
+Visión
+Consolidarnos como la plataforma de cuidado preventivo más confiable de la región, siendo reconocidos por nuestra capacidad de conectar a las personas a través de la innovación y el compromiso social.
+
  
 ### 1.1.2. Perfiles de integrantes del equipo
+
 
 <table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
   <tr>
     <td style="width: 150px; text-align: center;">
-      <img src="img/profile-photos/"  width="520"></img>
+      <img src="img/profile-photos/ariana.png"  width="520"></img>
     </td>
       <td>
-          <p align="center"><strong>NOMBRE - CODE ALUMNO</strong></p>
+          <p align="center"><strong>Ariana Agreda - u202315044</strong></p>
           <p align="justify">
-            DESCRIPCION
+            Mi nombre es Ariana Agreda, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona creativa, responsable y comprometida con cada tarea. Por ello, estoy dispuesta a dedicar un gran esfuerzo y apoyo para que logremos los mejores resultados para el proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/claudia.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Claudia Belledonne - u202210259</strong></p>
+          <p align="justify">
+            Mi nombre es Claudia Belledonne, tengo 21 años y me encuentro en mi cuarto año de Ingeniería de Software en la UPC.
+            En general, soy alguien creativa, responsable, dedicada y manejo bien el hacer muchas tareas a la vez.
+            Para este trabajo, me comprometo a brindar mi máximo esfuerzo y dedicación.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/mauricio.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Mauricio Elera - u202313702</strong></p>
+          <p align="justify">
+            Mi nombre es Mauricio Elera, tengo 19 años y soy estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me considero una persona proactiva, organizada y con muchas ganas de aprender. Estoy comprometido con el trabajo en equipo y dispuesto a aportar todo lo necesario para que nuestro proyecto sea exitoso.
+          </p>
+    </td>
+  </tr>
+</table>
+
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/diego.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Diego Vilca - u20231a778</strong></p>
+          <p align="justify">
+             Estudio la carrera de Ingeniería de Software, tengo 20 años y actualmente me encuentro cursando el 7mo ciclo de dicha carrera. Tengo conocimientos en C++, C#, Python, Java, HTML, CSS, JavaScript y Vue. Me considero una persona con responsabilidad, optimismo y honestidad, cualidades que considero fundamentales para una colaboración efectiva en equipo y un buen desarrollo en este proyecto.
+          </p>
+    </td>
+  </tr>
+</table>
+<table align="center" border="1" cellspacing="0" cellpadding="8" style="width: 90%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 150px; text-align: center;">
+      <img src="img/profile-photos/fabiola.png"  width="520"></img>
+    </td>
+      <td>
+          <p align="center"><strong>Fabiola Saldaña - u202313773</strong></p>
+          <p align="justify">
+             Mi nombre es Fabiola Saldaña, tengo 20 años y actualmente curso el 7mo ciclo de la carrera de Ingeniería de Software. En lo personal busco aprender constantemente y me considero alguien responsable, proactiva y dedicada con mis trabajos. Es por ello que me comprometo apoyar al equipo con mis habilidades y conocimientos para alcanzar los mejores resultados.
           </p>
     </td>
   </tr>
@@ -614,11 +799,149 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 ## 2.2. Entrevistas
  
 ### 2.2.1. Diseño de entrevistas
+
+<strong>Segmento objetivo 1: Adultos mayores</strong><br>
+- ¿Alguna vez ha tenido un tropiezo o una caída estando solo en casa o fuera de ella? Si la respuesta es sí: ¿Qué ocurrió exactamente y qué fue lo más difícil de ese momento?
+- ¿Hay actividades que evita realizar cuando está solo por miedo a resbalar o caer?
+- En caso de ocurrirle un accidente como caerse, ¿Tiene forma de contactarse con sus familiares o pedir ayuda?
+- Si tuviera que usar un sensor pequeño todos los días por su seguridad, ¿en qué parte del cuerpo le resultaría más cómodo y fácil de olvidar que lo lleva puesto?
+- Entre las siguientes opciones, ¿cuál prefiere?: ¿En el cinturón o la cintura, como un collar, como una pulsera, o fijado a la pierna?
+- ¿Hay algún tipo de accesorio que definitivamente rechazaría usar porque le resulta incómodo para dormir, para sentarse, o para alguna otra actividad?
+- ¿Se sentiría cómodo usando este dispositivo sabiendo que no lo está grabando ni vigilando, sino que procesa sus movimientos de forma privada y solo avisa a su familia o persona responsable si ocurre una emergencia real? 
+<br><br>
+
+<strong>Segmento objetivo 2 : Cuidadores de adultos mayores</strong><br>
+
+- ¿Cuál es su relación con el adulto mayor y cuántas horas al día suele pasar esta persona sin supervisión presencial?
+- ¿Alguna vez han vivido la situación angustiante en la que su familiar sufre una caída estando solo y nadie se entera de inmediato?
+- Si la respuesta es sí: ¿Cuánto tiempo pasó hasta que se dieron cuenta o recibieron ayuda, y cómo impactó ese evento en la confianza de ambos al estar solos en casa?
+- Sabiendo que este dispositivo detecta caídas automáticamente y alerta en tiempo real, ¿por qué medio preferiría recibir esa notificación para reaccionar lo más rápido posible (por ejemplo, un SMS inmediato, una llamada automática o una notificación en una aplicación)?
+- A diferencia de los "botones de pánico" tradicionales, este sistema actúa solo sin que el adulto mayor deba hacer nada si se encuentra aturdido. ¿Qué tanto valor (del 1 al 10) le ve a esta automatización para su tranquilidad mental diaria?
+- El monitoreo constante puede generar preocupación por la privacidad. ¿Le da tranquilidad saber que el dispositivo procesa los datos localmente, evitando enviar información personal a través de redes inseguras?
+- En un futuro, ¿estaría dispuesto a permitir que los datos de movimiento se usen de forma completamente anónima para entrenar y mejorar la precisión de la inteligencia artificial del dispositivo?
+
+<br>
  
 ### 2.2.2. Registro de entrevistas
+
+<strong> Segmento objetivo 1: Adultos mayores</strong><br>
+
+<strong>Entrevista #1</strong><br>
+- Nombre completo: Domingo Valverde
+- Edad: 84 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 0:00 s
+- Fin: 4:23 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista1.png" />
+
+<br><br>
+
+<strong>Entrevista #2</strong><br>
+- Nombre completo: Juan Valverde
+- Edad: 62 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo/Medio
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 4:24 s
+- Fin: 8:08 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista2.png" />
+
+<br><br>
+
+<strong>Entrevista #3</strong><br>
+- Nombre completo: Máximo Torres
+- Edad: 87 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Bajo
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Inicio: 8:09 s
+- Fin: 15:28 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista3.png" />
+
+<br><br>		
+
+
+
+<strong>Segmento objetivo 2: Cuidadores de adultos mayores, familiares y personal de salud</strong><br>
+<strong>Entrevista #1</strong><br>
+- Nombre completo: Gabriel Zabala
+- Edad: 27 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 0:00 s
+- Fin: 2:54 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista4.png" />
+
+<br><br>
+
+
+<strong>Entrevista #2</strong><br>
+- Nombre completo: Santiago Baldeón
+- Edad: 19 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 2:54 s
+- Fin: 5:53 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista5.png" />
+
+<br><br>
+
+<strong>Entrevista #3</strong><br>
+- Nombre completo: Sergio Iglesias
+- Edad: 20 años
+- Relación con el adulto mayor: Familiar
+- Ubicación: Lima Metropolitana
+- Nivel tecnológico: Medio/Alto
+- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- Inicio: 5:53 s
+- Fin: 9:10 s
+<img width="500"  alt="image" src="img/entrevistas/entrevista6.png" />
+
+
  
 ### 2.2.3. Análisis de entrevistas
- 
+
+<strong>Segmento objetivo 1: Adultos mayores</strong><br>
+- <strong>Contexto y perfil</strong><br>
+Los tres entrevistados tienen entre 62 y 87 años y viven en condiciones de relativa independencia, aunque con momentos de soledad en casa o en la calle. Ninguno reportó una caída grave dentro del hogar, pero sí experiencias de tropiezos en exterior, y en un caso un accidente de moto con pérdida de conocimiento. Esto es relevante: el riesgo percibido no siempre coincide con el riesgo real, y los adultos mayores tienden a minimizar su vulnerabilidad. <br>
+- <strong>Conciencia del riesgo: presente pero subestimada</strong><br>
+Los tres reconocen cierto nivel de riesgo, aunque lo expresan con matices. Uno de ellos evita actividades físicas cuando está solo por miedo a caerse. Otro es más confiado en su condición física pese a sus 87 años. El tercero, con 62 años, admite que algunas tareas no pueden hacerse solo. En todos los casos existe una tensión entre el deseo de independencia y la conciencia de que algo podría pasar sin que nadie se enterase. Este es el punto emocional más importante del segmento: no es el miedo a caerse, sino el miedo a quedarse solo sin poder pedir ayuda.<br>
+- <strong>Capacidad de pedir ayuda: el verdadero problema</strong><br>
+Cuando se les preguntó si podrían contactar a alguien en caso de accidente, las respuestas revelaron una limitación real: el celular no siempre está al alcance de la mano. Uno mencionó explícitamente que "a veces no lo tiene a mano". Otro dependió de una desconocida en la calle para levantarse, y de vecinos para avisar a su familia. Esto valida directamente que un sistema pasivo, que no requiere que el adulto mayor haga nada, es más adecuado que cualquier botón o llamada manual.<br>
+- <strong>Forma del dispositivo: pulsera como clara preferencia</strong><br>
+Los tres señalaron la muñeca como la zona más cómoda para llevar el sensor, asociándolo naturalmente con un reloj o pulsera. El cinturón/cintura fue mencionado como segunda opción. El collar fue rechazado de forma unánime por incomodidad, especialmente para dormir. Este dato es directo y accionable para el diseño físico del dispositivo.<br>
+<strong>Privacidad: sin barreras</strong><br>
+Al igual que en el segmento de cuidadores, la privacidad no genera rechazo. Los tres aceptaron bien el concepto de un dispositivo que procesa datos localmente y solo alerta en emergencias reales. Uno de ellos incluso lo vinculó con valores comunitarios: la tecnología como extensión de la red de apoyo entre vecinos y familia.<br>
+- <strong>Receptividad general: alta, pero con perfil de usuario que necesita simplicidad</strong><br>
+La propuesta fue bien recibida por los tres. No hubo objeciones al concepto. Sin embargo, este segmento tiene menor familiaridad tecnológica, lo que implica que el onboarding y la configuración del dispositivo deben ser manejados por el cuidador o familiar, no por el adulto mayor. El adulto mayor solo necesita ponérselo, nada más.
+
+<br><br>
+
+<strong>Segmento objetivo 2: Cuidadores de adultos mayores, familiares y personal de salud:</strong><br>
+- <strong>Contexto y perfil del segmento</strong><br>
+Los tres entrevistados son jóvenes adultos (19–27 años) que cuidan a adultos mayores de la familia, principalmente abuelos. El tiempo que pasa el adulto mayor sin supervisión varía bastante: desde 2 horas hasta 6–8 horas diarias, lo que refleja distintos niveles de exposición al riesgo y distintas urgencias en cada hogar.<br>
+- <strong>Problema validado: la caída como evento crítico no detectado</strong><br>
+Los tres casos confirmaron haber vivido una situación angustiante relacionada con caídas. En todos los casos el patrón fue el mismo: la caída ocurrió estando el adulto mayor solo, y el cuidador se enteró tarde, ya sea al volver a casa o por intervención de un tercero. Los tiempos sin atención variaron entre 10 minutos y 6 horas. Este punto es clave: no es el miedo abstracto a una caída lo que motiva al segmento, sino la experiencia directa de haberla vivido y no haber podido actuar a tiempo.<br>
+Un hallazgo importante es que los adultos mayores tienden a no reportar la caída por su cuenta, ya sea por orgullo, miedo a preocupar o, en casos como el del abuelo con Alzheimer, por incapacidad cognitiva. Esto refuerza directamente la propuesta de valor de un sistema automático que no dependa de la acción del adulto mayor.<br>
+- <strong>Recepción del producto: alta valoración de la automatización</strong><br>
+La característica más valorada fue que el sistema actúa solo, sin que el adulto mayor tenga que hacer nada. Los tres entrevistados reconocieron explícitamente que esto lo diferencia de un botón de pánico tradicional, que pierde utilidad precisamente en los escenarios más graves (caída con pérdida de conciencia, adulto mayor con demencia). Uno de los entrevistados llegó a señalar que los botones de pánico "no tienen sentido cuando hay una caída en la que ya no se puede interactuar", lo que valida directamente el core del producto.<br>
+- <strong>Canal de notificación preferido</strong><br>
+Hay consenso en que el canal preferido es la llamada telefónica o la notificación push, no los SMS. La razón es práctica: los jóvenes tienen el celular silenciado con frecuencia, y una llamada vibra de forma prolongada. Las notificaciones push también se consideran efectivas por su visibilidad inmediata. El SMS queda descartado como canal principal.<br>
+- <strong>Privacidad y datos: barrera baja en este segmento</strong><br>
+La preocupación por privacidad fue mínima en los tres casos. Todos indicaron que les parece bien que el dispositivo procese datos localmente, y también mostraron disposición a compartir datos de movimiento de forma anónima para mejorar el modelo. Esto simplifica decisiones de diseño y abre la puerta a estrategias de mejora continua del modelo de detección.<br>
+- <strong>Feedback de producto: falsos positivos como punto de fricción</strong><br>
+Un entrevistado señaló algo valioso: la necesidad de un mecanismo para descartar falsas alarmas, por ejemplo cuando el adulto mayor hace un movimiento brusco que no es una caída. Sugirió algo como un botón de "no pasa nada" en el dispositivo o en la app. Esto es un insight de UX relevante que debería considerarse en el diseño de la experiencia de alerta.
+
+
 ## 2.3. Needfinding
  
 ### 2.3.1. User Personas
@@ -793,11 +1116,14 @@ En esta sección, se detalla los requisitos funcionales del ecosistema "Foll" es
 | US08 | Adición de contactos secundarios | **Como** cuidador,<br>**quiero** guardar contactos telefónicos de otros familiares,<br>**para** asegurar el auxilio en caso yo esté ausente. | **Scenario 1:** Adición exitosa.<br>**Given** que el cuidador ingresa un número telefónico válido,<br>**When** el cuidador guarda el contacto,<br>**Then** el sistema añade el número a la lista de llamadas automáticas.<br><br>**Scenario 2:** Límite de contactos.<br>**Given** que el perfil posee el máximo de 5 contactos,<br>**When** el cuidador intenta agregar uno nuevo,<br>**Then** el sistema deniega la acción. | EPIC02 |
 | US09 | Permiso de monitoreo | **Como** adulto mayor,<br>**quiero** aceptar la solicitud de vinculación de un cuidador,<br>**para** otorgar permiso de que reciba mis alertas. | **Scenario 1:** Aceptación de solicitud.<br>**Given** que el adulto mayor posee una invitación pendiente,<br>**When** el adulto mayor confirma la autorización,<br>**Then** el sistema vincula ambas cuentas.<br><br>**Scenario 2:** Rechazo de solicitud.<br>**Given** que el adulto mayor recibe una invitación,<br>**When** el adulto mayor la rechaza,<br>**Then** el sistema elimina la solicitud. | EPIC02 |
 | US10 | Vinculación del cinturón | **Como** adulto mayor,<br>**quiero** registrar el código serial del cinturón en mi cuenta,<br>**para** que el sistema asocie el hardware conmigo. | **Scenario 1:** Emparejamiento exitoso.<br>**Given** que el adulto mayor ingresa un serial válido,<br>**When** el adulto mayor solicita la vinculación,<br>**Then** el sistema asocia el hardware a su perfil.<br><br>**Scenario 2:** Dispositivo en uso.<br>**Given** que el serial pertenece a otro paciente,<br>**When** el adulto mayor intenta vincularlo,<br>**Then** el sistema rechaza la operación. | EPIC02 |
+| US21 | Generación de QR de perfil | **Como** usuario registrado del ecosistema,<br>**quiero** seleccionar el perfil de un adulto mayor y mostrar un código QR,<br>**para** permitir que otros cuidadores se vinculen rápidamente de forma presencial. | **Scenario 1:** Visualización del QR.<br>**Given** que el usuario selecciona un adulto mayor de su lista,<br>**When** el usuario selecciona la opción "Mostrar QR",<br>**Then** el sistema renderiza en pantalla un código QR único asociado a ese perfil.<br><br>**Scenario 2:** Cierre de vista QR.<br>**Given** que el código QR está en pantalla,<br>**When** el usuario selecciona la acción de cerrar o regresar,<br>**Then** el sistema oculta el QR y vuelve a la vista de detalles. | EPIC02 |
+| US22 | Vinculación de paciente vía QR | **Como** cuidador,<br>**quiero** utilizar la opción de "agregar adulto mayor" para escanear un código QR,<br>**para** vincular rápidamente a un paciente que ya se encuentra registrado en el sistema. | **Scenario 1:** Escaneo exitoso.<br>**Given** que el cuidador abre el escáner desde la opción "Agregar adulto mayor",<br>**When** la cámara lee un código QR válido del sistema,<br>**Then** el sistema vincula al adulto mayor a su lista de monitoreo.<br><br>**Scenario 2:** Código inválido.<br>**Given** que el cuidador escanea un QR ajeno al ecosistema,<br>**When** el sistema procesa la lectura,<br>**Then** el sistema muestra un mensaje de error y permite reintentar. | EPIC02 |
 | TS01 | Captura y envío de telemetría | **Como** Developer,<br>**quiero** desarrollar el firmware del cinturón IoT,<br>**para** que lea los datos del sensor y los transmita al Edge Gateway. | **Scenario 1:** Transmisión estable.<br>**Given** que el dispositivo tiene conexión local,<br>**When** el sensor captura movimiento,<br>**Then** el firmware envía el paquete al servidor Edge.<br><br>**Scenario 2:** Almacenamiento temporal.<br>**Given** que el dispositivo pierde conexión,<br>**When** el sensor captura datos,<br>**Then** el firmware almacena la lectura en memoria interna. | EPIC03 |
 | TS02 | Detección Edge AI | **Como** Developer,<br>**quiero** implementar el algoritmo matemático/IA en el servidor Edge,<br>**para** determinar si los datos corresponden a una caída real. | **Scenario 1:** Detección positiva.<br>**Given** que el Edge recibe datos que superan el umbral de impacto,<br>**When** el algoritmo evalúa la magnitud,<br>**Then** el sistema clasifica el evento como "Posible Caída" y activa el actuador local.<br><br>**Scenario 2:** Filtrado de ruido.<br>**Given** que el Edge recibe fluctuaciones por caminata,<br>**When** el algoritmo evalúa los datos,<br>**Then** el sistema ignora el evento. | EPIC03 |
 | TS03 | Endpoint de persistencia | **Como** Developer,<br>**quiero** exponer un endpoint RESTful seguro en la nube,<br>**para** guardar los incidentes confirmados por el Edge. | **Scenario 1:** Persistencia exitosa (HTTP 201).<br>**Given** que el endpoint recibe un payload válido,<br>**When** el sistema procesa la petición,<br>**Then** el sistema guarda el registro y retorna HTTP 201.<br><br>**Scenario 2:** Falla de seguridad (HTTP 401).<br>**Given** que el request carece del token de autorización,<br>**When** el sistema evalúa la petición,<br>**Then** el sistema retorna HTTP 401 Unauthorized. | EPIC03 |
 | TS04 | Monitoreo de batería | **Como** Developer,<br>**quiero** desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware,<br>**para** alertar sobre niveles críticos de energía. | **Scenario 1:** Detección de nivel crítico.<br>**Given** que el servicio recibe un valor de voltaje inferior al 15%,<br>**When** el sistema actualiza el estado,<br>**Then** el sistema dispara un evento de "Batería Baja" hacia los cuidadores vinculados.<br><br>**Scenario 2:** Restablecimiento de carga.<br>**Given** que el cinturón es conectado a la corriente y supera el 20% de batería,<br>**When** el servicio recibe la actualización de voltaje,<br>**Then** el sistema limpia la alerta de "Batería Baja" en la aplicación de los cuidadores. | EPIC03 |
-| US11 | Cancelación física de alerta | **Como** adulto mayor,<br>**quiero** presionar el botón del cinturón en caso no sea una caída,<br>**para** cancelar el falso positivo. | **Scenario 1:** Cancelación a tiempo.<br>**Given** que el cinturón activa la advertencia de vibración,<br>**When** el usuario presiona el botón dentro de 10 segundos,<br>**Then** el sistema desactiva la alerta y registra un falso positivo.<br><br>**Scenario 2:** Expiración de tiempo.<br>**Given** que el cinturón activa la advertencia,<br>**When** transcurren 10 segundos sin acción,<br>**Then** el sistema escala la alerta a "Caída Confirmada". | EPIC04 |
+| TS05 | Pre-procesamiento de movimiento (Sistema Embebido) | **Como** Developer,<br>**quiero** capturar y evaluar los patrones de movimiento directamente en el sistema embebido,<br>**para** procesar los datos de los sensores y empaquetarlos limpiamente antes de enviarlos a la capa Edge. | **Scenario 1:** Evaluación y empaquetado.<br>**Given** que los sensores generan datos de movimiento en bruto,<br>**When** el microcontrolador (sistema embebido) evalúa el patrón,<br>**Then** el sistema filtra y empaqueta los datos procesados.<br><br>**Scenario 2:** Transmisión a capa Edge.<br>**Given** que los datos han sido procesados localmente,<br>**When** el ciclo de evaluación termina,<br>**Then** el sistema embebido envía la carga útil optimizada a la capa Edge. | EPIC03 |
+| US11 | Protocolo de verificación de alerta local | **Como** adulto mayor,<br>**quiero** que el cinturón active una alarma sonora tras detectar una caída y me permita presionar un botón,<br>**para** cancelar el falso positivo antes de que se alerte a mis cuidadores. | **Scenario 1:** Cancelación de falsa alarma.<br>**Given** que el dispositivo detecta un impacto y activa la alarma sonora por 10 segundos,<br>**When** el usuario presiona el botón físico dentro de ese tiempo,<br>**Then** el sistema desactiva la alarma, registra un falso positivo y no notifica.<br><br>**Scenario 2:** Confirmación y notificación.<br>**Given** que el dispositivo activa la alarma sonora,<br>**When** transcurren 10 segundos sin que el botón sea presionado,<br>**Then** el sistema escala el evento confirmando la caída y avisa a los cuidadores. | EPIC04 |
 | US12 | Recepción de alerta remota | **Como** cuidador,<br>**quiero** recibir una notificación en tiempo real con la ubicación GPS,<br>**para** reaccionar de inmediato ante la caída. | **Scenario 1:** Emisión Push.<br>**Given** que ocurre una "Caída Confirmada",<br>**When** el sistema procesa la emergencia,<br>**Then** el sistema envía una notificación Push con coordenadas al cuidador.<br><br>**Scenario 2:** Dispositivo offline.<br>**Given** que el envío Push falla por falta de internet del cuidador,<br>**When** el sistema agota intentos,<br>**Then** el sistema envía la alerta vía SMS. | EPIC04 |
 | US13 | Confirmación de auxilio | **Como** cuidador,<br>**quiero** informar en la app que estoy en camino a la emergencia,<br>**para** coordinar esfuerzos con el resto de familiares. | **Scenario 1:** Aceptación de incidente.<br>**Given** que existe una alerta activa,<br>**When** el cuidador selecciona la acción de asistir,<br>**Then** el sistema cambia el estado a "Ayuda en camino".<br><br>**Scenario 2:** Bloqueo de duplicidad.<br>**Given** que un cuidador asume el control,<br>**When** el sistema actualiza el estado,<br>**Then** el sistema oculta la opción de asistir a los demás cuidadores. | EPIC04 |
 | US14 | Escalamiento telefónico | **Como** adulto mayor,<br>**quiero** que llamen automáticamente a mis contactos secundarios,<br>**para** que me auxilien si mi cuidador no responde. | **Scenario 1:** Cuidador inactivo.<br>**Given** que una alerta permanece sin respuesta por 3 minutos,<br>**When** el sistema detecta la inactividad,<br>**Then** el sistema inicia una llamada automatizada a los contactos secundarios.<br><br>**Scenario 2:** Lista de contactos vacía.<br>**Given** que la alerta requiere escalamiento pero el perfil no tiene contactos secundarios registrados,<br>**When** el sistema intenta realizar las llamadas automatizadas,<br>**Then** el sistema salta este paso y procede directamente al siguiente nivel de emergencia. | EPIC04 |
@@ -831,22 +1157,25 @@ La priorización se ha realizado considerando el valor que cada ítem aporta al 
 | 6 | US06 | Creación de perfil de paciente | Como cuidador, quiero registrar un perfil para el adulto mayor a mi cargo, para gestionar su información médica. | 3 |
 | 7 | US09 | Permiso de monitoreo | Como adulto mayor, quiero aceptar la solicitud de vinculación de un cuidador, para otorgar permiso de que reciba mis alertas. | 2 |
 | 8 | US10 | Vinculación del cinturón | Como adulto mayor, quiero registrar el código serial del cinturón en mi cuenta, para que el sistema asocie el hardware conmigo. | 5 |
-| 9 | TS01 | Captura y envío de telemetría | Como Developer, quiero desarrollar el firmware del cinturón IoT, para que lea los datos del sensor y los transmita al Edge Gateway. | 8 |
-| 10 | TS02 | Detección Edge AI | Como Developer, quiero implementar el algoritmo matemático/IA en el servidor Edge, para determinar si los datos corresponden a una caída real. | 8 |
-| 11 | TS03 | Endpoint de persistencia | Como Developer, quiero exponer un endpoint RESTful seguro en la nube, para guardar los incidentes confirmados por el Edge. | 5 |
-| 12 | US12 | Recepción de alerta remota | Como cuidador, quiero recibir una notificación en tiempo real con la ubicación GPS, para reaccionar de inmediato ante la caída. | 5 |
-| 13 | US11 | Cancelación física de alerta | Como adulto mayor, quiero presionar el botón del cinturón en caso no sea una caída, para cancelar el falso positivo. | 3 |
-| 14 | US13 | Confirmación de auxilio | Como cuidador, quiero informar en la app que estoy en camino a la emergencia, para coordinar esfuerzos con el resto de familiares. | 3 |
-| 15 | US16 | Visualización médica en emergencia | Como paramédico o cuidador, quiero ver las alergias y tipo de sangre directamente en la pantalla de la alerta, para aplicar el tratamiento médico correcto de inmediato. | 2 |
-| 16 | TS04 | Monitoreo de batería | Como Developer, quiero desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware, para alertar sobre niveles críticos de energía. | 3 |
-| 17 | US08 | Adición de contactos secundarios | Como cuidador, quiero guardar contactos telefónicos de otros familiares, para asegurar el auxilio en caso yo esté ausente. | 2 |
-| 18 | US14 | Escalamiento telefónico | Como adulto mayor, quiero que llamen automáticamente a mis contactos secundarios, para que me auxilien si mi cuidador no responde. | 8 |
-| 19 | US15 | Solicitud de ambulancia | Como adulto mayor, quiero que el sistema solicite una ambulancia si nadie contesta, para asegurar mi integridad. | 5 |
-| 20 | US07 | Actualización de datos médicos | Como cuidador, quiero editar el tipo de sangre y las alergias del adulto mayor, para mantener su historial clínico actualizado ante cualquier emergencia. | 2 |
-| 21 | US17 | Consulta de historial | Como cuidador, quiero consultar una lista de las caídas pasadas, para identificar frecuencias de riesgo. | 3 |
-| 22 | US18 | Filtro de falsos positivos | Como cuidador, quiero filtrar las alertas canceladas por el paciente, para evaluar si está sufriendo de mareos o inestabilidad leves. | 2 |
-| 23 | US19 | Visualización de estadísticas | Como cuidador, quiero ver un gráfico mensual de incidentes, para comprender la tendencia de la salud del adulto mayor. | 5 |
-| 24 | US20 | Exportación de reporte clínico | Como cuidador, quiero descargar el historial de caídas en formato PDF, para enviárselo directamente al médico tratante antes de la cita. | 5 |
+| 9 | US21 | Generación de QR de perfil | Como usuario registrado del ecosistema, quiero seleccionar el perfil de un adulto mayor y mostrar un código QR, para permitir que otros cuidadores se vinculen rápidamente de forma presencial. | 3 |
+| 10 | US22 | Vinculación de paciente vía QR | Como cuidador, quiero utilizar la opción de "agregar adulto mayor" para escanear un código QR, para vincular rápidamente a un paciente que ya se encuentra registrado en el sistema. | 5 |
+| 11 | TS01 | Captura y envío de telemetría | Como Developer, quiero desarrollar el firmware del cinturón IoT, para que lea los datos del sensor y los transmita al Edge Gateway. | 8 |
+| 12 | TS05 | Pre-procesamiento de movimiento (Sistema Embebido) | Como Developer, quiero capturar y evaluar los patrones de movimiento directamente en el sistema embebido, para procesar los datos de los sensores y empaquetarlos limpiamente antes de enviarlos a la capa Edge. | 8 |
+| 13 | TS02 | Detección Edge AI | Como Developer, quiero implementar el algoritmo matemático/IA en el servidor Edge, para determinar si los datos corresponden a una caída real. | 8 |
+| 14 | TS03 | Endpoint de persistencia | Como Developer, quiero exponer un endpoint RESTful seguro en la nube, para guardar los incidentes confirmados por el Edge. | 5 |
+| 15 | US12 | Recepción de alerta remota | Como cuidador, quiero recibir una notificación en tiempo real con la ubicación GPS, para reaccionar de inmediato ante la caída. | 5 |
+| 16 | US11 | Protocolo de verificación de alerta local | Como adulto mayor, quiero que el cinturón active una alarma sonora tras detectar una caída y me permita presionar un botón, para cancelar el falso positivo antes de que se alerte a mis cuidadores. | 5 |
+| 17 | US13 | Confirmación de auxilio | Como cuidador, quiero informar en la app que estoy en camino a la emergencia, para coordinar esfuerzos con el resto de familiares. | 3 |
+| 18 | US16 | Visualización médica en emergencia | Como paramédico o cuidador, quiero ver las alergias y tipo de sangre directamente en la pantalla de la alerta, para aplicar el tratamiento médico correcto de inmediato. | 2 |
+| 19 | TS04 | Monitoreo de batería | Como Developer, quiero desarrollar un servicio que evalúe el nivel de voltaje enviado por el hardware, para alertar sobre niveles críticos de energía. | 3 |
+| 20 | US08 | Adición de contactos secundarios | Como cuidador, quiero guardar contactos telefónicos de otros familiares, para asegurar el auxilio en caso yo esté ausente. | 2 |
+| 21 | US14 | Escalamiento telefónico | Como adulto mayor, quiero que llamen automáticamente a mis contactos secundarios, para que me auxilien si mi cuidador no responde. | 8 |
+| 22 | US15 | Solicitud de ambulancia | Como adulto mayor, quiero que el sistema solicite una ambulancia si nadie contesta, para asegurar mi integridad. | 5 |
+| 23 | US07 | Actualización de datos médicos | Como cuidador, quiero editar el tipo de sangre y las alergias del adulto mayor, para mantener su historial clínico actualizado ante cualquier emergencia. | 2 |
+| 24 | US17 | Consulta de historial | Como cuidador, quiero consultar una lista de las caídas pasadas, para identificar frecuencias de riesgo. | 3 |
+| 25 | US18 | Filtro de falsos positivos | Como cuidador, quiero filtrar las alertas canceladas por el paciente, para evaluar si está sufriendo de mareos o inestabilidad leves. | 2 |
+| 26 | US19 | Visualización de estadísticas | Como cuidador, quiero ver un gráfico mensual de incidentes, para comprender la tendencia de la salud del adulto mayor. | 5 |
+| 27 | US20 | Exportación de reporte clínico | Como cuidador, quiero descargar el historial de caídas en formato PDF, para enviárselo directamente al médico tratante antes de la cita. | 5 |
 
 A continuación se muestra el enlace al tablero de Trello donde se gestiona el Product Backlog, junto con una captura de pantalla representativa:
 
@@ -863,7 +1192,79 @@ https://trello.com/b/0wcO99Dl/foll-product-backlog
 En esta sección se desarrolla la parte estratégica de Domain-Driven Design. El propósito fundamental es traducir la complejidad del entorno de hardware IoT y la gestión de emergencias en límites arquitectónicos claros que reflejen el verdadero valor del negocio: la salvaguarda de la vida y la respuesta oportuna. Para lograr esta alineación, se detalla el proceso de descubrimiento y modelado de Bounded Contexts a partir del Design-Level EventStorming, la orquestación de sus interacciones mediante Context Mapping, y la consolidación de estas decisiones en una arquitectura de software integral y escalable documentada bajo el estándar C4.
  
 ### 4.1.1. Design-Level EventStorming
- 
+
+En esta sección de Design-Level EventStorming planteamos una versión revisada y mejorada del modelado general del dominio. El propósito es llegar al mayor nivel de detalle posible, explicando la secuencia de eventos de Foll en componentes de software para así tener un mayor entendimiento de las funcionalidades y flujos que tendrá el proyecto. 
+
+<img src="img/eventstorming/0.png" alt="Event Storming" width="700"/>
+
+**Paso 1：Exploración desestructurada**
+<img src="img/eventstorming/1.png" alt="Event Storming" width="700"/>
+
+**Paso 2：Línea de tiempo**
+<img src="img/eventstorming/2.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/2.2.png" alt="Event Storming" width="700"/>
+
+**Paso 3：Puntos de dolor**
+<img src="img/eventstorming/3.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/3.2.png" alt="Event Storming" width="700"/>
+
+**Paso 4：Puntos clave**
+<img src="img/eventstorming/4.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/4.2.png" alt="Event Storming" width="700"/>
+
+**Paso 5：Comandos**
+
+<img src="img/eventstorming/5.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/5.2.png" alt="Event Storming" width="700"/>
+
+**Paso 6：Políticas**
+
+<img src="img/eventstorming/6.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/6.2.png" alt="Event Storming" width="700"/>
+
+**Paso 7：Modelos de lectura**
+
+<img src="img/eventstorming/7.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/7.2.png" alt="Event Storming" width="700"/>
+
+**Paso 8：Sistemas externos**
+
+<img src="img/eventstorming/8.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/8.2.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/8.3.png" alt="Event Storming" width="700"/>
+
+**Paso 9：Agregados**
+
+<img src="img/eventstorming/9.1.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/9.2.png" alt="Event Storming" width="700"/>
+<img src="img/eventstorming/9.3.png" alt="Event Storming" width="700"/>
+
+**Paso 10：Bounded Contexts**<br>
+En este último paso, se sintetizaron los flujos principales para determinar los bounded contexts con los que desarrollaríamos Foll.
+
+<img src="img/eventstorming/10.png" alt="Event Storming" width="700"/> <br>
+
+**IAM context** <br>
+En este bounded context se trabaja la lógica de la autenticación, creación de cuentas, permisos para monitorear a los adultos mayores y la vinculación con el dispositivo iot. 
+ <br>
+<img src="img/eventstorming/10-iam.png" alt="Event Storming" width="700"/>
+
+**Emergency management context**<br>
+En Emergency management se centra en la respuesta del aplicativo y web cuando se detecta una caída para asegurar la seguridad del adulto mayor afectado.
+<img src="img/eventstorming/10-emergency.png" alt="Event Storming" width="700"/>
+
+**Embedded systems context**<br>
+En él se concentra la lógica para que el dispositivo iot pueda interpretar la información que recibe de los sensores, de manera que detetcte la caída y esa alerta sea enviada al resto del aplicativo Foll.<br>
+<img src="img/eventstorming/10-embedded.png" alt="Event Storming" width="700"/>
+
+**Edge context**<br>
+En este bounded context se recibe la data procesada para activar el protocolo de verificación y que sirva de puente con el bounded context de emergency management. <br>
+<img src="img/eventstorming/10-edge.png" alt="Event Storming" width="700"/>
+
+**Notifications context**<br>
+Se controla la lógica de envío de mensajes, llamadas y alertas en caso se detecte una caída.<br>
+<img src="img/eventstorming/10-notifications.png" alt="Event Storming" width="700"/>
+
 #### 4.1.1.1. Candidate Context Discovery
 
 En esta sección se presenta el proceso seguido por el equipo para el descubrimiento y clasificación de bounded contexts candidatos a partir del Event Storming de Diseño realizado previamente. El objetivo fue identificar los límites naturales del dominio del sistema de monitoreo y detección de caídas, determinar cuáles son las partes core del negocio y cuáles cumplen roles de apoyo o genéricos, con el fin de priorizar los esfuerzos de diseño y arquitectura en aquellos elementos que aportan el mayor valor estratégico.
@@ -938,7 +1339,35 @@ La aplicación de la técnica *Start-with-Value* permitió asegurar que la atenc
 El resto de contextos serán modelados en las siguientes secciones mediante Bounded Context Canvas y Domain Message Flows, garantizando consistencia y claridad en la comunicación entre los microservicios y los componentes embebidos.
  
 #### 4.1.1.2. Domain Message Flows Modeling
+
+En esta sección, el equipo presenta los Domain Message Flows, aplicando la técnica de *Domain Storytelling*. El propósito de esta fase es visualizar y documentar la coreografía y orquestación entre los diferentes *Bounded Contexts* identificados previamente, garantizando que colaboren de manera eficiente para resolver los casos de uso más críticos del sistema.
+
+Dado que el valor central del negocio reside en la detección autónoma de caídas y la activación inmediata de protocolos de rescate, los diagramas presentados a continuación ilustran la cadena secuencial de comunicación. Se mapea la interacción desde que los actores interactúan con los sistemas (hardware y software), detallando la dirección de los mensajes y clasificándolos estructuralmente en Comandos (*Commands*), Eventos (*Events*) y Consultas (*Queries*). 
+
+#### Scenario 1: Detección de anomalía y pre-alarma local
+**Objetivo:** Visualizar el flujo donde el hardware detecta un movimiento brusco, lo envía al procesador local (Edge) para su análisis, y este emite una alerta sonora al usuario para permitir la cancelación en caso de ser una falsa alarma.
+
+![Domain Message Flow - Detección de anomalía y pre-alarma local](img/domain-message-flow/scenario-1-deteccion-pre-alarma.png)
+
+
+#### Scenario 2: Confirmación de caída y recuperación de datos
+**Objetivo:** Ilustrar la comunicación que ocurre cuando el tiempo de advertencia finaliza sin respuesta del usuario. El contexto Edge confirma la caída, escala el evento a la nube (Emergency) y este consulta los datos médicos vitales y la lista de cuidadores (IAM).
+
+![Domain Message Flow - Confirmación de caída y recuperación de datos](img/domain-message-flow/scenario-2-confirmacion-recuperacion.png)
+
+
+#### Scenario 3: Emisión de alerta y respuesta del cuidador
+**Objetivo:** Modelar la distribución de la alerta crítica desde el sistema de emergencias hacia los cuidadores mediante el motor de notificaciones, finalizando con la recepción del aviso en la app móvil y la confirmación de asistencia por parte del cuidador.
+
+![Domain Message Flow - Emisión de alerta y respuesta del cuidador](img/domain-message-flow/scenario-3-emision-respuesta.png)
+
+
+#### Scenario 4: Sincronización del estado de emergencia
+**Objetivo:** Representar el flujo de actualización de estado, donde el sistema avisa al resto de la red de cuidadores que la emergencia ya está siendo atendida, evitando duplicidad de esfuerzos médicos y reduciendo el pánico.
+
+![Domain Message Flow - Sincronización del estado de emergencia](img/domain-message-flow/scenario-4-sincronizacion-estado.png)
  
+
 #### 4.1.1.3. Bounded Context Canvases
  
 ### 4.1.2. Context Mapping
@@ -946,12 +1375,28 @@ El resto de contextos serán modelados en las siguientes secciones mediante Boun
 ### 4.1.3. Software Architecture
  
 #### 4.1.3.1. Software Architecture System Landscape Diagram
- 
+
+<img width="4750" height="1150" alt="Landscape-dark (1)" src="https://github.com/user-attachments/assets/0c05f4d9-3378-49cd-80b1-1f54bf072354" />
+
+<br>
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
+
+<img width="3170" height="1150" alt="SystemContext-dark (1)" src="https://github.com/user-attachments/assets/c52bfdca-c4a6-4095-bc44-996d92365fe1" />
+
+<br>
  
 #### 4.1.3.3. Software Architecture Container Level Diagrams
+
+<img width="7070" height="2288" alt="ContainerView-dark" src="https://github.com/user-attachments/assets/1a7d2e45-5c28-4dfc-a15f-f1156dea5fd7" />
+
+<br>
  
 #### 4.1.3.4. Software Architecture Deployment Diagrams
+
+<img width="3820" height="1608" alt="DeploymentView-dark" src="https://github.com/user-attachments/assets/17cb30a4-65e2-4e0c-a527-1b3d00c3a357" />
+
+<br>
  
 ## 4.2. Tactical-Level Domain-Driven Design
  
@@ -2570,3 +3015,38 @@ Este diagrama de clases destaca el patron Strategy mediante `INotificationProvid
 
 Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. El BC conserva evidencia de que una alerta fue despachada (`incidentId`, `userId`, canal y estado), manteniendo independencia de datos respecto a IAM. Asi se garantiza trazabilidad operativa y legal incluso si el perfil del usuario cambia o se elimina en otro contexto.
 
+
+# Conclusiones
+
+1. La validación del problema confirmó que la mayor vulnerabilidad no es la caída en sí, sino el aislamiento posterior; Foll soluciona esto mediante un sistema pasivo que alerta automáticamente sin depender de que el adulto mayor, quien suele estar aturdido o sin el celular a la mano, realice acción alguna.
+
+2. El procesamiento local mediante Edge AI representa el mayor diferencial técnico del proyecto, ya que permite que el algoritmo aprenda de los patrones biomecánicos específicos de cada usuario en su hogar, reduciendo drásticamente las falsas alarmas en comparación con algoritmos estáticos.
+
+3. El diseño del hardware como un cinturón imperceptible bajo la ropa es fundamental para la adopción del producto, ya que elimina el estigma social de "dispositivo médico" y la resistencia psicológica del usuario independiente, a diferencia de los colgantes o botones de pánico tradicionales.
+
+4. La aplicación de Domain-Driven Design permitió alinear la arquitectura de software con el valor del negocio, identificando los contextos de Edge y Emergency como el núcleo estratégico del sistema, asegurando que el desarrollo se concentre en la precisión de la detección y la rapidez de respuesta.
+
+5. El valor fundamental del ecosistema para el segmento de cuidadores es el alivio de la carga emocional y la ansiedad; la plataforma les devuelve la tranquilidad de saber que serán notificados con ubicación exacta e información médica solo cuando ocurra una emergencia real.
+
+6. Foll logra democratizar el acceso a la tecnología de cuidado preventivo en el contexto latinoamericano, ofreciendo una alternativa de bajo costo en hardware y suscripción frente a competidores internacionales cuyos precios y modelos de retención resultan inaccesibles para la mayoría de familias locales.
+
+7. La investigación de campo demostró una alta disposición de los usuarios a compartir datos de movimiento de forma anónima y procesarlos localmente, lo que valida la viabilidad de un modelo de mejora continua donde la inteligencia artificial del dispositivo se vuelve más precisa con el uso diario.
+
+<br>
+
+# Bibliografía
+- Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
+
+- Minsa. (2026, marzo 9). Minsa brinda recomendaciones para prevenir caídas en adultos mayores. Ministerio de Salud del Perú. https://www.gob.pe/institucion/minsa/noticias/1362772-minsa-brinda-recomendaciones-para-prevenir-caidas-en-adultos-mayores
+
+- Superintendencia Nacional de Salud. (2023). Boletín Estadístico 2023. SUSALUD – Gobierno del Perú. https://www.gob.pe/institucion/susalud/informes-publicaciones/4595872-boletin-estadistico-2023
+
+
+# Anexos
+
+- Link de la organización: https://github.com/Nanotech6766
+- Link del informe: https://github.com/Nanotech6766/Project-Report
+- Link de event storming: https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369
+- Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
+- Link de las entrevistas segmento 1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Link de las entrevistas segmento 2: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
