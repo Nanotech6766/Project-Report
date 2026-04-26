@@ -1369,6 +1369,104 @@ Dado que el valor central del negocio reside en la detección autónoma de caíd
  
 
 #### 4.1.1.3. Bounded Context Canvases
+
+En esta sección se detallan los *Bounded Context Canvas* para los componentes principales del sistema, definiendo sus responsabilidades, roles de dominio, lenguaje ubicuo y los contratos de comunicación (mensajes entrantes y salientes) con otros contextos y sistemas.
+
+
+#### 1. Edge Context Canvas
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **Name** | Edge |
+| **Description** | Procesa localmente los datos en crudo de los sensores mediante algoritmos de inferencia para detectar anomalías (caídas) en tiempo real, gestionando una pre-alarma local para evitar falsos positivos antes de escalar a la nube. |
+| **Strategic Classification** | **Domain:** Core<br>**Business Model:** Diferenciador / Ventaja Competitiva<br>**Evolution:** Custom-built (Desarrollo a medida) |
+| **Domain Roles** | **Role:** Execution System / Analysis Engine (Se encarga de ejecutar reglas de negocio complejas e inferencia sobre un flujo de datos). |
+
+**Inbound Communication**
+* **Collaborator:** Embedded System Context
+    * **Messages:** `DatosDeMovimientoCapturados` (Event)
+* **Collaborator:** Frontend (Interfaz de usuario en wearable/app local)
+    * **Messages:** `CancelarAlarma` (Command - cuando el usuario indica que fue un falso positivo)
+
+**Ubiquitous Language**
+* **Términos:** Patrón de movimiento, Inferencia, Nivel de Confianza (Confidence Score), Temporizador de Verificación, Falso Positivo, Pre-alarma local, Acelerometría.
+
+**Outbound Communication**
+* **Collaborator:** Emergency Context
+    * **Messages:** `IniciarProtocoloDeEmergencia` (Command)
+* **Collaborator:** Frontend (Hardware speaker o celular)
+    * **Messages:** `ActivarAlertaSonora` (Command)
+
+
+#### 2. Emergency Context Canvas
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **Name** | Emergency |
+| **Description** | Orquesta el protocolo crítico de salvaguarda. Gestiona el ciclo de vida completo de una emergencia, desde su confirmación técnica hasta la atención médica y resolución por parte de la red de cuidadores. |
+| **Strategic Classification** | **Domain:** Core<br>**Business Model:** Diferenciador / Propuesta de Valor Principal<br>**Evolution:** Custom-built (Desarrollo a medida) |
+| **Domain Roles** | **Role:** Process Automation / Orchestrator (Coordina un flujo de trabajo distribuido en el tiempo y entre múltiples actores). |
+
+**Inbound Communication**
+* **Collaborator:** Edge Context
+    * **Messages:** `IniciarProtocoloDeEmergencia` (Command)
+* **Collaborator:** Frontend (App móvil de Cuidadores)
+    * **Messages:** `RegistrarRespuestaAAlerta` (Command)
+
+**Ubiquitous Language**
+* **Términos:** Protocolo de Emergencia, Nivel de Gravedad (Severity), Ubicación GPS, Red de Cuidadores, Estado de Rescate, Cuidador Atendiendo, Incidencia Cerrada.
+
+**Outbound Communication**
+* **Collaborator:** IAM Context
+    * **Messages:** `ObtenerContactosDeEmergenciaVinculados` (Query)
+* **Collaborator:** Notifications Context
+    * **Messages:** `EmitirAlertaDeEmergenciaMultiplataforma` (Command), `NotificarActualizacionDeEmergencia` (Command)
+
+
+#### 3. Notifications Context Canvas
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **Name** | Notifications |
+| **Description** | Centraliza y abstrae la complejidad de la entrega de mensajes hacia los usuarios finales a través de múltiples canales (Push, SMS, Llamadas), gestionando reintentos y confirmaciones de entrega. |
+| **Strategic Classification** | **Domain:** Supporting<br>**Business Model:** Facilitador (Enabler)<br>**Evolution:** Product / Off-the-shelf integration (Integración con servicios de terceros como Twilio/Firebase). |
+| **Domain Roles** | **Role:** Gateway / Gateway Service (Actúa como puente técnico hacia infraestructuras externas de comunicación). |
+
+**Inbound Communication**
+* **Collaborator:** Emergency Context
+    * **Messages:** `EmitirAlertaDeEmergenciaMultiplataforma` (Command), `NotificarActualizacionDeEmergencia` (Command)
+
+**Ubiquitous Language**
+* **Términos:** Canal de Comunicación, Estado de Entrega (Delivery Status), Fallo de Contacto, Reintento Automático, Payload de Alerta, Multiplataforma.
+
+**Outbound Communication**
+* **Collaborator:** External Systems (Firebase Cloud Messaging, Twilio, APNs)
+    * **Messages:** `EnviarMensajePush` (Command), `IniciarLlamadaAutomatica` (Command)
+* **Collaborator:** Frontend (App móvil)
+    * **Messages:** `NotificacionRecibida` (Event)
+
+
+#### 4. IAM Context Canvas
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **Name** | IAM (Identity & Access Management) |
+| **Description** | Gestiona el control de acceso, los perfiles de los usuarios (adultos mayores y cuidadores) y la vinculación lógica entre dispositivos físicos y cuentas. |
+| **Strategic Classification** | **Domain:** Generic<br>**Business Model:** Commodity (Mínimo necesario para operar)<br>**Evolution:** Commodity / Off-the-shelf (Puede ser reemplazado por Auth0, AWS Cognito, etc.) |
+| **Domain Roles** | **Role:** Information Holder (Es el registro maestro de la verdad para datos de usuarios). |
+
+**Inbound Communication**
+* **Collaborator:** Emergency Context
+    * **Messages:** `ObtenerContactosDeEmergenciaVinculados` (Query)
+* **Collaborator:** Frontend (App Móvil / Web)
+    * **Messages:** `CrearCuentaAdultoMayor` (Command), `VincularDispositivoPorQR` (Command), `AutenticarUsuario` (Query/Command)
+
+**Ubiquitous Language**
+* **Términos:** Cuidador, Adulto Mayor, Dispositivo Vinculado, Código QR de Vinculación, Permisos de Monitoreo, Perfil Médico Básico, Token de Acceso.
+
+**Outbound Communication**
+* **Collaborator:** Frontend
+    * **Messages:** `CredencialesValidadas` (Event), `DispositivoVinculadoAUsuario` (Event)
  
 ### 4.1.2. Context Mapping
 
