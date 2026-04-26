@@ -220,6 +220,24 @@
       - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.2.6.1. Bounded Context Domain Layer Class Diagrams](#42261-bounded-context-domain-layer-class-diagrams)
         - [4.2.2.6.2. Bounded Context Database Design Diagram](#42262-bounded-context-database-design-diagram)
+    - [4.2.3. Bounded Context: Edge](#423-bounded-context-edge)
+      - [4.2.3.1. Domain Layer](#4231-domain-layer)
+      - [4.2.3.2. Interface Layer](#4232-interface-layer)
+      - [4.2.3.3. Application Layer](#4233-application-layer)
+      - [4.2.3.4. Infrastructure Layer](#4234-infrastructure-layer)
+      - [4.2.3.5. Bounded Context Software Architecture Component Level Diagrams](#4235-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.3.6. Bounded Context Software Architecture Code Level Diagrams](#4236-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.3.6.1. Bounded Context Domain Layer Class Diagrams](#42361-bounded-context-domain-layer-class-diagrams)
+        - [4.2.3.6.2. Bounded Context Database Design Diagram](#42362-bounded-context-database-design-diagram)
+    - [4.2.4. Bounded Context: Emergency Management](#424-bounded-context-emergency-management)
+      - [4.2.4.1. Domain Layer](#4241-domain-layer)
+      - [4.2.4.2. Interface Layer](#4242-interface-layer)
+      - [4.2.4.3. Application Layer](#4243-application-layer)
+      - [4.2.4.4. Infrastructure Layer](#4244-infrastructure-layer)
+      - [4.2.4.5. Bounded Context Software Architecture Component Level Diagrams](#4245-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.4.6.1. Bounded Context Domain Layer Class Diagrams](#42461-bounded-context-domain-layer-class-diagrams)
+        - [4.2.4.6.2. Bounded Context Database Design Diagram](#42462-bounded-context-database-design-diagram)
 
 - [Conclusiones](#Conclusiones)
 - [Bibliografía](#Bibliografía)
@@ -2174,6 +2192,635 @@ Este diagrama de clases UML representa la estructura del codigo de dominio del f
 ![Embedded Systems - Data Structure Diagram](./img/tactical-ddd/embedded/db-se.svg)
 
 Este diagrama describe la estructura de datos operativa del firmware en memoria volatil, en lugar de un esquema relacional persistente. El ESP32 no almacena historicos: su responsabilidad es capturar mediciones en tiempo real y transmitirlas inmediatamente al Edge. Por ello, el foco del diseno se centra en la composicion de la trama `UDP_TELEMETRY_PAYLOAD`, que empaqueta lecturas inerciales, coordenadas y timestamp en un bloque compacto y eficiente para red local. Esta representacion respalda el objetivo de baja latencia requerido por la deteccion de caidas y por el pipeline de inferencia en el Edge.
+
+### 4.2.3. Bounded Context: Edge
+
+---
+
+#### 4.2.3.1. Domain Layer
+
+Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui viven las reglas para agrupar los datos inerciales en secuencias temporales, evaluarlas contra el modelo de Machine Learning y decidir si el patron de movimiento corresponde a una caida o a una actividad de la vida diaria (ADL).
+
+##### Entities
+
+###### `InferenceEngine`
+**Proposito:** Es el Aggregate Root. Gestiona el ciclo de ingesta de datos en tiempo real y decide en que momento exacto se debe ejecutar una prediccion.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `buffer` | `TimeWindow` | private | Ventana de tiempo actual que acumula los datos inerciales recientes |
+| `windowSizeMs` | `int` | private | Tamano de ventana requerida por el modelo (ej. 3000 ms para SisFall) |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `ingestFrame(frame: InertialFrame)` | `void` | public | Anade un nuevo frame al buffer; descarta los mas antiguos si se llena |
+| `isReadyForInference()` | `boolean` | public | Verifica si el buffer tiene suficientes datos para alimentar al modelo |
+| `evaluate(evaluator: IModelEvaluator)` | `PredictionResult` | public | Ejecuta la inferencia si el buffer esta listo y retorna la clasificacion |
+
+###### `LocalFallEvent`
+**Proposito:** Entidad que representa un incidente critico confirmado por la IA de forma local. Es vital para la tolerancia a fallos, ya que se almacena en la laptop si no hay internet.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `eventId` | `UUID` | private | Identificador unico del evento generado localmente |
+| `confidence` | `float` | private | Nivel de certeza de la prediccion (ej. 0.95 = 95% de seguridad) |
+| `detectedAt` | `DateTime` | private | Marca de tiempo exacta del incidente |
+| `lastKnownGps` | `GeoCoordinate` | private | Ultimas coordenadas recibidas antes de la caida |
+| `syncStatus` | `SyncState` | private | Estado de sincronizacion con la nube: `PENDING`, `SYNCED` |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `markAsSynced()` | `void` | public | Cambia el estado a `SYNCED` tras confirmar la recepcion del backend central |
+
+##### Value Objects
+
+| Nombre | Atributos | Descripcion |
+|---|---|---|
+| `TimeWindow` | `frames: List<InertialFrame>` | Coleccion inmutable de lecturas inerciales que representa una serie de tiempo (ej. los ultimos 3 segundos de movimiento continuo) |
+| `PredictionResult` | `isFall: boolean`, `classification: string`, `confidence: float` | Resultado del modelo; clasifica entre caida (ej. hacia adelante, lateral) o actividad normal (ADL) |
+| `SyncState` | Enum (`PENDING`, `SYNCED`) | Indica si la nube ya fue notificada del evento |
+
+##### Repository & External Interfaces
+
+Estas abstracciones aislan la logica pura de los frameworks de Machine Learning y la red.
+
+| Interfaz | Metodos clave | Descripcion |
+|---|---|---|
+| `IModelEvaluator` | `predict(window: TimeWindow): PredictionResult` | Abstraccion de la red neuronal que evalua la serie de tiempo |
+| `ILocalEventRepository` | `save(event)`, `getUnsyncedEvents()` | Abstraccion para guardar el evento localmente en caso de caida de internet |
+| `IHardwareNotifier` | `triggerLocalAlarm()` | Abstraccion para enviar la orden de activacion del buzzer al sistema embebido |
+| `ICloudSyncService` | `syncIncident(event)` | Abstraccion para empujar el evento critico al BC `Emergency Management` en la nube |
+
+---
+
+#### 4.2.3.2. Interface Layer
+
+En la laptop, esta capa contiene los consumidores que escuchan activamente la red local y los procesos en segundo plano.
+
+##### `TelemetryUdpConsumer`
+**Proposito:** Es el punto de entrada principal. Escucha ininterrumpidamente el puerto UDP por donde el sistema embebido dispara las rafagas de telemetria.
+
+| Evento | Handler delegado | Descripcion |
+|---|---|---|
+| Recepcion de paquete UDP | `IngestTelemetryCommandHandler` | Deserializa los bytes entrantes en un `InertialFrame` y lo envia al sistema |
+
+##### `CloudSyncWorker`
+**Proposito:** Proceso en segundo plano (Background Service) que monitorea la conexion a internet.
+
+| Evento | Handler delegado | Descripcion |
+|---|---|---|
+| Timer periodico (ej. cada 10 s) | `RetrySyncCommandHandler` | Busca eventos locales pendientes e intenta mandarlos a la nube si hay conexion |
+
+---
+
+#### 4.2.3.3. Application Layer
+
+Esta capa orquesta la transformacion de los datos en bruto a predicciones de IA y maneja la respuesta inmediata.
+
+##### Command Handlers
+
+###### `IngestTelemetryCommandHandler`
+**Proposito:** Recibe el dato en tiempo real y alimenta el motor de inferencia.
+
+**Flujo:**
+1. Recibe el `InertialFrame` desde el consumidor UDP.
+2. Llama a `InferenceEngine.ingestFrame()`.
+3. Si `InferenceEngine.isReadyForInference()` es verdadero, dispara internamente el `EvaluateWindowCommand`.
+
+###### `EvaluateWindowCommandHandler`
+**Proposito:** Orquesta la ejecucion del modelo de Machine Learning y reacciona si hay peligro.
+
+**Flujo:**
+1. Llama a `InferenceEngine.evaluate(IModelEvaluator)`.
+2. Analiza el `PredictionResult`.
+3. Si el resultado es una caida (`isFall == true`):
+   - Dispara inmediatamente `IHardwareNotifier.triggerLocalAlarm()` (cero latencia).
+   - Construye un `LocalFallEvent`.
+   - Lo persiste usando `ILocalEventRepository`.
+   - Dispara el `SyncIncidentCommand`.
+
+###### `SyncIncidentCommandHandler`
+**Proposito:** Intenta comunicar la emergencia a la nube.
+
+**Flujo:**
+1. Toma el `LocalFallEvent`.
+2. Llama a `ICloudSyncService.syncIncident()`.
+3. Si la API en la nube responde 200 OK, ejecuta `LocalFallEvent.markAsSynced()` y actualiza el repositorio local.
+4. Si falla (no hay internet), se mantiene como `PENDING` para el worker de reintentos.
+
+###### `RetrySyncCommandHandler`
+**Proposito:** Reintenta la sincronizacion de eventos pendientes detectados en almacenamiento local.
+
+**Flujo:**
+1. Es invocado periodicamente por `CloudSyncWorker`.
+2. Consulta eventos pendientes mediante `ILocalEventRepository.getUnsyncedEvents()`.
+3. Para cada evento pendiente, invoca `ICloudSyncService.syncIncident(event)`.
+4. Si la sincronizacion es exitosa, marca el evento como sincronizado y persiste el cambio.
+
+---
+
+#### 4.2.3.4. Infrastructure Layer
+
+Aqui viven los frameworks de Inteligencia Artificial y la persistencia local que da robustez al sistema cuando la nube no esta disponible.
+
+##### Machine Learning Implementations
+
+###### `TensorFlowModelEvaluator`
+**Proposito:** Implementacion concreta de `IModelEvaluator`.  
+**Tecnologia:** Python (`TensorFlow` / `Keras`) u `ONNX Runtime`.
+
+**Detalle de implementacion:**
+- Carga en memoria el modelo pre-entrenado (CNN-LSTM) especializado en el dataset SisFall.
+- Recibe la `TimeWindow`, normaliza aceleracion y giroscopio y transforma la serie en tensores de entrada.
+- Ejecuta inferencia y retorna `PredictionResult` con clasificacion y nivel de confianza.
+
+##### Persistence Implementations
+
+###### `MySqlLocalRepository`
+**Proposito:** Implementacion de `ILocalEventRepository`.  
+**Tecnologia:** MySQL local en la laptop + ORM (ej. `SQLAlchemy` o `Entity Framework`).
+
+**Detalle de implementacion:**
+- Persiste cada incidente en la tabla local `local_fall_events`.
+- Permite recuperar eventos en estado `PENDING` para sincronizacion posterior.
+- Garantiza que el incidente no se pierda aunque falle internet durante la emergencia.
+
+##### Network Integrations
+
+###### `UdpHardwareNotifierImpl`
+**Proposito:** Implementacion de `IHardwareNotifier`.  
+**Tecnologia:** Sockets UDP.
+
+**Detalle de implementacion:**
+- Construye una trama ligera con el comando `"CMD:ALARM_ON"`.
+- Envia el paquete por LAN a la IP del sistema embebido para activar el buzzer de inmediato.
+
+###### `EmergencyCloudClient`
+**Proposito:** Implementacion de `ICloudSyncService`.  
+**Tecnologia:** Cliente HTTP (`HTTPS/REST`).
+
+**Detalle de implementacion:**
+- Construye el payload JSON con coordenadas, timestamp y confianza de la deteccion.
+- Adjunta credenciales de autorizacion (JWT) para la llamada segura.
+- Ejecuta POST al servicio de emergencias en la nube y retorna resultado de sincronizacion.
+
+---
+
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Edge - Component Level Diagram](./img/tactical-ddd/edge/component-edge.svg)
+
+Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Edge - Domain Layer Class Diagram](./img/tactical-ddd/edge/class-edge.svg)
+
+Este diagrama UML resume las reglas de dominio del Edge: `InferenceEngine` opera sobre `TimeWindow` y decide si existe caida a partir de `PredictionResult`. La dependencia hacia `IModelEvaluator` mantiene el dominio desacoplado del framework de IA concreto (TensorFlow, PyTorch u ONNX). `LocalFallEvent` y su `SyncState` modelan la resiliencia para operar incluso sin internet.
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+![Edge - Database Design Diagram](./img/tactical-ddd/edge/db-edge.svg)
+
+Este ERD representa la persistencia local del Edge como almacenamiento de paso y auditoria para incidentes. El uso de UUID evita colisiones al sincronizar con la nube, y el esquema prioriza guardar rapidamente evento, ubicacion y estado de sincronizacion. La telemetria cruda asociada al incidente permite trazabilidad tecnica y mejora futura del modelo.
+
+### 4.2.4. Bounded Context: Emergency Management
+
+---
+
+#### 4.2.4.1. Domain Layer
+
+Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven las reglas que determinan que ocurre cuando una caida es confirmada: como se registra, como evoluciona su ciclo de vida, como se escala si nadie responde y como el Cuidador puede interactuar con el incidente. Esta capa es agnostica a HTTP, bases de datos y servicios externos.
+
+##### Entities
+
+###### `FallIncident`
+**Proposito:** Es el Aggregate Root y la entidad mas importante del sistema. Representa un evento de caida confirmado por el modelo de IA en el Edge. Tiene un ciclo de vida propio desde su deteccion hasta su resolucion.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `IncidentId` | private | Identificador unico del incidente |
+| `elderlyUserId` | `UserId` | private | ID del Adulto Mayor (referencia al BC IAM, sin join) |
+| `deviceId` | `DeviceId` | private | ID del dispositivo ESP32 que origino el evento |
+| `detectedAt` | `DateTime` | private | Marca de tiempo exacta en que el Edge confirmo la caida |
+| `location` | `GeoCoordinate` | private | Coordenadas GPS embebidas en la trama al momento de la caida |
+| `confidenceScore` | `ConfidenceScore` | private | Nivel de certeza del modelo de IA (0.0 a 1.0) |
+| `fallClassification` | `FallClassification` | private | Tipo de caida detectado por el modelo |
+| `status` | `IncidentStatus` | private | Estado del ciclo de vida del incidente |
+| `escalationCount` | `int` | private | Numero de veces que se escalo la alerta por falta de respuesta |
+| `resolvedAt` | `DateTime?` | private | Marca de tiempo de resolucion (null si aun activo) |
+| `resolvedBy` | `UserId?` | private | ID del Cuidador que resolvio el incidente |
+| `notes` | `string?` | private | Observaciones opcionales del Cuidador al resolver |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `acknowledge(caregiverId: UserId, notes: string?)` | `void` | public | El Cuidador marca el incidente como atendido; solo valido si el estado es `NOTIFIED` o `ESCALATED` |
+| `markAsFalseAlarm(caregiverId: UserId)` | `void` | public | El Cuidador marca el incidente como falsa alarma; cambia estado a `FALSE_ALARM` |
+| `escalate()` | `void` | public | Incrementa `escalationCount` y cambia estado a `ESCALATED` cuando nadie responde en el tiempo limite |
+| `canBeResolved()` | `boolean` | public | Retorna true si el incidente esta en estado resoluble (`NOTIFIED` o `ESCALATED`) |
+| `isActive()` | `boolean` | public | Retorna true si el incidente aun no fue resuelto ni marcado como falsa alarma |
+
+###### `DeviceHeartbeat`
+**Proposito:** Registra el ultimo estado conocido del wearable para cada Adulto Mayor. Permite al Cuidador ver si el dispositivo esta activo, con bateria suficiente y transmitiendo datos.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `HeartbeatId` | private | Identificador unico del registro |
+| `deviceId` | `DeviceId` | private | ID del dispositivo ESP32 |
+| `elderlyUserId` | `UserId` | private | ID del Adulto Mayor vinculado al dispositivo |
+| `lastSeenAt` | `DateTime` | private | Ultima vez que el Edge reporto actividad |
+| `batteryPercentage` | `int` | private | Porcentaje de bateria reportado (0-100) |
+| `isStreaming` | `boolean` | private | Indica si el dispositivo transmite telemetria activamente |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `update(batteryPercentage: int, isStreaming: boolean, timestamp: DateTime)` | `void` | public | Actualiza el estado del dispositivo con el ultimo ping del Edge |
+| `isOnline()` | `boolean` | public | Retorna true si `lastSeenAt` esta dentro de los ultimos 30 segundos |
+| `hasCriticalBattery()` | `boolean` | public | Retorna true si `batteryPercentage` es menor al 15 por ciento |
+
+###### `AlertConfiguration`
+**Proposito:** Almacena preferencias de notificacion del Adulto Mayor o Cuidador. Determina canales activos y tiempo de espera antes de escalar.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `id` | `AlertConfigId` | private | Identificador unico de la configuracion |
+| `elderlyUserId` | `UserId` | private | ID del Adulto Mayor al que aplica la configuracion |
+| `notifyBySms` | `boolean` | private | Si true, Notifications envia SMS via Twilio |
+| `notifyByCall` | `boolean` | private | Si true, Notifications realiza llamada de voz via Twilio |
+| `notifyByPush` | `boolean` | private | Si true, Notifications envia push notification |
+| `escalationDelaySeconds` | `int` | private | Segundos de espera sin respuesta antes de escalar |
+| `maxEscalations` | `int` | private | Numero maximo de escalaciones antes de detener reintentos |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `updateChannels(sms: boolean, call: boolean, push: boolean)` | `void` | public | Actualiza los canales de notificacion activos |
+| `updateEscalationPolicy(delaySeconds: int, maxEscalations: int)` | `void` | public | Actualiza la politica de escalacion |
+| `hasAnyChannelEnabled()` | `boolean` | public | Valida que al menos un canal este habilitado; si no, lanza excepcion de dominio |
+
+##### Value Objects
+
+###### `IncidentId`
+**Proposito:** Encapsula el identificador unico de un incidente. Inmutable.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `UUID` | Identificador generado al crear el incidente |
+
+###### `ConfidenceScore`
+**Proposito:** Encapsula el nivel de certeza del modelo de IA y garantiza un rango valido.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `float` | Valor entre 0.0 y 1.0; lanza excepcion de dominio si esta fuera del rango |
+
+###### `GeoCoordinate`
+**Proposito:** Coordenada geografica inmutable del momento de la caida.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `latitude` | `float` | Latitud en grados decimales |
+| `longitude` | `float` | Longitud en grados decimales |
+
+###### `FallClassification`
+**Proposito:** Enumeracion que describe el tipo de evento detectado por el modelo de IA.
+
+| Valor | Descripcion |
+|---|---|
+| `FALL_FORWARD` | Caida hacia adelante |
+| `FALL_BACKWARD` | Caida hacia atras |
+| `FALL_LATERAL` | Caida lateral |
+| `SYNCOPE` | Perdida de conciencia o colapso |
+
+###### `IncidentStatus`
+**Proposito:** Dicta el estado del ciclo de vida del incidente. Las transiciones ocurren por metodos de `FallIncident`.
+
+| Valor | Descripcion |
+|---|---|
+| `CONFIRMED` | La caida fue recibida y persistida; aun no se notifico |
+| `NOTIFIED` | El BC Notifications ya despacho la alerta al Cuidador |
+| `ESCALATED` | El Cuidador no respondio en el tiempo limite; la alerta se reenvio |
+| `ACKNOWLEDGED` | El Cuidador confirmo que atendio la emergencia |
+| `FALSE_ALARM` | El Cuidador marco el incidente como falsa alarma |
+
+##### Domain Services
+
+###### `FallEscalationDomainService`
+**Proposito:** Encapsula reglas para determinar si un incidente debe escalarse, evitando escalaciones indefinidas.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `shouldEscalate(incident: FallIncident, config: AlertConfiguration, now: DateTime)` | `boolean` | Retorna true si el incidente esta activo, no fue reconocido y supero `escalationDelaySeconds` |
+| `hasReachedEscalationLimit(incident: FallIncident, config: AlertConfiguration)` | `boolean` | Retorna true si `escalationCount` alcanzo `maxEscalations` |
+
+###### `FallPatternAnalysisDomainService`
+**Proposito:** Analiza el historial de incidentes del Adulto Mayor para detectar patron de riesgo elevado.
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `detectFrequencyPattern(recentIncidents: List<FallIncident>)` | `boolean` | Retorna true si hay mas de N caidas reales en las ultimas 24 horas |
+| `calculateRiskScore(recentIncidents: List<FallIncident>)` | `float` | Calcula puntaje de riesgo basado en frecuencia, tipo de caida y confianza promedio |
+
+##### Repository Interfaces
+
+###### `IFallIncidentRepository`
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findById(id: IncidentId)` | `FallIncident \| null` | Busca un incidente por su ID |
+| `findByElderlyUserId(userId: UserId, page: int, size: int)` | `List<FallIncident>` | Retorna historial paginado del Adulto Mayor |
+| `findActiveByElderlyUserId(userId: UserId)` | `FallIncident \| null` | Retorna incidente activo actual si existe |
+| `findRecentByElderlyUserId(userId: UserId, since: DateTime)` | `List<FallIncident>` | Retorna incidentes desde fecha dada para analisis de patrones |
+| `save(incident: FallIncident)` | `void` | Persiste incidente nuevo o actualizado |
+
+###### `IDeviceHeartbeatRepository`
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findByDeviceId(deviceId: DeviceId)` | `DeviceHeartbeat \| null` | Retorna heartbeat actual del dispositivo |
+| `findByElderlyUserId(userId: UserId)` | `DeviceHeartbeat \| null` | Retorna heartbeat del dispositivo vinculado al Adulto Mayor |
+| `save(heartbeat: DeviceHeartbeat)` | `void` | Persiste o actualiza el heartbeat |
+
+###### `IAlertConfigurationRepository`
+
+| Metodo | Retorno | Descripcion |
+|---|---|---|
+| `findByElderlyUserId(userId: UserId)` | `AlertConfiguration \| null` | Retorna configuracion activa del Adulto Mayor |
+| `save(config: AlertConfiguration)` | `void` | Persiste configuracion nueva o actualizada |
+
+---
+
+#### 4.2.4.2. Interface Layer
+
+Esta capa expone capacidades del BC Emergency Management por endpoints HTTP REST consumidos por Mobile App, Web App y BC Edge. Los controllers delegan; no contienen logica de negocio.
+
+##### `FallIncidentController`
+**Proposito:** Gestiona el ciclo de vida de incidentes de caida desde su creacion hasta su resolucion.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `POST` | `/api/v1/incidents` | `RegisterFallIncidentCommandHandler` | Recibe evento de caida confirmado desde Edge |
+| `GET` | `/api/v1/incidents` | `GetFallHistoryQueryHandler` | Retorna historial paginado de incidentes del usuario autenticado |
+| `GET` | `/api/v1/incidents/{id}` | `GetIncidentDetailQueryHandler` | Retorna detalle completo del incidente |
+| `PATCH` | `/api/v1/incidents/{id}/acknowledge` | `AcknowledgeIncidentCommandHandler` | El Cuidador confirma atencion de la emergencia |
+| `PATCH` | `/api/v1/incidents/{id}/false-alarm` | `MarkAsFalseAlarmCommandHandler` | El Cuidador marca el incidente como falsa alarma |
+
+##### `DeviceStatusController`
+**Proposito:** Provee visibilidad en tiempo real sobre estado del wearable del Adulto Mayor.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `GET` | `/api/v1/devices/{deviceId}/status` | `GetDeviceStatusQueryHandler` | Retorna el heartbeat mas reciente del dispositivo |
+| `PATCH` | `/api/v1/devices/{deviceId}/heartbeat` | `UpdateDeviceHeartbeatCommandHandler` | Edge actualiza periodicamente estado del dispositivo |
+| `GET` | `/api/v1/dashboard/{elderlyUserId}` | `GetCaregiverDashboardQueryHandler` | Retorna dashboard completo: estado dispositivo, ultimo incidente y riesgo |
+
+##### `AlertConfigurationController`
+**Proposito:** Permite al Adulto Mayor o Cuidador configurar preferencias de alerta.
+
+| Metodo HTTP | Endpoint | Handler delegado | Descripcion |
+|---|---|---|---|
+| `GET` | `/api/v1/alert-config` | `GetAlertConfigQueryHandler` | Retorna configuracion de alertas del usuario autenticado |
+| `PUT` | `/api/v1/alert-config` | `UpdateAlertConfigCommandHandler` | Actualiza canales de notificacion y politica de escalacion |
+
+---
+
+#### 4.2.4.3. Application Layer
+
+Esta capa orquesta los flujos de negocio del BC Emergency Management y coordina dominio, repositorios y servicios externos.
+
+##### Command Handlers
+
+###### `RegisterFallIncidentCommandHandler`
+**Proposito:** Handler mas critico del sistema. Orquesta la recepcion de una caida confirmada por Edge y dispara la cadena de respuesta de emergencia.
+
+**Command:** `RegisterFallIncidentCommand { elderlyUserId, deviceId, detectedAt, latitude, longitude, confidenceScore, fallClassification }`
+
+**Flujo:**
+1. Construye `ConfidenceScore`, `GeoCoordinate` y `FallClassification` validando rangos.
+2. Crea `FallIncident` con estado inicial `CONFIRMED`.
+3. Persiste via `IFallIncidentRepository`.
+4. Recupera `AlertConfiguration` via `IAlertConfigurationRepository`.
+5. Valida `config.hasAnyChannelEnabled()`; si no, registra advertencia en logs.
+6. Recupera incidentes recientes via `IFallIncidentRepository.findRecentByElderlyUserId()`.
+7. Delega a `FallPatternAnalysisDomainService.detectFrequencyPattern()`.
+8. Publica evento `FallIncidentRegisteredEvent`.
+
+###### `AcknowledgeIncidentCommandHandler`
+**Proposito:** El Cuidador confirma que llego al lugar y atendio la emergencia.
+
+**Command:** `AcknowledgeIncidentCommand { incidentId, caregiverId, notes? }`
+
+**Flujo:**
+1. Recupera incidente via `IFallIncidentRepository.findById()`.
+2. Verifica `incident.canBeResolved()`.
+3. Valida que `caregiverId` sea Cuidador vinculado consultando `IIamServiceClient`.
+4. Ejecuta `incident.acknowledge(caregiverId, notes)`.
+5. Persiste via `IFallIncidentRepository`.
+
+###### `MarkAsFalseAlarmCommandHandler`
+**Proposito:** El Cuidador descarta el incidente como falsa deteccion del modelo.
+
+**Command:** `MarkAsFalseAlarmCommand { incidentId, caregiverId }`
+
+**Flujo:**
+1. Recupera incidente via `IFallIncidentRepository.findById()`.
+2. Verifica `incident.canBeResolved()`.
+3. Valida autorizacion via `IIamServiceClient`.
+4. Ejecuta `incident.markAsFalseAlarm(caregiverId)`.
+5. Persiste via `IFallIncidentRepository`.
+
+###### `EscalateIncidentCommandHandler`
+**Proposito:** Ejecuta escalacion de un incidente no atendido en el tiempo configurado.
+
+**Command:** `EscalateIncidentCommand { incidentId }`
+
+**Flujo:**
+1. Recupera incidente via `IFallIncidentRepository.findById()`.
+2. Recupera `AlertConfiguration` del Adulto Mayor.
+3. Delega a `FallEscalationDomainService.shouldEscalate()`.
+4. Si `hasReachedEscalationLimit()` es true, detiene proceso y registra logs.
+5. Si procede, ejecuta `incident.escalate()`.
+6. Persiste via `IFallIncidentRepository`.
+7. Publica evento `IncidentEscalatedEvent`.
+
+###### `UpdateDeviceHeartbeatCommandHandler`
+**Proposito:** Actualiza estado del wearable con informacion periodica enviada por Edge.
+
+**Command:** `UpdateDeviceHeartbeatCommand { deviceId, elderlyUserId, batteryPercentage, isStreaming, timestamp }`
+
+**Flujo:**
+1. Busca heartbeat via `IDeviceHeartbeatRepository.findByDeviceId()`.
+2. Si no existe, crea uno; si existe, ejecuta `heartbeat.update()`.
+3. Si `heartbeat.hasCriticalBattery()` es true, publica `LowBatteryDetectedEvent`.
+4. Persiste via `IDeviceHeartbeatRepository`.
+
+###### `UpdateAlertConfigCommandHandler`
+**Proposito:** Actualiza preferencias de notificacion del usuario.
+
+**Command:** `UpdateAlertConfigCommand { elderlyUserId, notifyBySms, notifyByCall, notifyByPush, escalationDelaySeconds, maxEscalations }`
+
+**Flujo:**
+1. Recupera configuracion via `IAlertConfigurationRepository`.
+2. Ejecuta `config.updateChannels()` y `config.updateEscalationPolicy()`.
+3. Valida `config.hasAnyChannelEnabled()`.
+4. Persiste via `IAlertConfigurationRepository`.
+
+##### Query Handlers
+
+###### `GetFallHistoryQueryHandler`
+**Proposito:** Retorna historial paginado de incidentes para Mobile App y Web App.
+
+**Query:** `GetFallHistoryQuery { elderlyUserId, page, size }`
+
+**Flujo:**
+1. Valida relacion activa con `elderlyUserId` via `IIamServiceClient`.
+2. Recupera lista paginada via `IFallIncidentRepository.findByElderlyUserId()`.
+3. Mapea cada `FallIncident` a DTO de respuesta.
+
+###### `GetIncidentDetailQueryHandler`
+**Proposito:** Retorna detalle completo de un incidente, incluyendo coordenadas GPS.
+
+**Query:** `GetIncidentDetailQuery { incidentId, requesterId }`
+
+**Flujo:**
+1. Recupera incidente via `IFallIncidentRepository.findById()`.
+2. Valida autorizacion del `requesterId` via `IIamServiceClient`.
+3. Mapea a DTO de detalle con `location`, `confidenceScore`, `fallClassification` y estado.
+
+###### `GetCaregiverDashboardQueryHandler`
+**Proposito:** Construye dashboard del Cuidador: estado dispositivo, incidente activo, riesgo y configuracion.
+
+**Query:** `GetCaregiverDashboardQuery { caregiverId, elderlyUserId }`
+
+**Flujo:**
+1. Recupera heartbeat via `IDeviceHeartbeatRepository`.
+2. Recupera incidente activo via `IFallIncidentRepository.findActiveByElderlyUserId()`.
+3. Recupera incidentes recientes y delega a `FallPatternAnalysisDomainService.calculateRiskScore()`.
+4. Recupera `AlertConfiguration` actual.
+5. Ensambla y retorna `DashboardDTO`.
+
+##### Event Handlers
+
+###### `FallIncidentRegisteredEventHandler`
+**Proposito:** Reacciona a `FallIncidentRegisteredEvent`. Delega al BC Notifications el despacho inmediato y actualiza estado a `NOTIFIED`.
+
+**Evento:** `FallIncidentRegisteredEvent { incidentId, elderlyUserId, location, confidenceScore, fallClassification }`
+
+**Flujo:**
+1. Recupera `AlertConfiguration` del Adulto Mayor.
+2. Construye payload de notificacion con ubicacion y clasificacion.
+3. Llama a `INotificationServiceClient.dispatchAlert()` con canales habilitados.
+4. Recupera incidente y actualiza estado a `NOTIFIED` via `IFallIncidentRepository`.
+
+###### `IncidentEscalatedEventHandler`
+**Proposito:** Reacciona a `IncidentEscalatedEvent` e instruye a Notifications a reenviar la alerta con mayor urgencia.
+
+**Evento:** `IncidentEscalatedEvent { incidentId, elderlyUserId, escalationCount }`
+
+---
+
+#### 4.2.4.4. Infrastructure Layer
+
+Esta capa provee implementaciones concretas para persistencia en MySQL, comunicacion con Notifications, consultas a IAM y job de escalacion periodica.
+
+##### Repository Implementations
+
+###### `FallIncidentRepositoryImpl`
+**Proposito:** Implementacion concreta de `IFallIncidentRepository` sobre MySQL.  
+**Tecnologia:** .NET + Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findById(id)` | `DbContext.FallIncidents.FirstOrDefaultAsync(i => i.Id == id)` con indice primario `incident_id` |
+| `findByElderlyUserId(userId, page, size)` | Query por `elderly_user_id`, orden `detected_at DESC`, con `.Skip().Take()` |
+| `findActiveByElderlyUserId(userId)` | Query por `elderly_user_id` y `status NOT IN (ACKNOWLEDGED, FALSE_ALARM)` |
+| `findRecentByElderlyUserId(userId, since)` | Query con filtro `detected_at >= since` para analisis temporal |
+| `save(incident)` | `DbContext.FallIncidents.Update(incident)` + `SaveChangesAsync()` |
+
+###### `DeviceHeartbeatRepositoryImpl`
+**Proposito:** Implementacion concreta de `IDeviceHeartbeatRepository`. Mantiene un unico registro activo por dispositivo.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findByDeviceId(deviceId)` | Query sobre `device_id` con indice unico |
+| `findByElderlyUserId(userId)` | Query por `elderly_user_id` con validacion logica |
+| `save(heartbeat)` | Upsert via EF Core: insert si no existe, update si existe |
+
+###### `AlertConfigurationRepositoryImpl`
+**Proposito:** Implementacion concreta de `IAlertConfigurationRepository`.  
+**Tecnologia:** .NET + Entity Framework Core + MySQL
+
+| Metodo | Descripcion de implementacion |
+|---|---|
+| `findByElderlyUserId(userId)` | Query sobre `elderly_user_id` con indice unico |
+| `save(config)` | Upsert del registro de configuracion |
+
+##### External Service Implementations
+
+###### `NotificationServiceClientImpl`
+**Proposito:** Implementacion de `INotificationServiceClient` para despachar alertas al BC Notifications.  
+**Tecnologia:** .NET `HttpClient` + `System.Text.Json`
+
+| Metodo | Descripcion |
+|---|---|
+| `dispatchAlert(incidentId, elderlyUserId, location, channels)` | Construye payload JSON, anade JWT interno y ejecuta `POST /internal/notifications/dispatch` con timeout controlado |
+
+###### `IamServiceClientImpl`
+**Proposito:** Implementacion de `IIamServiceClient` para validar relacion activa entre Cuidador y Adulto Mayor.  
+**Tecnologia:** .NET `HttpClient`
+
+| Metodo | Descripcion |
+|---|---|
+| `getCareRelationship(elderlyUserId, caregiverId)` | `GET /internal/iam/care-relationships?elderlyUserId=X&caregiverId=Y` |
+| `validateToken(jwt)` | `POST /internal/iam/validate-token` para identidad en llamadas internas |
+
+##### Background Jobs
+
+###### `IncidentEscalationJob`
+**Proposito:** Job periodico (por defecto cada 30 s) para detectar incidentes activos no atendidos y disparar escalacion.  
+**Tecnologia:** .NET `IHostedService` / `BackgroundService`
+
+**Flujo:**
+1. Consulta incidentes con estado `NOTIFIED` o `ESCALATED`.
+2. Para cada incidente activo, invoca `EscalateIncidentCommandHandler`.
+3. El handler aplica reglas de dominio para escalar o detener.
+
+##### Database Configuration
+
+###### `EmergencyDbContext`
+**Proposito:** Extiende `DbContext` de EF Core y configura mappings, constraints e indices del BC.
+
+**Tablas gestionadas:**
+
+| Tabla | Entidad mapeada | Constraints destacadas |
+|---|---|---|
+| `fall_incidents` | `FallIncident` | PK `incident_id`, indice `elderly_user_id + detected_at`, indice sobre `status` |
+| `device_heartbeats` | `DeviceHeartbeat` | PK `heartbeat_id`, indice unico sobre `device_id`, validacion logica de `elderly_user_id` |
+| `alert_configurations` | `AlertConfiguration` | PK `config_id`, indice unico sobre `elderly_user_id`, `CHECK escalation_delay_seconds > 0` |
+
+---
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Emergency Management - Component Level Diagram](./img/tactical-ddd/emergency/component-emer.svg)
+
+Este diagrama muestra la organizacion interna del microservicio en la nube y la separacion de responsabilidades mediante CQRS. El flujo inicia cuando Edge reporta la caida, persiste el incidente y dispara notificaciones de forma encadenada. El `IncidentEscalationJob` opera en segundo plano para garantizar seguimiento aunque no exista respuesta inmediata del usuario.
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Emergency Management - Domain Layer Class Diagram](./img/tactical-ddd/emergency/class-emer.svg)
+
+Este diagrama UML modela la emergencia como un agregado gobernado por `FallIncident`, con transiciones de estado controladas por reglas de negocio. Los Value Objects (`GeoCoordinate`, `ConfidenceScore`) validan datos criticos desde su creacion, y los servicios de dominio encapsulan logica compleja como escalacion y analisis de riesgo. Los repositorios se mantienen como interfaces para preservar desacoplamiento y testabilidad.
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+![Emergency Management - Database Design Diagram](./img/tactical-ddd/emergency/db-emer.svg)
+
+Este ERD define la persistencia MySQL para incidentes, heartbeat del dispositivo y configuracion de alertas. El uso de UUID como clave primaria facilita integracion con datos originados en Edge sin colisiones, mientras los indices priorizan consultas de incidentes activos e historicos recientes. El modelo evita acoplamiento fisico con IAM y mantiene la validacion referencial en capa de aplicacion.
 
 
 # Conclusiones
