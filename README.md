@@ -730,7 +730,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 0:00 s
 - Fin: 4:23 s
-<img width="500"  alt="image" src="https://github.com/user-attachments/assets/eeb1e233-f5c2-4063-b2c2-4be7f8ddab45" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista1.png" />
 
 <br><br>
 
@@ -743,7 +743,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 4:24 s
 - Fin: 8:08 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/47dcc9b0-aa2e-4d40-afa8-f861c0c4e9a2" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista2.png" />
 
 <br><br>
 
@@ -756,7 +756,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
 - Inicio: 8:09 s
 - Fin: 15:28 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/1097c478-86a5-4d53-83f5-d07af7d1bf3e" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista3.png" />
 
 <br><br>		
 
@@ -772,7 +772,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 0:00 s
 - Fin: 2:54 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/2613ce70-6900-4bbd-a694-3f34672ab039" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista4.png" />
 
 <br><br>
 
@@ -786,7 +786,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 2:54 s
 - Fin: 5:53 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/81c6020e-bdb5-4bdb-8892-dc6144a62144" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista5.png" />
 
 <br><br>
 
@@ -799,7 +799,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
 - Inicio: 5:53 s
 - Fin: 9:10 s
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d71bc62-610c-4f02-981e-503d89e0abc6" />
+<img width="500"  alt="image" src="img/entrevistas/entrevista6.png" />
 
 
  
@@ -829,7 +829,7 @@ Los tres casos confirmaron haber vivido una situación angustiante relacionada c
 Un hallazgo importante es que los adultos mayores tienden a no reportar la caída por su cuenta, ya sea por orgullo, miedo a preocupar o, en casos como el del abuelo con Alzheimer, por incapacidad cognitiva. Esto refuerza directamente la propuesta de valor de un sistema automático que no dependa de la acción del adulto mayor.<br>
 - <strong>Recepción del producto: alta valoración de la automatización</strong><br>
 La característica más valorada fue que el sistema actúa solo, sin que el adulto mayor tenga que hacer nada. Los tres entrevistados reconocieron explícitamente que esto lo diferencia de un botón de pánico tradicional, que pierde utilidad precisamente en los escenarios más graves (caída con pérdida de conciencia, adulto mayor con demencia). Uno de los entrevistados llegó a señalar que los botones de pánico "no tienen sentido cuando hay una caída en la que ya no se puede interactuar", lo que valida directamente el core del producto.<br>
-- <strong>Canal de notificación preferido
+- <strong>Canal de notificación preferido</strong><br>
 Hay consenso en que el canal preferido es la llamada telefónica o la notificación push, no los SMS. La razón es práctica: los jóvenes tienen el celular silenciado con frecuencia, y una llamada vibra de forma prolongada. Las notificaciones push también se consideran efectivas por su visibilidad inmediata. El SMS queda descartado como canal principal.<br>
 - <strong>Privacidad y datos: barrera baja en este segmento</strong><br>
 La preocupación por privacidad fue mínima en los tres casos. Todos indicaron que les parece bien que el dispositivo procese datos localmente, y también mostraron disposición a compartir datos de movimiento de forma anónima para mejorar el modelo. Esto simplifica decisiones de diseño y abre la puerta a estrategias de mejora continua del modelo de detección.<br>
