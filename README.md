@@ -1335,6 +1335,54 @@ Dado que el valor central del negocio reside en la detección autónoma de caíd
 #### 4.1.1.3. Bounded Context Canvases
  
 ### 4.1.2. Context Mapping
+
+En esta sección, el equipo explica y evidencia el proceso de elaboración del mapa de contextos (*Context Map*), el cual visualiza las relaciones estructurales, técnicas y organizacionales entre los *Bounded Contexts* identificados previamente. El objetivo de este proceso es establecer contratos claros de integración y proteger el núcleo del negocio (Core Domain) de las dependencias externas y cambios de infraestructura.
+
+#### Proceso de Elaboración y Preguntas de Diseño
+
+Para producir los diseños candidatos, el equipo sometió los *Bounded Contexts* a un análisis crítico, evaluando la cohesión y el acoplamiento mediante la técnica de preguntas retrospectivas (*What-if analysis*):
+
+* **¿Qué pasaría si movemos el capability de "análisis de patrones" del *Edge Context* al *Embedded System*?**
+    * *Discusión:* Si el microcontrolador (hardware) procesa directamente el algoritmo de caída, acoplamos la regla de negocio a las limitaciones físicas de memoria y batería del dispositivo. Mantener la recolección tonta en el *Embedded* y la inteligencia en el *Edge* permite actualizar los algoritmos sin flashear el hardware.
+* **¿Qué pasaría si creamos un *Shared Kernel* (servicio compartido) para el perfil del Adulto Mayor entre el *IAM Context* y el *Emergency Context*?**
+    * *Discusión:* Compartir la base de datos de usuarios provocaría cuellos de botella y bloqueos entre el equipo de seguridad y el equipo médico. Es preferible mantener modelos separados donde *Emergency* solo guarde los IDs de referencia y consulte los datos vía API.
+* **¿Qué pasaría si duplicamos la funcionalidad de notificaciones dentro de *Edge* y *Emergency* para romper la dependencia?**
+    * *Discusión:* Duplicar el código de envío de SMS, Push y llamadas telefónicas en ambos contextos violaría el principio DRY e incrementaría la complejidad de mantenimiento de integraciones de terceros. Se justifica mantener *Notifications* como un contexto separado y centralizado.
+* **¿Qué pasaría si aislamos los *Core capabilities* (Edge y Emergency) y movemos la gestión de identidades a un proveedor externo?**
+    * *Discusión:* Esta es la mejor ruta. *IAM* es un contexto genérico, por lo que aislar el *Core* nos permite usar protocolos estándar de la industria (OAuth2) para la identidad, enfocando nuestros esfuerzos puramente en el salvamento de vidas.
+
+#### Alternativas de Diseño y Selección
+
+A partir del análisis, se evaluaron dos aproximaciones arquitectónicas:
+
+* **Alternativa A (Fuerte Acoplamiento - *Conformist Global*):** Todos los contextos comparten las mismas definiciones de objetos (ej. una sola entidad `User` masiva) y confían plenamente en los modelos de los demás. *Inconveniente:* Cambios en el hardware (*Embedded*) o en seguridad (*IAM*) romperían directamente la lógica de *Emergency*.
+* **Alternativa B (Aislamiento Core con Capas Anticorrupción - Seleccionada):** Se decide proteger los *Core Contexts* (*Edge* y *Emergency*). El sistema de emergencias no confiará a ciegas en el formato de datos de terceros, ni el Edge confiará en los datos crudos del hardware sin traducirlos primero.
+
+#### Definición de Relaciones entre Bounded Contexts (Patrones DDD)
+
+Tras seleccionar la Alternativa B, se establecieron los siguientes patrones estratégicos de Domain-Driven Design para el mapa definitivo:
+
+1.  **Embedded System [U] -> [D] Edge Context**
+    * **Relación:** *Customer / Supplier* con **Anti-corruption Layer (ACL)** en el *Edge*.
+    * **Justificación:** El hardware (*Upstream*) envía datos binarios o JSONs crudos de acelerometría. El *Edge* (*Downstream*) implementa una capa anticorrupción (ACL) para no contaminar su modelo de dominio con nomenclaturas de hardware, traduciendo `acc_x, acc_y` a un `MovementVector` comprensible por el dominio.
+
+2.  **Edge Context [U] -> [D] Emergency Context**
+    * **Relación:** *Customer / Supplier* mediante **Published Language (PL)**.
+    * **Justificación:** Al ser ambos *Core Contexts* pero estar distribuidos (local vs nube), acuerdan un lenguaje publicado (esquema JSON estándar de eventos de caída). El *Edge* emite eventos de forma asíncrona que el *Emergency Context* consume para iniciar el protocolo.
+
+3.  **IAM Context [U] -> [D] Emergency Context**
+    * **Relación:** **Open Host Service (OHS)** y **Published Language (PL)** por parte de IAM, con un **ACL** en Emergency.
+    * **Justificación:** El gestor de identidades (*Upstream*) expone una API REST pública (OHS). El *Emergency Context* implementa un ACL para consumir esa API y traducir el complejo `UserProfileResponse` del IAM en un simple `PatientContactInfo` local, tomando estrictamente lo necesario (nombres y teléfonos) y descartando hashes, roles o contraseñas.
+
+4.  **Emergency Context [U] -> [D] Notifications Context**
+    * **Relación:** *Customer / Supplier*.
+    * **Justificación:** *Emergency* (*Upstream* respecto al flujo de orden, aunque en prioridad de negocio dicte las reglas) envía comandos directos a *Notifications* (*Downstream*). *Notifications* actúa de manera sumisa frente a las peticiones de envío, adaptándose a las necesidades de prioridad del sistema de emergencias.
+
+#### Diagrama de Context Mapping
+
+A continuación, se presenta la representación visual de los Bounded Contexts y los patrones de integración descritos, reflejando el flujo de influencia técnica (Upstream/Downstream) y las barreras de protección (ACL).
+
+![Context Mapping del Sistema de Detección de Caídas](img/context-mapping/context-mapping-diagram.png)
  
 ### 4.1.3. Software Architecture
  
