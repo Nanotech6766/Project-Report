@@ -145,6 +145,15 @@
       - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
         - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
+    - [4.2.2. Bounded Context: Embedded Systems](#422-bounded-context-embedded-systems)
+      - [4.2.2.1. Domain Layer](#4221-domain-layer)
+      - [4.2.2.2. Interface Layer](#4222-interface-layer)
+      - [4.2.2.3. Application Layer](#4223-application-layer)
+      - [4.2.2.4. Infrastructure Layer](#4224-infrastructure-layer)
+      - [4.2.2.5. Bounded Context Software Architecture Component Level Diagrams](#4225-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.2.6.1. Bounded Context Domain Layer Class Diagrams](#42261-bounded-context-domain-layer-class-diagrams)
+        - [4.2.2.6.2. Bounded Context Database Design Diagram](#42262-bounded-context-database-design-diagram)
  
 ---
  
@@ -1386,3 +1395,338 @@ Este diagrama de clases UML ilustra el modelo conceptual y estructural del domin
 
 Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de datos relacional (MySQL) para el Bounded Context IAM. Detalla las tablas principales (`USERS`, `DEVICES` y `CARE_RELATIONSHIPS`), sus columnas y tipos de datos. El diagrama destaca llaves primarias (PK), llaves foraneas (FK) y restricciones de unicidad (UK) que garantizan integridad referencial, reflejando como se almacena la relacion entre usuarios, sus dispositivos hardware asignados y sus vinculos de cuidado.
  
+### 4.2.2. Bounded Context: Embedded Systems
+
+---
+
+#### 4.2.2.1. Domain Layer
+
+En el contexto de un sistema embebido, esta capa representa las reglas logicas del hardware, las estructuras de datos cinematicas y la maquina de estados del dispositivo, abstrayendose por completo de pines fisicos, buses I2C o protocolos Wi-Fi.
+
+##### Entities
+
+###### `WearableSystem`
+**Proposito:** Es el Aggregate Root. Coordina el estado general del firmware, asegurando que no se intenten leer sensores si la bateria esta en nivel critico o si el switch fisico esta apagado.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `systemState` | `SystemState` | private | Estado actual: `BOOTING`, `STREAMING`, `LOW_BATTERY`, `SLEEP` |
+| `batteryLevel` | `BatteryLevel` | private | Nivel actual de la bateria LiPo |
+| `isSwitchOn` | `boolean` | private | Estado logico del switch de encendido |
+| `networkReady` | `boolean` | private | Indica si la conexion Wi-Fi y el handshake con el Edge fueron exitosos |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `powerOn()` | `void` | public | Inicializa el sistema logicamente y cambia el estado a `BOOTING` |
+| `sleep()` | `void` | public | Cambia el estado a `SLEEP` para suspender lecturas cuando el switch se apaga |
+| `updateBattery(level: BatteryLevel)` | `void` | public | Actualiza el nivel de bateria; si es critico fuerza el estado `LOW_BATTERY` |
+| `markNetworkReady()` | `void` | public | Marca el sistema como listo para transmitir una vez que el bootstrap de red es exitoso |
+| `isOperational()` | `boolean` | public | Retorna true solo si el estado es `STREAMING` y `networkReady` es true |
+
+###### `InertialSensorArray`
+**Proposito:** Representa la agrupacion logica del ADXL345 y el MPU6050. Garantiza que la lectura de la cinematica sea tratada como un solo evento en el tiempo para no desfasar los datos enviados al Edge. La frecuencia de muestreo de 200 Hz es un constraint de diseno derivado del dataset SisFall, que captura los datos inerciales a esa frecuencia; desviarse de ella comprometeria la compatibilidad con el modelo de IA entrenado.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `samplingFrequencyHz` | `int` | private | Frecuencia objetivo de muestreo: 200 Hz, requerido por compatibilidad con SisFall |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `fuseReadings(adxlData: SensorReading, mpuData: SensorReading)` | `InertialFrame` | public | Fusiona las lecturas de ambos sensores en una sola estructura inmutable de tiempo |
+
+###### `AlarmBuzzer`
+**Proposito:** Representa el estado logico del actuador de sonido. Su estado es modificado por comandos remotos del Edge, nunca por el firmware de forma autonoma, dado que la decision de caida pertenece al modelo de IA en la capa Edge.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `isSounding` | `boolean` | private | Indica si el actuador esta activado actualmente |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `trigger()` | `void` | public | Cambia el estado logico a activo para disparar la alarma |
+| `silence()` | `void` | public | Cambia el estado logico a inactivo para detener la alarma |
+
+###### `GpsTracker`
+**Proposito:** Mantiene la ultima ubicacion geografica valida del dispositivo. La coordenada actualizada es incluida en la trama UDP saliente junto con cada `InertialFrame`, de modo que el Edge siempre dispone de la posicion al momento de confirmar una caida y hacer el POST al backend.
+
+| Atributo | Tipo | Scope | Descripcion |
+|---|---|---|---|
+| `currentLocation` | `GeoCoordinate` | private | Ultima coordenada procesada con fix valido |
+| `hasFix` | `boolean` | private | Indica si existe conexion valida con los satelites |
+
+| Metodo | Retorno | Scope | Descripcion |
+|---|---|---|---|
+| `updateLocation(coord: GeoCoordinate)` | `void` | public | Actualiza la posicion si la nueva coordenada tiene precision suficiente |
+| `getCurrentLocation()` | `GeoCoordinate` | public | Retorna la ultima coordenada valida para ser embebida en la trama UDP |
+
+##### Value Objects
+
+###### `SensorReading`
+**Proposito:** Estructura inmutable que encapsula la lectura cruda de un unico sensor en un instante de tiempo. Sirve como insumo para `InertialSensorArray.fuseReadings()` antes de producir un `InertialFrame`.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `axisX` | `float` | Valor del eje X en unidades del sensor (g o deg/s) |
+| `axisY` | `float` | Valor del eje Y en unidades del sensor |
+| `axisZ` | `float` | Valor del eje Z en unidades del sensor |
+| `capturedAt` | `uint32_t` | Timestamp en milisegundos desde el arranque del sistema |
+
+###### `InertialFrame`
+**Proposito:** Estructura de datos inmutable que contiene la foto completa del movimiento en un milisegundo especifico, fusionando ambos sensores. Es la unidad minima de informacion que se serializa y transmite al Edge via UDP.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `timestamp` | `uint32_t` | Timestamp del frame en milisegundos |
+| `adxlAccelX` | `float` | Aceleracion X del ADXL345 (en g) |
+| `adxlAccelY` | `float` | Aceleracion Y del ADXL345 (en g) |
+| `adxlAccelZ` | `float` | Aceleracion Z del ADXL345 (en g) |
+| `mpuAccelX` | `float` | Aceleracion X del MPU6050 (en g) |
+| `mpuAccelY` | `float` | Aceleracion Y del MPU6050 (en g) |
+| `mpuAccelZ` | `float` | Aceleracion Z del MPU6050 (en g) |
+| `mpuGyroX` | `float` | Velocidad angular X del MPU6050 (en deg/s) |
+| `mpuGyroY` | `float` | Velocidad angular Y del MPU6050 (en deg/s) |
+| `mpuGyroZ` | `float` | Velocidad angular Z del MPU6050 (en deg/s) |
+| `latitude` | `float` | Latitud embebida desde `GpsTracker` al momento del frame |
+| `longitude` | `float` | Longitud embebida desde `GpsTracker` al momento del frame |
+
+###### `GeoCoordinate`
+**Proposito:** Coordenada geografica inmutable obtenida del modulo U-blox NEO-M6.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `latitude` | `float` | Latitud en grados decimales |
+| `longitude` | `float` | Longitud en grados decimales |
+
+###### `BatteryLevel`
+**Proposito:** Representa el estado energetico calculado de la bateria LiPo 3.7V 2000mAh a partir del voltaje leido por el ADC.
+
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `voltage` | `float` | Voltaje real medido (ej. 3.7V) |
+| `percentage` | `uint8_t` | Porcentaje estimado de carga (0-100%) |
+| `isCritical` | `boolean` | True si el voltaje esta por debajo del umbral seguro de descarga de la LiPo (~3.2V) |
+
+###### `SystemState`
+**Proposito:** Enumeracion que dicta el estado operativo del microcontrolador en cada momento.
+
+| Valor | Descripcion |
+|---|---|
+| `BOOTING` | El sistema esta inicializando sensores y conectando a la red |
+| `STREAMING` | El sistema esta operativo y transmitiendo frames al Edge |
+| `LOW_BATTERY` | Bateria en nivel critico; el sistema reduce operaciones para proteger la LiPo |
+| `SLEEP` | El switch fue apagado; el sistema suspende todas las operaciones |
+
+##### Hardware Abstractions (Repository Interfaces)
+
+Estas interfaces definen que necesita el dominio del hardware sin acoplarse a ningun bus, pin o libreria concreta. Su implementacion pertenece exclusivamente a la Infrastructure Layer.
+
+| Interfaz | Metodo | Descripcion |
+|---|---|---|
+| `IInertialHardware` | `readAdxl(): SensorReading` | Obtiene la lectura cruda del ADXL345 |
+| `IInertialHardware` | `readMpu(): SensorReading` | Obtiene la lectura cruda del MPU6050 |
+| `IGpsHardware` | `readLocation(): GeoCoordinate` | Obtiene la trama de ubicacion satelital parseada |
+| `IBatteryHardware` | `readVoltage(): float` | Obtiene el voltaje real de la celda LiPo via ADC |
+| `IActuatorHardware` | `setBuzzer(state: boolean): void` | Enciende o apaga el pin GPIO del buzzer |
+| `INetworkHardware` | `connectWifi(ssid, password): boolean` | Conecta el ESP32 a la red local |
+| `INetworkHardware` | `sendUdpFrame(data: bytes, ip, port): void` | Transmite un buffer de bytes via UDP hacia el Edge |
+| `INetworkHardware` | `listenUdp(port): string` | Escucha y retorna el primer comando UDP entrante disponible |
+
+---
+
+#### 4.2.2.2. Interface Layer
+
+En el firmware, esta capa corresponde a los puntos de entrada por donde el mundo fisico o la red interactuan con el microcontrolador. No existen peticiones HTTP: los mecanismos son interrupciones GPIO y sockets UDP.
+
+##### `HardwareInterruptController`
+**Proposito:** Captura eventos fisicos originados por el usuario directamente en los pines GPIO del ESP32. Cada interrupcion es atendida en su ISR (Interrupt Service Routine) correspondiente y delega el procesamiento a la Application Layer para no bloquear el bus de interrupciones.
+
+| Evento fisico | Handler delegado | Descripcion |
+|---|---|---|
+| Interrupcion GPIO - flanco de subida | `PowerOnSystemCommandHandler` | El usuario mueve el switch fisico a la posicion ON |
+| Interrupcion GPIO - flanco de bajada | `PowerOffSystemCommandHandler` | El usuario mueve el switch fisico a la posicion OFF |
+
+##### `UdpCommandListener`
+**Proposito:** Escucha pasivamente el socket UDP local esperando comandos de control provenientes del Edge. Es el unico canal de comunicacion entrante desde la laptop hacia el ESP32.
+
+| Trama UDP entrante | Handler delegado | Descripcion |
+|---|---|---|
+| `"ALARM_ON"` | `TriggerAlarmCommandHandler` | El Edge confirmo una caida e instruye al ESP32 activar el buzzer |
+| `"ALARM_OFF"` | `SilenceAlarmCommandHandler` | El Edge instruye al ESP32 apagar el buzzer |
+
+---
+
+#### 4.2.2.3. Application Layer
+
+En el sistema embebido, esta capa esta compuesta por tasks de FreeRTOS y command handlers que orquestan los casos de uso principales del firmware. Ninguno de estos modulos accede directamente al hardware: siempre delegan a las interfaces de la Domain Layer.
+
+##### Tasks (Handlers continuos y periodicos)
+
+###### `BootstrapNetworkTask`
+**Proposito:** Task de arranque que se ejecuta una unica vez durante el estado `BOOTING`. Establece la conectividad Wi-Fi y verifica que el Edge este accesible antes de permitir el inicio del streaming. Sin este task completado exitosamente, el sistema no pasa al estado `STREAMING`.
+
+**Flujo:**
+1. Invoca `INetworkHardware.connectWifi(ssid, password)` con las credenciales configuradas en el firmware.
+2. Si la conexion falla tras N reintentos, mantiene el sistema en `BOOTING` y reintenta con backoff.
+3. Envia un paquete UDP de handshake a la IP configurada del Edge.
+4. Espera confirmacion de respuesta del Edge en un timeout definido.
+5. Si la respuesta es valida, invoca `WearableSystem.markNetworkReady()`.
+6. Cambia el estado del sistema a `STREAMING` e inicia las demas tasks.
+
+###### `StreamInertialDataTask`
+**Proposito:** Task critico de alta prioridad. Se ejecuta periodicamente cada 5 ms (200 Hz) mientras el sistema este en estado `STREAMING`, extrayendo la cinematica y transmitiendola al Edge sin latencia.
+
+**Flujo:**
+1. Verifica que `WearableSystem.isOperational()` sea true antes de cada ciclo.
+2. Invoca `IInertialHardware.readAdxl()` y `IInertialHardware.readMpu()` para obtener dos `SensorReading`.
+3. Invoca `InertialSensorArray.fuseReadings()` para obtener un `InertialFrame`.
+4. Embebe la ultima coordenada valida invocando `GpsTracker.getCurrentLocation()` en el `InertialFrame`.
+5. Serializa el `InertialFrame` en un buffer de bytes compacto.
+6. Transmite el buffer via `INetworkHardware.sendUdpFrame()` hacia la IP y puerto del Edge.
+
+###### `UpdateLocationTask`
+**Proposito:** Task periodico de baja prioridad que actualiza la ubicacion GPS cada segundo. La baja frecuencia es intencional: la posicion geografica no cambia significativamente en el contexto de uso (adulto mayor en interiores o exteriores cercanos).
+
+**Flujo:**
+1. Se ejecuta cada 1000 ms mediante interrupcion UART o polling.
+2. Invoca `IGpsHardware.readLocation()` para obtener un `GeoCoordinate`.
+3. Si `hasFix` es true, invoca `GpsTracker.updateLocation(coord)`.
+4. La nueva coordenada queda disponible para ser embebida por `StreamInertialDataTask` en el siguiente frame.
+
+###### `MonitorBatteryTask`
+**Proposito:** Task de muy baja prioridad que protege la vida util de la bateria LiPo 3.7V 2000mAh, evitando descarga profunda que danaria la celda.
+
+**Flujo:**
+1. Se ejecuta cada 60 segundos.
+2. Invoca `IBatteryHardware.readVoltage()` para obtener el voltaje real.
+3. Construye un `BatteryLevel` calculando el porcentaje y evaluando si `isCritical` es true.
+4. Invoca `WearableSystem.updateBattery(level)`.
+5. Si el dominio dictamina estado `LOW_BATTERY`, suspende `StreamInertialDataTask` y activa rutinas de apagado seguro para proteger la LiPo.
+
+##### Command Handlers
+
+###### `PowerOnSystemCommandHandler`
+**Proposito:** Orquesta la secuencia de arranque del sistema cuando el usuario activa el switch fisico.
+
+**Flujo:**
+1. Invocado por `HardwareInterruptController` en flanco de subida del GPIO.
+2. Invoca `WearableSystem.powerOn()` para cambiar el estado a `BOOTING`.
+3. Inicia `BootstrapNetworkTask` para establecer conectividad con el Edge.
+4. Una vez que la red esta lista, inicia `StreamInertialDataTask`, `UpdateLocationTask` y `MonitorBatteryTask`.
+
+###### `PowerOffSystemCommandHandler`
+**Proposito:** Orquesta el apagado limpio del sistema cuando el usuario desactiva el switch fisico.
+
+**Flujo:**
+1. Invocado por `HardwareInterruptController` en flanco de bajada del GPIO.
+2. Detiene `StreamInertialDataTask` para cesar la transmision UDP al Edge.
+3. Invoca `AlarmBuzzer.silence()` e `IActuatorHardware.setBuzzer(false)` como medida de seguridad.
+4. Invoca `WearableSystem.sleep()` para cambiar el estado a `SLEEP`.
+
+###### `TriggerAlarmCommandHandler`
+**Proposito:** Orquesta la activacion de la alarma sonora tras recibir la confirmacion de caida desde el Edge.
+
+**Flujo:**
+1. Invocado por `UdpCommandListener` al recibir la trama `"ALARM_ON"`.
+2. Invoca `AlarmBuzzer.trigger()` para actualizar el estado de dominio.
+3. Invoca `IActuatorHardware.setBuzzer(true)` para enviar voltaje al pin del buzzer fisico.
+
+###### `SilenceAlarmCommandHandler`
+**Proposito:** Orquesta el apagado del buzzer cuando el Edge indica que la alarma debe cesar.
+
+**Flujo:**
+1. Invocado por `UdpCommandListener` al recibir la trama `"ALARM_OFF"`.
+2. Invoca `AlarmBuzzer.silence()` para actualizar el estado de dominio.
+3. Invoca `IActuatorHardware.setBuzzer(false)` para retirar el voltaje del pin del buzzer.
+
+---
+
+#### 4.2.2.4. Infrastructure Layer
+
+Esta capa contiene las implementaciones concretas de las interfaces de hardware y red. Es el codigo que interactua directamente con buses fisicos, registros del microcontrolador y la pila Wi-Fi del ESP32.
+
+##### Hardware Implementations (C++ / Arduino / ESP-IDF)
+
+###### `Adxl345I2cDriver`
+**Proposito:** Implementacion de `IInertialHardware` para el acelerometro primario ADXL345.  
+**Tecnologia:** Bus I2C a 400 KHz (Fast Mode).
+
+**Detalle de implementacion:**
+- Al inicializar, escribe `0x08` en el registro `0x2D` (POWER_CTL) para sacar el sensor del modo standby.
+- Configura el rango de medicion a +-16g mediante el registro `0x31` (DATA_FORMAT), rango optimo para capturar caidas de alto impacto.
+- En cada lectura, lee secuencialmente 6 bytes desde el registro `0x32` (DATAX0) para extraer los ejes X, Y, Z como enteros de 16 bits y los convierte a unidades g aplicando la escala del rango configurado.
+- Retorna un `SensorReading` con los tres ejes y el timestamp actual.
+
+###### `Mpu6050I2cDriver`
+**Proposito:** Implementacion complementaria de `IInertialHardware` para obtener giroscopio y aceleracion secundaria del MPU6050.  
+**Tecnologia:** Bus I2C compartido con el ADXL345, direccion I2C `0x68`.
+
+**Detalle de implementacion:**
+- Al inicializar, escribe `0x00` en el registro `0x6B` (PWR_MGMT_1) para despertar el sensor.
+- Configura el giroscopio a +-2000 deg/s mediante el registro `0x1B` (GYRO_CONFIG) para capturar rotaciones bruscas de caida.
+- En cada lectura, realiza un burst read de 14 bytes desde el registro `0x3B` que incluye acelerometro (6 bytes), temperatura (2 bytes ignorados) y giroscopio (6 bytes), minimizando la latencia de bus al requerir una sola transaccion I2C.
+- Retorna un `SensorReading` con aceleracion y velocidad angular y el timestamp actual.
+
+###### `UbloxNeoM6UartDriver`
+**Proposito:** Implementacion de `IGpsHardware` para el modulo U-blox NEO-M6.  
+**Tecnologia:** Interfaz UART (Serial2) a 9600 baudios.
+
+**Detalle de implementacion:**
+- Escucha el flujo serial continuo de sentencias NMEA.
+- Utiliza la libreria `TinyGPS++` para parsear exclusivamente las sentencias `$GPRMC` y `$GPGGA`, ignorando el resto para no consumir ciclos innecesarios.
+- Solo actualiza la ubicacion si `gps.location.isValid()` retorna true, evitando coordenadas `0,0` por perdida de fix satelital.
+- Retorna un `GeoCoordinate` con latitud y longitud en grados decimales.
+
+###### `GpioActuatorDriver`
+**Proposito:** Implementacion de `IActuatorHardware` para controlar el buzzer pasivo.  
+**Tecnologia:** ESP32 GPIO en modo OUTPUT.
+
+**Detalle de implementacion:**
+- En `setup()`, configura el pin asignado al buzzer como `OUTPUT` mediante `pinMode(BUZZER_PIN, OUTPUT)`.
+- `setBuzzer(true)` ejecuta `digitalWrite(BUZZER_PIN, HIGH)` para cerrar el circuito y emitir el sonido.
+- `setBuzzer(false)` ejecuta `digitalWrite(BUZZER_PIN, LOW)` para interrumpir el circuito.
+
+###### `AdcBatteryReaderImpl`
+**Proposito:** Implementacion de `IBatteryHardware` para medir el nivel de la bateria LiPo 3.7V 2000mAh gestionada por el modulo de carga SM5308.  
+**Tecnologia:** ESP32 ADC de 12 bits (resolucion 0-4095).
+
+**Detalle de implementacion:**
+- El pin ADC esta conectado a un divisor de voltaje resistivo en paralelo al modulo SM5308, que reduce el voltaje de la LiPo al rango admisible del ADC del ESP32 (0-3.3V).
+- La formula de conversion es: `voltaje_real = (lectura_adc / 4095.0) * 3.3 * factor_divisor`.
+- El umbral de bateria critica se fija en 3.2V, por debajo del cual la descarga profunda puede danar irreversiblemente la celda LiPo.
+
+##### Network Implementations
+
+###### `Esp32WiFiUdpManager`
+**Proposito:** Implementacion completa de `INetworkHardware`. Gestiona la conexion Wi-Fi, el handshake inicial con el Edge y la transmision/recepcion de paquetes UDP.  
+**Tecnologia:** Librerias nativas `WiFi.h` y `WiFiUdp.h` del SDK de Arduino para ESP32.
+
+**Detalle de implementacion:**
+
+| Metodo | Detalle |
+|---|---|
+| `connectWifi(ssid, password)` | Ejecuta `WiFi.begin(ssid, password)` y espera hasta `WiFi.status() == WL_CONNECTED` con timeout configurable. Retorna false si supera el timeout |
+| `sendUdpFrame(data, ip, port)` | Transmite en modo fire-and-forget: `udp.beginPacket(ip, port)` -> `udp.write(data)` -> `udp.endPacket()`. Sin esperar ACK para garantizar maxima velocidad en la LAN local |
+| `listenUdp(port)` | Verifica `udp.parsePacket()` en cada ciclo. Si hay datos disponibles, los lee con `udp.read()` y retorna el string del comando recibido (`"ALARM_ON"` o `"ALARM_OFF"`) |
+
+---
+
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Embedded Systems - Component Level Diagram](./img/tactical-ddd/embedded/component-es.svg)
+
+Este diagrama de componentes muestra como se aplica Arquitectura Limpia dentro del contenedor embebido sobre ESP32. En este contexto, la capa de interfaz no expone HTTP, sino eventos fisicos (interrupciones GPIO) y eventos de red (socket UDP). La capa de aplicacion se materializa en tareas concurrentes de FreeRTOS (`BootstrapNetworkTask`, `StreamInertialDataTask`, `UpdateLocationTask`, `MonitorBatteryTask`) para sostener un flujo continuo de telemetria a 200 Hz sin bloquear la ejecucion. Finalmente, la logica de dominio se mantiene aislada del hardware real, delegando acceso a buses I2C/UART y pines GPIO en implementaciones concretas de infraestructura.
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Embedded Systems - Domain Layer Class Diagram](./img/tactical-ddd/embedded/class-se.svg)
+
+Este diagrama de clases UML representa la estructura del codigo de dominio del firmware, manteniendo independencia respecto a sensores o librerias concretas. `WearableSystem` actua como raiz del agregado y concentra decisiones de estado operativo (arranque, streaming, bajo nivel de bateria y suspension). Entidades como `GpsTracker`, `InertialSensorArray` y `AlarmBuzzer` colaboran mediante abstracciones de hardware (`IGpsHardware`, `IInertialHardware`, `IActuatorHardware`), lo que facilita reemplazar dispositivos fisicos sin alterar reglas de negocio. Los Value Objects (`SensorReading`, `InertialFrame`, `GeoCoordinate`, `BatteryLevel`) estan modelados para transferir datos inmutables y ligeros, optimizados para memoria y transmision.
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
+
+![Embedded Systems - Data Structure Diagram](./img/tactical-ddd/embedded/db-se.svg)
+
+Este diagrama describe la estructura de datos operativa del firmware en memoria volatil, en lugar de un esquema relacional persistente. El ESP32 no almacena historicos: su responsabilidad es capturar mediciones en tiempo real y transmitirlas inmediatamente al Edge. Por ello, el foco del diseno se centra en la composicion de la trama `UDP_TELEMETRY_PAYLOAD`, que empaqueta lecturas inerciales, coordenadas y timestamp en un bloque compacto y eficiente para red local. Esta representacion respalda el objetivo de baja latencia requerido por la deteccion de caidas y por el pipeline de inferencia en el Edge.
+
