@@ -139,6 +139,10 @@
 
 # Project Report Collaboration Insights
 ## TB1
+
+<img width="1137" height="886" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
+<img width="1151" height="737" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
+
  
 ---
 
@@ -1854,3 +1858,10 @@ Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de dat
 
 
 # Anexos
+
+- Link de la organización: https://github.com/Nanotech6766
+- Link del informe: https://github.com/Nanotech6766/Project-Report
+- Link de event storming: https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369
+- Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
+- Link de las entrevistas segmento 1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- Link de las entrevistas segmento 2: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
