@@ -52,10 +52,8 @@
 </p>
 <br>
 
----
+<div style="page-break-after: always;"></div>
 
-
-<br>
 
 <h1 align="center">Registro de versiones del Informe</h1>
 </br>
@@ -134,25 +132,30 @@
 </tr>
 </table>
 
----
+
+
+<div style="page-break-after: always;"></div>
+
 
 
 # Project Report Collaboration Insights
-## TB1
+## AV1
 
-<img width="1155" height="577" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
-<img width="1137" height="886" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
-<img width="1151" height="737" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
 
- 
----
+
+ <div style="page-break-after: always;"></div>
+
+
 
  
 # Contenido
  
 - [Project Report](#project-report)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
-  - [TB1](#tb1)
+  - [AV1](#av1)
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
@@ -199,6 +202,10 @@
       - [Scenario 3: Emisión de alerta y respuesta del cuidador](#scenario-3-emisión-de-alerta-y-respuesta-del-cuidador)
       - [Scenario 4: Sincronización del estado de emergencia](#scenario-4-sincronización-del-estado-de-emergencia)
       - [4.1.1.3. Bounded Context Canvases](#4113-bounded-context-canvases)
+      - [1. Edge Context Canvas](#1-edge-context-canvas)
+      - [2. Emergency Context Canvas](#2-emergency-context-canvas)
+      - [3. Notifications Context Canvas](#3-notifications-context-canvas)
+      - [4. IAM Context Canvas](#4-iam-context-canvas)
     - [4.1.2. Context Mapping](#412-context-mapping)
       - [Proceso de Elaboración y Preguntas de Diseño](#proceso-de-elaboración-y-preguntas-de-diseño)
       - [Alternativas de Diseño y Selección](#alternativas-de-diseño-y-selección)
@@ -411,8 +418,6 @@
           - [`TwilioSmsProvider`](#twiliosmsprovider)
           - [`TwilioVoiceProvider`](#twiliovoiceprovider)
           - [`FirebasePushProvider`](#firebasepushprovider)
-        - [Persistence Implementations](#persistence-implementations-1)
-          - [`NotificationLogRepositoryImpl`](#notificationlogrepositoryimpl)
         - [Database Configuration](#database-configuration-2)
           - [`NotificationsDbContext`](#notificationsdbcontext)
       - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams](#4255-bounded-context-software-architecture-component-level-diagrams)
@@ -422,8 +427,11 @@
 - [Conclusiones](#conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
+  
+<div style="page-break-after: always;"></div>
+
  
----
+
  
 # Student Outcome
  <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
@@ -474,7 +482,8 @@
     </tbody>
 </table>
  
----
+<div style="page-break-after: always;"></div>
+
  
 # Capítulo I: Introducción
  
@@ -825,7 +834,8 @@ Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmen
 - Estudios de carga emocional indican que el 85% de los cuidadores familiares en entornos urbanos experimentan niveles altos de ansiedad debido a la sobrecargar de cuidar de varios adultos mayores a la vez (Cruz Méndez et al., 2025). 
 
 
- 
+ <div style="page-break-after: always;"></div>
+
 # Capítulo II: Requirements Elicitation & Analysis
  
 ## 2.1. Competidores
@@ -1259,6 +1269,9 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
 * **Local Audio Alarm / Alarma Local Sonora [Actuador]:** La bocina del cinturón que hace un ruido fuerte para avisar a los que están cerca que el abuelito se cayó.
 * **Confirmation Motor / Motor de Confirmación [Actuador]:** La pieza que hace vibrar el cinturón para preguntarle al paciente: "¿Te caíste?.
 ---
+
+<div style="page-break-after: always;"></div>
+
  
 # Capítulo III: Requirements Specification
  
@@ -1355,6 +1368,9 @@ https://trello.com/b/0wcO99Dl/foll-product-backlog
 <img alt="Product Backlog Trello" src="img/product-backlog/foll-product-backlog.png" width="900"/>
  
 ---
+
+<div style="page-break-after: always;"></div>
+
  
 # Capítulo IV: Solution Software Design
  
@@ -3286,9 +3302,9 @@ Implementa integraciones concretas con servicios de terceros para SMS, llamadas 
 - Publica mensaje al token/dispositivo registrado en FCM.
 - Devuelve confirmacion o error para auditoria en logs.
 
-##### Persistence Implementations
+Persistence Implementations
 
-###### `NotificationLogRepositoryImpl`
+`NotificationLogRepositoryImpl`
 **Proposito:** Implementacion concreta de `INotificationLogRepository`.  
 **Tecnologia:** .NET + Entity Framework Core + MySQL.
 
