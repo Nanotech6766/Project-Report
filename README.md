@@ -1746,19 +1746,19 @@ A continuación, se presenta la representación visual de los Bounded Contexts y
  
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
-<img width="750" height="750" alt="Landscape-dark (1)" src="https://github.com/user-attachments/assets/0c05f4d9-3378-49cd-80b1-1f54bf072354" />
+<img width="3170" height="1150" alt="SystemLandscape-dark" src="https://github.com/user-attachments/assets/c16e60dd-9496-438d-9913-801a13ef91fd" />
 
 <br>
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
-<img width="750" height="750" alt="SystemContext-dark (1)" src="https://github.com/user-attachments/assets/c52bfdca-c4a6-4095-bc44-996d92365fe1" />
+<img width="3910" height="1161" alt="SystemContext-SistemaFoll-dark" src="https://github.com/user-attachments/assets/d88a014d-eb7d-404f-8734-3eb18334922e" />
 
 <br>
  
 #### 4.1.3.3. Software Architecture Container Level Diagrams
 
-<img width="750" height="750" alt="ContainerView-dark" src="https://github.com/user-attachments/assets/1a7d2e45-5c28-4dfc-a15f-f1156dea5fd7" />
+<img width="6280" height="2467" alt="ContainerView-SistemaFoll-dark" src="https://github.com/user-attachments/assets/b3741b24-574d-4c9f-a76f-0dd6cd8ad448" />
 
 <br>
  
