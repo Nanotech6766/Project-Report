@@ -3391,7 +3391,24 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
 ### 5.1.1. General Style Guidelines.
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 ## 5.2. Information Architecture.
-### 5.2.1. Organization Systems.	
+### 5.2.1. Organization Systems.
+
+En esta sección se presenta los distintos sistemas de organización que vamos a usar según el tipo de contenido que se presente, con el objetivo de facilitar la comprensión, interacción del usuario en nuestra aplicación web y móvil.
+
+**Organización visual del contenido**  
+
+* **Jerárquica (Visual Hierarchy):** Utilizaremos una jerarquía visual clara para destacar mensajes principales y call to actions. Este tipo de organización guía la mirada del usuario desde lo más importante ( títulos grandes, botones de colores contrastantes) hasta los detalles secundarios, optimizando el espacio de pantalla.
+
+* **Listas Verticales:** Será el sistema de organización principal para mostrar historiales, como el historial de caídas por ejemplo, de esta manera permitiendo un scroll natural y fluído.
+
+* **Cards y Grid:** Aplicaremos una organización en tarjetas, ya sea en listas de una columna o dos, también carruseles de scroll horizontal, cuando se presenten múltiples elementos visuales similares, como datos de todos lo abuelitos a cargo del cuidador.
+
+**Esquemas de categorización de contenido**
+
+* **Por tópicos o categorías**: Se utilizará cuando el contenido pueda agruparse por temas, facilitando que el usuario encuentre información relacionada a través de menús de navegación como un Bottom Navigation Bar o un SideBar dependiendo de la plataforma.
+
+* **Secuencial**: Se usará cuando el usuario deba seguir un orden lógico para completar una tarea (por ejemplo el proceso de registrar un abuelito), guiándolo pantalla por pantalla para evitar frustraciones.
+
 ### 5.2.2. Labeling Systems.	
 ### 5.2.3. SEO Tags and Meta Tags	
 ### 5.2.4. Searching Systems.	
