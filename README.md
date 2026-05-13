@@ -3410,6 +3410,17 @@ En esta sección se presenta los distintos sistemas de organización que vamos a
 * **Secuencial**: Se usará cuando el usuario deba seguir un orden lógico para completar una tarea (por ejemplo el proceso de registrar un abuelito), guiándolo pantalla por pantalla para evitar frustraciones.
 
 ### 5.2.2. Labeling Systems.	
+
+La interfaz de la aplicación debe ser clara y fácil de usar, con palabras clave que sean conocidos por nuestros usuarios. Por esta razón, las etiquetas empleadas deben explicar de manera concisa su función en pocas palabras. Así, hemos creado etiquetas para la navegación principal en los dos tipos de soluciones (web y móvil):
+
+* Panel de Inicio: Acceso al panel principal que tiene acceso directo a los cuidadores y estadísticas de seguridad del mes actual
+
+* Mis Abuelitos: Acceso para gestionar el monitoreo y accesos de tus familiares que deseen cuidar a los abuelitos. También, contiene el registro de abuelitos.
+
+* Registro de Caídas: Acceso al historial de eventos que incluye la revisión detallada de registro de caídas y alertas del sistema
+
+* Mi Perfil: Acceso a la gestión de información personal y preferencias de seguridad.
+
 ### 5.2.3. SEO Tags and Meta Tags	
 ### 5.2.4. Searching Systems.	
 ### 5.2.5. Navigation Systems.	
