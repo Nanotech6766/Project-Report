@@ -3422,7 +3422,45 @@ La interfaz de la aplicación debe ser clara y fácil de usar, con palabras clav
 * Mi Perfil: Acceso a la gestión de información personal y preferencias de seguridad.
 
 ### 5.2.3. SEO Tags and Meta Tags	
+
+Para optimizar la visibilidad de nuestra solución digital Foll y mejorar la experiencia de navegación e interacción, se han definido un conjunto de etiquetas SEO/Meta Tags para las plataformas web, así como directrices de ASO (App Store Optimization) para la aplicación móvil.
+
+Estas etiquetas contribuyen a mejorar el posicionamiento en buscadores, la accesibilidad, la correcta previsualización al compartir enlaces en redes sociales y la visibilidad en las tiendas de aplicaciones, asegurando que las familias y cuidadores puedan encontrarnos fácilmente.
+
+*   **Title:** Título que se muestra en la pestaña del navegador y encabezado de resultados de búsqueda.
+*   **Description:** Resumen breve que describe el contenido de la página y la propuesta de valor.
+*   **Author:** Indica el equipo responsable del contenido del sitio web.
+*   **Viewport:** Define el ajuste del contenido en diferentes tamaños de pantalla (esencial para diseño responsivo).
+*   **Charset:** Establece el sistema de codificación de caracteres (UTF-8).
+*   **Open Graph (OG):** Etiquetas (`og:title`, `og:description`, `og:image`) que controlan cómo se previsualiza la página al ser compartida en redes sociales o aplicaciones de mensajería entre familiares.
+*   **Robots:** Indica a los motores de búsqueda qué páginas o paneles privados de monitoreo no deben ser indexados por seguridad y privacidad.
+
+**Landing Page SEO Tags and Meta Tags**
+*   **Title:** "Foll - Ecosistema IoT de prevención y cuidado para el adulto mayor"
+*   **Description:** "Foll es una plataforma integral impulsada por Edge AI que detecta caídas en tiempo real mediante un cinturón IoT imperceptible, alertando a los cuidadores y protegiendo la vida de tus seres queridos."
+*   **Author:** "NanoTech"
+*   **Viewport:** Adaptable a cualquier dispositivo, permitiendo una navegación fluida en móviles, tablets y computadoras para revisar planes y testimonios.
+*   **Charset:** Se utilizará UTF-8 para asegurar compatibilidad con todos los idiomas.
+*   **Keywords:** "cuidado del adulto mayor, detección de caídas, cinturón IoT geriátrico, seguridad familiar, monitoreo de salud, botón de pánico inteligente, prevención de caídas"
+
+
+**Web Application SEO Tags and Meta Tags**
+*   **Title:** "Foll App - Panel de control y monitoreo de cuidadores"
+*   **Description:** "Administra la red de cuidado de tu familiar: revisa el historial de caídas, gestiona contactos de emergencia y monitorea el estado del cinturón IoT desde tu navegador."
+*   **Author:** "NanoTech"
+*   **Viewport:** Responsive para que los cuidadores puedan operar cómodamente desde celulares, tablets y PC ante cualquier emergencia.
+*   **Charset:** UTF-8 para soportar correctamente todos los caracteres.
+*   **Keywords:** "panel de monitoreo, historial clínico, falsos positivos, alertas de caídas, gestión de cuidadores, telemetría de salud"
+
+**Mobile App - ASO**
+Para el componente móvil de Foll, el posicionamiento (SEO móvil) se rige bajo las reglas de las tiendas de aplicaciones (Google Play / App Store) utilizando los siguientes parámetros:
+*   **App Name:** "Foll: Alertas y Cuidado Mayor"
+*   **Short Description:** "Recibe alertas de caídas en tiempo real, verifica el GPS y coordina el rescate médico de tus abuelitos desde tu celular."
+*   **Keywords:** "emergencias médicas, adulto mayor, rastreo GPS, salud, caídas, cuidadores, teleasistencia"
+
 ### 5.2.4. Searching Systems.	
+
+
 ### 5.2.5. Navigation Systems.	
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
