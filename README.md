@@ -3460,8 +3460,20 @@ Para el componente móvil de Foll, el posicionamiento (SEO móvil) se rige bajo 
 
 ### 5.2.4. Searching Systems.	
 
+A medida que el ecosistema de Foll registre más información (múltiples abuelitos a cargo, historial de incidentes a lo largo de los meses), resulta esencial brindar herramientas que ayuden a los cuidadores a encontrar reportes vitales de forma ágil y precisa. Hemos integrado diferentes mecanismos de búsqueda y filtrado adaptados al contexto de la salud y emergencias:
+
+**Búsqueda por palabra clave o identificador**
+En la sección "Mis Abuelitos", el cuidador podrá ingresar términos específicos, como el nombre del familiar, el código serial del cinturón IoT, o buscar en la lista de otros cuidadores vinculados mediante un buscador tradicional con ícono de lupa. Esto facilita la navegación si el usuario gestiona una red amplia de familiares.
+
+**Filtros desplegables por fecha y severidad**
+En el "Registro de Caídas", los usuarios contarán con filtros para segmentar el historial. Podrán filtrar por rango de fechas (mes/año), estado del incidente (ej. "Atendido", "Falsa Alarma") y tipo de caída. Estos se presentan en menús desplegables, permitiendo al cuidador o al médico tratante aislar los eventos críticos rápidamente.
+
+**Selector de visualización (Dashboard)**
+En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre visualizar las estadísticas mensuales (gráficos de tendencias de riesgo) o el log en vivo de las últimas actualizaciones del hardware (estado de batería del cinturón, último ping de red). Esta acción se realiza mediante pestañas (tabs) de selección simple.
 
 ### 5.2.5. Navigation Systems.	
+
+
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
 ### 5.3.2. Landing Page Mock-up.
