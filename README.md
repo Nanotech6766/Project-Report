@@ -3391,11 +3391,107 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
 ### 5.1.1. General Style Guidelines.
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 ## 5.2. Information Architecture.
-### 5.2.1. Organization Systems.	
+### 5.2.1. Organization Systems.
+
+En esta sección se presenta los distintos sistemas de organización que vamos a usar según el tipo de contenido que se presente, con el objetivo de facilitar la comprensión, interacción del usuario en nuestra aplicación web y móvil.
+
+**Organización visual del contenido**  
+
+* **Jerárquica (Visual Hierarchy):** Utilizaremos una jerarquía visual clara para destacar mensajes principales y call to actions. Este tipo de organización guía la mirada del usuario desde lo más importante ( títulos grandes, botones de colores contrastantes) hasta los detalles secundarios, optimizando el espacio de pantalla.
+
+* **Listas Verticales:** Será el sistema de organización principal para mostrar historiales, como el historial de caídas por ejemplo, de esta manera permitiendo un scroll natural y fluído.
+
+* **Cards y Grid:** Aplicaremos una organización en tarjetas, ya sea en listas de una columna o dos, también carruseles de scroll horizontal, cuando se presenten múltiples elementos visuales similares, como datos de todos lo abuelitos a cargo del cuidador.
+
+**Esquemas de categorización de contenido**
+
+* **Por tópicos o categorías**: Se utilizará cuando el contenido pueda agruparse por temas, facilitando que el usuario encuentre información relacionada a través de menús de navegación como un Bottom Navigation Bar o un SideBar dependiendo de la plataforma.
+
+* **Secuencial**: Se usará cuando el usuario deba seguir un orden lógico para completar una tarea (por ejemplo el proceso de registrar un abuelito), guiándolo pantalla por pantalla para evitar frustraciones.
+
 ### 5.2.2. Labeling Systems.	
+
+La interfaz de la aplicación debe ser clara y fácil de usar, con palabras clave que sean conocidos por nuestros usuarios. Por esta razón, las etiquetas empleadas deben explicar de manera concisa su función en pocas palabras. Así, hemos creado etiquetas para la navegación principal en los dos tipos de soluciones (web y móvil):
+
+* Panel de Inicio: Acceso al panel principal que tiene acceso directo a los cuidadores y estadísticas de seguridad del mes actual
+
+* Mis Abuelitos: Acceso para gestionar el monitoreo y accesos de tus familiares que deseen cuidar a los abuelitos. También, contiene el registro de abuelitos.
+
+* Registro de Caídas: Acceso al historial de eventos que incluye la revisión detallada de registro de caídas y alertas del sistema
+
+* Mi Perfil: Acceso a la gestión de información personal y preferencias de seguridad.
+
 ### 5.2.3. SEO Tags and Meta Tags	
+
+Para optimizar la visibilidad de nuestra solución digital Foll y mejorar la experiencia de navegación e interacción, se han definido un conjunto de etiquetas SEO/Meta Tags para las plataformas web, así como directrices de ASO (App Store Optimization) para la aplicación móvil.
+
+Estas etiquetas contribuyen a mejorar el posicionamiento en buscadores, la accesibilidad, la correcta previsualización al compartir enlaces en redes sociales y la visibilidad en las tiendas de aplicaciones, asegurando que las familias y cuidadores puedan encontrarnos fácilmente.
+
+*   **Title:** Título que se muestra en la pestaña del navegador y encabezado de resultados de búsqueda.
+*   **Description:** Resumen breve que describe el contenido de la página y la propuesta de valor.
+*   **Author:** Indica el equipo responsable del contenido del sitio web.
+*   **Viewport:** Define el ajuste del contenido en diferentes tamaños de pantalla (esencial para diseño responsivo).
+*   **Charset:** Establece el sistema de codificación de caracteres (UTF-8).
+*   **Open Graph (OG):** Etiquetas (`og:title`, `og:description`, `og:image`) que controlan cómo se previsualiza la página al ser compartida en redes sociales o aplicaciones de mensajería entre familiares.
+*   **Robots:** Indica a los motores de búsqueda qué páginas o paneles privados de monitoreo no deben ser indexados por seguridad y privacidad.
+
+**Landing Page SEO Tags and Meta Tags**
+*   **Title:** "Foll - Ecosistema IoT de prevención y cuidado para el adulto mayor"
+*   **Description:** "Foll es una plataforma integral impulsada por Edge AI que detecta caídas en tiempo real mediante un cinturón IoT imperceptible, alertando a los cuidadores y protegiendo la vida de tus seres queridos."
+*   **Author:** "NanoTech"
+*   **Viewport:** Adaptable a cualquier dispositivo, permitiendo una navegación fluida en móviles, tablets y computadoras para revisar planes y testimonios.
+*   **Charset:** Se utilizará UTF-8 para asegurar compatibilidad con todos los idiomas.
+*   **Keywords:** "cuidado del adulto mayor, detección de caídas, cinturón IoT geriátrico, seguridad familiar, monitoreo de salud, botón de pánico inteligente, prevención de caídas"
+
+
+**Web Application SEO Tags and Meta Tags**
+*   **Title:** "Foll App - Panel de control y monitoreo de cuidadores"
+*   **Description:** "Administra la red de cuidado de tu familiar: revisa el historial de caídas, gestiona contactos de emergencia y monitorea el estado del cinturón IoT desde tu navegador."
+*   **Author:** "NanoTech"
+*   **Viewport:** Responsive para que los cuidadores puedan operar cómodamente desde celulares, tablets y PC ante cualquier emergencia.
+*   **Charset:** UTF-8 para soportar correctamente todos los caracteres.
+*   **Keywords:** "panel de monitoreo, historial clínico, falsos positivos, alertas de caídas, gestión de cuidadores, telemetría de salud"
+
+**Mobile App - ASO**
+Para el componente móvil de Foll, el posicionamiento (SEO móvil) se rige bajo las reglas de las tiendas de aplicaciones (Google Play / App Store) utilizando los siguientes parámetros:
+*   **App Name:** "Foll: Alertas y Cuidado Mayor"
+*   **Short Description:** "Recibe alertas de caídas en tiempo real, verifica el GPS y coordina el rescate médico de tus abuelitos desde tu celular."
+*   **Keywords:** "emergencias médicas, adulto mayor, rastreo GPS, salud, caídas, cuidadores, teleasistencia"
+
 ### 5.2.4. Searching Systems.	
+
+A medida que el ecosistema de Foll registre más información (múltiples abuelitos a cargo, historial de incidentes a lo largo de los meses), resulta esencial brindar herramientas que ayuden a los cuidadores a encontrar reportes vitales de forma ágil y precisa. Hemos integrado diferentes mecanismos de búsqueda y filtrado adaptados al contexto de la salud y emergencias:
+
+**Búsqueda por palabra clave o identificador**
+En la sección "Mis Abuelitos", el cuidador podrá ingresar términos específicos, como el nombre del familiar, el código serial del cinturón IoT, o buscar en la lista de otros cuidadores vinculados mediante un buscador tradicional con ícono de lupa. Esto facilita la navegación si el usuario gestiona una red amplia de familiares.
+
+**Filtros desplegables por fecha y severidad**
+En el "Registro de Caídas", los usuarios contarán con filtros para segmentar el historial. Podrán filtrar por rango de fechas (mes/año), estado del incidente (ej. "Atendido", "Falsa Alarma") y tipo de caída. Estos se presentan en menús desplegables, permitiendo al cuidador o al médico tratante aislar los eventos críticos rápidamente.
+
+**Selector de visualización (Dashboard)**
+En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre visualizar las estadísticas mensuales (gráficos de tendencias de riesgo) o el log en vivo de las últimas actualizaciones del hardware (estado de batería del cinturón, último ping de red). Esta acción se realiza mediante pestañas (tabs) de selección simple.
+
 ### 5.2.5. Navigation Systems.	
+
+En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios cuidadores, asegurando interfaces intuitivas que permitan una reacción rápida ante emergencias. Para ello, se han definido las siguientes decisiones de UI:
+
+**Landing Page**
+*   La navegación utiliza scroll vertical continuo, ideal para contar la historia del producto y explicar el funcionamiento del Edge AI.
+*   Cuenta con una barra de menú superior fija (sticky navbar) que permanece visible, con enlaces ancla a las secciones: Funcionamiento, Planes, Testimonios y Contacto.
+*   Se emplean Call to Action (CTA) estratégicos mediante botones como "Solicitar Asesoría" y "Ver Planes", incentivando a las familias a iniciar el proceso de adquisición.
+
+**Web Application**
+*   La aplicación contará con un side navbar (menú lateral fijo) en pantallas grandes, garantizando acceso rápido a: Panel de Inicio, Mis Abuelitos, Registro de Caídas y Mi Perfil.
+*   Uso de modales y alertas superpuestas (snackbars) para notificar cambios de estado exitosos, como la actualización de datos médicos.
+
+**Mobile App**
+*   La aplicación móvil contará con una barra de navegación inferior (bottom navigation bar) para acceder con un solo toque a las áreas críticas, optimizado para uso con una sola mano.
+*   Se implementará navegación por notificaciones push: tocar una alerta de emergencia abrirá inmediatamente la pantalla de detalle del incidente con el mapa GPS y el botón de "Confirmar Auxilio".
+
+**Accesibilidad y Usabilidad**
+*   Se prioriza el uso de tipografías grandes, iconos claros y un alto contraste de colores para asegurar la accesibilidad, considerando que algunos cuidadores también pueden ser personas de edad avanzada.
+*   Responsive Design integral, asegurando que la experiencia pase fluidamente de un dispositivo de escritorio (donde un médico podría descargar el reporte PDF) a un móvil (donde el cuidador recibe la alerta en la calle).
+
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
 ### 5.3.2. Landing Page Mock-up.
