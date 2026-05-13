@@ -3481,7 +3481,99 @@ https://github.com/foll-project
 
 ### 6.1.3. Source Code Style Guide & Conventions.	
 
-<strong>Requisitos Previos Unificados</strong><br><br>
+En esta sección se establecen las reglas para la nomenclatura, estructuración y formato del código fuente del proyecto. Aplicaremos estilos y convenciones ampliamente reconocidos en la industria para garantizar un desarrollo estandarizado, legible y escalable entre todos los miembros del equipo.<br><br>
+
+<ul>
+    <li>
+        <strong>Convenciones Generales y de Idioma</strong><br><br>
+        <ul>
+            <li><strong>Idioma del Código:</strong> Todos los identificadores (carpetas, archivos, clases, métodos, variables, atributos) y los comentarios dentro del código deben redactarse exclusivamente en inglés para garantizar coherencia y evitar ambigüedades. Las traducciones al usuario final se manejan únicamente en la capa de presentación.</li>
+            <li><strong>Idioma de Documentación:</strong> La documentación formal y los artefactos presentados en este informe técnico se mantendrán en español.</li>
+        </ul>
+    </li>
+            <br><br><li><strong>HTML</strong><br><br>
+        <ul>
+            <li>Etiquetas y atributos en minúsculas. Ejemplo: <code>&lt;section id="alert-dashboard"&gt;&lt;/section&gt;</code></li>
+            <li>Siempre cerrar los elementos: <code>&lt;img src="warning-icon.svg" alt="fall-alert" /&gt;</code></li>
+            <li>Usar comillas dobles en los atributos: <code>&lt;button type="button" class="btn-primary"&gt;&lt;/button&gt;</code></li>
+            <li>Atributo <strong>alt</strong> obligatorio para accesibilidad visual.</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>CSS (Tailwind CSS)</strong><br><br>
+        <ul>
+            <li>Colores globales configurados semánticamente en <code>tailwind.config.js</code> (primary, secondary, warning, critical).</li>
+            <li>Estilos aplicados directamente mediante clases utilitarias en los archivos <code>.tsx</code>.</li>
+            <li>Evitar el hardcoding (uso de valores hexadecimales directos en los componentes).</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>Frontend (React, TypeScript & Tailwind CSS)</strong><br><br>
+        Para el desarrollo de la interfaz de usuario, el equipo se adhiere a las mejores prácticas de React y a una arquitectura escalable:
+        <ul>
+            <li><strong>Arquitectura Domain-Driven Design (DDD):</strong> src dividido en core, domains (ej. iam, emergencies), y shared.</li>
+            <li><strong>Convenciones:</strong>
+                <ul>
+                    <li><strong>Componentes/Vistas:</strong> PascalCase → <code>ElderlyPatients.tsx</code></li>
+                    <li><strong>Hooks/Utilidades/Servicios:</strong> camelCase → <code>useAuth.ts</code></li>
+                    <li><strong>Interfaces/Tipos:</strong> PascalCase → <code>UserRecord</code></li>
+                    <li><strong>Variables y métodos:</strong> camelCase → <code>handleAlertSubmit()</code></li>
+                    <li><strong>Constantes:</strong> UPPER_SNAKE_CASE → <code>MAX_TIMEOUT</code></li>
+                </ul>
+            </li>
+            <li>Favorecer componentes funcionales con <code>function</code> → <code>export default function Login()</code></li>
+            <li>Usar arrow functions (<code>const</code>) para sub-componentes locales e íconos SVG.</li>
+            <li>Siempre usar tipado estricto, evitar el uso de <strong>any</strong>.</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>Backend (.NET / C#)</strong><br><br>
+        El backend sigue rigurosamente los principios de Domain-Driven Design (DDD) organizado en Bounded Contexts (Care, DeviceManagement, IAM, Shared). La estructura interna de cada contexto se divide en: Application (usando CQRS), Domain, Infrastructure e Interfaces.
+        <ul>
+            <li><strong>Características Modernas de C#:</strong>
+                <ul>
+                    <li>Uso obligatorio de <strong>File-Scoped Namespaces</strong> para reducir la indentación.</li>
+                    <li><strong>Nullable Reference Types</strong> e <strong>Implicit Usings</strong> habilitados a nivel de proyecto.</li>
+                </ul>
+            </li>
+            <li><strong>Convenciones de Nomenclatura:</strong>
+                <ul>
+                    <li><strong>Clases, Métodos y Propiedades:</strong> PascalCase → <code>DeviceRepository</code>, <code>RegisterTelemetry()</code></li>
+                    <li><strong>Interfaces:</strong> Inician con I + PascalCase → <code>IDeviceRepository</code></li>
+                    <li><strong>Parámetros y Variables Locales:</strong> camelCase → <code>firmwareVersion</code></li>
+                    <li><strong>Campos Privados (Inyección de Dependencias):</strong> _camelCase → <code>_deviceRepository</code></li>
+                </ul>
+            </li>
+            <li><strong>Modelado de Dominio Rico (Rich Domain Model):</strong>
+                <ul>
+                    <li>Todas las propiedades públicas deben tener <strong>private set</strong>. Las entidades no son meros contenedores de datos.</li>
+                    <li><strong>Fail-Fast:</strong> Los constructores primarios deben validar las entradas y lanzar excepciones estándar (<code>ArgumentException</code>, etc.) inmediatamente ante datos inválidos.</li>
+                    <li><strong>Mutación por comportamiento:</strong> Los cambios de estado ocurren a través de métodos que representan acciones del negocio, no asignando propiedades directamente → <code>device.UpdatePowerState()</code>.</li>
+                    <li>Constructores vacíos <strong>protected</strong> reservados exclusivamente para el ORM (Entity Framework Core).</li>
+                </ul>
+            </li>
+            <li><strong>Manejo de Eventos y Comunicación:</strong>
+                <ul>
+                    <li>Las entidades emiten <strong>Domain Events</strong> internamente heredando de <code>EntityWithDomainEvents</code>.</li>
+                    <li>La comunicación entre Bounded Contexts se realiza de forma asíncrona mediante <strong>Integration Events</strong>, garantizando la entrega a través del patrón <strong>Outbox Pattern</strong> apoyado en <strong>MediatR</strong> y <strong>Background Services</strong>.</li>
+                    <li>Las consultas síncronas entre contextos se realizan a través de una <strong>Capa Anticorrupción (ACL)</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Persistencia y Datos (Entity Framework Core):</strong>
+                <ul>
+                    <li>Uso de <strong>PostgreSQL</strong> (<code>UseNpgsql</code>).</li>
+                    <li>Aplicación estricta de la convención de nombres <code>UseSnakeCaseNamingConvention()</code> para que las tablas y columnas en BD se creen en <strong>snake_case</strong> (<code>device_events</code>), aunque el código C# mantenga PascalCase.</li>
+                    <li>La configuración de entidades utiliza <strong>Fluent API</strong> (<code>IEntityTypeConfiguration&lt;T&gt;</code>) aislando la infraestructura del dominio.</li>
+                    <li>Las transacciones se centralizan al final de los <strong>CommandServices</strong> usando el patrón <strong>IUnitOfWork</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul><br>
+
+### 6.1.4. Software Deployment Configuration.	
+
+<strong>Requisitos Previos Unificados</strong><br>
 <ul>
 <li>Suscripción activa de Azure + permisos adecuados: Confirma que tu cuenta posee los roles necesarios (al menos Contributor) para levantar, modificar y eliminar recursos. Sin estos privilegios, tu infraestructura se quedará a medio camino.</li>
 <li>Repositorios bien organizados: Mantén tres repositorios separados — landing-page, frontend y backend — cada uno con su rama principal claramente establecida. Esto facilita la integración continua y permite aplicar reglas de protección específicas por proyecto.</li>
@@ -3539,7 +3631,6 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 <li>Paso 5: Guardamos los cambios y reiniciamos el servicio. GitHub Actions procesará el archivo .yml cada vez que haya un cambio, construirá el contenedor Docker y el Web App descargará y desplegará la última versión de la API de forma automática.</li>
 </ul>
 
-### 6.1.4. Software Deployment Configuration.	
 ## 6.2. Landing Page, Services & Applications Implementation.	
 ### 6.2.1. Sprint 1
 #### 6.2.1.1. Sprint Planning 1.	
