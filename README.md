@@ -3473,6 +3473,24 @@ En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre 
 
 ### 5.2.5. Navigation Systems.	
 
+En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios cuidadores, asegurando interfaces intuitivas que permitan una reacción rápida ante emergencias. Para ello, se han definido las siguientes decisiones de UI:
+
+**Landing Page**
+*   La navegación utiliza scroll vertical continuo, ideal para contar la historia del producto y explicar el funcionamiento del Edge AI.
+*   Cuenta con una barra de menú superior fija (sticky navbar) que permanece visible, con enlaces ancla a las secciones: Funcionamiento, Planes, Testimonios y Contacto.
+*   Se emplean Call to Action (CTA) estratégicos mediante botones como "Solicitar Asesoría" y "Ver Planes", incentivando a las familias a iniciar el proceso de adquisición.
+
+**Web Application**
+*   La aplicación contará con un side navbar (menú lateral fijo) en pantallas grandes, garantizando acceso rápido a: Panel de Inicio, Mis Abuelitos, Registro de Caídas y Mi Perfil.
+*   Uso de modales y alertas superpuestas (snackbars) para notificar cambios de estado exitosos, como la actualización de datos médicos.
+
+**Mobile App**
+*   La aplicación móvil contará con una barra de navegación inferior (bottom navigation bar) para acceder con un solo toque a las áreas críticas, optimizado para uso con una sola mano.
+*   Se implementará navegación por notificaciones push: tocar una alerta de emergencia abrirá inmediatamente la pantalla de detalle del incidente con el mapa GPS y el botón de "Confirmar Auxilio".
+
+**Accesibilidad y Usabilidad**
+*   Se prioriza el uso de tipografías grandes, iconos claros y un alto contraste de colores para asegurar la accesibilidad, considerando que algunos cuidadores también pueden ser personas de edad avanzada.
+*   Responsive Design integral, asegurando que la experiencia pase fluidamente de un dispositivo de escritorio (donde un médico podría descargar el reporte PDF) a un móvil (donde el cuidador recibe la alerta en la calle).
 
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
