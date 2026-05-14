@@ -3345,7 +3345,73 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
  
 ## 5.1. Style Guidelines.
 ### 5.1.1. General Style Guidelines.
+
+En esta sección se explican las decisiones visuales y conceptuales transversales para el ecosistema Foll, estableciendo los principios de diseño que garantizan una experiencia coherente, accesible y empática en todos los puntos de contacto con el usuario (cuidadores y adultos mayores).
+
+**Tono de Comunicación y Lenguaje**
+Dado el contexto crítico de la aplicación (salud, emergencias y cuidado familiar), el tono de comunicación de Foll se define mediante las siguientes dimensiones:
+*   **Serio pero Empático:** Las alertas y estados de salud deben comunicarse con absoluta claridad y seriedad, sin generar pánico innecesario, utilizando palabras que transmitan contención y apoyo.
+*   **Formal y Respetuoso:** Nos dirigimos a familiares preocupados por sus seres queridos. Se evitará el uso de jerga excesivamente técnica o lenguaje irreverente.
+*   **Sereno:** En situaciones de emergencia (detección de una caída), la interfaz debe guiar al usuario hacia la acción correcta de manera calmada y estructurada, evitando la sobrecarga cognitiva.
+
+**Principios Visuales Generales (Branding, Colors, Typography & Spacing)**
+Nuestro Design System personalizado se basa en los principios de accesibilidad universal:
+*   **Colors:** La paleta de colores utiliza tonos pasteles (azules y cremas) como colores primarios para transmitir seguridad, confianza y tecnología médica. Los colores semánticos se reservan estrictamente para sus estados universales: Rojo intenso para emergencias/caídas, Naranja para advertencias (batería baja) y Verde para estados saludables.
+
+A continuación se presentan los colores principales y secundarias que tendrán nuestras interfaces tanto en web y mobile.
+
+![Colores de Foll](img/style-guidelines/colores.png)
+
+*   **Typography:** Se prioriza la legibilidad por encima de la estética pura. Utilizamos la tipografía *Lexend* con pesos bien definidos (Bold para títulos, Regular para cuerpo). Los tamaños de fuente base se han escalado para garantizar que los cuidadores (que también pueden ser personas de edad avanzada) puedan leer sin forzar la vista.
+*   **Spacing & Touch Targets:** Se aplica un sistema de espaciado generoso (múltiplos de 8px). Los botones y áreas interactivas mantienen un tamaño mínimo elevado para evitar el "fat-finger error" (pulsaciones accidentales), algo crucial cuando las manos pueden temblar por el estrés de una emergencia.
+
+![Tipografía de Foll](img/style-guidelines/tipografía.png)
+
+**Botones**
+
+A continuación se presenta los distintos estilos de botones que habrá en la aplicación web y móvil, para que haya un contraste en cuanto a la acción que ejecute el botón.
+
+![Botones de Foll](img/style-guidelines/botones.png)
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
+
+**Web Style Guidelines**  
+La aplicación web está construida con React y TypeScript, orientada principalmente a la gestión detallada y configuración profunda por parte del cuidador principal. Para el diseño y estilización, nos apoyamos en **Tailwind CSS**, un framework *utility-first* que nos permite implementar un diseño responsivo y consistente.
+
+*   **Responsive Grids y Layouts:** Gracias a las clases utilitarias de Tailwind, la interfaz web pasa de manera fluida de un layout de múltiples columnas en Desktop (ideal para visualizar dashboards estadísticos y listas de dispositivos) a un diseño apilado de una sola columna en pantallas pequeñas.
+*   **Tarjetas de Información (Cards):** Utilizadas intensivamente para agrupar la información de cada adulto mayor. En Tailwind, estas tarjetas mantienen bordes sutilmente redondeados (`rounded-lg`), sombras suaves (`shadow-md`) y fondos claros para resaltar contra el fondo de la aplicación, facilitando la lectura de métricas como el nivel de batería y el historial de caídas.
+*   **Estados de Interacción Clientes:** Los botones y formularios web implementan un *feedback* visual inmediato utilizando pseudo-clases de Tailwind (`hover:`, `focus:`, `active:`). Esto incluye cambios de opacidad o color, garantizando que el usuario entienda que su clic para "Guardar contacto de emergencia" ha sido registrado.
+
+
+**Mobile Style Guidelines**
+
+La aplicación móvil, desarrollada con Flutter y Dart, está diseñada para la acción rápida: es el canal principal donde el cuidador recibe las notificaciones push de emergencias estando en movimiento.
+
+*   **Navegación Táctil (Bottom Navigation):** Se utiliza una barra de navegación inferior para los módulos principales (Home, Care, Perfil), permitiendo al usuario operar la aplicación con una sola mano (el pulgar) mientras se desplaza.
+*   **Botones de Acción Crítica de Alto Contraste:** Elementos vitales como el botón de "Confirmar Auxilio" o "Llamar a Emergencias" se diseñan como botones flotantes de ancho completo (Full-width Elevated Buttons) en la parte inferior de la pantalla, con colores de alto contraste, asegurando que no pasen desapercibidos bajo ninguna condición de iluminación.
+*   **Adaptabilidad Nativa:** Aunque se usa un solo código base (Flutter), los componentes de la interfaz respetan las convenciones de la plataforma del usuario. Se utilizan directrices de *Material Design 3* para usuarios Android y comportamientos *Cupertino* para usuarios iOS (como los gestos de deslizamiento para retroceder), logrando que la aplicación se sienta natural en el teléfono del cuidador.
+
+**IoT Physical User Interface (PUI) Style Guidelines**
+
+A diferencia de las aplicaciones web o móviles, el dispositivo IoT (el cinturón de Foll) carece de una pantalla gráfica. Su **Interfaz Física de Usuario (PUI)** está compuesta por los actuadores y controles mecánicos con los que el adulto mayor interactúa directamente. Basándonos en los componentes de hardware seleccionados, se establecen las siguientes directrices ergonómicas y de usabilidad, considerando siempre las limitaciones motrices y sensoriales del adulto mayor:
+
+*   **Slide Switch (Control de Encendido/Apagado):**
+    *   **Feedback Táctil y Resistencia:** El interruptor debe tener un anclaje mecánico firme que produzca un "clic" claro al cambiar de estado. La resistencia debe ser suficiente para evitar que el dispositivo se apague accidentalmente por el roce constante con la ropa, pero operable por una persona con fuerza reducida en las manos.
+    *   **Indicador Visual Analógico:** La posición de "Encendido" (ON) debe exponer una marca de color contrastante (ej. verde, blanco o textura ranurada) en el chasis físico, permitiendo al adulto mayor o al cuidador verificar visualmente o al tacto si el cinturón está operando, sin depender de la aplicación móvil.
+
+*   **Pushbutton (Botón de Verificación y Cancelación):**
+    *   **Color y Contraste:** El botón físico de cancelación debe utilizar un color de alta visibilidad como el rosado, magenta o un rojo brillante que contraste fuertemente con el color del chasis. Esto facilita su localización inmediata durante el estrés y la confusión que genera la fase de pre-alarma.
+    *   **Ergonomía y Área de Interacción:** El botón debe tener un diámetro amplio para ser presionado fácilmente por manos temblorosas. Además, el diseño de la carcasa debe contemplar que el botón esté ligeramente empotrado (*recessed*) o rodeado por un anillo protector. Esto previene que el botón sea presionado contra el propio cuerpo del usuario al sentarse o inclinarse, evitando cancelaciones accidentales.
+
+*   **Buzzer (Retroalimentación Auditiva):**
+    *   **Frecuencia y Volumen:** Considerando la presbiacusia (pérdida de audición de tonos agudos relacionada con la edad), el buzzer debe configurarse para emitir frecuencias medias. El volumen debe calibrarse para que penetre a través de capas de ropa gruesas como abrigos y sea audible en un entorno doméstico normal, pero sin alcanzar niveles altos que puedan aturdir al paciente si se encuentra en el suelo.
+    *   **Patrones de Sonido (Earcons):** La comunicación con el usuario se basará en patrones acústicos fácilmente diferenciables:
+        *   *Alarma de Verificación (Pre-alarma):* Pitidos intermitentes con un incremento gradual de velocidad, indicando claramente que el tiempo para presionar el Pushbutton y cancelar la falsa alarma se está agotando.
+        *   *Confirmación de Estado:* Un bip corto y agudo para confirmar el encendido y dos bips de tono descendente para confirmar el apagado.
+
+*   **Integración de Sensores (MPU6050 y GPS):**
+    *   Aunque el giroscopio, el acelerómetro y el chip GPS no requieren manipulación directa, la PUI dicta que la carcasa que los contiene debe asegurar su correcta orientación. El diseño exterior del cinturón incluirá marcas táctiles o formas asimétricas que guíen al adulto mayor a colocárselo siempre en la misma posición (alineando correctamente los ejes X, Y, Z del MPU6050 con su centro de gravedad), garantizando así la precisión del algoritmo de IA.
+
 ## 5.2. Information Architecture.
 ### 5.2.1. Organization Systems.
 
