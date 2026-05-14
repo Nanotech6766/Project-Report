@@ -130,6 +130,53 @@
     <td>Mauricio Elera</td>
     <td>Diseño de Base de Datos y diagramas de nivel de código</td>
 </tr>
+<td>2</td>
+    <td>26/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Desarrollo de Style Guidelines, General Style Guidelines y Web, Mobile and IoT Style Guidelines.</td>
+</tr>
+<tr>
+    <td>2.1</td>
+    <td>27/04/2026</td>
+    <td>Diego Vilca</td>
+    <td>Desarrollo de Information Architecture, incluyendo Organization Systems, Labeling Systems, SEO Tags and Meta Tags, Searching Systems y Navigation Systems.</td>
+</tr>
+<tr>
+    <td>2.2</td>
+    <td>28/04/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Diseño de la Landing Page UI Design, incluyendo Landing Page Wireframe y Landing Page Mock-up.</td>
+</tr>
+<tr>
+    <td>2.3</td>
+    <td>29/04/2026</td>
+    <td>Ariana Agreda y Fabiola Saldaña</td>
+    <td>Desarrollo del Applications UX/UI Design y elaboración de los mock-ups de la aplicación.</td>
+</tr>
+<tr>
+    <td>2.4</td>
+    <td>30/04/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Elaboración de Applications Wireframes y Applications Wireflow Diagrams.</td>
+</tr>
+<tr>
+    <td>2.5</td>
+    <td>01/05/2026</td>
+    <td>Diego Vilca</td>
+    <td>Desarrollo de Applications User Flow Diagrams.</td>
+</tr>
+<tr>
+    <td>2.6</td>
+    <td>02/05/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Desarrollo de Applications Prototyping.</td>
+</tr>
+<tr>
+    <td>2.7</td>
+    <td>03/05/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Diseño del IoT Device Design.</td>
+</tr>
 </table>
 
 
@@ -3735,7 +3782,7 @@ En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi 
 Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
 
 <img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
-[Ver proyecto en Wokwi](https://wokwi.com/projects/463973317008005121)
+(https://wokwi.com/projects/463973317008005121)
 
 <br>
 <br>
