@@ -3565,9 +3565,227 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 # Capítulo VI: Product Implementation, Validation & Deployment
 ## 6.1. Software Configuration Management.	
 ### 6.1.1. Software Development Environment Configuration.	
+
+<strong>Project & Requirements Management</strong><br><br>
+<ul>
+<li>Jira: Es una solución de software diseñada para la gestión y organización de proyectos bajo metodologías ágiles que resulta fundamental para nuestro equipo al permitir el desglose de requerimientos complejos en User Stories y tareas manejables, asegurando un seguimiento colaborativo y un control riguroso de la carga de trabajo durante cada Sprint. Ruta de referencia: https://www.atlassian.com/es/software/jira
+</li><br>
+<li>UXpressia: Esta herramienta profesional se centra en el análisis detallado de la experiencia de usuario y es utilizada en el proyecto para plantear escenarios críticos como User Personas y Empathy Maps, permitiéndonos mapear con precisión las necesidades, frustraciones y realidades de los adultos mayores y sus cuidadores frente a una caída. Ruta de referencia: https://uxpressia.com/
+</li><br><br>
+    </ul>
+<strong>Product Design & Architecture</strong><br><br>
+<ul>
+<li>Figma: Es la plataforma líder en el diseño de interfaces de usuario y experiencia de usuario que nos permite modelar con alta fidelidad los prototipos tanto de la aplicación móvil como de la plataforma web, sirviendo de guía visual indispensable para asegurar que la jerarquía y accesibilidad del sistema cumplan con los estándares necesarios para nuestro público objetivo. Ruta de referencia: https://www.figma.com/
+</li><br>
+<li>Mermaid: Es una herramienta basada en JavaScript que genera diagramas y gráficos de forma dinámica a partir de texto, lo que nos facilita documentar y actualizar los flujos lógicos de la aplicación de manera rápida y eficiente, manteniéndose siempre alineada con el código fuente. Ruta de referencia: https://mermaid.js.org/
+</li><br>
+<li>Structurizr: Esta herramienta especializada en la generación de diagramas bajo el estándar C4 Model permite, a través de código, crear esquemas arquitectónicos precisos que definen la estructura y las relaciones de los componentes de nuestro proyecto, garantizando una documentación técnica de alto nivel. Ruta de referencia: https://structurizr.com/
+</li><br><br>
+</ul>
+<strong>Software Development</strong><br><br>
+<ul>
+<li>Visual Studio Code: Es el entorno de desarrollo integrado seleccionado por el equipo por su excepcional versatilidad, permitiéndonos elaborar y ejecutar el código tanto del frontend como del backend gracias a su flexibilidad de extensiones y su capacidad para manejar múltiples lenguajes de programación en un solo flujo de trabajo. Ruta de referencia: https://code.visualstudio.com/
+</li><br>
+<li>PostgreSQL: Un sistema de gestión de base de datos relacional de código abierto, seleccionado para este proyecto por su robustez y extensibilidad, lo que nos ofrece la facilidad de realizar consultas de datos geográficos mediante PostGIS y garantiza un almacenamiento seguro, estructurado y con alta integridad para los datos críticos de salud. Ruta de referencia: https://www.postgresql.org/
+</li><br>
+<li>HTML5: Es el lenguaje de marcado estándar utilizado para estructurar el contenido en la web, estableciendo la base semántica de nuestra plataforma frontend. Su correcta implementación es fundamental en este proyecto para garantizar la accesibilidad de la interfaz, asegurando que elementos vitales como las alertas de emergencia o los perfiles médicos puedan ser interpretados correctamente por cualquier navegador o tecnología de asistencia tecnológica, lo cual es clave considerando que nuestro segmento involucra a adultos mayores. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/HTML
+</li><br>
+<li>CSS3: Es el lenguaje de hojas de estilo utilizado para definir la presentación y el diseño visual de la interfaz de usuario. Su uso en el proyecto es indispensable para implementar un diseño responsivo que se adapte a cualquier dispositivo (móvil, tablet o escritorio) y para aplicar de forma rigurosa la psicología del color, garantizando un alto contraste y legibilidad que notifique las emergencias a los familiares de manera clara y sin generar pánico visual. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/CSS
+</li><br>
+<li>Tailwind CSS: Es un framework de CSS basado en clases utilitarias (utility-first) que permite construir interfaces de usuario a medida directamente desde el código de maquetado. Su inclusión en el entorno de desarrollo se justifica porque agiliza drásticamente la construcción del frontend y estandariza el diseño de la plataforma; en nuestro proyecto, nos permite configurar un sistema de colores semánticos globales y crear interfaces responsivas y altamente legibles, asegurando la accesibilidad visual para los adultos mayores y sus cuidadores sin la necesidad de mantener extensas y complejas hojas de estilo tradicionales. Ruta de referencia: https://tailwindcss.com/
+</li><br>
+<li>TypeScript: Es un lenguaje de programación de código abierto que añade tipado estático estricto a JavaScript, lo que mejora significativamente el desarrollo de nuestra aplicación web al integrarse con React. Su uso permite detectar errores en tiempo de compilación y definir contratos de datos claros (interfaces) para la información que viaja desde el backend, asegurando un código escalable, fácil de mantener y mucho más profesional. Ruta de referencia: https://www.typescriptlang.org
+		</li><br>
+<li>React: Es una biblioteca de JavaScript de código abierto diseñada para construir interfaces de usuario a través de componentes reutilizables, seleccionada para el frontend por su capacidad superior para gestionar interfaces reactivas y asíncronas a través de su Virtual DOM. En un sistema crítico como la detección de caídas, esta tecnología garantiza que las alertas enviadas por el servidor actualicen instantáneamente la pantalla del monitor en tiempo real y sin necesidad de recargar la página, permitiendo además un control riguroso sobre la jerarquía visual para notificar emergencias de manera efectiva. Ruta de referencia: https://es.react.dev/
+</li><br>
+<li>.NET: Es un framework de desarrollo multiplataforma y de código abierto de Microsoft utilizado para construir aplicaciones modernas y servicios en la nube, cuya adopción en el backend se fundamenta en la necesidad de garantizar alta disponibilidad y seguridad en el procesamiento de datos de salud. Al ser un entorno fuertemente tipado e incorporar SignalR de forma nativa, minimiza los errores en tiempo de ejecución, optimiza la transmisión bidireccional de alertas mediante WebSockets y asegura una integración fluida con el ecosistema de Azure para un despliegue optimizado. Ruta de referencia: https://dotnet.microsoft.com/es-es/
+</li><br><br></ul>
+<strong>Software Testing & Documentation</strong><br><br>
+<ul>
+<li>Git: Es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software, resultando indispensable para nuestro equipo de cinco integrantes al facilitar el trabajo en paralelo sobre diferentes funcionalidades del sistema de detección de caídas sin riesgo de pérdida de información. Su implementación asegura que cada modificación sea trazable y que podamos revertir cambios o integrar nuevas mejoras de manera controlada y predecible. Ruta de referencia: https://git-scm.com/
+</li><br>
+<li>Swagger: Es un conjunto de herramientas de código abierto construidas en torno a la especificación OpenAPI que actúa como un contrato interactivo entre el backend y la interfaz de la aplicación, facilitando que los desarrolladores puedan diseñar, construir, documentar y consumir las APIs RESTful del proyecto en un espacio de pruebas controlado y transparente. Ruta de referencia: https://swagger.io/
+</li><br>
+<li>Postman: Se define como una plataforma de desarrollo de APIs que facilita la construcción y validación de solicitudes HTTP, permitiéndonos probar exhaustivamente el comportamiento de cada endpoint y asegurar que las comunicaciones del sistema sean correctas antes de la integración final con las interfaces de usuario. Ruta de referencia: https://www.postman.com/
+</li><br>
+<li>Github: Es la plataforma de alojamiento en la nube para el control de versiones basada en Git que sirve de columna vertebral para el desarrollo simultáneo de los cinco integrantes del equipo, permitiendo combinar avances de forma segura y transparente mediante estrategias de ramificación profesional. Ruta de referencia: https://github.com/
+</li><br><br></ul>
+<strong>Software Deployment</strong><br><br>
+<ul>
+    <li>
+Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para la gestión de servicios en la nube que constituye la infraestructura base de nuestro sistema, asegurando que el servidor esté operativo 24/7 para procesar alertas críticas de salud; para ello, se emplean servicios específicos como Azure App Service para los microservicios, Azure Static Web Apps para el frontend y Azure Database for PostgreSQL para la persistencia de datos administrada. Ruta de referencia: https://portal.azure.com/auth/login/
+    </li><br>
+</ul>	
+
+
 ### 6.1.2. Source Code Management.	
+
+Para la elaboración de este proyecto seguiremos los lineamientos de GitFlow, garantizando un desarrollo organizado, colaborativo y predecible, mientras GitHub actúa como nuestra principal plataforma de control de versiones.
+
+Enlace de la organización del GitHub:
+https://github.com/foll-project
+
+<strong>Estructura de ramas:</strong>
+<ul>
+<li>Main branch: La cabeza de nuestro proyecto. Aquí descansan únicamente las versiones 100 % estables, depuradas y listas para llegar a producción.</li>
+<li>Develop branch: Núcleo palpitante del desarrollo. En esta rama convergen todas las funcionalidades en curso, brindando un panorama continuo del estado del código antes de cada posible lanzamiento.</li>
+<li>Feature branches: Ramas efímeras dedicadas a crear nuevas capacidades o mejoras puntuales. Se derivan del develop y, al completarse, regresan a él con fusiones limpias y comentarios descriptivos.</li>
+<li>Release branches: Espacios de pulido previo al lanzamiento. En estas ramas se ajustan configuraciones, se corrigen bugs menores y se actualizan metadatos (números de versión, changelogs), preparando el terreno para publicar una versión impecable.</li>
+<li>Hotfix branches: Vía rápida para reparar incidencias críticas en producción. Se bifurcan directamente de main, y tras solventar la urgencia, se integran tanto a main como a develop para no perder consistencia en futuras entregas.</li>
+</ul>
+
 ### 6.1.3. Source Code Style Guide & Conventions.	
+
+En esta sección se establecen las reglas para la nomenclatura, estructuración y formato del código fuente del proyecto. Aplicaremos estilos y convenciones ampliamente reconocidos en la industria para garantizar un desarrollo estandarizado, legible y escalable entre todos los miembros del equipo.<br><br>
+
+<ul>
+    <li>
+        <strong>Convenciones Generales y de Idioma</strong><br><br>
+        <ul>
+            <li><strong>Idioma del Código:</strong> Todos los identificadores (carpetas, archivos, clases, métodos, variables, atributos) y los comentarios dentro del código deben redactarse exclusivamente en inglés para garantizar coherencia y evitar ambigüedades. Las traducciones al usuario final se manejan únicamente en la capa de presentación.</li>
+            <li><strong>Idioma de Documentación:</strong> La documentación formal y los artefactos presentados en este informe técnico se mantendrán en español.</li>
+        </ul>
+    </li>
+            <br><br><li><strong>HTML</strong><br><br>
+        <ul>
+            <li>Etiquetas y atributos en minúsculas. Ejemplo: <code>&lt;section id="alert-dashboard"&gt;&lt;/section&gt;</code></li>
+            <li>Siempre cerrar los elementos: <code>&lt;img src="warning-icon.svg" alt="fall-alert" /&gt;</code></li>
+            <li>Usar comillas dobles en los atributos: <code>&lt;button type="button" class="btn-primary"&gt;&lt;/button&gt;</code></li>
+            <li>Atributo <strong>alt</strong> obligatorio para accesibilidad visual.</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>CSS (Tailwind CSS)</strong><br><br>
+        <ul>
+            <li>Colores globales configurados semánticamente en <code>tailwind.config.js</code> (primary, secondary, warning, critical).</li>
+            <li>Estilos aplicados directamente mediante clases utilitarias en los archivos <code>.tsx</code>.</li>
+            <li>Evitar el hardcoding (uso de valores hexadecimales directos en los componentes).</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>Frontend (React, TypeScript & Tailwind CSS)</strong><br><br>
+        Para el desarrollo de la interfaz de usuario, el equipo se adhiere a las mejores prácticas de React y a una arquitectura escalable:
+        <ul>
+            <li><strong>Arquitectura Domain-Driven Design (DDD):</strong> src dividido en core, domains (ej. iam, emergencies), y shared.</li>
+            <li><strong>Convenciones:</strong>
+                <ul>
+                    <li><strong>Componentes/Vistas:</strong> PascalCase → <code>ElderlyPatients.tsx</code></li>
+                    <li><strong>Hooks/Utilidades/Servicios:</strong> camelCase → <code>useAuth.ts</code></li>
+                    <li><strong>Interfaces/Tipos:</strong> PascalCase → <code>UserRecord</code></li>
+                    <li><strong>Variables y métodos:</strong> camelCase → <code>handleAlertSubmit()</code></li>
+                    <li><strong>Constantes:</strong> UPPER_SNAKE_CASE → <code>MAX_TIMEOUT</code></li>
+                </ul>
+            </li>
+            <li>Favorecer componentes funcionales con <code>function</code> → <code>export default function Login()</code></li>
+            <li>Usar arrow functions (<code>const</code>) para sub-componentes locales e íconos SVG.</li>
+            <li>Siempre usar tipado estricto, evitar el uso de <strong>any</strong>.</li>
+        </ul>
+    </li>
+    <br><br><li>
+        <strong>Backend (.NET / C#)</strong><br><br>
+        El backend sigue rigurosamente los principios de Domain-Driven Design (DDD) organizado en Bounded Contexts (Care, DeviceManagement, IAM, Shared). La estructura interna de cada contexto se divide en: Application (usando CQRS), Domain, Infrastructure e Interfaces.
+        <ul>
+            <li><strong>Características Modernas de C#:</strong>
+                <ul>
+                    <li>Uso obligatorio de <strong>File-Scoped Namespaces</strong> para reducir la indentación.</li>
+                    <li><strong>Nullable Reference Types</strong> e <strong>Implicit Usings</strong> habilitados a nivel de proyecto.</li>
+                </ul>
+            </li>
+            <li><strong>Convenciones de Nomenclatura:</strong>
+                <ul>
+                    <li><strong>Clases, Métodos y Propiedades:</strong> PascalCase → <code>DeviceRepository</code>, <code>RegisterTelemetry()</code></li>
+                    <li><strong>Interfaces:</strong> Inician con I + PascalCase → <code>IDeviceRepository</code></li>
+                    <li><strong>Parámetros y Variables Locales:</strong> camelCase → <code>firmwareVersion</code></li>
+                    <li><strong>Campos Privados (Inyección de Dependencias):</strong> _camelCase → <code>_deviceRepository</code></li>
+                </ul>
+            </li>
+            <li><strong>Modelado de Dominio Rico (Rich Domain Model):</strong>
+                <ul>
+                    <li>Todas las propiedades públicas deben tener <strong>private set</strong>. Las entidades no son meros contenedores de datos.</li>
+                    <li><strong>Fail-Fast:</strong> Los constructores primarios deben validar las entradas y lanzar excepciones estándar (<code>ArgumentException</code>, etc.) inmediatamente ante datos inválidos.</li>
+                    <li><strong>Mutación por comportamiento:</strong> Los cambios de estado ocurren a través de métodos que representan acciones del negocio, no asignando propiedades directamente → <code>device.UpdatePowerState()</code>.</li>
+                    <li>Constructores vacíos <strong>protected</strong> reservados exclusivamente para el ORM (Entity Framework Core).</li>
+                </ul>
+            </li>
+            <li><strong>Manejo de Eventos y Comunicación:</strong>
+                <ul>
+                    <li>Las entidades emiten <strong>Domain Events</strong> internamente heredando de <code>EntityWithDomainEvents</code>.</li>
+                    <li>La comunicación entre Bounded Contexts se realiza de forma asíncrona mediante <strong>Integration Events</strong>, garantizando la entrega a través del patrón <strong>Outbox Pattern</strong> apoyado en <strong>MediatR</strong> y <strong>Background Services</strong>.</li>
+                    <li>Las consultas síncronas entre contextos se realizan a través de una <strong>Capa Anticorrupción (ACL)</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Persistencia y Datos (Entity Framework Core):</strong>
+                <ul>
+                    <li>Uso de <strong>PostgreSQL</strong> (<code>UseNpgsql</code>).</li>
+                    <li>Aplicación estricta de la convención de nombres <code>UseSnakeCaseNamingConvention()</code> para que las tablas y columnas en BD se creen en <strong>snake_case</strong> (<code>device_events</code>), aunque el código C# mantenga PascalCase.</li>
+                    <li>La configuración de entidades utiliza <strong>Fluent API</strong> (<code>IEntityTypeConfiguration&lt;T&gt;</code>) aislando la infraestructura del dominio.</li>
+                    <li>Las transacciones se centralizan al final de los <strong>CommandServices</strong> usando el patrón <strong>IUnitOfWork</strong>.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul><br>
+
 ### 6.1.4. Software Deployment Configuration.	
+
+<strong>Requisitos Previos Unificados</strong><br>
+<ul>
+<li>Suscripción activa de Azure + permisos adecuados: Confirma que tu cuenta posee los roles necesarios (al menos Contributor) para levantar, modificar y eliminar recursos. Sin estos privilegios, tu infraestructura se quedará a medio camino.</li>
+<li>Repositorios bien organizados: Mantén tres repositorios separados — landing-page, frontend y backend — cada uno con su rama principal claramente establecida. Esto facilita la integración continua y permite aplicar reglas de protección específicas por proyecto.</li>
+<li>Herramientas de administración listas: Ten instalado y autenticado el Azure CLI (az login) o abre sesión en el Portal de Azure con la cuenta adecuada. Trabajarás más rápido si puedes alternar entre la línea de comandos y la interfaz gráfica.</li>
+</ul>
+<strong>Creación del grupo de recursos</strong><br><br>
+<ul>
+<li>Centralizar todos los servicios en un solo Resource Group simplifica la vida: podrás aplicar reglas de red, etiquetas de coste y políticas de seguridad una sola vez, además de agilizar la limpieza cuando termine el ciclo de pruebas.
+    <ul>
+<li>Accede al Portal de Azure: Desde el panel lateral izquierdo, selecciona Resource groups.</li>
+<li>Inicia la creación: Haz clic en + Create (o + Add) y rellena el formulario:</li>
+<li>Subscription: elige tu suscripción activa.</li>
+<li>Resource group name: usa un nombre claro, por ejemplo: rg-foll.</li>
+<li>Region: selecciona la misma región para todos los recursos para minimizar latencia y costes de salida.</li>
+        </ul>
+<li>Revisa y crea: Pulsa Review + Create. Azure validará los parámetros. Al ver el mensaje de éxito, tendrás un contenedor lógico donde residirán web apps, bases de datos y cualquier otro servicio necesario.</li>
+</ul>
+<strong>Landing Page Deployment (GitHub Pages)</strong><br><br>
+<ul>
+<li>Paso 1: Nos dirigimos al repositorio correspondiente a la landing page en GitHub y seleccionamos la pestaña Settings.</li>
+<li>Paso 2: En el menú lateral izquierdo, navegamos hasta la sección Pages (dentro del apartado "Code and automation").</li>
+<li>Paso 3: En la sección "Build and deployment", seleccionamos Deploy from a branch como origen.</li>
+<li>Paso 4: En el selector de ramas, elegimos la rama main (o la correspondiente según GitFlow) y la carpeta /root, para luego presionar Save.</li>
+<li>Paso 5: GitHub Actions iniciará automáticamente un flujo de trabajo para compilar y publicar el sitio estático, proveyendo una URL pública gratuita al finalizar.</li>
+</ul>
+<strong>Frontend Deployment (Azure Static Web Apps)</strong><br><br>
+<ul>
+<li>Paso 1: En el Portal de Azure, vamos a crear un recurso y buscamos la opción Static Web App.</li>
+<li>Paso 2: Seleccionamos Crear y asignamos la suscripción y el grupo de recursos (rg-foll) creado previamente. Además, asignamos el nombre del recurso para el cliente web.</li>
+<li>Paso 3: Seleccionamos el plan gratuito por fines académicos y en Detalles de implementación elegimos GitHub.</li>
+<li>Paso 4: Iniciamos sesión en nuestra cuenta de GitHub, damos acceso a la organización y seleccionamos el repositorio del frontend. Configuramos los valores predeterminados de compilación según el framework utilizado (ej. React o Vue).</li>
+<li>Paso 5: Al seleccionar la opción Revisar y crear, Azure realizará un commit automático sobre la rama main añadiendo un archivo .yml que habilita la publicación continua (on-push).</li>
+</ul>
+<strong>Database Deployment (Azure Database for PostgreSQL)</strong><br><br>
+<ul>
+<li>Paso 1: En el Portal de Azure, buscamos Azure Database for PostgreSQL servers y seleccionamos crear un Servidor flexible (Flexible server).</li>
+<li>Paso 2: Configuramos los detalles básicos: asignamos el Resource Group, un nombre único (ej. foll-db), seleccionamos la versión 16 y elegimos la capa de cómputo Burstable (B2s) bajo el tipo de carga de trabajo Dev/Test.</li>
+<li>Paso 3: En la sección de Autenticación, definimos un nombre de usuario administrador y una contraseña segura.</li>
+<li>Paso 4: En la pestaña Redes (Networking), configuramos el acceso público agregando nuestra dirección IP local y, críticamente, marcamos la casilla "Allow public access from any Azure service within Azure to this server" para permitir la conexión del backend.</li>
+Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de conexión para el entorno.</li>
+</ul>
+<strong>MQTT Broker Deployment (Azure Virtual Machine)</strong><br><br>
+<ul>
+<li>Paso 1: Buscamos Virtual Machines en Azure y creamos una nueva bajo el grupo de recursos unificado.</li>
+<li>Paso 2: Seleccionamos la imagen Ubuntu Server 24.04 LTS y un tamaño económico como Standard_B1s. Configuramos el acceso mediante contraseña para el administrador y habilitamos el puerto SSH (22).</li>
+<li>Paso 3: Una vez creada, navegamos a la configuración de Redes (Networking) de la máquina virtual y añadimos una regla de puerto de entrada (Inbound port rule) para permitir tráfico TCP en el puerto 1883 (puerto estándar de MQTT).</li>
+<li>Paso 4: Nos conectamos vía SSH a la IP pública de la máquina, instalamos Docker, creamos un archivo mosquitto.conf con permisos de escucha, y levantamos el contenedor de eclipse-mosquitto mapeando el puerto 1883.</li>
+</ul>
+<strong>Backend API Deployment (Azure App Service for Containers)</strong><br><br>
+<ul>
+<li>Paso 1: Creamos un Azure Container Registry (ACR) con usuario administrador habilitado para almacenar nuestra imagen. Luego, creamos un recurso de tipo Web App en Azure. En la configuración básica, seleccionamos publicar como Docker Container, elegimos el sistema operativo Linux y asignamos un plan de App Service (ej. Basic B1).</li>
+<li>Paso 2: Configuramos la seguridad en nuestro repositorio de GitHub agregando los secretos necesarios (ACR_USERNAME, ACR_PASSWORD y AZURE_WEBAPP_PUBLISH_PROFILE) para autorizar la conexión entre GitHub y nuestra infraestructura en Azure.</li>
+<li>Paso 3: Enlazamos nuestro repositorio del backend en .NET mediante la creación de un archivo deploy.yml para GitHub Actions. Este pipeline se encarga de compilar el Dockerfile multi-etapa, construir la imagen y subirla automáticamente a nuestro registro (ACR).</li>
+<li>Paso 4: Nos dirigimos a la sección Variables de entorno (Environment variables) del Web App y registramos las claves sensibles y de configuración que requiere el contenedor para arrancar: la cadena de conexión a PostgreSQL (ConnectionStrings__DefaultConnection), el secreto JWT, el puerto de escucha de .NET (WEBSITES_PORT en 8080) y las credenciales de acceso al ACR.</li>
+<li>Paso 5: Guardamos los cambios y reiniciamos el servicio. GitHub Actions procesará el archivo .yml cada vez que haya un cambio, construirá el contenedor Docker y el Web App descargará y desplegará la última versión de la API de forma automática.</li>
+</ul>
+
 ## 6.2. Landing Page, Services & Applications Implementation.	
 ### 6.2.1. Sprint 1
 #### 6.2.1.1. Sprint Planning 1.	
