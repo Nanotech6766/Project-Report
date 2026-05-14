@@ -997,6 +997,9 @@ A continuación, se presentará los 2 user persona de acuerdo al segmento objeti
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
 <img src="img/needfinding/userpersona2.png" width=600px><br>
  
+ <div style="page-break-after: always;"></div>
+
+
 ### 2.3.2. User Task Matrix
 
 Para el análisis de las actividades críticas en el cuidado del adulto mayor, se han identificado tres segmentos clave: el Adulto Mayor, quien busca preservar su integridad física; y el Familiar Cuidador, responsable de la supervisión y respuesta inmediata.
@@ -1056,11 +1059,16 @@ A continuación, se presenta la matriz que evalúa la frecuencia e importancia d
     </tr>
 </table>
 
+</br>
+</br>
+
 <strong>Tareas críticas:</strong> La integridad física y la tranquilidad emocional son las tareas más frecuentes y vitales para ambos segmentos, ya que garantizan autonomía para el mayor y paz mental para el cuidador.
 <br><br>
 <strong>Coincidencias:</strong> Ambos coinciden en la importancia alta de las tareas de emergencia (reacción y traslado); aunque su frecuencia es baja, su ejecución oportuna es fundamental para salvar vidas.
 <br><br>
 <strong>Diferencias:</strong> El registro de historial y la verificación de bienestar presentan la mayor brecha. El cuidador les asigna importancia alta por su rol de supervisión, mientras que el adulto mayor les otorga un nivel medio para evitar ser percibido como una carga o perder su independencia.
+
+</br></br>
 
 ### 2.3.3. User Journey Mapping
 A continuación, se presentan los User Journey Maps creados para cada perfil de usuario definido en nuestros dos segmentos objetivo. Estos mapas permiten visualizar la experiencia actual y los puntos críticos de dolor, fundamentando así el diseño de nuestro prototipo.
@@ -1071,6 +1079,8 @@ A continuación, se presentan los User Journey Maps creados para cada perfil de 
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
 <img src="img/needfinding/journey2.png" width=700px><br>
  
+</br>
+
 ### 2.3.4. Empathy Mapping
 
 A continuación, se mostrarán los Empathy Mapping creados para cada perfil de usuario identificado en nuestros dos segmentos objetivo. Estos mapas nos ayudarán a comprender mejor a nuestros clientes y, así, optimizar la aplicación.
@@ -2117,7 +2127,7 @@ Tablas gestionadas:
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 
-<img src="img/tactical-ddd/iam/component.svg" alt="IAM - Component Level Diagram" width="700"/>
+<img src="img/tactical-ddd/iam/component.svg" alt="IAM - Component Level Diagram" width="650"/>
 
 
 Este diagrama de componentes (C4 Nivel 3) ilustra la arquitectura interna y el flujo de ejecucion del contenedor `IAM Service`. Muestra como el Bounded Context esta descompuesto de forma coherente con los principios de Arquitectura Limpia (`Interface`, `Application`, `Domain` e `Infrastructure`). El diagrama traza el recorrido de las peticiones desde clientes externos (App Movil y Web) hacia los controladores REST, delegando la orquestacion en los command handlers (CQRS), interactuando con las reglas de negocio en agregados de dominio y finalizando con la persistencia en MySQL mediante implementaciones concretas de repositorios.
@@ -2132,7 +2142,8 @@ Este diagrama de clases UML ilustra el modelo conceptual y estructural del domin
  
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-![IAM - Database Design Diagram](./img/tactical-ddd/iam/db.svg)
+<img src="img/tactical-ddd/iam/db.svg" alt="IAM - Database Design Diagram" width="600"/>
+
 
 Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de datos relacional (MySQL) para el Bounded Context IAM. Detalla las tablas principales (`USERS`, `DEVICES` y `CARE_RELATIONSHIPS`), sus columnas y tipos de datos. El diagrama destaca llaves primarias (PK), llaves foraneas (FK) y restricciones de unicidad (UK) que garantizan integridad referencial, reflejando como se almacena la relacion entre usuarios, sus dispositivos hardware asignados y sus vinculos de cuidado.
  
@@ -2511,13 +2522,12 @@ Este diagrama de clases UML representa la estructura del codigo de dominio del f
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
-![Embedded Systems - Data Structure Diagram](./img/tactical-ddd/embedded/db-se.svg)
+<img src="img/tactical-ddd/embedded/db-se.svg" alt="Embedded Systems - - Data Structure Diagram" width="400"/>
+
 
 Este diagrama describe la estructura de datos operativa del firmware en memoria volatil, en lugar de un esquema relacional persistente. El ESP32 no almacena historicos: su responsabilidad es capturar mediciones en tiempo real y transmitirlas inmediatamente al Edge. Por ello, el foco del diseno se centra en la composicion de la trama `UDP_TELEMETRY_PAYLOAD`, que empaqueta lecturas inerciales, coordenadas y timestamp en un bloque compacto y eficiente para red local. Esta representacion respalda el objetivo de baja latencia requerido por la deteccion de caidas y por el pipeline de inferencia en el Edge.
 
 ### 4.2.3. Bounded Context: Edge
-
----
 
 #### 4.2.3.1. Domain Layer
 
@@ -2645,6 +2655,8 @@ Flujo:
 3. Para cada evento pendiente, invoca `ICloudSyncService.syncIncident(event)`.
 4. Si la sincronizacion es exitosa, marca el evento como sincronizado y persiste el cambio.
 
+</br>
+</br>
 
 
 #### 4.2.3.4. Infrastructure Layer
@@ -2692,13 +2704,15 @@ Detalle de implementación:
 - Adjunta credenciales de autorizacion (JWT) para la llamada segura.
 - Ejecuta POST al servicio de emergencias en la nube y retorna resultado de sincronizacion.
 
+</br>
+</br>
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
+
 <img src= "img/tactical-ddd/edge/component-edge.svg" alt="Edge - Component Level Diagram" width="650"/>
 
-
-Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3145,13 +3159,13 @@ Este diagrama UML modela la emergencia como un agregado gobernado por `FallIncid
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
-![Emergency Management - Database Design Diagram](./img/tactical-ddd/emergency/db-emer.svg)
+
+<img src= "img/tactical-ddd/emergency/db-emer.svg" alt="Emergency Management - Database Design Diagram" width="550"/>
+
 
 Este ERD define la persistencia MySQL para incidentes, heartbeat del dispositivo y configuracion de alertas. El uso de UUID como clave primaria facilita integracion con datos originados en Edge sin colisiones, mientras los indices priorizan consultas de incidentes activos e historicos recientes. El modelo evita acoplamiento fisico con IAM y mantiene la validacion referencial en capa de aplicacion.
 
 ### 4.2.5. Bounded Context: Notifications
-
----
 
 #### 4.2.5.1. Domain Layer
 
@@ -3346,6 +3360,8 @@ Este diagrama de clases destaca el patron Strategy mediante `INotificationProvid
 
 Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. El BC conserva evidencia de que una alerta fue despachada (`incidentId`, `userId`, canal y estado), manteniendo independencia de datos respecto a IAM. Asi se garantiza trazabilidad operativa y legal incluso si el perfil del usuario cambia o se elimina en otro contexto.
 
+<div style="page-break-after: always;"></div>
+
 # Capítulo V: Solution UI/UX Design
  
 ## 5.1. Style Guidelines.
@@ -3365,18 +3381,21 @@ Nuestro Design System personalizado se basa en los principios de accesibilidad u
 
 A continuación se presentan los colores principales y secundarias que tendrán nuestras interfaces tanto en web y mobile.
 
-![Colores de Foll](img/style-guidelines/colores.png)
+
+<img src= "img/style-guidelines/colores.png" alt="Colores de Foll" width="500"/>
+
 
 *   **Typography:** Se prioriza la legibilidad por encima de la estética pura. Utilizamos la tipografía *Lexend* con pesos bien definidos (Bold para títulos, Regular para cuerpo). Los tamaños de fuente base se han escalado para garantizar que los cuidadores (que también pueden ser personas de edad avanzada) puedan leer sin forzar la vista.
 *   **Spacing & Touch Targets:** Se aplica un sistema de espaciado generoso (múltiplos de 8px). Los botones y áreas interactivas mantienen un tamaño mínimo elevado para evitar el "fat-finger error" (pulsaciones accidentales), algo crucial cuando las manos pueden temblar por el estrés de una emergencia.
 
-![Tipografía de Foll](img/style-guidelines/tipografía.png)
+<img src= "img/style-guidelines/tipografía.png" alt="Tipografía de Foll" width="500"/>
 
 **Botones**
 
 A continuación se presenta los distintos estilos de botones que habrá en la aplicación web y móvil, para que haya un contraste en cuanto a la acción que ejecute el botón.
 
-![Botones de Foll](img/style-guidelines/botones.png)
+<img src= "img/style-guidelines/botones.png" alt="Botones de Foll" width="500"/>
+
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 
@@ -3416,11 +3435,10 @@ A diferencia de las aplicaciones web o móviles, el dispositivo IoT (el cinturó
 
 *   **Integración de Sensores (MPU6050 y GPS):**
     *   Aunque el giroscopio, el acelerómetro y el chip GPS no requieren manipulación directa, la PUI dicta que la carcasa que los contiene debe asegurar su correcta orientación. El diseño exterior del cinturón incluirá marcas táctiles o formas asimétricas que guíen al adulto mayor a colocárselo siempre en la misma posición (alineando correctamente los ejes X, Y, Z del MPU6050 con su centro de gravedad), garantizando así la precisión del algoritmo de IA.
+  
 
 ## 5.2. Information Architecture.
 ### 5.2.1. Organization Systems.
-
-En esta sección se presenta los distintos sistemas de organización que vamos a usar según el tipo de contenido que se presente, con el objetivo de facilitar la comprensión, interacción del usuario en nuestra aplicación web y móvil.
 
 **Organización visual del contenido**  
 
@@ -3435,6 +3453,7 @@ En esta sección se presenta los distintos sistemas de organización que vamos a
 * **Por tópicos o categorías**: Se utilizará cuando el contenido pueda agruparse por temas, facilitando que el usuario encuentre información relacionada a través de menús de navegación como un Bottom Navigation Bar o un SideBar dependiendo de la plataforma.
 
 * **Secuencial**: Se usará cuando el usuario deba seguir un orden lógico para completar una tarea (por ejemplo el proceso de registrar un abuelito), guiándolo pantalla por pantalla para evitar frustraciones.
+  
 
 ### 5.2.2. Labeling Systems.	
 
@@ -3447,6 +3466,7 @@ La interfaz de la aplicación debe ser clara y fácil de usar, con palabras clav
 * Registro de Caídas: Acceso al historial de eventos que incluye la revisión detallada de registro de caídas y alertas del sistema
 
 * Mi Perfil: Acceso a la gestión de información personal y preferencias de seguridad.
+
 
 ### 5.2.3. SEO Tags and Meta Tags	
 
@@ -3484,6 +3504,7 @@ Para el componente móvil de Foll, el posicionamiento (SEO móvil) se rige bajo 
 *   **App Name:** "Foll: Alertas y Cuidado Mayor"
 *   **Short Description:** "Recibe alertas de caídas en tiempo real, verifica el GPS y coordina el rescate médico de tus abuelitos desde tu celular."
 *   **Keywords:** "emergencias médicas, adulto mayor, rastreo GPS, salud, caídas, cuidadores, teleasistencia"
+</br>
 
 ### 5.2.4. Searching Systems.	
 
@@ -3499,8 +3520,6 @@ En el "Registro de Caídas", los usuarios contarán con filtros para segmentar e
 En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre visualizar las estadísticas mensuales (gráficos de tendencias de riesgo) o el log en vivo de las últimas actualizaciones del hardware (estado de batería del cinturón, último ping de red). Esta acción se realiza mediante pestañas (tabs) de selección simple.
 
 ### 5.2.5. Navigation Systems.	
-
-En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios cuidadores, asegurando interfaces intuitivas que permitan una reacción rápida ante emergencias. Para ello, se han definido las siguientes decisiones de UI:
 
 **Landing Page**
 *   La navegación utiliza scroll vertical continuo, ideal para contar la historia del producto y explicar el funcionamiento del Edge AI.
@@ -3523,11 +3542,20 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ### 5.3.1. Landing Page Wireframe. <img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
 <img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="400"/> 
 
-</br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### 5.3.2. Landing Page Mock-up. <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/> </br>
+### 5.3.2. Landing Page Mock-up. <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="600"/> </br>
 <img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="400"/> 
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
@@ -3539,8 +3567,10 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ![Web App Wireframe 5](./img/wireframes/web-app/wireframe-web-5.png)
 ![Web App Wireframe 6](./img/wireframes/web-app/wireframe-web-6.png)
 
+<br>
 
-**Mobile Wireframes**
+**Mobile Wireframes**<br>
+
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-1.png" alt="Wireframe mobile 1" width="300"/>
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-2.png" alt="Wireframe mobile 2" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos-1.png" alt="Wireframe mobile 3" width="300"/>
@@ -3549,20 +3579,26 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos.png" alt="Wireframe mobile 6" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
 <img src="img/wireframes/mobile/Foll - Historial de Eventos.png" alt="Wireframe mobile 8" width="300"/>
-<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
+<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="250"/>
+
+<br>
+<br>
 
 ### 5.4.2. Applications Wireflow Diagrams.
 **User Goal: Acceder al sistema**  
 **User Persona**: Cuidador 
 **Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
 
+*Web Wireflow*
+![Wireflow Web 1](img/wireflows/wireflow-web-1.png)
+
 *Mobile Wireflow*
 
 ![Wireflow Mobile 1](img/wireflows/wireflow-mobile-1.png)  
 
-*Web Wireflow*
-![Wireflow Web 1](img/wireflows/wireflow-web-1.png)
 
+<br>
+<br>
 
 **User Goal: Registrar abuelito**
 **User Persona**: Cuidador
@@ -3574,6 +3610,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 *Web Wireflow*
 ![Wireflow Web 2](img/wireflows/wireflow-web-2.png)
+<br>
+<br>
 
 
 **User Goal: Ver mi perfil**
@@ -3584,10 +3622,11 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 ![Wireflow mobile 3](img/wireflows/wireflow-mobile-3.png)
 
-
 *Web Wireflow*
-
 ![Wireflow web 3](img/wireflows/wireflow-web-3.png)
+
+<br>
+<br>
 
 
 **User Goal: Ver registro de caídas**
@@ -3602,6 +3641,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 ![Wireflow web 4](img/wireflows/wireflow-web-4.png)
 
+<br>
+<br>
 
 **User Goal: Recibir alerta**
 **User Persona**: Cuidador
@@ -3611,6 +3652,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ![Wireflow mobile 5](img/wireflows/wireflow-mobile-5.png)
 
 *Nota*: Esta vista solo se encuentra en mobile.
+
+</br>
 
 ### 5.4.3. Applications Mock-ups.
 
@@ -3641,12 +3684,14 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 **User Persona**: Cuidador 
 **Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
 
+*Web Userflow*
+![Userflow Web 1](img/userflows/userflow-web-1.png)
+
 *Mobile Userflow*
 
 ![Userflow Mobile 1](img/userflows/userflow-mobile-1.png)  
 
-*Web Userflow*
-![Userflow Web 1](img/userflows/userflow-web-1.png)
+
 
 
 **User Goal: Registrar abuelito**
