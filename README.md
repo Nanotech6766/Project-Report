@@ -3574,6 +3574,68 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 
 ### 5.4.4. Applications User Flow Diagrams.
+
+**User Goal: Acceder al sistema**  
+**User Persona**: Cuidador 
+**Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
+
+*Mobile Userflow*
+
+![Userflow Mobile 1](img/userflows/userflow-mobile-1.png)  
+
+*Web Userflow*
+![Userflow Web 1](img/userflows/userflow-web-1.png)
+
+
+**User Goal: Registrar abuelito**
+**User Persona**: Cuidador
+**Explicación del flujo**: El cuidador se encuentra en home, luego navega a la vista "Care" donde puede ver sus abuelitos, entonces presiona el botón registrar abuelito y luego se le muestra un formulario para registar el abuelito, donde finalmente presiona el botón Crear Abuelito.
+
+*Mobile Userflow*
+
+![Userflow mobile 2](img/userflows/userflow-mobile-2.png)
+
+*Web Userflow*
+![Userflow Web 2](img/userflows/userflow-web-2.png)
+
+
+**User Goal: Ver mi perfil**
+**User Persona**: Cuidador
+**Explicación del flujo**: El cuidador se encuentra en home, luego navega a la vista "Profile" donde puede ver toda su información relacionada, configuracion y notificaciones.
+
+*Mobile Userflow*
+
+![Userflow mobile 3](img/userflows/userflow-mobile-3.png)
+
+
+*Web Userflow*
+
+![Userflow web 3](img/userflows/userflow-web-3.png)
+
+
+**User Goal: Ver registro de caídas**
+**User Persona**: Cuidador
+**Explicación del flujo**: EL cuidador se encuentra en home, luego navega a la vista "History" donde puede ver el registro de caídas de sus abuelitos con información como lugar,fecha y hora, observaciones y un tag que indica si fue un falso positivo.
+
+*Mobile Wireflow*
+
+![Userflow mobile 4](img/userflows/userflow-mobile-4.png)
+
+*Web Wireflow*
+
+![Userflow web 4](img/userflows/userflow-web-4.png)
+
+
+**User Goal: Recibir alerta**
+**User Persona**: Cuidador
+**Explicación del flujo**: El cuidador se encuentra en home, pero un abuelito suyo tuvo una caída en este mismo momento, entonces se le muestra una alerta con información crítica y la opción de llamar una ambulancia o avisar a su abuelito que va en camino.
+
+*Mobile Userflow*
+![Userflow mobile 5](img/userflows/userflow-mobile-5.png)
+
+*Nota*: Esta vista solo se encuentra en mobile.
+
+
 ## 5.5. Applications Prototyping.
 ## 5.6. IoT Device Design.
 
