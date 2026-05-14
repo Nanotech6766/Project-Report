@@ -3497,6 +3497,22 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ### 5.3.2. Landing Page Mock-up.
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
+
+**Wireframes de la Web Application**
+
+![Web App Wireframe 1](/img/wireframes/web-app/wireframe-web-1.png)
+
+![Web App Wireframe 2](/img/wireframes/web-app/wireframe-web-2.png)
+
+![Web App Wireframe 3](/img/wireframes/web-app/wireframe-web-3.png)
+
+![Web App Wireframe 4](/img/wireframes/web-app/wireframe-web-4.png)
+
+![Web App Wireframe 5](/img/wireframes/web-app/wireframe-web-5.png)
+
+![Web App Wireframe 6](/img/wireframes/web-app/wireframe-web-6.png)
+
+
 ### 5.4.2. Applications Wireflow Diagrams.
 ### 5.4.3. Applications Mock-ups.
 ### 5.4.4. Applications User Flow Diagrams.
