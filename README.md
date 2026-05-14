@@ -3745,6 +3745,54 @@ En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre 
 ## 5.5. Applications Prototyping.
 ## 5.6. IoT Device Design.
 
+La propuesta de diseño físico del Sistema Foll está centrada en el adulto mayor como usuario principal. Por ello, el dispositivo se plantea como un hardware integrado discretamente en un cinturón, permitiendo que pueda ser utilizado durante sus actividades diarias sin generar incomodidad ni requerir interacción con pantallas complejas. El objetivo principal es lograr una experiencia de uso sencilla, ergonómica y de baja fricción tecnológica, donde el usuario pueda estar protegido sin necesidad de tener conocimientos técnicos. Para ello, el dispositivo incorpora los siguientes componentes:
+
+| Componente | Funcionalidad en el sistema | Descripción breve |
+|---|---|---|
+| ESP32 | Microcontrolador principal | Recibe los datos de los sensores, procesa la información básica y se comunica con la capa Edge para enviar la telemetría del dispositivo. |
+| Buzzer | Alerta sonora | Se activa cuando el sistema detecta una posible caída, avisando al adulto mayor y a las personas cercanas. |
+| Batería LiPo 3.7V 2000mAh | Fuente de energía | Permite que el dispositivo funcione de manera autónoma sin depender de una conexión constante a corriente. |
+| ADXL345 | Sensor de movimiento | Mide aceleraciones y cambios bruscos de movimiento que pueden ayudar a identificar una caída. |
+| U-blox NEO-M6 | Módulo GPS | Obtiene la ubicación geográfica del usuario para enviarla junto con la alerta al cuidador. |
+| MPU6050 | Sensor de aceleración y giroscopio | Detecta movimientos, inclinaciones y rotaciones del cuerpo, útiles para analizar patrones asociados a caídas. |
+| TP4056 | Módulo de carga | Gestiona la recarga segura de la batería LiPo mediante conexión USB. |
+| Slide Switch | Encendido y apagado del dispositivo | Permite activar o desactivar el funcionamiento general del dispositivo, deteniendo la captura de datos cuando el usuario lo necesite. |
+| Push Button | Cancelación manual de alarma | Permite silenciar el buzzer manualmente en caso de una falsa alarma, sin necesidad de usar una pantalla o aplicación. |
+
+A nivel físico, el ESP32 funciona como el núcleo del dispositivo, ya que recibe la información enviada por los sensores y coordina la comunicación con las demás capas del sistema. Los sensores ADXL345 y MPU6050 permiten medir aceleraciones, inclinaciones y rotaciones del cuerpo, datos necesarios para identificar movimientos bruscos asociados a una posible caída. Además, el módulo U-blox NEO-M6 permite obtener la ubicación geográfica del adulto mayor, lo cual es fundamental para enviar una alerta útil al cuidador. El buzzer actúa como una alerta sonora inmediata cuando se detecta una posible caída. Asimismo, el dispositivo incorpora un Slide Switch como control principal de encendido y apagado, permitiendo activar o detener la captura de datos cuando el usuario lo necesite. También incluye un Push Button que permite silenciar manualmente el buzzer en caso de una falsa alarma. Finalmente, la batería LiPo de 3.7V y 2000mAh permite que el dispositivo funcione de manera autónoma, mientras que el módulo TP4056 se encarga de gestionar su recarga segura mediante conexión USB.
+
+<br>
+
+- **Flujo de uso y funcionalidad de los componentes juntos**
+
+El funcionamiento del Sistema Foll inicia cuando el adulto mayor enciende el dispositivo mediante el switch principal. Desde ese momento, los sensores MPU6050, ADXL345 y el módulo GPS capturan datos de movimiento, inclinación y ubicación, los cuales son recibidos por el ESP32 y enviados a la capa Edge para su análisis. En la capa Edge, un modelo de inteligencia artificial evalúa los patrones de movimiento para detectar una posible caída. Si se confirma el evento, el sistema envía una alerta al ESP32, que activa el buzzer para avisar al entorno cercano y confirmar que la emergencia está siendo atendida. Si se trata de una falsa alarma, el adulto mayor puede presionar un botón físico para silenciar el buzzer. Además, el switch permite apagar el dispositivo cuando se desee privacidad, ahorro de batería o detener temporalmente la captura de telemetría.
+<img width="8192" height="1479" alt="image" src="https://github.com/user-attachments/assets/5855b714-f6ed-4a26-81d8-df70350e83df" />
+
+<br>
+<br>
+
+- **Descripción del prototipo**
+
+Para validar la propuesta del dispositivo, se desarrolló un prototipo funcional en el entorno de simulación virtual Wokwi, utilizando una placa ESP32 como componente central. Debido a las limitaciones propias de la plataforma, se realizaron algunas adaptaciones que mantienen la lógica del diseño físico original. Una de las principales adaptaciones fue la creación de un componente personalizado o “Custom Chip” programado en lenguaje C, ya que Wokwi no cuenta con un módulo GPS nativo. Este chip virtual permite inyectar sentencias NMEA directamente a los pines de comunicación serial RX 16 y TX 17 del ESP32, simulando el comportamiento del módulo U-blox NEO-M6 físico.
+
+En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi no cuenta con el componente ADXL345 disponible de forma nativa. Aunque el diseño físico contempla el uso del ADXL345 como sensor adicional, se optó por representar la detección de movimiento mediante el MPU6050, ya que este sí está disponible en la plataforma y permite simular valores de aceleración y giroscopio mediante controles interactivos. Esto facilita representar movimientos bruscos, inclinaciones e impactos similares a los que ocurrirían durante una caída real. El sensor se conecta mediante el protocolo I2C, utilizando el pin 21 como SDA y el pin 22 como SCL. Además, el flujo de lectura se evalúa con la función millis(), permitiendo un reporte continuo de telemetría sin bloquear la ejecución del programa.
+
+Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
+
+<img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
+[Ver proyecto en Wokwi](https://wokwi.com/projects/463973317008005121)
+
+<br>
+<br>
+
+- **Representación visual**
+Finalmente, se elaboró una representación visual del diseño físico del dispositivo con apoyo de inteligencia artificial. Esta imagen permite mostrar de manera aproximada cómo quedaría el Sistema Foll integrado en un cinturón para el adulto mayor, conectando la propuesta técnica del circuito con una posible forma real de uso. El diseño busca resaltar que el dispositivo sería portátil, discreto y cómodo, evitando que el usuario tenga que interactuar con interfaces complejas.
+
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
+
+<br>
+<br>
+
 # Capítulo VI: Product Implementation, Validation & Deployment
 ## 6.1. Software Configuration Management.	
 ### 6.1.1. Software Development Environment Configuration.	
