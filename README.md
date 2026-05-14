@@ -3399,6 +3399,10 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
 ### 5.3.2. Landing Page Mock-up.
+
+<img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/>
+<img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="450"/>
+
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
 ### 5.4.2. Applications Wireflow Diagrams.
