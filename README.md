@@ -3740,7 +3740,9 @@ En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi 
 Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
 
 <img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
+[Ver proyecto en Wokwi](https://wokwi.com/projects/463973317008005121)
 
+<br>
 <br>
 
 - **Representación visual**
