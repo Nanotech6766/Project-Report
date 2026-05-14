@@ -3741,6 +3741,12 @@ En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre 
 ![Userflow mobile 5](img/userflows/userflow-mobile-5.png)
 *Nota*: Esta vista solo se encuentra en mobile.
 
+</br>
+</br>
+
+</br>
+</br>
+
 
 ## 5.5. Applications Prototyping.
 ## 5.6. IoT Device Design.
@@ -3766,7 +3772,7 @@ A nivel físico, el ESP32 funciona como el núcleo del dispositivo, ya que recib
 - **Flujo de uso y funcionalidad de los componentes juntos**
 
 El funcionamiento del Sistema Foll inicia cuando el adulto mayor enciende el dispositivo mediante el switch principal. Desde ese momento, los sensores MPU6050, ADXL345 y el módulo GPS capturan datos de movimiento, inclinación y ubicación, los cuales son recibidos por el ESP32 y enviados a la capa Edge para su análisis. En la capa Edge, un modelo de inteligencia artificial evalúa los patrones de movimiento para detectar una posible caída. Si se confirma el evento, el sistema envía una alerta al ESP32, que activa el buzzer para avisar al entorno cercano y confirmar que la emergencia está siendo atendida. Si se trata de una falsa alarma, el adulto mayor puede presionar un botón físico para silenciar el buzzer. Además, el switch permite apagar el dispositivo cuando se desee privacidad, ahorro de batería o detener temporalmente la captura de telemetría.
-<img width="8192" height="1479" alt="image" src="https://github.com/user-attachments/assets/5855b714-f6ed-4a26-81d8-df70350e83df" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5855b714-f6ed-4a26-81d8-df70350e83df" />
 
 <br>
 <br>
@@ -3779,19 +3785,21 @@ En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi 
 
 Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
 
-<img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
+<img width="600"  alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
+
 [Ver proyecto en Wokwi](https://wokwi.com/projects/463973317008005121)
 
-<br>
 <br>
 
 - **Representación visual**
 Finalmente, se elaboró una representación visual del diseño físico del dispositivo con apoyo de inteligencia artificial. Esta imagen permite mostrar de manera aproximada cómo quedaría el Sistema Foll integrado en un cinturón para el adulto mayor, conectando la propuesta técnica del circuito con una posible forma real de uso. El diseño busca resaltar que el dispositivo sería portátil, discreto y cómodo, evitando que el usuario tenga que interactuar con interfaces complejas.
 
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
 
 <br>
 <br>
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 ## 6.1. Software Configuration Management.	
@@ -3799,52 +3807,88 @@ Finalmente, se elaboró una representación visual del diseño físico del dispo
 
 <strong>Project & Requirements Management</strong><br><br>
 <ul>
-<li>Jira: Es una solución de software diseñada para la gestión y organización de proyectos bajo metodologías ágiles que resulta fundamental para nuestro equipo al permitir el desglose de requerimientos complejos en User Stories y tareas manejables, asegurando un seguimiento colaborativo y un control riguroso de la carga de trabajo durante cada Sprint. Ruta de referencia: https://www.atlassian.com/es/software/jira
+<li>Jira: Es una solución de software diseñada para la gestión y organización de proyectos bajo metodologías ágiles que resulta fundamental para nuestro equipo al permitir el desglose de requerimientos complejos en User Stories y tareas manejables, asegurando un seguimiento colaborativo y un control riguroso de la carga de trabajo durante cada Sprint. Ruta de referencia:
+
+ [https://www.atlassian.com/es/software/jira](https://www.atlassian.com/es/software/jira)
 </li><br>
-<li>UXpressia: Esta herramienta profesional se centra en el análisis detallado de la experiencia de usuario y es utilizada en el proyecto para plantear escenarios críticos como User Personas y Empathy Maps, permitiéndonos mapear con precisión las necesidades, frustraciones y realidades de los adultos mayores y sus cuidadores frente a una caída. Ruta de referencia: https://uxpressia.com/
+<li>UXpressia: Esta herramienta profesional se centra en el análisis detallado de la experiencia de usuario y es utilizada en el proyecto para plantear escenarios críticos como User Personas y Empathy Maps, permitiéndonos mapear con precisión las necesidades, frustraciones y realidades de los adultos mayores y sus cuidadores frente a una caída. Ruta de referencia:
+
+ [https://uxpressia.com/](https://uxpressia.com/)
 </li><br><br>
     </ul>
 <strong>Product Design & Architecture</strong><br><br>
 <ul>
-<li>Figma: Es la plataforma líder en el diseño de interfaces de usuario y experiencia de usuario que nos permite modelar con alta fidelidad los prototipos tanto de la aplicación móvil como de la plataforma web, sirviendo de guía visual indispensable para asegurar que la jerarquía y accesibilidad del sistema cumplan con los estándares necesarios para nuestro público objetivo. Ruta de referencia: https://www.figma.com/
+<li>Figma: Es la plataforma líder en el diseño de interfaces de usuario y experiencia de usuario que nos permite modelar con alta fidelidad los prototipos tanto de la aplicación móvil como de la plataforma web, sirviendo de guía visual indispensable para asegurar que la jerarquía y accesibilidad del sistema cumplan con los estándares necesarios para nuestro público objetivo. Ruta de referencia: 
+
+[https://www.figma.com/](https://www.figma.com/)
 </li><br>
-<li>Mermaid: Es una herramienta basada en JavaScript que genera diagramas y gráficos de forma dinámica a partir de texto, lo que nos facilita documentar y actualizar los flujos lógicos de la aplicación de manera rápida y eficiente, manteniéndose siempre alineada con el código fuente. Ruta de referencia: https://mermaid.js.org/
+<li>Mermaid: Es una herramienta basada en JavaScript que genera diagramas y gráficos de forma dinámica a partir de texto, lo que nos facilita documentar y actualizar los flujos lógicos de la aplicación de manera rápida y eficiente, manteniéndose siempre alineada con el código fuente. Ruta de referencia: 
+
+[https://mermaid.js.org/](https://mermaid.js.org/)
 </li><br>
-<li>Structurizr: Esta herramienta especializada en la generación de diagramas bajo el estándar C4 Model permite, a través de código, crear esquemas arquitectónicos precisos que definen la estructura y las relaciones de los componentes de nuestro proyecto, garantizando una documentación técnica de alto nivel. Ruta de referencia: https://structurizr.com/
+<li>Structurizr: Esta herramienta especializada en la generación de diagramas bajo el estándar C4 Model permite, a través de código, crear esquemas arquitectónicos precisos que definen la estructura y las relaciones de los componentes de nuestro proyecto, garantizando una documentación técnica de alto nivel. Ruta de referencia: 
+
+[https://structurizr.com/](https://structurizr.com/)
 </li><br><br>
 </ul>
 <strong>Software Development</strong><br><br>
 <ul>
-<li>Visual Studio Code: Es el entorno de desarrollo integrado seleccionado por el equipo por su excepcional versatilidad, permitiéndonos elaborar y ejecutar el código tanto del frontend como del backend gracias a su flexibilidad de extensiones y su capacidad para manejar múltiples lenguajes de programación en un solo flujo de trabajo. Ruta de referencia: https://code.visualstudio.com/
+<li>Visual Studio Code: Es el entorno de desarrollo integrado seleccionado por el equipo por su excepcional versatilidad, permitiéndonos elaborar y ejecutar el código tanto del frontend como del backend gracias a su flexibilidad de extensiones y su capacidad para manejar múltiples lenguajes de programación en un solo flujo de trabajo. Ruta de referencia: 
+
+[https://code.visualstudio.com/](https://code.visualstudio.com/)
 </li><br>
-<li>PostgreSQL: Un sistema de gestión de base de datos relacional de código abierto, seleccionado para este proyecto por su robustez y extensibilidad, lo que nos ofrece la facilidad de realizar consultas de datos geográficos mediante PostGIS y garantiza un almacenamiento seguro, estructurado y con alta integridad para los datos críticos de salud. Ruta de referencia: https://www.postgresql.org/
+<li>PostgreSQL: Un sistema de gestión de base de datos relacional de código abierto, seleccionado para este proyecto por su robustez y extensibilidad, lo que nos ofrece la facilidad de realizar consultas de datos geográficos mediante PostGIS y garantiza un almacenamiento seguro, estructurado y con alta integridad para los datos críticos de salud. Ruta de referencia: 
+
+[https://www.postgresql.org/](https://www.postgresql.org/)
 </li><br>
-<li>HTML5: Es el lenguaje de marcado estándar utilizado para estructurar el contenido en la web, estableciendo la base semántica de nuestra plataforma frontend. Su correcta implementación es fundamental en este proyecto para garantizar la accesibilidad de la interfaz, asegurando que elementos vitales como las alertas de emergencia o los perfiles médicos puedan ser interpretados correctamente por cualquier navegador o tecnología de asistencia tecnológica, lo cual es clave considerando que nuestro segmento involucra a adultos mayores. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/HTML
+<li>HTML5: Es el lenguaje de marcado estándar utilizado para estructurar el contenido en la web, estableciendo la base semántica de nuestra plataforma frontend. Su correcta implementación es fundamental en este proyecto para garantizar la accesibilidad de la interfaz, asegurando que elementos vitales como las alertas de emergencia o los perfiles médicos puedan ser interpretados correctamente por cualquier navegador o tecnología de asistencia tecnológica, lo cual es clave considerando que nuestro segmento involucra a adultos mayores. Ruta de referencia: 
+
+[https://developer.mozilla.org/es/docs/Web/HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 </li><br>
-<li>CSS3: Es el lenguaje de hojas de estilo utilizado para definir la presentación y el diseño visual de la interfaz de usuario. Su uso en el proyecto es indispensable para implementar un diseño responsivo que se adapte a cualquier dispositivo (móvil, tablet o escritorio) y para aplicar de forma rigurosa la psicología del color, garantizando un alto contraste y legibilidad que notifique las emergencias a los familiares de manera clara y sin generar pánico visual. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/CSS
+<li>CSS3: Es el lenguaje de hojas de estilo utilizado para definir la presentación y el diseño visual de la interfaz de usuario. Su uso en el proyecto es indispensable para implementar un diseño responsivo que se adapte a cualquier dispositivo (móvil, tablet o escritorio) y para aplicar de forma rigurosa la psicología del color, garantizando un alto contraste y legibilidad que notifique las emergencias a los familiares de manera clara y sin generar pánico visual. Ruta de referencia: 
+
+[https://developer.mozilla.org/es/docs/Web/CSS](https://developer.mozilla.org/es/docs/Web/CSS)
 </li><br>
-<li>Tailwind CSS: Es un framework de CSS basado en clases utilitarias (utility-first) que permite construir interfaces de usuario a medida directamente desde el código de maquetado. Su inclusión en el entorno de desarrollo se justifica porque agiliza drásticamente la construcción del frontend y estandariza el diseño de la plataforma; en nuestro proyecto, nos permite configurar un sistema de colores semánticos globales y crear interfaces responsivas y altamente legibles, asegurando la accesibilidad visual para los adultos mayores y sus cuidadores sin la necesidad de mantener extensas y complejas hojas de estilo tradicionales. Ruta de referencia: https://tailwindcss.com/
+<li>Tailwind CSS: Es un framework de CSS basado en clases utilitarias (utility-first) que permite construir interfaces de usuario a medida directamente desde el código de maquetado. Su inclusión en el entorno de desarrollo se justifica porque agiliza drásticamente la construcción del frontend y estandariza el diseño de la plataforma; en nuestro proyecto, nos permite configurar un sistema de colores semánticos globales y crear interfaces responsivas y altamente legibles, asegurando la accesibilidad visual para los adultos mayores y sus cuidadores sin la necesidad de mantener extensas y complejas hojas de estilo tradicionales. Ruta de referencia: 
+
+[https://tailwindcss.com/](https://tailwindcss.com/)
 </li><br>
-<li>TypeScript: Es un lenguaje de programación de código abierto que añade tipado estático estricto a JavaScript, lo que mejora significativamente el desarrollo de nuestra aplicación web al integrarse con React. Su uso permite detectar errores en tiempo de compilación y definir contratos de datos claros (interfaces) para la información que viaja desde el backend, asegurando un código escalable, fácil de mantener y mucho más profesional. Ruta de referencia: https://www.typescriptlang.org
+<li>TypeScript: Es un lenguaje de programación de código abierto que añade tipado estático estricto a JavaScript, lo que mejora significativamente el desarrollo de nuestra aplicación web al integrarse con React. Su uso permite detectar errores en tiempo de compilación y definir contratos de datos claros (interfaces) para la información que viaja desde el backend, asegurando un código escalable, fácil de mantener y mucho más profesional. Ruta de referencia:
+
+ [https://www.typescriptlang.org](https://www.typescriptlang.org)
 		</li><br>
-<li>React: Es una biblioteca de JavaScript de código abierto diseñada para construir interfaces de usuario a través de componentes reutilizables, seleccionada para el frontend por su capacidad superior para gestionar interfaces reactivas y asíncronas a través de su Virtual DOM. En un sistema crítico como la detección de caídas, esta tecnología garantiza que las alertas enviadas por el servidor actualicen instantáneamente la pantalla del monitor en tiempo real y sin necesidad de recargar la página, permitiendo además un control riguroso sobre la jerarquía visual para notificar emergencias de manera efectiva. Ruta de referencia: https://es.react.dev/
+<li>React: Es una biblioteca de JavaScript de código abierto diseñada para construir interfaces de usuario a través de componentes reutilizables, seleccionada para el frontend por su capacidad superior para gestionar interfaces reactivas y asíncronas a través de su Virtual DOM. En un sistema crítico como la detección de caídas, esta tecnología garantiza que las alertas enviadas por el servidor actualicen instantáneamente la pantalla del monitor en tiempo real y sin necesidad de recargar la página, permitiendo además un control riguroso sobre la jerarquía visual para notificar emergencias de manera efectiva. Ruta de referencia: 
+
+[https://es.react.dev/](https://es.react.dev/)
 </li><br>
-<li>.NET: Es un framework de desarrollo multiplataforma y de código abierto de Microsoft utilizado para construir aplicaciones modernas y servicios en la nube, cuya adopción en el backend se fundamenta en la necesidad de garantizar alta disponibilidad y seguridad en el procesamiento de datos de salud. Al ser un entorno fuertemente tipado e incorporar SignalR de forma nativa, minimiza los errores en tiempo de ejecución, optimiza la transmisión bidireccional de alertas mediante WebSockets y asegura una integración fluida con el ecosistema de Azure para un despliegue optimizado. Ruta de referencia: https://dotnet.microsoft.com/es-es/
+<li>.NET: Es un framework de desarrollo multiplataforma y de código abierto de Microsoft utilizado para construir aplicaciones modernas y servicios en la nube, cuya adopción en el backend se fundamenta en la necesidad de garantizar alta disponibilidad y seguridad en el procesamiento de datos de salud. Al ser un entorno fuertemente tipado e incorporar SignalR de forma nativa, minimiza los errores en tiempo de ejecución, optimiza la transmisión bidireccional de alertas mediante WebSockets y asegura una integración fluida con el ecosistema de Azure para un despliegue optimizado. Ruta de referencia: 
+
+[https://dotnet.microsoft.com/es-es/](https://dotnet.microsoft.com/es-es/)
 </li><br><br></ul>
 <strong>Software Testing & Documentation</strong><br><br>
 <ul>
-<li>Git: Es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software, resultando indispensable para nuestro equipo de cinco integrantes al facilitar el trabajo en paralelo sobre diferentes funcionalidades del sistema de detección de caídas sin riesgo de pérdida de información. Su implementación asegura que cada modificación sea trazable y que podamos revertir cambios o integrar nuevas mejoras de manera controlada y predecible. Ruta de referencia: https://git-scm.com/
+<li>Git: Es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software, resultando indispensable para nuestro equipo de cinco integrantes al facilitar el trabajo en paralelo sobre diferentes funcionalidades del sistema de detección de caídas sin riesgo de pérdida de información. Su implementación asegura que cada modificación sea trazable y que podamos revertir cambios o integrar nuevas mejoras de manera controlada y predecible. Ruta de referencia: 
+
+[https://git-scm.com/](https://git-scm.com/)
 </li><br>
-<li>Swagger: Es un conjunto de herramientas de código abierto construidas en torno a la especificación OpenAPI que actúa como un contrato interactivo entre el backend y la interfaz de la aplicación, facilitando que los desarrolladores puedan diseñar, construir, documentar y consumir las APIs RESTful del proyecto en un espacio de pruebas controlado y transparente. Ruta de referencia: https://swagger.io/
+<li>Swagger: Es un conjunto de herramientas de código abierto construidas en torno a la especificación OpenAPI que actúa como un contrato interactivo entre el backend y la interfaz de la aplicación, facilitando que los desarrolladores puedan diseñar, construir, documentar y consumir las APIs RESTful del proyecto en un espacio de pruebas controlado y transparente. Ruta de referencia: 
+
+[https://swagger.io/](https://swagger.io/)
 </li><br>
-<li>Postman: Se define como una plataforma de desarrollo de APIs que facilita la construcción y validación de solicitudes HTTP, permitiéndonos probar exhaustivamente el comportamiento de cada endpoint y asegurar que las comunicaciones del sistema sean correctas antes de la integración final con las interfaces de usuario. Ruta de referencia: https://www.postman.com/
+<li>Postman: Se define como una plataforma de desarrollo de APIs que facilita la construcción y validación de solicitudes HTTP, permitiéndonos probar exhaustivamente el comportamiento de cada endpoint y asegurar que las comunicaciones del sistema sean correctas antes de la integración final con las interfaces de usuario. Ruta de referencia:
+
+ [https://www.postman.com/](https://www.postman.com/)
 </li><br>
-<li>Github: Es la plataforma de alojamiento en la nube para el control de versiones basada en Git que sirve de columna vertebral para el desarrollo simultáneo de los cinco integrantes del equipo, permitiendo combinar avances de forma segura y transparente mediante estrategias de ramificación profesional. Ruta de referencia: https://github.com/
+<li>Github: Es la plataforma de alojamiento en la nube para el control de versiones basada en Git que sirve de columna vertebral para el desarrollo simultáneo de los cinco integrantes del equipo, permitiendo combinar avances de forma segura y transparente mediante estrategias de ramificación profesional. Ruta de referencia: 
+
+[https://github.com/](https://github.com/)
 </li><br><br></ul>
 <strong>Software Deployment</strong><br><br>
 <ul>
     <li>
-Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para la gestión de servicios en la nube que constituye la infraestructura base de nuestro sistema, asegurando que el servidor esté operativo 24/7 para procesar alertas críticas de salud; para ello, se emplean servicios específicos como Azure App Service para los microservicios, Azure Static Web Apps para el frontend y Azure Database for PostgreSQL para la persistencia de datos administrada. Ruta de referencia: https://portal.azure.com/auth/login/
+Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para la gestión de servicios en la nube que constituye la infraestructura base de nuestro sistema, asegurando que el servidor esté operativo 24/7 para procesar alertas críticas de salud; para ello, se emplean servicios específicos como Azure App Service para los microservicios, Azure Static Web Apps para el frontend y Azure Database for PostgreSQL para la persistencia de datos administrada. Ruta de referencia: 
+
+[https://portal.azure.com/auth/login/](https://portal.azure.com/auth/login/)
     </li><br>
 </ul>	
 
@@ -3854,7 +3898,7 @@ Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para l
 Para la elaboración de este proyecto seguiremos los lineamientos de GitFlow, garantizando un desarrollo organizado, colaborativo y predecible, mientras GitHub actúa como nuestra principal plataforma de control de versiones.
 
 Enlace de la organización del GitHub:
-https://github.com/foll-project
+[https://github.com/foll-project](https://github.com/foll-project)
 
 <strong>Estructura de ramas:</strong>
 <ul>
