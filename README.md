@@ -257,8 +257,8 @@
     - [5.2.4. Searching Systems.](#524-searching-systems)
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
-    - [5.3.1. Landing Page Wireframe.](#531-landing-page-wireframe)
-    - [5.3.2. Landing Page Mock-up.](#532-landing-page-mock-up)
+    - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
+    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -871,7 +871,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Bajo
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - Inicio: 0:00 s
 - Fin: 4:23 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista1.png" />
@@ -884,7 +884,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Bajo/Medio
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - Inicio: 4:24 s
 - Fin: 8:08 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista2.png" />
@@ -897,7 +897,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Bajo
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - Inicio: 8:09 s
 - Fin: 15:28 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista3.png" />
@@ -913,7 +913,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Medio/Alto
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 - Inicio: 0:00 s
 - Fin: 2:54 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista4.png" />
@@ -927,7 +927,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Medio/Alto
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 - Inicio: 2:54 s
 - Fin: 5:53 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista5.png" />
@@ -940,7 +940,7 @@ Para asegurar la viabilidad y introducción de **Foll** en el mercado, se han de
 - Relación con el adulto mayor: Familiar
 - Ubicación: Lima Metropolitana
 - Nivel tecnológico: Medio/Alto
-- Enlace del video: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- [Enlace del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 - Inicio: 5:53 s
 - Fin: 9:10 s
 <img width="500"  alt="image" src="img/entrevistas/entrevista6.png" />
@@ -963,8 +963,7 @@ Al igual que en el segmento de cuidadores, la privacidad no genera rechazo. Los 
 - <strong>Receptividad general: alta, pero con perfil de usuario que necesita simplicidad</strong><br>
 La propuesta fue bien recibida por los tres. No hubo objeciones al concepto. Sin embargo, este segmento tiene menor familiaridad tecnológica, lo que implica que el onboarding y la configuración del dispositivo deben ser manejados por el cuidador o familiar, no por el adulto mayor. El adulto mayor solo necesita ponérselo, nada más.
 
-<br><br>
-
+<br>
 <strong>Segmento objetivo 2: Cuidadores de adultos mayores, familiares y personal de salud:</strong><br>
 - <strong>Contexto y perfil del segmento</strong><br>
 Los tres entrevistados son jóvenes adultos (19–27 años) que cuidan a adultos mayores de la familia, principalmente abuelos. El tiempo que pasa el adulto mayor sin supervisión varía bastante: desde 2 horas hasta 6–8 horas diarias, lo que refleja distintos niveles de exposición al riesgo y distintas urgencias en cada hogar.<br>
@@ -988,10 +987,10 @@ Un entrevistado señaló algo valioso: la necesidad de un mecanismo para descart
 A continuación, se presentará los 2 user persona de acuerdo al segmento objetivo encontrado:
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona1.png" width=700px>
+<img src="img/needfinding/userpersona1.png" width=600px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona2.png" width=700px><br>
+<img src="img/needfinding/userpersona2.png" width=600px><br>
  
 ### 2.3.2. User Task Matrix
 
@@ -1059,24 +1058,23 @@ A continuación, se presenta la matriz que evalúa la frecuencia e importancia d
 <strong>Diferencias:</strong> El registro de historial y la verificación de bienestar presentan la mayor brecha. El cuidador les asigna importancia alta por su rol de supervisión, mientras que el adulto mayor les otorga un nivel medio para evitar ser percibido como una carga o perder su independencia.
 
 ### 2.3.3. User Journey Mapping
-
 A continuación, se presentan los User Journey Maps creados para cada perfil de usuario definido en nuestros dos segmentos objetivo. Estos mapas permiten visualizar la experiencia actual y los puntos críticos de dolor, fundamentando así el diseño de nuestro prototipo.
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/journey1.png" width=800px>
+<img src="img/needfinding/journey1.png" width=700px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/journey2.png" width=800px><br>
+<img src="img/needfinding/journey2.png" width=700px><br>
  
 ### 2.3.4. Empathy Mapping
 
 A continuación, se mostrarán los Empathy Mapping creados para cada perfil de usuario identificado en nuestros dos segmentos objetivo. Estos mapas nos ayudarán a comprender mejor a nuestros clientes y, así, optimizar la aplicación.
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/empathymap1.png" width=800px>
+<img src="img/needfinding/empathymap1.png" width=700px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/empathymap2.png" width=800px><br>
+<img src="img/needfinding/empathymap2.png" width=700px><br>
  
 ## 2.4. Big Picture EventStorming
 Para entender y plantear la lógica del proyecto, en grupo nos juntamos para definir las principales funcionalidades y flujos que tendría Foll. A continuación se mostrarán los pasos realizados para el Big Picture Eventstorming el cual es un primer acercamiento a nuestra solución. 
@@ -1121,14 +1119,10 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
 * **GPS Location / Ubicación GPS:** El punto exacto en el mapa donde se encuentra el adulto mayor al momento de la emergencia.
 * **Preferred Medical Center / Centro Médico Preferido:** El hospital o clínica a donde se debe llevar al paciente si la caída es grave.
 * **Ambulance Requested / Ambulancia Solicitada:** Cuando el sistema o el cuidador piden ayuda externa porque la emergencia es muy grave.
-
 * **Smart Belt / Cinturón Inteligente:** El aparato completo que se pone el paciente en la cintura.
 * **Biomechanical Sensor / Sensor Biomecánico [Sensor]:** El chip interno que "siente" hacia dónde se mueve o si se cae el paciente.
 * **Local Audio Alarm / Alarma Local Sonora [Actuador]:** La bocina del cinturón que hace un ruido fuerte para avisar a los que están cerca que el abuelito se cayó.
 * **Confirmation Motor / Motor de Confirmación [Actuador]:** La pieza que hace vibrar el cinturón para preguntarle al paciente: "¿Te caíste?.
----
-
-<div style="page-break-after: always;"></div>
 
  
 # Capítulo III: Requirements Specification
@@ -1226,7 +1220,6 @@ https://trello.com/b/0wcO99Dl/foll-product-backlog
 
 <img alt="Product Backlog Trello" src="img/product-backlog/foll-product-backlog.png" width="900"/>
  
----
 
 <div style="page-break-after: always;"></div>
 
@@ -1562,7 +1555,10 @@ Tras seleccionar la Alternativa B, se establecieron los siguientes patrones estr
 
 A continuación, se presenta la representación visual de los Bounded Contexts y los patrones de integración descritos, reflejando el flujo de influencia técnica (Upstream/Downstream) y las barreras de protección (ACL).
 
-![Context Mapping del Sistema de Detección de Caídas](img/context-mapping/context-mapping-diagram.png)
+
+<img src="img/context-mapping/context-mapping-diagram.png" alt="Context Mapping del Sistema de Detección de Caídas
+" width="00"/>
+
  
 ### 4.1.3. Software Architecture
  
@@ -2115,7 +2111,9 @@ Tablas gestionadas:
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-![IAM - Component Level Diagram](./img/tactical-ddd/iam/component.svg)
+
+<img src="img/tactical-ddd/iam/component.svg" alt="IAM - Component Level Diagram" width="700"/>
+
 
 Este diagrama de componentes (C4 Nivel 3) ilustra la arquitectura interna y el flujo de ejecucion del contenedor `IAM Service`. Muestra como el Bounded Context esta descompuesto de forma coherente con los principios de Arquitectura Limpia (`Interface`, `Application`, `Domain` e `Infrastructure`). El diagrama traza el recorrido de las peticiones desde clientes externos (App Movil y Web) hacia los controladores REST, delegando la orquestacion en los command handlers (CQRS), interactuando con las reglas de negocio en agregados de dominio y finalizando con la persistencia en MySQL mediante implementaciones concretas de repositorios.
  
@@ -2493,7 +2491,8 @@ Detalle de implementación:
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Embedded Systems - Component Level Diagram](./img/tactical-ddd/embedded/component-es.svg)
+<img src= "img/tactical-ddd/embedded/component-es.svg" alt="Embedded Systems - Component Level Diagram" width="650"/>
+
 
 Este diagrama de componentes muestra como se aplica Arquitectura Limpia dentro del contenedor embebido sobre ESP32. En este contexto, la capa de interfaz no expone HTTP, sino eventos fisicos (interrupciones GPIO) y eventos de red (socket UDP). La capa de aplicacion se materializa en tareas concurrentes de FreeRTOS (`BootstrapNetworkTask`, `StreamInertialDataTask`, `UpdateLocationTask`, `MonitorBatteryTask`) para sostener un flujo continuo de telemetria a 200 Hz sin bloquear la ejecucion. Finalmente, la logica de dominio se mantiene aislada del hardware real, delegando acceso a buses I2C/UART y pines GPIO en implementaciones concretas de infraestructura.
 
@@ -2691,7 +2690,8 @@ Detalle de implementación:
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Edge - Component Level Diagram](./img/tactical-ddd/edge/component-edge.svg)
+<img src= "img/tactical-ddd/edge/component-edge.svg" alt="Edge - Component Level Diagram" width="650"/>
+
 
 Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
 
@@ -3126,7 +3126,7 @@ Tablas gestionadas:
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Emergency Management - Component Level Diagram](./img/tactical-ddd/emergency/component-emer.svg)
+<img src= "img/tactical-ddd/emergency/component-emer.svg" alt="Emergency Management - Component Level Diagram" width="600"/>
 
 Este diagrama muestra la organizacion interna del microservicio en la nube y la separacion de responsabilidades mediante CQRS. El flujo inicia cuando Edge reporta la caida, persiste el incidente y dispara notificaciones de forma encadenada. El `IncidentEscalationJob` opera en segundo plano para garantizar seguimiento aunque no exista respuesta inmediata del usuario.
 
@@ -3321,7 +3321,9 @@ Tablas gestionadas:
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Notifications - Component Level Diagram](./img/tactical-ddd/noti/component-noti.svg)
+
+<img src= "img/tactical-ddd/noti/component-noti.svg" alt="Notifications - Component Level Diagram" width="700"/>
+
 
 Este diagrama muestra al BC Notifications como un gateway interno: recibe una orden de despacho y la distribuye a proveedores externos como Twilio y FCM. La orquestacion asincrona evita bloquear el flujo de emergencia mientras se esperan respuestas de red o telefonia. El objetivo principal es desacoplar el envio multicanal del resto de BCs.
 
@@ -3446,42 +3448,32 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 *   Se prioriza el uso de tipografías grandes, iconos claros y un alto contraste de colores para asegurar la accesibilidad, considerando que algunos cuidadores también pueden ser personas de edad avanzada.
 *   Responsive Design integral, asegurando que la experiencia pase fluidamente de un dispositivo de escritorio (donde un médico podría descargar el reporte PDF) a un móvil (donde el cuidador recibe la alerta en la calle).
 
-## 5.3. Landing Page UI Design.
-### 5.3.1. Landing Page Wireframe.
-<img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
-<img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="450"/>
+## 5.3. Landing Page UI Design. 
+### 5.3.1. Landing Page Wireframe. <img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
+<img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="400"/> 
 
-### 5.3.2. Landing Page Mock-up.
+</br>
 
-<img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/>
-<img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="450"/>
+### 5.3.2. Landing Page Mock-up. <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/> </br>
+<img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="400"/> 
+
 
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
-
 **Web Wireframes**
-
 ![Web App Wireframe 1](./img/wireframes/web-app/wireframe-web-1.png)
-
 ![Web App Wireframe 2](./img/wireframes/web-app/wireframe-web-2.png)
-
 ![Web App Wireframe 3](./img/wireframes/web-app/wireframe-web-3.png)
-
 ![Web App Wireframe 4](./img/wireframes/web-app/wireframe-web-4.png)
-
 ![Web App Wireframe 5](./img/wireframes/web-app/wireframe-web-5.png)
-
 ![Web App Wireframe 6](./img/wireframes/web-app/wireframe-web-6.png)
 
 
 **Mobile Wireframes**
-
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-1.png" alt="Wireframe mobile 1" width="300"/>
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-2.png" alt="Wireframe mobile 2" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos-1.png" alt="Wireframe mobile 3" width="300"/>
-
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso.png" alt="Wireframe mobile 4" width="300"/>
-
 <img src="img/wireframes/mobile/Foll - Dashboard Principal.png" alt="Wireframe mobile 5" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos.png" alt="Wireframe mobile 6" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
@@ -3489,7 +3481,6 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 <img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
 
 ### 5.4.2. Applications Wireflow Diagrams.
-
 **User Goal: Acceder al sistema**  
 **User Persona**: Cuidador 
 **Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
@@ -3632,7 +3623,6 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 *Mobile Userflow*
 ![Userflow mobile 5](img/userflows/userflow-mobile-5.png)
-
 *Nota*: Esta vista solo se encuentra en mobile.
 
 
@@ -3875,6 +3865,7 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.	
 #### 6.2.1.9. Team Collaboration Insights during Sprint.	
 
+<div style="page-break-after: always;"></div>
 
 # Conclusiones
 
@@ -3894,6 +3885,8 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 # Bibliografía
 - Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
 
@@ -3901,6 +3894,7 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 
 - Superintendencia Nacional de Salud. (2023). Boletín Estadístico 2023. SUSALUD – Gobierno del Perú. https://www.gob.pe/institucion/susalud/informes-publicaciones/4595872-boletin-estadistico-2023
 
+<div style="page-break-after: always;"></div>
 
 # Anexos
 
@@ -3908,5 +3902,6 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 - Link del informe: https://github.com/Nanotech6766/Project-Report
 - Link de event storming: https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369
 - Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
-- Link de las entrevistas segmento 1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn
-- Link de las entrevistas segmento 2: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV
+- [Link de las entrevistas segmento 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
+- [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
+  
