@@ -3740,14 +3740,13 @@ En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi 
 Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
 
 <img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
-*Link al proyecto Wokwi: https://wokwi.com/projects/463973317008005121*
 
+<br>
 
 - **Representación visual**
 Finalmente, se elaboró una representación visual del diseño físico del dispositivo con apoyo de inteligencia artificial. Esta imagen permite mostrar de manera aproximada cómo quedaría el Sistema Foll integrado en un cinturón para el adulto mayor, conectando la propuesta técnica del circuito con una posible forma real de uso. El diseño busca resaltar que el dispositivo sería portátil, discreto y cómodo, evitando que el usuario tenga que interactuar con interfaces complejas.
 
-
-
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
 
 <br>
 <br>
