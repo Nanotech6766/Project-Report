@@ -3494,11 +3494,59 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
+<img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
+<img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="450"/>
+
 ### 5.3.2. Landing Page Mock-up.
+
+<img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/>
+<img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="450"/>
+
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
+
+**Web Wireframes**
+
+
+**Mobile Wireframes**
+
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-1.png" alt="Wireframe mobile 1" width="300"/>
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-2.png" alt="Wireframe mobile 2" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mis Abuelitos-1.png" alt="Wireframe mobile 3" width="300"/>
+
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso.png" alt="Wireframe mobile 4" width="300"/>
+
+<img src="img/wireframes/mobile/Foll - Dashboard Principal.png" alt="Wireframe mobile 5" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mis Abuelitos.png" alt="Wireframe mobile 6" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
+<img src="img/wireframes/mobile/Foll - Historial de Eventos.png" alt="Wireframe mobile 8" width="300"/>
+<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
+
+
 ### 5.4.2. Applications Wireflow Diagrams.
 ### 5.4.3. Applications Mock-ups.
+
+**Web Mockups**
+<img src="img/mockups/web/Frame 1.png" alt="Mockup web 1" width="800"/>
+<img src="img/mockups/web/Frame 6.png" alt="Mockup web 2" width="800"/>
+<img src="img/mockups/web/Frame 2.png" alt="Mockup web 3" width="800"/>
+<img src="img/mockups/web/Frame 4.png" alt="Mockup web 4" width="800"/>
+<img src="img/mockups/web/Frame 3.png" alt="Mockup web 5" width="800"/>
+<img src="img/mockups/web/Frame 5.png" alt="Mockup web 6" width="800"/>
+
+**Mobile Mockups**
+
+<img src="img/mockups/mobile/Foll - Bienvenida y Acceso.png" alt="Mockup mobile 1" width="300"/>
+<img src="img/mockups/mobile/Foll - Dashboard Principal.png" alt="Mockup mobile 2" width="300"/>
+<img src="img/mockups/mobile/Foll - Mis Abuelitos.png" alt="Mockup mobile 3" width="375"/>
+<img src="img/mockups/mobile/Foll - Mi Perfil.png" alt="Mockup mobile 4" width="250"/>
+<img src="img/mockups/mobile/Foll - Historial de Eventos.png" alt="Mockup mobile 5" width="300"/>
+<img src="img/mockups/mobile/Foll - Centro de Alertas.png" alt="Mockup mobile 6" width="350"/>
+<img src="img/mockups/mobile/Foll - Bienvenida y Acceso-1.png" alt="Mockup mobile 7" width="300"/>
+<img src="img/mockups/mobile/Foll - Bienvenida y Acceso-2.png" alt="Mockup mobile 8" width="300"/>
+<img src="img/mockups/mobile/Foll - Mis Abuelitos-1.png" alt="Mockup mobile 9" width="400"/>
+
+
 ### 5.4.4. Applications User Flow Diagrams.
 ## 5.5. Applications Prototyping.
 ## 5.6. IoT Device Design.
