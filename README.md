@@ -1,4 +1,4 @@
-# <center>Project Report</center>
+<center>Project Report</center>
 
 <p align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png"></img><br>
@@ -55,7 +55,7 @@
 <div style="page-break-after: always;"></div>
 
 
-<h1 align="center">Registro de versiones del Informe</h1>
+# <h1 align="center">Registro de versiones del Informe</h1>
 </br>
 <table>
             <tr>
@@ -139,7 +139,7 @@
 
 
 # Project Report Collaboration Insights
-## AV1
+**AV1**
 
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
@@ -153,9 +153,8 @@
  
 # Contenido
  
-- [Project Report](#project-report)
+- [Registro de versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
-  - [AV1](#av1)
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
@@ -170,8 +169,6 @@
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-    - [Segmento: Adultos Mayores](#segmento-adultos-mayores)
-    - [Segmento: Cuidadores de adultos mayores, familiares y personal de salud](#segmento-cuidadores-de-adultos-mayores-familiares-y-personal-de-salud)
 - [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -189,7 +186,6 @@
   - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. User Stories](#31-user-stories)
-    - [Epic Stories](#epic-stories)
   - [3.2. Impact Mapping](#32-impact-mapping)
   - [3.3. Product Backlog](#33-product-backlog)
 - [Capítulo IV: Solution Software Design](#capítulo-iv-solution-software-design)
@@ -197,20 +193,8 @@
     - [4.1.1. Design-Level EventStorming](#411-design-level-eventstorming)
       - [4.1.1.1. Candidate Context Discovery](#4111-candidate-context-discovery)
       - [4.1.1.2. Domain Message Flows Modeling](#4112-domain-message-flows-modeling)
-      - [Scenario 1: Detección de anomalía y pre-alarma local](#scenario-1-detección-de-anomalía-y-pre-alarma-local)
-      - [Scenario 2: Confirmación de caída y recuperación de datos](#scenario-2-confirmación-de-caída-y-recuperación-de-datos)
-      - [Scenario 3: Emisión de alerta y respuesta del cuidador](#scenario-3-emisión-de-alerta-y-respuesta-del-cuidador)
-      - [Scenario 4: Sincronización del estado de emergencia](#scenario-4-sincronización-del-estado-de-emergencia)
       - [4.1.1.3. Bounded Context Canvases](#4113-bounded-context-canvases)
-      - [1. Edge Context Canvas](#1-edge-context-canvas)
-      - [2. Emergency Context Canvas](#2-emergency-context-canvas)
-      - [3. Notifications Context Canvas](#3-notifications-context-canvas)
-      - [4. IAM Context Canvas](#4-iam-context-canvas)
     - [4.1.2. Context Mapping](#412-context-mapping)
-      - [Proceso de Elaboración y Preguntas de Diseño](#proceso-de-elaboración-y-preguntas-de-diseño)
-      - [Alternativas de Diseño y Selección](#alternativas-de-diseño-y-selección)
-      - [Definición de Relaciones entre Bounded Contexts (Patrones DDD)](#definición-de-relaciones-entre-bounded-contexts-patrones-ddd)
-      - [Diagrama de Context Mapping](#diagrama-de-context-mapping)
     - [4.1.3. Software Architecture](#413-software-architecture)
       - [4.1.3.1. Software Architecture System Landscape Diagram](#4131-software-architecture-system-landscape-diagram)
       - [4.1.3.2. Software Architecture Context Level Diagrams](#4132-software-architecture-context-level-diagrams)
@@ -219,207 +203,45 @@
   - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
     - [4.2.1. Bounded Context: IAM](#421-bounded-context-iam)
       - [4.2.1.1. Domain Layer](#4211-domain-layer)
-        - [Entities](#entities)
-          - [`User`](#user)
-          - [`Device`](#device)
-          - [`CareRelationship`](#carerelationship)
-        - [Value Objects](#value-objects)
-          - [`UserId`](#userid)
-          - [`DeviceId`](#deviceid)
-          - [`Email`](#email)
-          - [`PasswordHash`](#passwordhash)
-          - [`Role`](#role)
-          - [`DeviceStatus`](#devicestatus)
-          - [`RelationshipStatus`](#relationshipstatus)
-        - [Aggregates](#aggregates)
-          - [`UserAggregate`](#useraggregate)
-          - [`DeviceAggregate`](#deviceaggregate)
-        - [Domain Services](#domain-services)
-          - [`AuthenticationDomainService`](#authenticationdomainservice)
-          - [`DeviceBindingDomainService`](#devicebindingdomainservice)
-        - [Repository Interfaces](#repository-interfaces)
-          - [`IUserRepository`](#iuserrepository)
-          - [`IDeviceRepository`](#idevicerepository)
-          - [`ICareRelationshipRepository`](#icarerelationshiprepository)
       - [4.2.1.2. Interface Layer](#4212-interface-layer)
-        - [`AuthController`](#authcontroller)
-        - [`UserController`](#usercontroller)
-        - [`DeviceController`](#devicecontroller)
-        - [`CareRelationshipController`](#carerelationshipcontroller)
       - [4.2.1.3. Application Layer](#4213-application-layer)
-        - [Command Handlers](#command-handlers)
-          - [`RegisterUserCommandHandler`](#registerusercommandhandler)
-          - [`LoginCommandHandler`](#logincommandhandler)
-          - [`RefreshTokenCommandHandler`](#refreshtokencommandhandler)
-          - [`LogoutCommandHandler`](#logoutcommandhandler)
-          - [`BindDeviceCommandHandler`](#binddevicecommandhandler)
-          - [`UnbindDeviceCommandHandler`](#unbinddevicecommandhandler)
-          - [`InviteCaregiverCommandHandler`](#invitecaregivercommandhandler)
-          - [`AcceptInvitationCommandHandler`](#acceptinvitationcommandhandler)
-          - [`RevokeCareRelationshipCommandHandler`](#revokecarerelationshipcommandhandler)
-        - [Event Handlers](#event-handlers)
-          - [`UserRegisteredEventHandler`](#userregisteredeventhandler)
-          - [`DeviceBoundEventHandler`](#deviceboundeventhandler)
       - [4.2.1.4. Infrastructure Layer](#4214-infrastructure-layer)
-        - [Repository Implementations](#repository-implementations)
-          - [`UserRepositoryImpl`](#userrepositoryimpl)
-          - [`DeviceRepositoryImpl`](#devicerepositoryimpl)
-          - [`CareRelationshipRepositoryImpl`](#carerelationshiprepositoryimpl)
-        - [External Service Implementations](#external-service-implementations)
-          - [`JwtTokenServiceImpl`](#jwttokenserviceimpl)
-          - [`BcryptPasswordHashingServiceImpl`](#bcryptpasswordhashingserviceimpl)
-          - [`InvitationEmailServiceImpl`](#invitationemailserviceimpl)
-        - [Database Configuration](#database-configuration)
-          - [`IamDbContext`](#iamdbcontext)
       - [4.2.1.5. Bounded Context Software Architecture Component Level Diagrams](#4215-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
         - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
     - [4.2.2. Bounded Context: Embedded Systems](#422-bounded-context-embedded-systems)
       - [4.2.2.1. Domain Layer](#4221-domain-layer)
-        - [Entities](#entities-1)
-          - [`WearableSystem`](#wearablesystem)
-          - [`InertialSensorArray`](#inertialsensorarray)
-          - [`AlarmBuzzer`](#alarmbuzzer)
-          - [`GpsTracker`](#gpstracker)
-        - [Value Objects](#value-objects-1)
-          - [`SensorReading`](#sensorreading)
-          - [`InertialFrame`](#inertialframe)
-          - [`GeoCoordinate`](#geocoordinate)
-          - [`BatteryLevel`](#batterylevel)
-          - [`SystemState`](#systemstate)
-        - [Hardware Abstractions (Repository Interfaces)](#hardware-abstractions-repository-interfaces)
       - [4.2.2.2. Interface Layer](#4222-interface-layer)
-        - [`HardwareInterruptController`](#hardwareinterruptcontroller)
-        - [`UdpCommandListener`](#udpcommandlistener)
       - [4.2.2.3. Application Layer](#4223-application-layer)
-        - [Tasks (Handlers continuos y periodicos)](#tasks-handlers-continuos-y-periodicos)
-          - [`BootstrapNetworkTask`](#bootstrapnetworktask)
-          - [`StreamInertialDataTask`](#streaminertialdatatask)
-          - [`UpdateLocationTask`](#updatelocationtask)
-          - [`MonitorBatteryTask`](#monitorbatterytask)
-        - [Command Handlers](#command-handlers-1)
-          - [`PowerOnSystemCommandHandler`](#poweronsystemcommandhandler)
-          - [`PowerOffSystemCommandHandler`](#poweroffsystemcommandhandler)
-          - [`TriggerAlarmCommandHandler`](#triggeralarmcommandhandler)
-          - [`SilenceAlarmCommandHandler`](#silencealarmcommandhandler)
       - [4.2.2.4. Infrastructure Layer](#4224-infrastructure-layer)
-        - [Hardware Implementations (C++ / Arduino / ESP-IDF)](#hardware-implementations-c--arduino--esp-idf)
-          - [`Adxl345I2cDriver`](#adxl345i2cdriver)
-          - [`Mpu6050I2cDriver`](#mpu6050i2cdriver)
-          - [`UbloxNeoM6UartDriver`](#ubloxneom6uartdriver)
-          - [`GpioActuatorDriver`](#gpioactuatordriver)
-          - [`AdcBatteryReaderImpl`](#adcbatteryreaderimpl)
-        - [Network Implementations](#network-implementations)
-          - [`Esp32WiFiUdpManager`](#esp32wifiudpmanager)
       - [4.2.2.5. Bounded Context Software Architecture Component Level Diagrams](#4225-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.2.6.1. Bounded Context Domain Layer Class Diagrams](#42261-bounded-context-domain-layer-class-diagrams)
         - [4.2.2.6.2. Bounded Context Database Design Diagram](#42262-bounded-context-database-design-diagram)
     - [4.2.3. Bounded Context: Edge](#423-bounded-context-edge)
       - [4.2.3.1. Domain Layer](#4231-domain-layer)
-        - [Entities](#entities-2)
-          - [`InferenceEngine`](#inferenceengine)
-          - [`LocalFallEvent`](#localfallevent)
-        - [Value Objects](#value-objects-2)
-        - [Repository \& External Interfaces](#repository--external-interfaces)
       - [4.2.3.2. Interface Layer](#4232-interface-layer)
-        - [`TelemetryUdpConsumer`](#telemetryudpconsumer)
-        - [`CloudSyncWorker`](#cloudsyncworker)
       - [4.2.3.3. Application Layer](#4233-application-layer)
-        - [Command Handlers](#command-handlers-2)
-          - [`IngestTelemetryCommandHandler`](#ingesttelemetrycommandhandler)
-          - [`EvaluateWindowCommandHandler`](#evaluatewindowcommandhandler)
-          - [`SyncIncidentCommandHandler`](#syncincidentcommandhandler)
-          - [`RetrySyncCommandHandler`](#retrysynccommandhandler)
       - [4.2.3.4. Infrastructure Layer](#4234-infrastructure-layer)
-        - [Machine Learning Implementations](#machine-learning-implementations)
-          - [`TensorFlowModelEvaluator`](#tensorflowmodelevaluator)
-        - [Persistence Implementations](#persistence-implementations)
-          - [`MySqlLocalRepository`](#mysqllocalrepository)
-        - [Network Integrations](#network-integrations)
-          - [`UdpHardwareNotifierImpl`](#udphardwarenotifierimpl)
-          - [`EmergencyCloudClient`](#emergencycloudclient)
       - [4.2.3.5. Bounded Context Software Architecture Component Level Diagrams](#4235-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.3.6. Bounded Context Software Architecture Code Level Diagrams](#4236-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.3.6.1. Bounded Context Domain Layer Class Diagrams](#42361-bounded-context-domain-layer-class-diagrams)
         - [4.2.3.6.2. Bounded Context Database Design Diagram](#42362-bounded-context-database-design-diagram)
     - [4.2.4. Bounded Context: Emergency Management](#424-bounded-context-emergency-management)
       - [4.2.4.1. Domain Layer](#4241-domain-layer)
-        - [Entities](#entities-3)
-          - [`FallIncident`](#fallincident)
-          - [`DeviceHeartbeat`](#deviceheartbeat)
-          - [`AlertConfiguration`](#alertconfiguration)
-        - [Value Objects](#value-objects-3)
-          - [`IncidentId`](#incidentid)
-          - [`ConfidenceScore`](#confidencescore)
-          - [`GeoCoordinate`](#geocoordinate-1)
-          - [`FallClassification`](#fallclassification)
-          - [`IncidentStatus`](#incidentstatus)
-        - [Domain Services](#domain-services-1)
-          - [`FallEscalationDomainService`](#fallescalationdomainservice)
-          - [`FallPatternAnalysisDomainService`](#fallpatternanalysisdomainservice)
-        - [Repository Interfaces](#repository-interfaces-1)
-          - [`IFallIncidentRepository`](#ifallincidentrepository)
-          - [`IDeviceHeartbeatRepository`](#ideviceheartbeatrepository)
-          - [`IAlertConfigurationRepository`](#ialertconfigurationrepository)
       - [4.2.4.2. Interface Layer](#4242-interface-layer)
-        - [`FallIncidentController`](#fallincidentcontroller)
-        - [`DeviceStatusController`](#devicestatuscontroller)
-        - [`AlertConfigurationController`](#alertconfigurationcontroller)
       - [4.2.4.3. Application Layer](#4243-application-layer)
-        - [Command Handlers](#command-handlers-3)
-          - [`RegisterFallIncidentCommandHandler`](#registerfallincidentcommandhandler)
-          - [`AcknowledgeIncidentCommandHandler`](#acknowledgeincidentcommandhandler)
-          - [`MarkAsFalseAlarmCommandHandler`](#markasfalsealarmcommandhandler)
-          - [`EscalateIncidentCommandHandler`](#escalateincidentcommandhandler)
-          - [`UpdateDeviceHeartbeatCommandHandler`](#updatedeviceheartbeatcommandhandler)
-          - [`UpdateAlertConfigCommandHandler`](#updatealertconfigcommandhandler)
-        - [Query Handlers](#query-handlers)
-          - [`GetFallHistoryQueryHandler`](#getfallhistoryqueryhandler)
-          - [`GetIncidentDetailQueryHandler`](#getincidentdetailqueryhandler)
-          - [`GetCaregiverDashboardQueryHandler`](#getcaregiverdashboardqueryhandler)
-        - [Event Handlers](#event-handlers-1)
-          - [`FallIncidentRegisteredEventHandler`](#fallincidentregisteredeventhandler)
-          - [`IncidentEscalatedEventHandler`](#incidentescalatedeventhandler)
       - [4.2.4.4. Infrastructure Layer](#4244-infrastructure-layer)
-        - [Repository Implementations](#repository-implementations-1)
-          - [`FallIncidentRepositoryImpl`](#fallincidentrepositoryimpl)
-          - [`DeviceHeartbeatRepositoryImpl`](#deviceheartbeatrepositoryimpl)
-          - [`AlertConfigurationRepositoryImpl`](#alertconfigurationrepositoryimpl)
-        - [External Service Implementations](#external-service-implementations-1)
-          - [`NotificationServiceClientImpl`](#notificationserviceclientimpl)
-          - [`IamServiceClientImpl`](#iamserviceclientimpl)
-        - [Background Jobs](#background-jobs)
-          - [`IncidentEscalationJob`](#incidentescalationjob)
-        - [Database Configuration](#database-configuration-1)
-          - [`EmergencyDbContext`](#emergencydbcontext)
       - [4.2.4.5. Bounded Context Software Architecture Component Level Diagrams](#4245-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.4.6.1. Bounded Context Domain Layer Class Diagrams](#42461-bounded-context-domain-layer-class-diagrams)
         - [4.2.4.6.2. Bounded Context Database Design Diagram](#42462-bounded-context-database-design-diagram)
     - [4.2.5. Bounded Context: Notifications](#425-bounded-context-notifications)
       - [4.2.5.1. Domain Layer](#4251-domain-layer)
-        - [Entities](#entities-4)
-          - [`NotificationLog`](#notificationlog)
-          - [`NotificationTemplate`](#notificationtemplate)
-        - [Value Objects](#value-objects-4)
-          - [`NotificationChannel`](#notificationchannel)
-          - [`DeliveryStatus`](#deliverystatus)
-        - [Repository Interfaces](#repository-interfaces-2)
-          - [`INotificationLogRepository`](#inotificationlogrepository)
       - [4.2.5.2. Interface Layer](#4252-interface-layer)
-        - [`InternalNotificationController`](#internalnotificationcontroller)
       - [4.2.5.3. Application Layer](#4253-application-layer)
-        - [Command Handlers](#command-handlers-4)
-          - [`DispatchAlertCommandHandler`](#dispatchalertcommandhandler)
       - [4.2.5.4. Infrastructure Layer](#4254-infrastructure-layer)
-        - [Provider Implementations](#provider-implementations)
-          - [`TwilioSmsProvider`](#twiliosmsprovider)
-          - [`TwilioVoiceProvider`](#twiliovoiceprovider)
-          - [`FirebasePushProvider`](#firebasepushprovider)
-        - [Database Configuration](#database-configuration-2)
-          - [`NotificationsDbContext`](#notificationsdbcontext)
       - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams](#4255-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams](#4256-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams](#42561-bounded-context-domain-layer-class-diagrams)
@@ -827,46 +649,45 @@ El hardware debe ser discreto, ergonómico y no estigmatizante. Las plataformas 
  
 ## 1.3. Segmentos objetivo
 
-### Segmento: Adultos Mayores
+**Segmento: Adultos Mayores**
 
-**Descripción del segmento:**
+Descripción del segmento:
 Personas de la tercera edad que residen de forma independiente o con supervisión parcial en entornos urbanos. Se caracterizan por valorar profundamente su autonomía y privacidad. Debido a procesos naturales de envejecimiento, presentan una mayor fragilidad física y riesgos de movilidad, lo que los hace vulnerables ante accidentes domésticos sin compañía.
 
-**Características demográficas:**
+Características demográficas:
 - Edad: 65 a 85 años  
 - Ubicación: Principalmente zonas urbanas  
 - Nivel socioeconómico: Medio y medio-bajo  
 - Nivel educativo: Variable (predominantemente educación básica o secundaria)
 - Nivel tecnológico: Bajo a Medio (familiarizados con el uso básico de smartphones para comunicación por voz y WhatsApp).
 
-**Características relevantes:**
+Características relevantes:
 - Conservan movilidad y autonomía en actividades diarias  
 - Uso limitado o básico de tecnología  
 - Preferencia por soluciones simples y no invasivas  
 - Alta valoración de su independencia  
 
-**Sustento estadístico:**
+Sustento estadístico:
 - Según el Ministerio de Salud (MINSA, 2026), las caídas más frecuentes en perssonas en mayores de 70 años en Lima.
 - Según la Unidad Geriátrica de la Clínica Alemana (Clínica Alemana, 2018), el riesgo de caídas aumenta progresivamente con la edad. Se estima que alrededor del 30% de las personas mayores de 65 años experimenta al menos una caída al año, cifra que se incrementa hasta un 50% en aquellos que superan los 80 años.
 
-### Segmento: Cuidadores de adultos mayores, familiares y personal de salud
-
-**Descripción del segmento:**
+**Segmento: Cuidadores de adultos mayores, familiares y personal de salud**
+Descripción del segmento:
 Personas encargadas de la supervisión y bienestar del adulto mayor. Este segmento es híbrido: incluye a familiares directos (hijos o nietos) con responsabilidades laborales que les impiden estar presentes 24/7, y a cuidadores formales (enfermeros o técnicos en salud) que necesitan optimizar su labor de monitoreo.
 
-**Características demográficas:**
+Características demográficas:
 - Edad: 20 a 60 años  
 - Ubicación: Zonas urbanas  
 - Nivel socioeconómico: Medio y medio-alto  
 - Nivel educativo: Secundaria completa o superior
 - Nivel tecnológico: Medio a Alto (usuarios intensivos de aplicaciones móviles y plataformas web para gestión de tareas y comunicación).
 
-**Características relevantes:**
+Características relevantes:
 - Uso frecuente de smartphones y aplicaciones digitales  
 - Responsabilidad emocional y/o económica sobre el adulto mayor  
 - Limitaciones de tiempo debido a trabajo u otras responsabilidades  
 
-**Sustento estadístico:**
+Sustento estadístico:
 - De acuerdo con SUSALUD (2024), el costo promedio de atención por una fractura de cadera derivada de una caída en Lima puede oscilar entre los S/ 8,000 y S/ 20,000, generando una carga económica crítica para las familias.
 - Estudios de carga emocional indican que el 85% de los cuidadores familiares en entornos urbanos experimentan niveles altos de ansiedad debido a la sobrecargar de cuidar de varios adultos mayores a la vez (Cruz Méndez et al., 2025). 
 
@@ -1167,10 +988,10 @@ Un entrevistado señaló algo valioso: la necesidad de un mecanismo para descart
 A continuación, se presentará los 2 user persona de acuerdo al segmento objetivo encontrado:
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona1.png" width=800px>
+<img src="img/needfinding/userpersona1.png" width=700px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona2.png" width=800px><br>
+<img src="img/needfinding/userpersona2.png" width=700px><br>
  
 ### 2.3.2. User Task Matrix
 
@@ -1317,7 +1138,8 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
 
 En esta sección, se detalla los requisitos funcionales del ecosistema "Foll" estructurados en Epics y User Stories. Las historias de usuario (incluyendo Technical Stories y Landing Page Stories) cuentan con criterios de aceptación redactados bajo el formato BDD (Behavior-Driven Development) usando la sintaxis Gherkin (Given-When-Then).
 
-### Epic Stories
+**Epic Stories**
+
 * **EPIC01:** **Como** equipo comercial de Foll, **quiero** informar y captar nuevos clientes mediante una Landing Page, **para** generar conversiones y suscripciones al ecosistema.
 * **EPIC02:** **Como** usuario del ecosistema, **quiero** gestionar identidades, perfiles médicos y emparejamiento de hardware, **para** establecer una red de cuidado segura y personalizada.
 * **EPIC03:** **Como** equipo de desarrollo, **quiero** capturar y procesar los datos físicos mediante Edge Computing, **para** detectar caídas con precisión en tiempo real sin saturar la red.
@@ -1568,26 +1390,26 @@ En esta sección, el equipo presenta los Domain Message Flows, aplicando la téc
 
 Dado que el valor central del negocio reside en la detección autónoma de caídas y la activación inmediata de protocolos de rescate, los diagramas presentados a continuación ilustran la cadena secuencial de comunicación. Se mapea la interacción desde que los actores interactúan con los sistemas (hardware y software), detallando la dirección de los mensajes y clasificándolos estructuralmente en Comandos (*Commands*), Eventos (*Events*) y Consultas (*Queries*). 
 
-#### Scenario 1: Detección de anomalía y pre-alarma local
-**Objetivo:** Visualizar el flujo donde el hardware detecta un movimiento brusco, lo envía al procesador local (Edge) para su análisis, y este emite una alerta sonora al usuario para permitir la cancelación en caso de ser una falsa alarma.
+**Scenario 1: Detección de anomalía y pre-alarma local**
+Objetivo: Visualizar el flujo donde el hardware detecta un movimiento brusco, lo envía al procesador local (Edge) para su análisis, y este emite una alerta sonora al usuario para permitir la cancelación en caso de ser una falsa alarma.
 
 ![Domain Message Flow - Detección de anomalía y pre-alarma local](img/domain-message-flow/scenario-1-deteccion-pre-alarma.png)
 
 
-#### Scenario 2: Confirmación de caída y recuperación de datos
-**Objetivo:** Ilustrar la comunicación que ocurre cuando el tiempo de advertencia finaliza sin respuesta del usuario. El contexto Edge confirma la caída, escala el evento a la nube (Emergency) y este consulta los datos médicos vitales y la lista de cuidadores (IAM).
+**Scenario 2: Confirmación de caída y recuperación de datos**
+Objetivo: Ilustrar la comunicación que ocurre cuando el tiempo de advertencia finaliza sin respuesta del usuario. El contexto Edge confirma la caída, escala el evento a la nube (Emergency) y este consulta los datos médicos vitales y la lista de cuidadores (IAM).
 
 ![Domain Message Flow - Confirmación de caída y recuperación de datos](img/domain-message-flow/scenario-2-confirmacion-recuperacion.png)
 
 
-#### Scenario 3: Emisión de alerta y respuesta del cuidador
-**Objetivo:** Modelar la distribución de la alerta crítica desde el sistema de emergencias hacia los cuidadores mediante el motor de notificaciones, finalizando con la recepción del aviso en la app móvil y la confirmación de asistencia por parte del cuidador.
+**Scenario 3: Emisión de alerta y respuesta del cuidador**
+Objetivo: Modelar la distribución de la alerta crítica desde el sistema de emergencias hacia los cuidadores mediante el motor de notificaciones, finalizando con la recepción del aviso en la app móvil y la confirmación de asistencia por parte del cuidador.
 
 ![Domain Message Flow - Emisión de alerta y respuesta del cuidador](img/domain-message-flow/scenario-3-emision-respuesta.png)
 
 
-#### Scenario 4: Sincronización del estado de emergencia
-**Objetivo:** Representar el flujo de actualización de estado, donde el sistema avisa al resto de la red de cuidadores que la emergencia ya está siendo atendida, evitando duplicidad de esfuerzos médicos y reduciendo el pánico.
+**Scenario 4: Sincronización del estado de emergencia**
+Objetivo: Representar el flujo de actualización de estado, donde el sistema avisa al resto de la red de cuidadores que la emergencia ya está siendo atendida, evitando duplicidad de esfuerzos médicos y reduciendo el pánico.
 
 ![Domain Message Flow - Sincronización del estado de emergencia](img/domain-message-flow/scenario-4-sincronizacion-estado.png)
  
@@ -1597,8 +1419,8 @@ Dado que el valor central del negocio reside en la detección autónoma de caíd
 En esta sección se detallan los *Bounded Context Canvas* para los componentes principales del sistema, definiendo sus responsabilidades, roles de dominio, lenguaje ubicuo y los contratos de comunicación (mensajes entrantes y salientes) con otros contextos y sistemas.
 
 
-#### 1. Edge Context Canvas
-
+1. **Edge Context Canvas**
+   
 | Atributo | Detalle |
 | :--- | :--- |
 | **Name** | Edge |
@@ -1622,7 +1444,7 @@ En esta sección se detallan los *Bounded Context Canvas* para los componentes p
     * **Messages:** `ActivarAlertaSonora` (Command)
 
 
-#### 2. Emergency Context Canvas
+2. **Emergency Context Canvas**
 
 | Atributo | Detalle |
 | :--- | :--- |
@@ -1647,7 +1469,7 @@ En esta sección se detallan los *Bounded Context Canvas* para los componentes p
     * **Messages:** `EmitirAlertaDeEmergenciaMultiplataforma` (Command), `NotificarActualizacionDeEmergencia` (Command)
 
 
-#### 3. Notifications Context Canvas
+3. **Notifications Context Canvas**
 
 | Atributo | Detalle |
 | :--- | :--- |
@@ -1670,7 +1492,7 @@ En esta sección se detallan los *Bounded Context Canvas* para los componentes p
     * **Messages:** `NotificacionRecibida` (Event)
 
 
-#### 4. IAM Context Canvas
+4. **IAM Context Canvas**
 
 | Atributo | Detalle |
 | :--- | :--- |
@@ -1696,7 +1518,7 @@ En esta sección se detallan los *Bounded Context Canvas* para los componentes p
 
 En esta sección, el equipo explica y evidencia el proceso de elaboración del mapa de contextos (*Context Map*), el cual visualiza las relaciones estructurales, técnicas y organizacionales entre los *Bounded Contexts* identificados previamente. El objetivo de este proceso es establecer contratos claros de integración y proteger el núcleo del negocio (Core Domain) de las dependencias externas y cambios de infraestructura.
 
-#### Proceso de Elaboración y Preguntas de Diseño
+ **Proceso de Elaboración y Preguntas de Diseño**
 
 Para producir los diseños candidatos, el equipo sometió los *Bounded Contexts* a un análisis crítico, evaluando la cohesión y el acoplamiento mediante la técnica de preguntas retrospectivas (*What-if analysis*):
 
@@ -1709,14 +1531,14 @@ Para producir los diseños candidatos, el equipo sometió los *Bounded Contexts*
 * **¿Qué pasaría si aislamos los *Core capabilities* (Edge y Emergency) y movemos la gestión de identidades a un proveedor externo?**
     * *Discusión:* Esta es la mejor ruta. *IAM* es un contexto genérico, por lo que aislar el *Core* nos permite usar protocolos estándar de la industria (OAuth2) para la identidad, enfocando nuestros esfuerzos puramente en el salvamento de vidas.
 
-#### Alternativas de Diseño y Selección
+ **Alternativas de Diseño y Selección**
 
 A partir del análisis, se evaluaron dos aproximaciones arquitectónicas:
 
 * **Alternativa A (Fuerte Acoplamiento - *Conformist Global*):** Todos los contextos comparten las mismas definiciones de objetos (ej. una sola entidad `User` masiva) y confían plenamente en los modelos de los demás. *Inconveniente:* Cambios en el hardware (*Embedded*) o en seguridad (*IAM*) romperían directamente la lógica de *Emergency*.
 * **Alternativa B (Aislamiento Core con Capas Anticorrupción - Seleccionada):** Se decide proteger los *Core Contexts* (*Edge* y *Emergency*). El sistema de emergencias no confiará a ciegas en el formato de datos de terceros, ni el Edge confiará en los datos crudos del hardware sin traducirlos primero.
 
-#### Definición de Relaciones entre Bounded Contexts (Patrones DDD)
+ **Definición de Relaciones entre Bounded Contexts (Patrones DDD)**
 
 Tras seleccionar la Alternativa B, se establecieron los siguientes patrones estratégicos de Domain-Driven Design para el mapa definitivo:
 
@@ -1736,7 +1558,7 @@ Tras seleccionar la Alternativa B, se establecieron los siguientes patrones estr
     * **Relación:** *Customer / Supplier*.
     * **Justificación:** *Emergency* (*Upstream* respecto al flujo de orden, aunque en prioridad de negocio dicte las reglas) envía comandos directos a *Notifications* (*Downstream*). *Notifications* actúa de manera sumisa frente a las peticiones de envío, adaptándose a las necesidades de prioridad del sistema de emergencias.
 
-#### Diagrama de Context Mapping
+ **Diagrama de Context Mapping**
 
 A continuación, se presenta la representación visual de los Bounded Contexts y los patrones de integración descritos, reflejando el flujo de influencia técnica (Upstream/Downstream) y las barreras de protección (ACL).
 
@@ -1746,25 +1568,25 @@ A continuación, se presenta la representación visual de los Bounded Contexts y
  
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
-<img width="3170" height="1150" alt="SystemLandscape-dark" src="https://github.com/user-attachments/assets/c16e60dd-9496-438d-9913-801a13ef91fd" />
+<img width="750" alt="SystemLandscape-dark" src="https://github.com/user-attachments/assets/c16e60dd-9496-438d-9913-801a13ef91fd" />
 
 <br>
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
-<img width="3910" height="1161" alt="SystemContext-SistemaFoll-dark" src="https://github.com/user-attachments/assets/d88a014d-eb7d-404f-8734-3eb18334922e" />
+<img width="750" alt="SystemContext-SistemaFoll-dark" src="https://github.com/user-attachments/assets/d88a014d-eb7d-404f-8734-3eb18334922e" />
 
 <br>
  
 #### 4.1.3.3. Software Architecture Container Level Diagrams
 
-<img width="6280" height="2467" alt="ContainerView-SistemaFoll-dark" src="https://github.com/user-attachments/assets/b3741b24-574d-4c9f-a76f-0dd6cd8ad448" />
+<img width="750" alt="ContainerView-SistemaFoll-dark" src="https://github.com/user-attachments/assets/b3741b24-574d-4c9f-a76f-0dd6cd8ad448" />
 
 <br>
  
 #### 4.1.3.4. Software Architecture Deployment Diagrams
 
-<img width="750" height="750" alt="DeploymentView-dark" src="https://github.com/user-attachments/assets/17cb30a4-65e2-4e0c-a527-1b3d00c3a357" />
+<img width="750" alt="DeploymentView-dark" src="https://github.com/user-attachments/assets/17cb30a4-65e2-4e0c-a527-1b3d00c3a357" />
 
 <br>
  
@@ -1778,10 +1600,10 @@ A continuación, se presenta la representación visual de los Bounded Contexts y
 
 Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion, autorizacion y vinculacion entre usuarios y dispositivos, aplicando reglas de negocio sin depender de frameworks externos.
 
-##### Entities
+**Entities** </br>
 
-###### `User`
-**Proposito:** Representa a cualquier persona registrada en el sistema. Puede ser un Adulto Mayor o un Cuidador. Es la entidad central del BC IAM y raiz de su agregado.
+ `User` </br>
+Propósito: Representa a cualquier persona registrada en el sistema. Puede ser un Adulto Mayor o un Cuidador. Es la entidad central del BC IAM y raiz de su agregado.
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -1794,6 +1616,8 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `isActive` | `boolean` | private | Indica si la cuenta esta habilitada |
 | `createdAt` | `DateTime` | private | Fecha de creacion de la cuenta |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `activate()` | `void` | public | Habilita la cuenta del usuario |
@@ -1801,8 +1625,10 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `changePassword(newHash: PasswordHash)` | `void` | public | Actualiza el hash de contrasena validando reglas de negocio |
 | `hasRole(role: Role)` | `boolean` | public | Verifica si el usuario tiene un rol especifico |
 
-###### `Device`
-**Proposito:** Representa un dispositivo ESP32 registrado en el sistema. Un dispositivo debe estar vinculado a exactamente un Adulto Mayor para operar.
+</br>
+
+`Device` </br>
+Propósito: Representa un dispositivo ESP32 registrado en el sistema. Un dispositivo debe estar vinculado a exactamente un Adulto Mayor para operar.
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -1814,6 +1640,8 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `registeredAt` | `DateTime` | private | Fecha de vinculacion al sistema |
 | `lastSeenAt` | `DateTime` | private | Ultimo heartbeat recibido desde el dispositivo |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `bind(ownerId: UserId)` | `void` | public | Vincula el dispositivo a un Adulto Mayor |
@@ -1822,10 +1650,11 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `deactivate()` | `void` | public | Cambia el estado a `INACTIVE` |
 | `updateLastSeen(timestamp: DateTime)` | `void` | public | Actualiza el timestamp del ultimo heartbeat |
 | `isBound()` | `boolean` | public | Retorna true si el dispositivo tiene un dueno asignado |
+</br>
 
-###### `CareRelationship`
-**Proposito:** Representa el vinculo entre un Adulto Mayor y su Cuidador. Controla quien tiene permiso de monitorear a quien y gestionar sus alertas.
-
+`CareRelationship` </br>
+Propósito: Representa el vinculo entre un Adulto Mayor y su Cuidador. Controla quien tiene permiso de monitorear a quien y gestionar sus alertas.
+</br>
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
 | `id` | `RelationshipId` | private | Identificador unico de la relacion |
@@ -1836,57 +1665,70 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `createdAt` | `DateTime` | private | Fecha de creacion de la invitacion |
 | `acceptedAt` | `DateTime` | private | Fecha en que el Cuidador acepto |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `accept()` | `void` | public | El Cuidador acepta la relacion, cambia estado a `ACTIVE` |
 | `revoke()` | `void` | public | Cualquiera de las partes revoca la relacion |
 | `isPending()` | `boolean` | public | Verifica si la relacion aun no fue aceptada |
 | `isActive()` | `boolean` | public | Verifica si la relacion esta vigente |
+</br>
 
-##### Value Objects
 
-###### `UserId`
-**Proposito:** Encapsula el identificador unico de un usuario. Garantiza que el ID nunca sea nulo ni vacio.
+**Value Objects** </br>
+
+`UserId` </br>
+Propósito: Encapsula el identificador unico de un usuario. Garantiza que el ID nunca sea nulo ni vacio.
+</br>
+| Atributo | Tipo | Descripcion |
+|---|---|---|
+| `value` | `UUID` | Valor del identificador |
+
+`DeviceId`</br>
+Propósito: Encapsula el identificador unico de un dispositivo.
+</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `value` | `UUID` | Valor del identificador |
 
-###### `DeviceId`
-**Proposito:** Encapsula el identificador unico de un dispositivo.
-
-| Atributo | Tipo | Descripcion |
-|---|---|---|
-| `value` | `UUID` | Valor del identificador |
-
-###### `Email`
-**Proposito:** Encapsula y valida la direccion de correo electronico. Garantiza formato valido en construccion.
+`Email` </br>
+Propósito: Encapsula y valida la direccion de correo electronico. Garantiza formato valido en construccion.
+</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `value` | `string` | Direccion de email validada |
+</br>
 
 | Metodo | Descripcion |
 |---|---|
 | `validate(raw: string)` | Lanza excepcion de dominio si el formato es invalido |
+</br>
 
-###### `PasswordHash`
-**Proposito:** Encapsula el hash de contrasena. Nunca almacena ni expone el texto plano.
+`PasswordHash` </br>
+Propósito: Encapsula el hash de contrasena. Nunca almacena ni expone el texto plano.
+</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `value` | `string` | Hash bcrypt de la contrasena |
+</br>
 
-###### `Role`
-**Proposito:** Enumeracion que define los roles posibles dentro del sistema.
+`Role` </br>
+Propósito: Enumeracion que define los roles posibles dentro del sistema.
+</br>
 
 | Valor | Descripcion |
 |---|---|
 | `ELDERLY_USER` | Adulto Mayor que porta el dispositivo |
 | `CAREGIVER` | Persona encargada de monitorear y recibir alertas |
+</br>
 
-###### `DeviceStatus`
-**Proposito:** Enumeracion que describe el estado operativo de un dispositivo.
+`DeviceStatus` </br>
+Propósito: Enumeracion que describe el estado operativo de un dispositivo.
+</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -1894,8 +1736,11 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `INACTIVE` | Dispositivo vinculado pero apagado o sin senal |
 | `UNBOUND` | Dispositivo sin dueno asignado |
 
-###### `RelationshipStatus`
-**Proposito:** Enumeracion que describe el estado del vinculo Adulto-Cuidador.
+</br>
+
+`RelationshipStatus` </br>
+Propósito: Enumeracion que describe el estado del vinculo Adulto-Cuidador.
+</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -1903,37 +1748,45 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `ACTIVE` | Vinculo confirmado y activo |
 | `REVOKED` | Vinculo revocado por alguna de las partes |
 
-##### Aggregates
+**Aggregates** </br>
 
-###### `UserAggregate`
-**Root:** `User`  
-**Proposito:** Agrupa a `User` con su `Device` vinculado y sus `CareRelationship` activas. Garantiza que todas las modificaciones al usuario y sus relaciones pasen por la raiz, manteniendo consistencia.
+`UserAggregate` </br>
+Root: `User`  </br>
+Propósito: Agrupa a `User` con su `Device` vinculado y sus `CareRelationship` activas. Garantiza que todas las modificaciones al usuario y sus relaciones pasen por la raiz, manteniendo consistencia. </br>
 
-###### `DeviceAggregate`
-**Root:** `Device`  
-**Proposito:** Gestiona el ciclo de vida del dispositivo de forma independiente. La vinculacion y desvinculacion siempre ocurren a traves de este agregado.
+`DeviceAggregate` </br>
+Root: `Device` </br>  
+Propósito: Gestiona el ciclo de vida del dispositivo de forma independiente. La vinculacion y desvinculacion siempre ocurren a traves de este agregado.</br>
 
-##### Domain Services
 
-###### `AuthenticationDomainService`
-**Proposito:** Contiene la logica de autenticacion que no pertenece naturalmente a ninguna entidad individual. Verifica credenciales y delega la emision de tokens a infraestructura.
+**Domain Services** </br>
+`AuthenticationDomainService` </br>
+Propósito: Contiene la logica de autenticacion que no pertenece naturalmente a ninguna entidad individual. Verifica credenciales y delega la emision de tokens a infraestructura.
+
+</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
 | `validateCredentials(email: Email, rawPassword: string, user: User)` | `boolean` | Verifica que la contrasena ingresada coincida con el hash almacenado |
 
-###### `DeviceBindingDomainService`
-**Proposito:** Encapsula las reglas de negocio para vincular y desvincular dispositivos. Garantiza que un dispositivo no sea vinculado a mas de un usuario simultaneamente.
+</br>
+
+`DeviceBindingDomainService` </br>
+Propósito: Encapsula las reglas de negocio para vincular y desvincular dispositivos. Garantiza que un dispositivo no sea vinculado a mas de un usuario simultaneamente.</br>
+
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
 | `canBind(device: Device, user: User)` | `boolean` | Valida que el dispositivo este en estado `UNBOUND` y el usuario sea `ELDERLY_USER` |
 | `canUnbind(device: Device, requesterId: UserId)` | `boolean` | Valida que quien solicita la desvinculacion sea el dueno o un administrador |
 
-##### Repository Interfaces
+</br>
 
-###### `IUserRepository`
-**Proposito:** Abstraccion del repositorio de usuarios. Definida en dominio, implementada en infraestructura.
+**Repository Interfaces** </br>
+`IUserRepository`</br>
+Propósito: Abstraccion del repositorio de usuarios. Definida en dominio, implementada en infraestructura.
+
+</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -1942,8 +1795,12 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `save(user: User)` | `void` | Persiste un usuario nuevo o actualizado |
 | `delete(id: UserId)` | `void` | Elimina un usuario del sistema |
 
-###### `IDeviceRepository`
-**Proposito:** Abstraccion del repositorio de dispositivos.
+</br>
+
+`IDeviceRepository` </br>
+Propósito: Abstraccion del repositorio de dispositivos.
+
+</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -1952,8 +1809,12 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `findByOwnerId(ownerId: UserId)` | `Device \| null` | Retorna el dispositivo vinculado a un Adulto Mayor |
 | `save(device: Device)` | `void` | Persiste un dispositivo nuevo o actualizado |
 
-###### `ICareRelationshipRepository`
-**Proposito:** Abstraccion del repositorio de vinculos Adulto-Cuidador.
+</br>
+
+`ICareRelationshipRepository` </br>
+Propósito: Abstraccion del repositorio de vinculos Adulto-Cuidador.
+
+</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -1962,14 +1823,17 @@ Esta capa representa el nucleo del BC IAM. Gestiona la identidad, autenticacion,
 | `findByInvitationToken(token: string)` | `CareRelationship \| null` | Busca una relacion por token de invitacion |
 | `save(relationship: CareRelationship)` | `void` | Persiste una relacion nueva o actualizada |
 
----
+</br>
 
 #### 4.2.1.2. Interface Layer
 
 Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints HTTP REST. Los controllers reciben las solicitudes, delegan inmediatamente a la Application Layer y retornan la respuesta formateada. No contienen logica de negocio.
+</br>
 
-##### `AuthController`
-**Proposito:** Gestiona los endpoints de autenticacion: registro, login y logout.
+`AuthController` </br>
+Propósito: Gestiona los endpoints de autenticacion: registro, login y logout. 
+
+</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -1978,8 +1842,12 @@ Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints
 | `POST` | `/api/v1/auth/refresh` | `RefreshTokenCommandHandler` | Renueva el JWT usando el refresh token |
 | `POST` | `/api/v1/auth/logout` | `LogoutCommandHandler` | Invalida el refresh token del usuario |
 
-##### `UserController`
-**Proposito:** Expone operaciones sobre el perfil del usuario autenticado.
+</br>
+
+`UserController` </br>
+Propósito: Expone operaciones sobre el perfil del usuario autenticado.
+
+</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -1988,8 +1856,12 @@ Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints
 | `PUT` | `/api/v1/users/me/password` | `ChangePasswordCommandHandler` | Cambia la contrasena del usuario autenticado |
 | `DELETE` | `/api/v1/users/me` | `DeactivateUserCommandHandler` | Desactiva la cuenta del usuario |
 
-##### `DeviceController`
-**Proposito:** Gestiona el registro y vinculacion de dispositivos ESP32.
+</br>
+
+`DeviceController` </br>
+Propósito: Gestiona el registro y vinculacion de dispositivos ESP32.
+
+</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -1999,8 +1871,12 @@ Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints
 | `GET` | `/api/v1/devices/me` | `GetMyDeviceQueryHandler` | Retorna el dispositivo vinculado al usuario autenticado |
 | `PATCH` | `/api/v1/devices/{deviceId}/status` | `UpdateDeviceStatusCommandHandler` | Actualiza el estado del dispositivo (heartbeat edge) |
 
-##### `CareRelationshipController`
-**Proposito:** Gestiona el flujo de invitacion y vinculacion entre Adulto Mayor y Cuidador.
+</br>
+
+`CareRelationshipController` </br>
+Propósito: Gestiona el flujo de invitacion y vinculacion entre Adulto Mayor y Cuidador.
+
+</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -2009,63 +1885,65 @@ Esta capa expone las capacidades del BC IAM al mundo exterior mediante endpoints
 | `DELETE` | `/api/v1/care-relationships/{id}` | `RevokeCareRelationshipCommandHandler` | Cualquiera de las partes revoca el vinculo |
 | `GET` | `/api/v1/care-relationships/me` | `GetMyCareRelationshipQueryHandler` | Retorna la relacion activa del usuario autenticado |
 
----
+</br>
 
 #### 4.2.1.3. Application Layer
 
 Esta capa orquesta los flujos de negocio del BC IAM. Los Command Handlers ejecutan operaciones de escritura y los Query Handlers resuelven lecturas. Ninguno contiene logica de dominio: la delegan a las entidades y domain services correspondientes.
 
-##### Command Handlers
+**Command Handlers** </br>
+`RegisterUserCommandHandler` </br>
+Propósito: Orquesta el registro de un nuevo usuario en el sistema. </br>
+Command: `RegisterUserCommand { fullName, email, rawPassword, role, phoneNumber }`</br>
 
-###### `RegisterUserCommandHandler`
-**Proposito:** Orquesta el registro de un nuevo usuario en el sistema.
-
-**Command:** `RegisterUserCommand { fullName, email, rawPassword, role, phoneNumber }`
-
-**Flujo:**
+Flujo:
 1. Verifica que no exista un usuario con el mismo email via `IUserRepository`.
 2. Crea el `PasswordHash` usando `IPasswordHashingService`.
 3. Construye la entidad `User` con los value objects correspondientes.
 4. Persiste via `IUserRepository`.
 5. Publica evento `UserRegisteredEvent`.
 
-###### `LoginCommandHandler`
-**Proposito:** Valida credenciales y emite tokens de sesion.
+</br>
 
-**Command:** `LoginCommand { email, rawPassword }`
+`LoginCommandHandler` </br>
+Propósito: Valida credenciales y emite tokens de sesion.</br>
+Command: `LoginCommand { email, rawPassword }`</br>
 
-**Flujo:**
+Flujo:
 1. Busca el usuario por email via `IUserRepository`.
 2. Delega validacion de credenciales a `AuthenticationDomainService`.
 3. Si es valido, solicita JWT y refresh token a `ITokenService`.
 4. Retorna `LoginResult { accessToken, refreshToken, expiresIn }`.
 
-###### `RefreshTokenCommandHandler`
-**Proposito:** Renueva el JWT de un usuario con sesion activa.
+</br>
 
-**Command:** `RefreshTokenCommand { refreshToken }`
+`RefreshTokenCommandHandler`</br>
+Propósito: Renueva el JWT de un usuario con sesion activa.</br>
+Command: `RefreshTokenCommand { refreshToken }` </br>
 
-**Flujo:**
+Flujo:
 1. Valida el refresh token via `ITokenService`.
 2. Extrae el `UserId` del token.
 3. Verifica que el usuario este activo via `IUserRepository`.
 4. Emite un nuevo JWT y retorna.
 
-###### `LogoutCommandHandler`
-**Proposito:** Invalida el refresh token activo del usuario.
+</br>
 
-**Command:** `LogoutCommand { refreshToken }`
+`LogoutCommandHandler` </br>
+Propósito: Invalida el refresh token activo del usuario.</br>
+Command: `LogoutCommand { refreshToken }`</br>
 
-**Flujo:**
+Flujo:
 1. Valida el refresh token via `ITokenService`.
 2. Llama a `ITokenService.revoke(refreshToken)` para anadirlo a la blacklist.
 
-###### `BindDeviceCommandHandler`
-**Proposito:** Vincula un ESP32 registrado a un Adulto Mayor.
+</br>
 
-**Command:** `BindDeviceCommand { deviceId, requesterId }`
+`BindDeviceCommandHandler` </br>
+Propósito: Vincula un ESP32 registrado a un Adulto Mayor.</br>
+Command: `BindDeviceCommand { deviceId, requesterId }`</br>
 
-**Flujo:**
+Flujo:
 1. Recupera el `Device` via `IDeviceRepository`.
 2. Recupera el `User` via `IUserRepository`.
 3. Verifica elegibilidad con `DeviceBindingDomainService.canBind()`.
@@ -2073,75 +1951,78 @@ Esta capa orquesta los flujos de negocio del BC IAM. Los Command Handlers ejecut
 5. Persiste via `IDeviceRepository`.
 6. Publica evento `DeviceBoundEvent`.
 
-###### `UnbindDeviceCommandHandler`
-**Proposito:** Desvincula un dispositivo de su Adulto Mayor actual.
+</br>
 
-**Command:** `UnbindDeviceCommand { deviceId, requesterId }`
+`UnbindDeviceCommandHandler` </br>
+Propósito: Desvincula un dispositivo de su Adulto Mayor actual.</br>
+Command: `UnbindDeviceCommand { deviceId, requesterId }`</br>
 
-**Flujo:**
+Flujo:
 1. Recupera el `Device` via `IDeviceRepository`.
 2. Valida autorizacion con `DeviceBindingDomainService.canUnbind()`.
 3. Ejecuta `device.unbind()`.
 4. Persiste via `IDeviceRepository`.
 
-###### `InviteCaregiverCommandHandler`
-**Proposito:** El Adulto Mayor genera una invitacion para un Cuidador.
+</br>
 
-**Command:** `InviteCaregiverCommand { elderlyUserId, caregiverEmail }`
+`InviteCaregiverCommandHandler` </br>
+Propósito: El Adulto Mayor genera una invitacion para un Cuidador.</br>
+Command: `InviteCaregiverCommand { elderlyUserId, caregiverEmail }`</br>
 
-**Flujo:**
+Flujo:
 1. Verifica que el Cuidador exista y tenga rol `CAREGIVER` via `IUserRepository`.
 2. Verifica que no exista ya una relacion activa via `ICareRelationshipRepository`.
 3. Genera un `invitationToken` unico.
 4. Crea y persiste la `CareRelationship` en estado `PENDING`.
 5. Publica evento `CaregiverInvitedEvent` para que `Notifications` envie el email de invitacion.
 
-###### `AcceptInvitationCommandHandler`
-**Proposito:** El Cuidador acepta la invitacion y activa el vinculo.
+</br>
 
-**Command:** `AcceptInvitationCommand { invitationToken, caregiverId }`
+`AcceptInvitationCommandHandler` </br>
+Propósito: El Cuidador acepta la invitacion y activa el vinculo.</br>
+Command: `AcceptInvitationCommand { invitationToken, caregiverId }`</br>
 
-**Flujo:**
+Flujo:
 1. Busca la relacion por `invitationToken` via `ICareRelationshipRepository`.
 2. Verifica que la relacion este en estado `PENDING`.
 3. Verifica que el `caregiverId` coincida.
 4. Ejecuta `relationship.accept()`.
 5. Persiste via `ICareRelationshipRepository`.
 
-###### `RevokeCareRelationshipCommandHandler`
-**Proposito:** Revoca el vinculo entre Adulto Mayor y Cuidador.
+</br>
 
-**Command:** `RevokeCareRelationshipCommand { relationshipId, requesterId }`
+`RevokeCareRelationshipCommandHandler` </br>
+Propósito: Revoca el vinculo entre Adulto Mayor y Cuidador.</br>
+Command: `RevokeCareRelationshipCommand { relationshipId, requesterId }`</br>
 
-**Flujo:**
+Flujo:
 1. Recupera la relacion via `ICareRelationshipRepository`.
 2. Valida que `requesterId` sea una de las dos partes.
 3. Ejecuta `relationship.revoke()`.
 4. Persiste via `ICareRelationshipRepository`.
+   
+</br>
 
-##### Event Handlers
+**Event Handlers**  </br>
+`UserRegisteredEventHandler`</br>
+Propósito: Reacciona al evento `UserRegisteredEvent`. Puede delegar al BC `Notifications` el envio de un email de bienvenida.</br>
+Evento: `UserRegisteredEvent { userId, email, role }`</br>
 
-###### `UserRegisteredEventHandler`
-**Proposito:** Reacciona al evento `UserRegisteredEvent`. Puede delegar al BC `Notifications` el envio de un email de bienvenida.
+`DeviceBoundEventHandler`</br>
+Propósito: Reacciona al evento `DeviceBoundEvent`. Actualiza el estado del dispositivo y puede notificar al Cuidador vinculado que hay un dispositivo activo.</br>
+Evento: `DeviceBoundEvent { deviceId, ownerId }`</br>
 
-**Evento:** `UserRegisteredEvent { userId, email, role }`
-
-###### `DeviceBoundEventHandler`
-**Proposito:** Reacciona al evento `DeviceBoundEvent`. Actualiza el estado del dispositivo y puede notificar al Cuidador vinculado que hay un dispositivo activo.
-
-**Evento:** `DeviceBoundEvent { deviceId, ownerId }`
-
----
 
 #### 4.2.1.4. Infrastructure Layer
 
 Esta capa provee las implementaciones concretas de las interfaces definidas en el Domain Layer y gestiona la comunicacion con sistemas externos como la base de datos relacional y los servicios de tokens.
+</br>
 
-##### Repository Implementations
+**Repository Implementations** </br>
 
-###### `UserRepositoryImpl`
-**Proposito:** Implementacion concreta de `IUserRepository`. Accede a la base de datos relacional MySQL para persistir y recuperar usuarios.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL (`Pomelo.EntityFrameworkCore.MySql`)
+`UserRepositoryImpl`</br>
+Propósito: Implementacion concreta de `IUserRepository`. Accede a la base de datos relacional MySQL para persistir y recuperar usuarios.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL (`Pomelo.EntityFrameworkCore.MySql`) </br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -2150,9 +2031,11 @@ Esta capa provee las implementaciones concretas de las interfaces definidas en e
 | `save(user)` | `DbContext.Users.Update(user)` + `SaveChangesAsync()`, EF Core resuelve insert vs update automaticamente |
 | `delete(id)` | Soft delete: `UPDATE users SET is_active = 0 WHERE user_id = ?`, nunca eliminacion fisica |
 
-###### `DeviceRepositoryImpl`
-**Proposito:** Implementacion concreta de `IDeviceRepository`. Gestiona la persistencia de dispositivos ESP32 garantizando integridad referencial con la tabla de usuarios.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL
+</br>
+
+`DeviceRepositoryImpl` </br>
+Propósito: Implementacion concreta de `IDeviceRepository`. Gestiona la persistencia de dispositivos ESP32 garantizando integridad referencial con la tabla de usuarios.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -2161,9 +2044,11 @@ Esta capa provee las implementaciones concretas de las interfaces definidas en e
 | `findByOwnerId(ownerId)` | `DbContext.Devices.FirstOrDefaultAsync(d => d.OwnerId == ownerId && d.Status == ACTIVE)` |
 | `save(device)` | `DbContext.Devices.Update(device)` + `SaveChangesAsync()`. La FK `owner_id -> users.user_id` garantiza que no exista un dispositivo sin dueno valido |
 
-###### `CareRelationshipRepositoryImpl`
-**Proposito:** Implementacion concreta de `ICareRelationshipRepository`. La naturaleza relacional de este vinculo (Adulto Mayor <-> Cuidador) se beneficia directamente de las constraints de MySQL.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL
+</br>
+
+`CareRelationshipRepositoryImpl`</br>
+Propósito: Implementacion concreta de `ICareRelationshipRepository`. La naturaleza relacional de este vinculo (Adulto Mayor <-> Cuidador) se beneficia directamente de las constraints de MySQL.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -2172,11 +2057,13 @@ Esta capa provee las implementaciones concretas de las interfaces definidas en e
 | `findByInvitationToken(token)` | Query sobre columna `invitation_token` con indice unico |
 | `save(relationship)` | `DbContext.CareRelationships.Update(rel)` + `SaveChangesAsync()`. Ambas FKs (`elderly_user_id`, `caregiver_id`) son validadas por MySQL antes de persistir |
 
-##### External Service Implementations
+</br>
 
-###### `JwtTokenServiceImpl`
-**Proposito:** Implementacion concreta de `ITokenService`. Emite, valida y revoca JWT dentro del ecosistema .NET.  
-**Tecnologia:** .NET + `System.IdentityModel.Tokens.Jwt` + `Microsoft.AspNetCore.Authentication.JwtBearer`
+**External Service Implementations** </br>
+
+`JwtTokenServiceImpl`</br>
+Propósito: Implementacion concreta de `ITokenService`. Emite, valida y revoca JWT dentro del ecosistema .NET.  </br>
+Tecnología: .NET + `System.IdentityModel.Tokens.Jwt` + `Microsoft.AspNetCore.Authentication.JwtBearer` </br>
 
 | Metodo | Descripcion |
 |---|---|
@@ -2185,30 +2072,37 @@ Esta capa provee las implementaciones concretas de las interfaces definidas en e
 | `revoke(refreshToken)` | Persiste el token revocado en tabla `token_blacklist` en MySQL con columna `expires_at` para limpieza automatica por job |
 | `refresh(refreshToken)` | Valida el refresh token contra `token_blacklist`, extrae claims y emite nuevo access token |
 
-###### `BcryptPasswordHashingServiceImpl`
-**Proposito:** Implementacion concreta de `IPasswordHashingService`. Hashea y verifica contrasenas de forma segura.  
-**Tecnologia:** .NET + `BCrypt.Net-Next` (NuGet)
+</br>
+
+`BcryptPasswordHashingServiceImpl` </br>
+Propósito: Implementacion concreta de `IPasswordHashingService`. Hashea y verifica contrasenas de forma segura.  </br>
+Tecnología: .NET + `BCrypt.Net-Next` (NuGet) </br>
 
 | Metodo | Descripcion |
 |---|---|
 | `hash(rawPassword)` | `BCrypt.HashPassword(rawPassword, workFactor: 12)` genera hash con salt aleatorio embebido |
 | `verify(rawPassword, hash)` | `BCrypt.Verify(rawPassword, hash)` compara en tiempo constante, retorna booleano |
 
-###### `InvitationEmailServiceImpl`
-**Proposito:** Envia el correo de invitacion al Cuidador cuando el Adulto Mayor lo invita al sistema.  
-**Tecnologia:** .NET + `SendGrid` (NuGet SDK)
+</br>
+
+`InvitationEmailServiceImpl` </br>
+Propósito: Envia el correo de invitacion al Cuidador cuando el Adulto Mayor lo invita al sistema.  </br>
+Tecnología: .NET + `SendGrid` (NuGet SDK)</br>
 
 | Metodo | Descripcion |
 |---|---|
 | `sendInvitation(caregiverEmail, invitationToken, elderlyName)` | Construye un `SendGridMessage` con template HTML, embebe el link de aceptacion con el token y lo despacha via `SendGridClient.SendEmailAsync()` |
 
-##### Database Configuration
+</br>
 
-###### `IamDbContext`
-**Proposito:** Clase que extiende `DbContext` de Entity Framework Core. Configura los mappings entre las entidades del dominio y las tablas MySQL del BC IAM, define constraints, indices y relaciones a nivel de ORM.  
-**Tecnologia:** Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`
+**Database Configuration** </br>
 
-**Tablas gestionadas:**
+`IamDbContext`</br>
+Propósito: Clase que extiende `DbContext` de Entity Framework Core. Configura los mappings entre las entidades del dominio y las tablas MySQL del BC IAM, define constraints, indices y relaciones a nivel de ORM.  </br>
+Tecnología: Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`</br>
+
+Tablas gestionadas:
+</br>
 
 | Tabla | Entidad mapeada | Constraint destacada |
 |---|---|---|
@@ -2217,6 +2111,8 @@ Esta capa provee las implementaciones concretas de las interfaces definidas en e
 | `care_relationships` | `CareRelationship` | PK `relationship_id`, FK `elderly_user_id -> users.user_id`, FK `caregiver_id -> users.user_id`, indice unico `invitation_token` |
 | `token_blacklist` | *(tabla de infraestructura)* | PK `token_id`, indice sobre `expires_at` para limpieza periodica |
  
+ </br>
+
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 ![IAM - Component Level Diagram](./img/tactical-ddd/iam/component.svg)
@@ -2229,7 +2125,7 @@ Este diagrama de componentes (C4 Nivel 3) ilustra la arquitectura interna y el f
 
 ![IAM - Domain Layer Class Diagram](./img/tactical-ddd/iam/class.svg)
 
-Este diagrama de clases UML ilustra el modelo conceptual y estructural del dominio IAM. Presenta a `User` y `Device` como raices de sus respectivos agregados, detallando atributos encapsulados (Value Objects), metodos y enumeraciones que materializan las reglas de negocio. Ademas, expone las relaciones de cardinalidad con `CareRelationship`, las interfaces de repositorio que definen contratos de persistencia y los domain services encargados de logica transversal (como autenticacion y vinculacion), manteniendo el nucleo del sistema agnostico a cualquier tecnologia de infraestructura.
+Este diagrama de clases UML ilustra el modelo conceptual y estructural del dominio IAM. Presenta a `User` y `Device` como raices de sus respectivos agregados, detallando atributos encapsulados (Value Objects), metodos y enumeraciones que materializan las reglas de negocio. Ademas, expone las relaciones de cardinalidad con `CareRelationship`, las interfaces de repositorio que definen contratos de persistencia y los domain services encargados de logica transversal (como autenticacion y vinculacion), manteniendo el nucleo del sistema agnostico a cualquier Tecnología de infraestructura.
  
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
@@ -2244,11 +2140,12 @@ Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de dat
 #### 4.2.2.1. Domain Layer
 
 En el contexto de un sistema embebido, esta capa representa las reglas logicas del hardware, las estructuras de datos cinematicas y la maquina de estados del dispositivo, abstrayendose por completo de pines fisicos, buses I2C o protocolos Wi-Fi.
+</br>
 
-##### Entities
+**Entities**</br>
 
-###### `WearableSystem`
-**Proposito:** Es el Aggregate Root. Coordina el estado general del firmware, asegurando que no se intenten leer sensores si la bateria esta en nivel critico o si el switch fisico esta apagado.
+`WearableSystem`</br>
+Propósito: Es el Aggregate Root. Coordina el estado general del firmware, asegurando que no se intenten leer sensores si la bateria esta en nivel critico o si el switch fisico esta apagado.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -2256,6 +2153,8 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `batteryLevel` | `BatteryLevel` | private | Nivel actual de la bateria LiPo |
 | `isSwitchOn` | `boolean` | private | Estado logico del switch de encendido |
 | `networkReady` | `boolean` | private | Indica si la conexion Wi-Fi y el handshake con el Edge fueron exitosos |
+
+</br>
 
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
@@ -2265,46 +2164,64 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `markNetworkReady()` | `void` | public | Marca el sistema como listo para transmitir una vez que el bootstrap de red es exitoso |
 | `isOperational()` | `boolean` | public | Retorna true solo si el estado es `STREAMING` y `networkReady` es true |
 
-###### `InertialSensorArray`
-**Proposito:** Representa la agrupacion logica del ADXL345 y el MPU6050. Garantiza que la lectura de la cinematica sea tratada como un solo evento en el tiempo para no desfasar los datos enviados al Edge. La frecuencia de muestreo de 200 Hz es un constraint de diseno derivado del dataset SisFall, que captura los datos inerciales a esa frecuencia; desviarse de ella comprometeria la compatibilidad con el modelo de IA entrenado.
+</br>
+
+`InertialSensorArray` </br>
+Propósito: Representa la agrupacion logica del ADXL345 y el MPU6050. Garantiza que la lectura de la cinematica sea tratada como un solo evento en el tiempo para no desfasar los datos enviados al Edge. La frecuencia de muestreo de 200 Hz es un constraint de diseno derivado del dataset SisFall, que captura los datos inerciales a esa frecuencia; desviarse de ella comprometeria la compatibilidad con el modelo de IA entrenado.
+</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
 | `samplingFrequencyHz` | `int` | private | Frecuencia objetivo de muestreo: 200 Hz, requerido por compatibilidad con SisFall |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `fuseReadings(adxlData: SensorReading, mpuData: SensorReading)` | `InertialFrame` | public | Fusiona las lecturas de ambos sensores en una sola estructura inmutable de tiempo |
 
-###### `AlarmBuzzer`
-**Proposito:** Representa el estado logico del actuador de sonido. Su estado es modificado por comandos remotos del Edge, nunca por el firmware de forma autonoma, dado que la decision de caida pertenece al modelo de IA en la capa Edge.
+</br>
+
+`AlarmBuzzer` </br>
+Propósito: Representa el estado logico del actuador de sonido. Su estado es modificado por comandos remotos del Edge, nunca por el firmware de forma autonoma, dado que la decision de caida pertenece al modelo de IA en la capa Edge.
+
+</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
 | `isSounding` | `boolean` | private | Indica si el actuador esta activado actualmente |
+
+</br>
 
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `trigger()` | `void` | public | Cambia el estado logico a activo para disparar la alarma |
 | `silence()` | `void` | public | Cambia el estado logico a inactivo para detener la alarma |
 
-###### `GpsTracker`
-**Proposito:** Mantiene la ultima ubicacion geografica valida del dispositivo. La coordenada actualizada es incluida en la trama UDP saliente junto con cada `InertialFrame`, de modo que el Edge siempre dispone de la posicion al momento de confirmar una caida y hacer el POST al backend.
+</br>
+
+`GpsTracker` </br>
+Propósito: Mantiene la ultima ubicacion geografica valida del dispositivo. La coordenada actualizada es incluida en la trama UDP saliente junto con cada `InertialFrame`, de modo que el Edge siempre dispone de la posicion al momento de confirmar una caida y hacer el POST al backend. </br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
 | `currentLocation` | `GeoCoordinate` | private | Ultima coordenada procesada con fix valido |
 | `hasFix` | `boolean` | private | Indica si existe conexion valida con los satelites |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `updateLocation(coord: GeoCoordinate)` | `void` | public | Actualiza la posicion si la nueva coordenada tiene precision suficiente |
 | `getCurrentLocation()` | `GeoCoordinate` | public | Retorna la ultima coordenada valida para ser embebida en la trama UDP |
 
-##### Value Objects
+</br>
 
-###### `SensorReading`
-**Proposito:** Estructura inmutable que encapsula la lectura cruda de un unico sensor en un instante de tiempo. Sirve como insumo para `InertialSensorArray.fuseReadings()` antes de producir un `InertialFrame`.
+**Value Objects** </br>
+
+ `SensorReading`</br>
+Propósito: Estructura inmutable que encapsula la lectura cruda de un unico sensor en un instante de tiempo. Sirve como insumo para `InertialSensorArray.fuseReadings()` antes de producir un `InertialFrame`.</br>
+
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
@@ -2313,8 +2230,10 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `axisZ` | `float` | Valor del eje Z en unidades del sensor |
 | `capturedAt` | `uint32_t` | Timestamp en milisegundos desde el arranque del sistema |
 
-###### `InertialFrame`
-**Proposito:** Estructura de datos inmutable que contiene la foto completa del movimiento en un milisegundo especifico, fusionando ambos sensores. Es la unidad minima de informacion que se serializa y transmite al Edge via UDP.
+</br>
+
+ `InertialFrame` </br>
+Propósito: Estructura de datos inmutable que contiene la foto completa del movimiento en un milisegundo especifico, fusionando ambos sensores. Es la unidad minima de informacion que se serializa y transmite al Edge via UDP. </br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
@@ -2331,16 +2250,20 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `latitude` | `float` | Latitud embebida desde `GpsTracker` al momento del frame |
 | `longitude` | `float` | Longitud embebida desde `GpsTracker` al momento del frame |
 
-###### `GeoCoordinate`
-**Proposito:** Coordenada geografica inmutable obtenida del modulo U-blox NEO-M6.
+</br>
+
+ `GeoCoordinate`</br>
+Propósito: Coordenada geografica inmutable obtenida del modulo U-blox NEO-M6.</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `latitude` | `float` | Latitud en grados decimales |
 | `longitude` | `float` | Longitud en grados decimales |
 
-###### `BatteryLevel`
-**Proposito:** Representa el estado energetico calculado de la bateria LiPo 3.7V 2000mAh a partir del voltaje leido por el ADC.
+</br> 
+
+ `BatteryLevel`</br>
+Propósito: Representa el estado energetico calculado de la bateria LiPo 3.7V 2000mAh a partir del voltaje leido por el ADC.</br> 
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
@@ -2348,8 +2271,10 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `percentage` | `uint8_t` | Porcentaje estimado de carga (0-100%) |
 | `isCritical` | `boolean` | True si el voltaje esta por debajo del umbral seguro de descarga de la LiPo (~3.2V) |
 
-###### `SystemState`
-**Proposito:** Enumeracion que dicta el estado operativo del microcontrolador en cada momento.
+</br>
+
+ `SystemState`</br>
+Propósito: Enumeracion que dicta el estado operativo del microcontrolador en cada momento.</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -2358,9 +2283,13 @@ En el contexto de un sistema embebido, esta capa representa las reglas logicas d
 | `LOW_BATTERY` | Bateria en nivel critico; el sistema reduce operaciones para proteger la LiPo |
 | `SLEEP` | El switch fue apagado; el sistema suspende todas las operaciones |
 
-##### Hardware Abstractions (Repository Interfaces)
+</br>
+
+**Hardware Abstractions (Repository Interfaces)**</br>
 
 Estas interfaces definen que necesita el dominio del hardware sin acoplarse a ningun bus, pin o libreria concreta. Su implementacion pertenece exclusivamente a la Infrastructure Layer.
+
+</br>
 
 | Interfaz | Metodo | Descripcion |
 |---|---|---|
@@ -2373,40 +2302,42 @@ Estas interfaces definen que necesita el dominio del hardware sin acoplarse a ni
 | `INetworkHardware` | `sendUdpFrame(data: bytes, ip, port): void` | Transmite un buffer de bytes via UDP hacia el Edge |
 | `INetworkHardware` | `listenUdp(port): string` | Escucha y retorna el primer comando UDP entrante disponible |
 
----
+</br>
 
 #### 4.2.2.2. Interface Layer
 
-En el firmware, esta capa corresponde a los puntos de entrada por donde el mundo fisico o la red interactuan con el microcontrolador. No existen peticiones HTTP: los mecanismos son interrupciones GPIO y sockets UDP.
+En el firmware, esta capa corresponde a los puntos de entrada por donde el mundo fisico o la red interactuan con el microcontrolador. No existen peticiones HTTP: los mecanismos son interrupciones GPIO y sockets UDP. </br>
 
-##### `HardwareInterruptController`
-**Proposito:** Captura eventos fisicos originados por el usuario directamente en los pines GPIO del ESP32. Cada interrupcion es atendida en su ISR (Interrupt Service Routine) correspondiente y delega el procesamiento a la Application Layer para no bloquear el bus de interrupciones.
+`HardwareInterruptController` </br>
+Propósito: Captura eventos fisicos originados por el usuario directamente en los pines GPIO del ESP32. Cada interrupcion es atendida en su ISR (Interrupt Service Routine) correspondiente y delega el procesamiento a la Application Layer para no bloquear el bus de interrupciones. </br>
 
 | Evento fisico | Handler delegado | Descripcion |
 |---|---|---|
 | Interrupcion GPIO - flanco de subida | `PowerOnSystemCommandHandler` | El usuario mueve el switch fisico a la posicion ON |
 | Interrupcion GPIO - flanco de bajada | `PowerOffSystemCommandHandler` | El usuario mueve el switch fisico a la posicion OFF |
 
-##### `UdpCommandListener`
-**Proposito:** Escucha pasivamente el socket UDP local esperando comandos de control provenientes del Edge. Es el unico canal de comunicacion entrante desde la laptop hacia el ESP32.
+</br>
+
+`UdpCommandListener` </br>
+Propósito: Escucha pasivamente el socket UDP local esperando comandos de control provenientes del Edge. Es el unico canal de comunicacion entrante desde la laptop hacia el ESP32.</br> 
 
 | Trama UDP entrante | Handler delegado | Descripcion |
 |---|---|---|
 | `"ALARM_ON"` | `TriggerAlarmCommandHandler` | El Edge confirmo una caida e instruye al ESP32 activar el buzzer |
 | `"ALARM_OFF"` | `SilenceAlarmCommandHandler` | El Edge instruye al ESP32 apagar el buzzer |
 
----
+</br>
 
 #### 4.2.2.3. Application Layer
 
-En el sistema embebido, esta capa esta compuesta por tasks de FreeRTOS y command handlers que orquestan los casos de uso principales del firmware. Ninguno de estos modulos accede directamente al hardware: siempre delegan a las interfaces de la Domain Layer.
+En el sistema embebido, esta capa esta compuesta por tasks de FreeRTOS y command handlers que orquestan los casos de uso principales del firmware. Ninguno de estos modulos accede directamente al hardware: siempre delegan a las interfaces de la Domain Layer. </br>
 
-##### Tasks (Handlers continuos y periodicos)
+**Tasks (Handlers continuos y periodicos)** </br>
 
-###### `BootstrapNetworkTask`
-**Proposito:** Task de arranque que se ejecuta una unica vez durante el estado `BOOTING`. Establece la conectividad Wi-Fi y verifica que el Edge este accesible antes de permitir el inicio del streaming. Sin este task completado exitosamente, el sistema no pasa al estado `STREAMING`.
+`BootstrapNetworkTask`</br>
+Propósito: Task de arranque que se ejecuta una unica vez durante el estado `BOOTING`. Establece la conectividad Wi-Fi y verifica que el Edge este accesible antes de permitir el inicio del streaming. Sin este task completado exitosamente, el sistema no pasa al estado `STREAMING`.</br>
 
-**Flujo:**
+Flujo:
 1. Invoca `INetworkHardware.connectWifi(ssid, password)` con las credenciales configuradas en el firmware.
 2. Si la conexion falla tras N reintentos, mantiene el sistema en `BOOTING` y reintenta con backoff.
 3. Envia un paquete UDP de handshake a la IP configurada del Edge.
@@ -2414,10 +2345,10 @@ En el sistema embebido, esta capa esta compuesta por tasks de FreeRTOS y command
 5. Si la respuesta es valida, invoca `WearableSystem.markNetworkReady()`.
 6. Cambia el estado del sistema a `STREAMING` e inicia las demas tasks.
 
-###### `StreamInertialDataTask`
-**Proposito:** Task critico de alta prioridad. Se ejecuta periodicamente cada 5 ms (200 Hz) mientras el sistema este en estado `STREAMING`, extrayendo la cinematica y transmitiendola al Edge sin latencia.
+`StreamInertialDataTask`</br>
+Propósito: Task critico de alta prioridad. Se ejecuta periodicamente cada 5 ms (200 Hz) mientras el sistema este en estado `STREAMING`, extrayendo la cinematica y transmitiendola al Edge sin latencia.</br>
 
-**Flujo:**
+Flujo:
 1. Verifica que `WearableSystem.isOperational()` sea true antes de cada ciclo.
 2. Invoca `IInertialHardware.readAdxl()` y `IInertialHardware.readMpu()` para obtener dos `SensorReading`.
 3. Invoca `InertialSensorArray.fuseReadings()` para obtener un `InertialFrame`.
@@ -2425,124 +2356,131 @@ En el sistema embebido, esta capa esta compuesta por tasks de FreeRTOS y command
 5. Serializa el `InertialFrame` en un buffer de bytes compacto.
 6. Transmite el buffer via `INetworkHardware.sendUdpFrame()` hacia la IP y puerto del Edge.
 
-###### `UpdateLocationTask`
-**Proposito:** Task periodico de baja prioridad que actualiza la ubicacion GPS cada segundo. La baja frecuencia es intencional: la posicion geografica no cambia significativamente en el contexto de uso (adulto mayor en interiores o exteriores cercanos).
+</br>
 
-**Flujo:**
+ `UpdateLocationTask` </br>
+Propósito: Task periodico de baja prioridad que actualiza la ubicacion GPS cada segundo. La baja frecuencia es intencional: la posicion geografica no cambia significativamente en el contexto de uso (adulto mayor en interiores o exteriores cercanos). </br>
+
+Flujo:
 1. Se ejecuta cada 1000 ms mediante interrupcion UART o polling.
 2. Invoca `IGpsHardware.readLocation()` para obtener un `GeoCoordinate`.
 3. Si `hasFix` es true, invoca `GpsTracker.updateLocation(coord)`.
 4. La nueva coordenada queda disponible para ser embebida por `StreamInertialDataTask` en el siguiente frame.
 
-###### `MonitorBatteryTask`
-**Proposito:** Task de muy baja prioridad que protege la vida util de la bateria LiPo 3.7V 2000mAh, evitando descarga profunda que danaria la celda.
+ `MonitorBatteryTask`</br>
+Propósito: Task de muy baja prioridad que protege la vida util de la bateria LiPo 3.7V 2000mAh, evitando descarga profunda que danaria la celda.</br>
 
-**Flujo:**
+Flujo:
 1. Se ejecuta cada 60 segundos.
 2. Invoca `IBatteryHardware.readVoltage()` para obtener el voltaje real.
 3. Construye un `BatteryLevel` calculando el porcentaje y evaluando si `isCritical` es true.
 4. Invoca `WearableSystem.updateBattery(level)`.
 5. Si el dominio dictamina estado `LOW_BATTERY`, suspende `StreamInertialDataTask` y activa rutinas de apagado seguro para proteger la LiPo.
+</br>
 
-##### Command Handlers
+**Command Handlers**</br>
+ `PowerOnSystemCommandHandler`</br>
+Propósito: Orquesta la secuencia de arranque del sistema cuando el usuario activa el switch fisico.</br>
 
-###### `PowerOnSystemCommandHandler`
-**Proposito:** Orquesta la secuencia de arranque del sistema cuando el usuario activa el switch fisico.
-
-**Flujo:**
+Flujo:
 1. Invocado por `HardwareInterruptController` en flanco de subida del GPIO.
 2. Invoca `WearableSystem.powerOn()` para cambiar el estado a `BOOTING`.
 3. Inicia `BootstrapNetworkTask` para establecer conectividad con el Edge.
 4. Una vez que la red esta lista, inicia `StreamInertialDataTask`, `UpdateLocationTask` y `MonitorBatteryTask`.
 
-###### `PowerOffSystemCommandHandler`
-**Proposito:** Orquesta el apagado limpio del sistema cuando el usuario desactiva el switch fisico.
+`PowerOffSystemCommandHandler` </br>
+Propósito: Orquesta el apagado limpio del sistema cuando el usuario desactiva el switch fisico. </br>
 
-**Flujo:**
+Flujo:
 1. Invocado por `HardwareInterruptController` en flanco de bajada del GPIO.
 2. Detiene `StreamInertialDataTask` para cesar la transmision UDP al Edge.
 3. Invoca `AlarmBuzzer.silence()` e `IActuatorHardware.setBuzzer(false)` como medida de seguridad.
 4. Invoca `WearableSystem.sleep()` para cambiar el estado a `SLEEP`.
 
-###### `TriggerAlarmCommandHandler`
-**Proposito:** Orquesta la activacion de la alarma sonora tras recibir la confirmacion de caida desde el Edge.
 
-**Flujo:**
+`TriggerAlarmCommandHandler`</br>
+Propósito: Orquesta la activacion de la alarma sonora tras recibir la confirmacion de caida desde el Edge.</br>
+
+Flujo:
 1. Invocado por `UdpCommandListener` al recibir la trama `"ALARM_ON"`.
 2. Invoca `AlarmBuzzer.trigger()` para actualizar el estado de dominio.
 3. Invoca `IActuatorHardware.setBuzzer(true)` para enviar voltaje al pin del buzzer fisico.
 
-###### `SilenceAlarmCommandHandler`
-**Proposito:** Orquesta el apagado del buzzer cuando el Edge indica que la alarma debe cesar.
+`SilenceAlarmCommandHandler`</br>
+Propósito: Orquesta el apagado del buzzer cuando el Edge indica que la alarma debe cesar.</br>
 
-**Flujo:**
+Flujo:
 1. Invocado por `UdpCommandListener` al recibir la trama `"ALARM_OFF"`.
 2. Invoca `AlarmBuzzer.silence()` para actualizar el estado de dominio.
 3. Invoca `IActuatorHardware.setBuzzer(false)` para retirar el voltaje del pin del buzzer.
 
----
+
+</br>
 
 #### 4.2.2.4. Infrastructure Layer
 
-Esta capa contiene las implementaciones concretas de las interfaces de hardware y red. Es el codigo que interactua directamente con buses fisicos, registros del microcontrolador y la pila Wi-Fi del ESP32.
+Esta capa contiene las implementaciones concretas de las interfaces de hardware y red. Es el codigo que interactua directamente con buses fisicos, registros del microcontrolador y la pila Wi-Fi del ESP32.</br>
 
-##### Hardware Implementations (C++ / Arduino / ESP-IDF)
+**Hardware Implementations (C++ / Arduino / ESP-IDF)**</br>
 
-###### `Adxl345I2cDriver`
-**Proposito:** Implementacion de `IInertialHardware` para el acelerometro primario ADXL345.  
-**Tecnologia:** Bus I2C a 400 KHz (Fast Mode).
+ `Adxl345I2cDriver`</br>
+Propósito: Implementacion de `IInertialHardware` para el acelerometro primario ADXL345.  
+Tecnología: Bus I2C a 400 KHz (Fast Mode).</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Al inicializar, escribe `0x08` en el registro `0x2D` (POWER_CTL) para sacar el sensor del modo standby.
 - Configura el rango de medicion a +-16g mediante el registro `0x31` (DATA_FORMAT), rango optimo para capturar caidas de alto impacto.
 - En cada lectura, lee secuencialmente 6 bytes desde el registro `0x32` (DATAX0) para extraer los ejes X, Y, Z como enteros de 16 bits y los convierte a unidades g aplicando la escala del rango configurado.
 - Retorna un `SensorReading` con los tres ejes y el timestamp actual.
 
-###### `Mpu6050I2cDriver`
-**Proposito:** Implementacion complementaria de `IInertialHardware` para obtener giroscopio y aceleracion secundaria del MPU6050.  
-**Tecnologia:** Bus I2C compartido con el ADXL345, direccion I2C `0x68`.
+</br>
 
-**Detalle de implementacion:**
+ `Mpu6050I2cDriver`</br>
+Propósito: Implementacion complementaria de `IInertialHardware` para obtener giroscopio y aceleracion secundaria del MPU6050.  
+Tecnología: Bus I2C compartido con el ADXL345, direccion I2C `0x68`.</br>
+
+Detalle de implementación:
 - Al inicializar, escribe `0x00` en el registro `0x6B` (PWR_MGMT_1) para despertar el sensor.
 - Configura el giroscopio a +-2000 deg/s mediante el registro `0x1B` (GYRO_CONFIG) para capturar rotaciones bruscas de caida.
 - En cada lectura, realiza un burst read de 14 bytes desde el registro `0x3B` que incluye acelerometro (6 bytes), temperatura (2 bytes ignorados) y giroscopio (6 bytes), minimizando la latencia de bus al requerir una sola transaccion I2C.
-- Retorna un `SensorReading` con aceleracion y velocidad angular y el timestamp actual.
+- Retorna un `SensorReading` con aceleracion y velocidad angular y el timestamp actual.</br>
 
-###### `UbloxNeoM6UartDriver`
-**Proposito:** Implementacion de `IGpsHardware` para el modulo U-blox NEO-M6.  
-**Tecnologia:** Interfaz UART (Serial2) a 9600 baudios.
+ `UbloxNeoM6UartDriver`</br>
+Propósito: Implementacion de `IGpsHardware` para el modulo U-blox NEO-M6.  </br>
+Tecnología: Interfaz UART (Serial2) a 9600 baudios.</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Escucha el flujo serial continuo de sentencias NMEA.
 - Utiliza la libreria `TinyGPS++` para parsear exclusivamente las sentencias `$GPRMC` y `$GPGGA`, ignorando el resto para no consumir ciclos innecesarios.
 - Solo actualiza la ubicacion si `gps.location.isValid()` retorna true, evitando coordenadas `0,0` por perdida de fix satelital.
-- Retorna un `GeoCoordinate` con latitud y longitud en grados decimales.
+- Retorna un `GeoCoordinate` con latitud y longitud en grados decimales. 
 
-###### `GpioActuatorDriver`
-**Proposito:** Implementacion de `IActuatorHardware` para controlar el buzzer pasivo.  
-**Tecnologia:** ESP32 GPIO en modo OUTPUT.
+ `GpioActuatorDriver` </br>
+Propósito: Implementacion de `IActuatorHardware` para controlar el buzzer pasivo.  </br>
+Tecnología: ESP32 GPIO en modo OUTPUT. </br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - En `setup()`, configura el pin asignado al buzzer como `OUTPUT` mediante `pinMode(BUZZER_PIN, OUTPUT)`.
 - `setBuzzer(true)` ejecuta `digitalWrite(BUZZER_PIN, HIGH)` para cerrar el circuito y emitir el sonido.
 - `setBuzzer(false)` ejecuta `digitalWrite(BUZZER_PIN, LOW)` para interrumpir el circuito.
 
-###### `AdcBatteryReaderImpl`
-**Proposito:** Implementacion de `IBatteryHardware` para medir el nivel de la bateria LiPo 3.7V 2000mAh gestionada por el modulo de carga SM5308.  
-**Tecnologia:** ESP32 ADC de 12 bits (resolucion 0-4095).
+ `AdcBatteryReaderImpl`</br>
+Propósito: Implementacion de `IBatteryHardware` para medir el nivel de la bateria LiPo 3.7V 2000mAh gestionada por el modulo de carga SM5308.  </br>
+Tecnología: ESP32 ADC de 12 bits (resolucion 0-4095).</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - El pin ADC esta conectado a un divisor de voltaje resistivo en paralelo al modulo SM5308, que reduce el voltaje de la LiPo al rango admisible del ADC del ESP32 (0-3.3V).
 - La formula de conversion es: `voltaje_real = (lectura_adc / 4095.0) * 3.3 * factor_divisor`.
 - El umbral de bateria critica se fija en 3.2V, por debajo del cual la descarga profunda puede danar irreversiblemente la celda LiPo.
+</br>
 
-##### Network Implementations
+**Network Implementations**</br>
 
-###### `Esp32WiFiUdpManager`
-**Proposito:** Implementacion completa de `INetworkHardware`. Gestiona la conexion Wi-Fi, el handshake inicial con el Edge y la transmision/recepcion de paquetes UDP.  
-**Tecnologia:** Librerias nativas `WiFi.h` y `WiFiUdp.h` del SDK de Arduino para ESP32.
+ `Esp32WiFiUdpManager`</br>
+Propósito: Implementacion completa de `INetworkHardware`. Gestiona la conexion Wi-Fi, el handshake inicial con el Edge y la transmision/recepcion de paquetes UDP.  </br>
+Tecnología: Librerias nativas `WiFi.h` y `WiFiUdp.h` del SDK de Arduino para ESP32. </br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 
 | Metodo | Detalle |
 |---|---|
@@ -2550,7 +2488,8 @@ Esta capa contiene las implementaciones concretas de las interfaces de hardware 
 | `sendUdpFrame(data, ip, port)` | Transmite en modo fire-and-forget: `udp.beginPacket(ip, port)` -> `udp.write(data)` -> `udp.endPacket()`. Sin esperar ACK para garantizar maxima velocidad en la LAN local |
 | `listenUdp(port)` | Verifica `udp.parsePacket()` en cada ciclo. Si hay datos disponibles, los lee con `udp.read()` y retorna el string del comando recibido (`"ALARM_ON"` o `"ALARM_OFF"`) |
 
----
+</br>
+
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -2578,17 +2517,18 @@ Este diagrama describe la estructura de datos operativa del firmware en memoria 
 
 #### 4.2.3.1. Domain Layer
 
-Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui viven las reglas para agrupar los datos inerciales en secuencias temporales, evaluarlas contra el modelo de Machine Learning y decidir si el patron de movimiento corresponde a una caida o a una actividad de la vida diaria (ADL).
+Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui viven las reglas para agrupar los datos inerciales en secuencias temporales, evaluarlas contra el modelo de Machine Learning y decidir si el patron de movimiento corresponde a una caida o a una actividad de la vida diaria (ADL). </br>
 
-##### Entities
-
-###### `InferenceEngine`
-**Proposito:** Es el Aggregate Root. Gestiona el ciclo de ingesta de datos en tiempo real y decide en que momento exacto se debe ejecutar una prediccion.
+ **Entities**</br>
+ `InferenceEngine`</br>
+Propósito: Es el Aggregate Root. Gestiona el ciclo de ingesta de datos en tiempo real y decide en que momento exacto se debe ejecutar una prediccion.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
 | `buffer` | `TimeWindow` | private | Ventana de tiempo actual que acumula los datos inerciales recientes |
 | `windowSizeMs` | `int` | private | Tamano de ventana requerida por el modelo (ej. 3000 ms para SisFall) |
+
+</br>
 
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
@@ -2596,8 +2536,9 @@ Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui
 | `isReadyForInference()` | `boolean` | public | Verifica si el buffer tiene suficientes datos para alimentar al modelo |
 | `evaluate(evaluator: IModelEvaluator)` | `PredictionResult` | public | Ejecuta la inferencia si el buffer esta listo y retorna la clasificacion |
 
-###### `LocalFallEvent`
-**Proposito:** Entidad que representa un incidente critico confirmado por la IA de forma local. Es vital para la tolerancia a fallos, ya que se almacena en la laptop si no hay internet.
+
+ `LocalFallEvent`</br>
+Propósito: Entidad que representa un incidente critico confirmado por la IA de forma local. Es vital para la tolerancia a fallos, ya que se almacena en la laptop si no hay internet.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -2607,11 +2548,15 @@ Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui
 | `lastKnownGps` | `GeoCoordinate` | private | Ultimas coordenadas recibidas antes de la caida |
 | `syncStatus` | `SyncState` | private | Estado de sincronizacion con la nube: `PENDING`, `SYNCED` |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `markAsSynced()` | `void` | public | Cambia el estado a `SYNCED` tras confirmar la recepcion del backend central |
 
-##### Value Objects
+</br></br>
+
+**Value Objects**</br>
 
 | Nombre | Atributos | Descripcion |
 |---|---|---|
@@ -2619,9 +2564,10 @@ Esta capa representa el nucleo logico del analisis de datos en tiempo real. Aqui
 | `PredictionResult` | `isFall: boolean`, `classification: string`, `confidence: float` | Resultado del modelo; clasifica entre caida (ej. hacia adelante, lateral) o actividad normal (ADL) |
 | `SyncState` | Enum (`PENDING`, `SYNCED`) | Indica si la nube ya fue notificada del evento |
 
-##### Repository & External Interfaces
+</br>
 
-Estas abstracciones aislan la logica pura de los frameworks de Machine Learning y la red.
+**Repository & External Interfaces**</br>
+Estas abstracciones aislan la logica pura de los frameworks de Machine Learning y la red.</br>
 
 | Interfaz | Metodos clave | Descripcion |
 |---|---|---|
@@ -2630,46 +2576,45 @@ Estas abstracciones aislan la logica pura de los frameworks de Machine Learning 
 | `IHardwareNotifier` | `triggerLocalAlarm()` | Abstraccion para enviar la orden de activacion del buzzer al sistema embebido |
 | `ICloudSyncService` | `syncIncident(event)` | Abstraccion para empujar el evento critico al BC `Emergency Management` en la nube |
 
----
 
 #### 4.2.3.2. Interface Layer
 
-En la laptop, esta capa contiene los consumidores que escuchan activamente la red local y los procesos en segundo plano.
+En la laptop, esta capa contiene los consumidores que escuchan activamente la red local y los procesos en segundo plano.</br>
 
-##### `TelemetryUdpConsumer`
-**Proposito:** Es el punto de entrada principal. Escucha ininterrumpidamente el puerto UDP por donde el sistema embebido dispara las rafagas de telemetria.
+ `TelemetryUdpConsumer`</br>
+Propósito: Es el punto de entrada principal. Escucha ininterrumpidamente el puerto UDP por donde el sistema embebido dispara las rafagas de telemetria.</br>
 
 | Evento | Handler delegado | Descripcion |
 |---|---|---|
 | Recepcion de paquete UDP | `IngestTelemetryCommandHandler` | Deserializa los bytes entrantes en un `InertialFrame` y lo envia al sistema |
 
-##### `CloudSyncWorker`
-**Proposito:** Proceso en segundo plano (Background Service) que monitorea la conexion a internet.
+
+ `CloudSyncWorker`</br>
+Propósito: Proceso en segundo plano (Background Service) que monitorea la conexion a internet.</br>
 
 | Evento | Handler delegado | Descripcion |
 |---|---|---|
 | Timer periodico (ej. cada 10 s) | `RetrySyncCommandHandler` | Busca eventos locales pendientes e intenta mandarlos a la nube si hay conexion |
 
----
 
 #### 4.2.3.3. Application Layer
 
-Esta capa orquesta la transformacion de los datos en bruto a predicciones de IA y maneja la respuesta inmediata.
+Esta capa orquesta la transformacion de los datos en bruto a predicciones de IA y maneja la respuesta inmediata. </br>
 
-##### Command Handlers
+**Command Handlers**</br>
 
-###### `IngestTelemetryCommandHandler`
-**Proposito:** Recibe el dato en tiempo real y alimenta el motor de inferencia.
+ `IngestTelemetryCommandHandler`</br>
+Propósito: Recibe el dato en tiempo real y alimenta el motor de inferencia.</br>
 
-**Flujo:**
+Flujo:
 1. Recibe el `InertialFrame` desde el consumidor UDP.
 2. Llama a `InferenceEngine.ingestFrame()`.
 3. Si `InferenceEngine.isReadyForInference()` es verdadero, dispara internamente el `EvaluateWindowCommand`.
 
-###### `EvaluateWindowCommandHandler`
-**Proposito:** Orquesta la ejecucion del modelo de Machine Learning y reacciona si hay peligro.
+ `EvaluateWindowCommandHandler`</br>
+Propósito: Orquesta la ejecucion del modelo de Machine Learning y reacciona si hay peligro.</br>
 
-**Flujo:**
+Flujo:
 1. Llama a `InferenceEngine.evaluate(IModelEvaluator)`.
 2. Analiza el `PredictionResult`.
 3. Si el resultado es una caida (`isFall == true`):
@@ -2678,72 +2623,71 @@ Esta capa orquesta la transformacion de los datos en bruto a predicciones de IA 
    - Lo persiste usando `ILocalEventRepository`.
    - Dispara el `SyncIncidentCommand`.
 
-###### `SyncIncidentCommandHandler`
-**Proposito:** Intenta comunicar la emergencia a la nube.
+ `SyncIncidentCommandHandler`</br>
+Propósito: Intenta comunicar la emergencia a la nube.</br>
 
-**Flujo:**
+Flujo:
 1. Toma el `LocalFallEvent`.
 2. Llama a `ICloudSyncService.syncIncident()`.
 3. Si la API en la nube responde 200 OK, ejecuta `LocalFallEvent.markAsSynced()` y actualiza el repositorio local.
 4. Si falla (no hay internet), se mantiene como `PENDING` para el worker de reintentos.
 
-###### `RetrySyncCommandHandler`
-**Proposito:** Reintenta la sincronizacion de eventos pendientes detectados en almacenamiento local.
+ `RetrySyncCommandHandler`</br>
+Propósito: Reintenta la sincronizacion de eventos pendientes detectados en almacenamiento local.</br>
 
-**Flujo:**
+Flujo:
 1. Es invocado periodicamente por `CloudSyncWorker`.
 2. Consulta eventos pendientes mediante `ILocalEventRepository.getUnsyncedEvents()`.
 3. Para cada evento pendiente, invoca `ICloudSyncService.syncIncident(event)`.
 4. Si la sincronizacion es exitosa, marca el evento como sincronizado y persiste el cambio.
 
----
+
 
 #### 4.2.3.4. Infrastructure Layer
 
-Aqui viven los frameworks de Inteligencia Artificial y la persistencia local que da robustez al sistema cuando la nube no esta disponible.
+Aqui viven los frameworks de Inteligencia Artificial y la persistencia local que da robustez al sistema cuando la nube no esta disponible.</br>
 
-##### Machine Learning Implementations
+**Machine Learning Implementations**</br>
 
-###### `TensorFlowModelEvaluator`
-**Proposito:** Implementacion concreta de `IModelEvaluator`.  
-**Tecnologia:** Python (`TensorFlow` / `Keras`) u `ONNX Runtime`.
+ `TensorFlowModelEvaluator`</br>
+Propósito: Implementacion concreta de `IModelEvaluator`.  </br>
+Tecnología: Python (`TensorFlow` / `Keras`) u `ONNX Runtime`.</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Carga en memoria el modelo pre-entrenado (CNN-LSTM) especializado en el dataset SisFall.
 - Recibe la `TimeWindow`, normaliza aceleracion y giroscopio y transforma la serie en tensores de entrada.
 - Ejecuta inferencia y retorna `PredictionResult` con clasificacion y nivel de confianza.
 
-##### Persistence Implementations
+**Persistence Implementations**</br>
 
-###### `MySqlLocalRepository`
-**Proposito:** Implementacion de `ILocalEventRepository`.  
-**Tecnologia:** MySQL local en la laptop + ORM (ej. `SQLAlchemy` o `Entity Framework`).
+ `MySqlLocalRepository`</br>
+Propósito: Implementacion de `ILocalEventRepository`.  </br>
+Tecnología: MySQL local en la laptop + ORM (ej. `SQLAlchemy` o `Entity Framework`).</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Persiste cada incidente en la tabla local `local_fall_events`.
 - Permite recuperar eventos en estado `PENDING` para sincronizacion posterior.
 - Garantiza que el incidente no se pierda aunque falle internet durante la emergencia.
 
-##### Network Integrations
+ **Network Integrations**</br>
 
-###### `UdpHardwareNotifierImpl`
-**Proposito:** Implementacion de `IHardwareNotifier`.  
-**Tecnologia:** Sockets UDP.
+ `UdpHardwareNotifierImpl`</br>
+Propósito: Implementacion de `IHardwareNotifier`.  </br>
+Tecnología: Sockets UDP.</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Construye una trama ligera con el comando `"CMD:ALARM_ON"`.
 - Envia el paquete por LAN a la IP del sistema embebido para activar el buzzer de inmediato.
 
-###### `EmergencyCloudClient`
-**Proposito:** Implementacion de `ICloudSyncService`.  
-**Tecnologia:** Cliente HTTP (`HTTPS/REST`).
+ `EmergencyCloudClient`</br>
+Propósito: Implementacion de `ICloudSyncService`.  </br>
+Tecnología: Cliente HTTP (`HTTPS/REST`).</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Construye el payload JSON con coordenadas, timestamp y confianza de la deteccion.
 - Adjunta credenciales de autorizacion (JWT) para la llamada segura.
 - Ejecuta POST al servicio de emergencias en la nube y retorna resultado de sincronizacion.
 
----
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -2771,12 +2715,12 @@ Este ERD representa la persistencia local del Edge como almacenamiento de paso y
 
 #### 4.2.4.1. Domain Layer
 
-Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven las reglas que determinan que ocurre cuando una caida es confirmada: como se registra, como evoluciona su ciclo de vida, como se escala si nadie responde y como el Cuidador puede interactuar con el incidente. Esta capa es agnostica a HTTP, bases de datos y servicios externos.
+Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven las reglas que determinan que ocurre cuando una caida es confirmada: como se registra, como evoluciona su ciclo de vida, como se escala si nadie responde y como el Cuidador puede interactuar con el incidente. Esta capa es agnostica a HTTP, bases de datos y servicios externos.</br>
 
-##### Entities
+ **Entities**</br>
 
-###### `FallIncident`
-**Proposito:** Es el Aggregate Root y la entidad mas importante del sistema. Representa un evento de caida confirmado por el modelo de IA en el Edge. Tiene un ciclo de vida propio desde su deteccion hasta su resolucion.
+ `FallIncident`</br>
+Propósito: Es el Aggregate Root y la entidad mas importante del sistema. Representa un evento de caida confirmado por el modelo de IA en el Edge. Tiene un ciclo de vida propio desde su deteccion hasta su resolucion.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -2793,6 +2737,9 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `resolvedBy` | `UserId?` | private | ID del Cuidador que resolvio el incidente |
 | `notes` | `string?` | private | Observaciones opcionales del Cuidador al resolver |
 
+
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `acknowledge(caregiverId: UserId, notes: string?)` | `void` | public | El Cuidador marca el incidente como atendido; solo valido si el estado es `NOTIFIED` o `ESCALATED` |
@@ -2801,8 +2748,8 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `canBeResolved()` | `boolean` | public | Retorna true si el incidente esta en estado resoluble (`NOTIFIED` o `ESCALATED`) |
 | `isActive()` | `boolean` | public | Retorna true si el incidente aun no fue resuelto ni marcado como falsa alarma |
 
-###### `DeviceHeartbeat`
-**Proposito:** Registra el ultimo estado conocido del wearable para cada Adulto Mayor. Permite al Cuidador ver si el dispositivo esta activo, con bateria suficiente y transmitiendo datos.
+ `DeviceHeartbeat`</br>
+Propósito: Registra el ultimo estado conocido del wearable para cada Adulto Mayor. Permite al Cuidador ver si el dispositivo esta activo, con bateria suficiente y transmitiendo datos.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -2813,14 +2760,18 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `batteryPercentage` | `int` | private | Porcentaje de bateria reportado (0-100) |
 | `isStreaming` | `boolean` | private | Indica si el dispositivo transmite telemetria activamente |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `update(batteryPercentage: int, isStreaming: boolean, timestamp: DateTime)` | `void` | public | Actualiza el estado del dispositivo con el ultimo ping del Edge |
 | `isOnline()` | `boolean` | public | Retorna true si `lastSeenAt` esta dentro de los ultimos 30 segundos |
 | `hasCriticalBattery()` | `boolean` | public | Retorna true si `batteryPercentage` es menor al 15 por ciento |
 
-###### `AlertConfiguration`
-**Proposito:** Almacena preferencias de notificacion del Adulto Mayor o Cuidador. Determina canales activos y tiempo de espera antes de escalar.
+</br>
+
+ `AlertConfiguration`</br>
+Propósito: Almacena preferencias de notificacion del Adulto Mayor o Cuidador. Determina canales activos y tiempo de espera antes de escalar.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -2832,38 +2783,41 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `escalationDelaySeconds` | `int` | private | Segundos de espera sin respuesta antes de escalar |
 | `maxEscalations` | `int` | private | Numero maximo de escalaciones antes de detener reintentos |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `updateChannels(sms: boolean, call: boolean, push: boolean)` | `void` | public | Actualiza los canales de notificacion activos |
 | `updateEscalationPolicy(delaySeconds: int, maxEscalations: int)` | `void` | public | Actualiza la politica de escalacion |
 | `hasAnyChannelEnabled()` | `boolean` | public | Valida que al menos un canal este habilitado; si no, lanza excepcion de dominio |
 
-##### Value Objects
 
-###### `IncidentId`
-**Proposito:** Encapsula el identificador unico de un incidente. Inmutable.
+
+**Value Objects** </br>
+ `IncidentId`</br>
+Propósito: Encapsula el identificador unico de un incidente. Inmutable.</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `value` | `UUID` | Identificador generado al crear el incidente |
 
-###### `ConfidenceScore`
-**Proposito:** Encapsula el nivel de certeza del modelo de IA y garantiza un rango valido.
+ `ConfidenceScore`</br>
+Propósito: Encapsula el nivel de certeza del modelo de IA y garantiza un rango valido.</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `value` | `float` | Valor entre 0.0 y 1.0; lanza excepcion de dominio si esta fuera del rango |
 
-###### `GeoCoordinate`
-**Proposito:** Coordenada geografica inmutable del momento de la caida.
+ `GeoCoordinate`</br>
+Propósito: Coordenada geografica inmutable del momento de la caida.</br>
 
 | Atributo | Tipo | Descripcion |
 |---|---|---|
 | `latitude` | `float` | Latitud en grados decimales |
 | `longitude` | `float` | Longitud en grados decimales |
 
-###### `FallClassification`
-**Proposito:** Enumeracion que describe el tipo de evento detectado por el modelo de IA.
+ `FallClassification`</br>
+Propósito: Enumeracion que describe el tipo de evento detectado por el modelo de IA.</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -2872,8 +2826,8 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `FALL_LATERAL` | Caida lateral |
 | `SYNCOPE` | Perdida de conciencia o colapso |
 
-###### `IncidentStatus`
-**Proposito:** Dicta el estado del ciclo de vida del incidente. Las transiciones ocurren por metodos de `FallIncident`.
+ `IncidentStatus`</br>
+Propósito: Dicta el estado del ciclo de vida del incidente. Las transiciones ocurren por metodos de `FallIncident`.</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -2883,27 +2837,27 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `ACKNOWLEDGED` | El Cuidador confirmo que atendio la emergencia |
 | `FALSE_ALARM` | El Cuidador marco el incidente como falsa alarma |
 
-##### Domain Services
+**Domain Services**</br>
 
-###### `FallEscalationDomainService`
-**Proposito:** Encapsula reglas para determinar si un incidente debe escalarse, evitando escalaciones indefinidas.
+ `FallEscalationDomainService`</br>
+Propósito: Encapsula reglas para determinar si un incidente debe escalarse, evitando escalaciones indefinidas.</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
 | `shouldEscalate(incident: FallIncident, config: AlertConfiguration, now: DateTime)` | `boolean` | Retorna true si el incidente esta activo, no fue reconocido y supero `escalationDelaySeconds` |
 | `hasReachedEscalationLimit(incident: FallIncident, config: AlertConfiguration)` | `boolean` | Retorna true si `escalationCount` alcanzo `maxEscalations` |
 
-###### `FallPatternAnalysisDomainService`
-**Proposito:** Analiza el historial de incidentes del Adulto Mayor para detectar patron de riesgo elevado.
+ `FallPatternAnalysisDomainService`</br>
+Propósito: Analiza el historial de incidentes del Adulto Mayor para detectar patron de riesgo elevado.</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
 | `detectFrequencyPattern(recentIncidents: List<FallIncident>)` | `boolean` | Retorna true si hay mas de N caidas reales en las ultimas 24 horas |
 | `calculateRiskScore(recentIncidents: List<FallIncident>)` | `float` | Calcula puntaje de riesgo basado en frecuencia, tipo de caida y confianza promedio |
 
-##### Repository Interfaces
+ **Repository Interfaces**</br>
 
-###### `IFallIncidentRepository`
+ `IFallIncidentRepository`
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -2913,7 +2867,7 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `findRecentByElderlyUserId(userId: UserId, since: DateTime)` | `List<FallIncident>` | Retorna incidentes desde fecha dada para analisis de patrones |
 | `save(incident: FallIncident)` | `void` | Persiste incidente nuevo o actualizado |
 
-###### `IDeviceHeartbeatRepository`
+ `IDeviceHeartbeatRepository` </br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -2921,21 +2875,20 @@ Esta capa representa el nucleo de negocio mas critico del sistema. Aqui viven la
 | `findByElderlyUserId(userId: UserId)` | `DeviceHeartbeat \| null` | Retorna heartbeat del dispositivo vinculado al Adulto Mayor |
 | `save(heartbeat: DeviceHeartbeat)` | `void` | Persiste o actualiza el heartbeat |
 
-###### `IAlertConfigurationRepository`
+ `IAlertConfigurationRepository`</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
 | `findByElderlyUserId(userId: UserId)` | `AlertConfiguration \| null` | Retorna configuracion activa del Adulto Mayor |
 | `save(config: AlertConfiguration)` | `void` | Persiste configuracion nueva o actualizada |
 
----
 
 #### 4.2.4.2. Interface Layer
 
-Esta capa expone capacidades del BC Emergency Management por endpoints HTTP REST consumidos por Mobile App, Web App y BC Edge. Los controllers delegan; no contienen logica de negocio.
+Esta capa expone capacidades del BC Emergency Management por endpoints HTTP REST consumidos por Mobile App, Web App y BC Edge. Los controllers delegan; no contienen logica de negocio.</br>
 
-##### `FallIncidentController`
-**Proposito:** Gestiona el ciclo de vida de incidentes de caida desde su creacion hasta su resolucion.
+ `FallIncidentController`</br>
+Propósito: Gestiona el ciclo de vida de incidentes de caida desde su creacion hasta su resolucion.</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -2945,8 +2898,8 @@ Esta capa expone capacidades del BC Emergency Management por endpoints HTTP REST
 | `PATCH` | `/api/v1/incidents/{id}/acknowledge` | `AcknowledgeIncidentCommandHandler` | El Cuidador confirma atencion de la emergencia |
 | `PATCH` | `/api/v1/incidents/{id}/false-alarm` | `MarkAsFalseAlarmCommandHandler` | El Cuidador marca el incidente como falsa alarma |
 
-##### `DeviceStatusController`
-**Proposito:** Provee visibilidad en tiempo real sobre estado del wearable del Adulto Mayor.
+ `DeviceStatusController`</br>
+Propósito: Provee visibilidad en tiempo real sobre estado del wearable del Adulto Mayor.</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
@@ -2954,28 +2907,27 @@ Esta capa expone capacidades del BC Emergency Management por endpoints HTTP REST
 | `PATCH` | `/api/v1/devices/{deviceId}/heartbeat` | `UpdateDeviceHeartbeatCommandHandler` | Edge actualiza periodicamente estado del dispositivo |
 | `GET` | `/api/v1/dashboard/{elderlyUserId}` | `GetCaregiverDashboardQueryHandler` | Retorna dashboard completo: estado dispositivo, ultimo incidente y riesgo |
 
-##### `AlertConfigurationController`
-**Proposito:** Permite al Adulto Mayor o Cuidador configurar preferencias de alerta.
+ `AlertConfigurationController`</br>
+Propósito: Permite al Adulto Mayor o Cuidador configurar preferencias de alerta.</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
 | `GET` | `/api/v1/alert-config` | `GetAlertConfigQueryHandler` | Retorna configuracion de alertas del usuario autenticado |
 | `PUT` | `/api/v1/alert-config` | `UpdateAlertConfigCommandHandler` | Actualiza canales de notificacion y politica de escalacion |
 
----
+
 
 #### 4.2.4.3. Application Layer
 
-Esta capa orquesta los flujos de negocio del BC Emergency Management y coordina dominio, repositorios y servicios externos.
+Esta capa orquesta los flujos de negocio del BC Emergency Management y coordina dominio, repositorios y servicios externos.</br>
 
-##### Command Handlers
+ **Command Handlers**</br>
 
-###### `RegisterFallIncidentCommandHandler`
-**Proposito:** Handler mas critico del sistema. Orquesta la recepcion de una caida confirmada por Edge y dispara la cadena de respuesta de emergencia.
+ `RegisterFallIncidentCommandHandler`</br>
+Propósito: Handler mas critico del sistema. Orquesta la recepcion de una caida confirmada por Edge y dispara la cadena de respuesta de emergencia.</br>
+Command: `RegisterFallIncidentCommand { elderlyUserId, deviceId, detectedAt, latitude, longitude, confidenceScore, fallClassification }`</br>
 
-**Command:** `RegisterFallIncidentCommand { elderlyUserId, deviceId, detectedAt, latitude, longitude, confidenceScore, fallClassification }`
-
-**Flujo:**
+Flujo:
 1. Construye `ConfidenceScore`, `GeoCoordinate` y `FallClassification` validando rangos.
 2. Crea `FallIncident` con estado inicial `CONFIRMED`.
 3. Persiste via `IFallIncidentRepository`.
@@ -2985,36 +2937,33 @@ Esta capa orquesta los flujos de negocio del BC Emergency Management y coordina 
 7. Delega a `FallPatternAnalysisDomainService.detectFrequencyPattern()`.
 8. Publica evento `FallIncidentRegisteredEvent`.
 
-###### `AcknowledgeIncidentCommandHandler`
-**Proposito:** El Cuidador confirma que llego al lugar y atendio la emergencia.
+ `AcknowledgeIncidentCommandHandler`</br>
+Propósito: El Cuidador confirma que llego al lugar y atendio la emergencia.</br>
+Command: `AcknowledgeIncidentCommand { incidentId, caregiverId, notes? }` </br>
 
-**Command:** `AcknowledgeIncidentCommand { incidentId, caregiverId, notes? }`
-
-**Flujo:**
+Flujo:
 1. Recupera incidente via `IFallIncidentRepository.findById()`.
 2. Verifica `incident.canBeResolved()`.
 3. Valida que `caregiverId` sea Cuidador vinculado consultando `IIamServiceClient`.
 4. Ejecuta `incident.acknowledge(caregiverId, notes)`.
 5. Persiste via `IFallIncidentRepository`.
 
-###### `MarkAsFalseAlarmCommandHandler`
-**Proposito:** El Cuidador descarta el incidente como falsa deteccion del modelo.
+ `MarkAsFalseAlarmCommandHandler`</br>
+Propósito: El Cuidador descarta el incidente como falsa deteccion del modelo.</br>
+Command: `MarkAsFalseAlarmCommand { incidentId, caregiverId }`</br>
 
-**Command:** `MarkAsFalseAlarmCommand { incidentId, caregiverId }`
-
-**Flujo:**
+Flujo:
 1. Recupera incidente via `IFallIncidentRepository.findById()`.
 2. Verifica `incident.canBeResolved()`.
 3. Valida autorizacion via `IIamServiceClient`.
 4. Ejecuta `incident.markAsFalseAlarm(caregiverId)`.
 5. Persiste via `IFallIncidentRepository`.
 
-###### `EscalateIncidentCommandHandler`
-**Proposito:** Ejecuta escalacion de un incidente no atendido en el tiempo configurado.
+ `EscalateIncidentCommandHandler`</br>
+Propósito: Ejecuta escalacion de un incidente no atendido en el tiempo configurado.</br>
+Command: `EscalateIncidentCommand { incidentId }`</br>
 
-**Command:** `EscalateIncidentCommand { incidentId }`
-
-**Flujo:**
+Flujo:
 1. Recupera incidente via `IFallIncidentRepository.findById()`.
 2. Recupera `AlertConfiguration` del Adulto Mayor.
 3. Delega a `FallEscalationDomainService.shouldEscalate()`.
@@ -3023,91 +2972,84 @@ Esta capa orquesta los flujos de negocio del BC Emergency Management y coordina 
 6. Persiste via `IFallIncidentRepository`.
 7. Publica evento `IncidentEscalatedEvent`.
 
-###### `UpdateDeviceHeartbeatCommandHandler`
-**Proposito:** Actualiza estado del wearable con informacion periodica enviada por Edge.
+ `UpdateDeviceHeartbeatCommandHandler`</br>
+Propósito: Actualiza estado del wearable con informacion periodica enviada por Edge.</br>
+Command: `UpdateDeviceHeartbeatCommand { deviceId, elderlyUserId, batteryPercentage, isStreaming, timestamp }`</br>
 
-**Command:** `UpdateDeviceHeartbeatCommand { deviceId, elderlyUserId, batteryPercentage, isStreaming, timestamp }`
-
-**Flujo:**
+Flujo:
 1. Busca heartbeat via `IDeviceHeartbeatRepository.findByDeviceId()`.
 2. Si no existe, crea uno; si existe, ejecuta `heartbeat.update()`.
 3. Si `heartbeat.hasCriticalBattery()` es true, publica `LowBatteryDetectedEvent`.
 4. Persiste via `IDeviceHeartbeatRepository`.
 
-###### `UpdateAlertConfigCommandHandler`
-**Proposito:** Actualiza preferencias de notificacion del usuario.
+ `UpdateAlertConfigCommandHandler`</br>
+Propósito: Actualiza preferencias de notificacion del usuario.</br>
+Command: `UpdateAlertConfigCommand { elderlyUserId, notifyBySms, notifyByCall, notifyByPush, escalationDelaySeconds, maxEscalations }`
 
-**Command:** `UpdateAlertConfigCommand { elderlyUserId, notifyBySms, notifyByCall, notifyByPush, escalationDelaySeconds, maxEscalations }`
-
-**Flujo:**
+Flujo:
 1. Recupera configuracion via `IAlertConfigurationRepository`.
 2. Ejecuta `config.updateChannels()` y `config.updateEscalationPolicy()`.
 3. Valida `config.hasAnyChannelEnabled()`.
 4. Persiste via `IAlertConfigurationRepository`.
 
-##### Query Handlers
+ **Query Handlers**</br>
+ 
+ `GetFallHistoryQueryHandler`</br>
+Propósito: Retorna historial paginado de incidentes para Mobile App y Web App.</br>
+Query: `GetFallHistoryQuery { elderlyUserId, page, size }`</br>
 
-###### `GetFallHistoryQueryHandler`
-**Proposito:** Retorna historial paginado de incidentes para Mobile App y Web App.
-
-**Query:** `GetFallHistoryQuery { elderlyUserId, page, size }`
-
-**Flujo:**
+Flujo:
 1. Valida relacion activa con `elderlyUserId` via `IIamServiceClient`.
 2. Recupera lista paginada via `IFallIncidentRepository.findByElderlyUserId()`.
 3. Mapea cada `FallIncident` a DTO de respuesta.
 
-###### `GetIncidentDetailQueryHandler`
-**Proposito:** Retorna detalle completo de un incidente, incluyendo coordenadas GPS.
+ `GetIncidentDetailQueryHandler`</br>
+Propósito: Retorna detalle completo de un incidente, incluyendo coordenadas GPS.</br>
+Query: `GetIncidentDetailQuery { incidentId, requesterId }`</br>
 
-**Query:** `GetIncidentDetailQuery { incidentId, requesterId }`
-
-**Flujo:**
+Flujo:
 1. Recupera incidente via `IFallIncidentRepository.findById()`.
 2. Valida autorizacion del `requesterId` via `IIamServiceClient`.
 3. Mapea a DTO de detalle con `location`, `confidenceScore`, `fallClassification` y estado.
 
-###### `GetCaregiverDashboardQueryHandler`
-**Proposito:** Construye dashboard del Cuidador: estado dispositivo, incidente activo, riesgo y configuracion.
+ `GetCaregiverDashboardQueryHandler`</br>
+Propósito: Construye dashboard del Cuidador: estado dispositivo, incidente activo, riesgo y configuracion.</br>
+Query: `GetCaregiverDashboardQuery { caregiverId, elderlyUserId }` </br>
 
-**Query:** `GetCaregiverDashboardQuery { caregiverId, elderlyUserId }`
-
-**Flujo:**
+Flujo:
 1. Recupera heartbeat via `IDeviceHeartbeatRepository`.
 2. Recupera incidente activo via `IFallIncidentRepository.findActiveByElderlyUserId()`.
 3. Recupera incidentes recientes y delega a `FallPatternAnalysisDomainService.calculateRiskScore()`.
 4. Recupera `AlertConfiguration` actual.
 5. Ensambla y retorna `DashboardDTO`.
 
-##### Event Handlers
+ **Event Handlers**</br>
 
-###### `FallIncidentRegisteredEventHandler`
-**Proposito:** Reacciona a `FallIncidentRegisteredEvent`. Delega al BC Notifications el despacho inmediato y actualiza estado a `NOTIFIED`.
+ `FallIncidentRegisteredEventHandler`</br>
+Propósito: Reacciona a `FallIncidentRegisteredEvent`. Delega al BC Notifications el despacho inmediato y actualiza estado a `NOTIFIED`.</br>
+Evento: `FallIncidentRegisteredEvent { incidentId, elderlyUserId, location, confidenceScore, fallClassification }`</br>
 
-**Evento:** `FallIncidentRegisteredEvent { incidentId, elderlyUserId, location, confidenceScore, fallClassification }`
-
-**Flujo:**
+Flujo:
 1. Recupera `AlertConfiguration` del Adulto Mayor.
 2. Construye payload de notificacion con ubicacion y clasificacion.
 3. Llama a `INotificationServiceClient.dispatchAlert()` con canales habilitados.
 4. Recupera incidente y actualiza estado a `NOTIFIED` via `IFallIncidentRepository`.
 
-###### `IncidentEscalatedEventHandler`
-**Proposito:** Reacciona a `IncidentEscalatedEvent` e instruye a Notifications a reenviar la alerta con mayor urgencia.
+ `IncidentEscalatedEventHandler`</br>
+Propósito: Reacciona a `IncidentEscalatedEvent` e instruye a Notifications a reenviar la alerta con mayor urgencia.</br>
+Evento: `IncidentEscalatedEvent { incidentId, elderlyUserId, escalationCount }`</br>
 
-**Evento:** `IncidentEscalatedEvent { incidentId, elderlyUserId, escalationCount }`
 
----
 
 #### 4.2.4.4. Infrastructure Layer
 
-Esta capa provee implementaciones concretas para persistencia en MySQL, comunicacion con Notifications, consultas a IAM y job de escalacion periodica.
+Esta capa provee implementaciones concretas para persistencia en MySQL, comunicacion con Notifications, consultas a IAM y job de escalacion periodica.</br>
 
-##### Repository Implementations
+ **Repository Implementations**</br>
 
-###### `FallIncidentRepositoryImpl`
-**Proposito:** Implementacion concreta de `IFallIncidentRepository` sobre MySQL.  
-**Tecnologia:** .NET + Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`
+ `FallIncidentRepositoryImpl`</br>
+Propósito: Implementacion concreta de `IFallIncidentRepository` sobre MySQL.  </br>
+Tecnología: .NET + Entity Framework Core 8 + `Pomelo.EntityFrameworkCore.MySql`</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -3117,9 +3059,9 @@ Esta capa provee implementaciones concretas para persistencia en MySQL, comunica
 | `findRecentByElderlyUserId(userId, since)` | Query con filtro `detected_at >= since` para analisis temporal |
 | `save(incident)` | `DbContext.FallIncidents.Update(incident)` + `SaveChangesAsync()` |
 
-###### `DeviceHeartbeatRepositoryImpl`
-**Proposito:** Implementacion concreta de `IDeviceHeartbeatRepository`. Mantiene un unico registro activo por dispositivo.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL
+ `DeviceHeartbeatRepositoryImpl`</br>
+Propósito: Implementacion concreta de `IDeviceHeartbeatRepository`. Mantiene un unico registro activo por dispositivo.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -3127,51 +3069,52 @@ Esta capa provee implementaciones concretas para persistencia en MySQL, comunica
 | `findByElderlyUserId(userId)` | Query por `elderly_user_id` con validacion logica |
 | `save(heartbeat)` | Upsert via EF Core: insert si no existe, update si existe |
 
-###### `AlertConfigurationRepositoryImpl`
-**Proposito:** Implementacion concreta de `IAlertConfigurationRepository`.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL
+ `AlertConfigurationRepositoryImpl`</br>
+Propósito: Implementacion concreta de `IAlertConfigurationRepository`.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
 | `findByElderlyUserId(userId)` | Query sobre `elderly_user_id` con indice unico |
 | `save(config)` | Upsert del registro de configuracion |
 
-##### External Service Implementations
+</br>
 
-###### `NotificationServiceClientImpl`
-**Proposito:** Implementacion de `INotificationServiceClient` para despachar alertas al BC Notifications.  
-**Tecnologia:** .NET `HttpClient` + `System.Text.Json`
+**External Service Implementations**</br>
+
+ `NotificationServiceClientImpl`</br>
+Propósito: Implementacion de `INotificationServiceClient` para despachar alertas al BC Notifications.  </br>
+Tecnología: .NET `HttpClient` + `System.Text.Json`</br>
 
 | Metodo | Descripcion |
 |---|---|
 | `dispatchAlert(incidentId, elderlyUserId, location, channels)` | Construye payload JSON, anade JWT interno y ejecuta `POST /internal/notifications/dispatch` con timeout controlado |
 
-###### `IamServiceClientImpl`
-**Proposito:** Implementacion de `IIamServiceClient` para validar relacion activa entre Cuidador y Adulto Mayor.  
-**Tecnologia:** .NET `HttpClient`
+ `IamServiceClientImpl`</br>
+Propósito: Implementacion de `IIamServiceClient` para validar relacion activa entre Cuidador y Adulto Mayor.  </br>
+Tecnología: .NET `HttpClient`</br>
 
 | Metodo | Descripcion |
 |---|---|
 | `getCareRelationship(elderlyUserId, caregiverId)` | `GET /internal/iam/care-relationships?elderlyUserId=X&caregiverId=Y` |
 | `validateToken(jwt)` | `POST /internal/iam/validate-token` para identidad en llamadas internas |
 
-##### Background Jobs
+**Background Jobs**</br>
+ `IncidentEscalationJob`</br>
+Propósito: Job periodico (por defecto cada 30 s) para detectar incidentes activos no atendidos y disparar escalacion.  
+Tecnología: .NET `IHostedService` / `BackgroundService`</br>
 
-###### `IncidentEscalationJob`
-**Proposito:** Job periodico (por defecto cada 30 s) para detectar incidentes activos no atendidos y disparar escalacion.  
-**Tecnologia:** .NET `IHostedService` / `BackgroundService`
-
-**Flujo:**
+Flujo:
 1. Consulta incidentes con estado `NOTIFIED` o `ESCALATED`.
 2. Para cada incidente activo, invoca `EscalateIncidentCommandHandler`.
 3. El handler aplica reglas de dominio para escalar o detener.
 
-##### Database Configuration
+ **Database Configuration**</br>
 
-###### `EmergencyDbContext`
-**Proposito:** Extiende `DbContext` de EF Core y configura mappings, constraints e indices del BC.
+ `EmergencyDbContext`</br>
+Propósito: Extiende `DbContext` de EF Core y configura mappings, constraints e indices del BC.</br>
 
-**Tablas gestionadas:**
+Tablas gestionadas:
 
 | Tabla | Entidad mapeada | Constraints destacadas |
 |---|---|---|
@@ -3179,7 +3122,7 @@ Esta capa provee implementaciones concretas para persistencia en MySQL, comunica
 | `device_heartbeats` | `DeviceHeartbeat` | PK `heartbeat_id`, indice unico sobre `device_id`, validacion logica de `elderly_user_id` |
 | `alert_configurations` | `AlertConfiguration` | PK `config_id`, indice unico sobre `elderly_user_id`, `CHECK escalation_delay_seconds > 0` |
 
----
+
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -3207,12 +3150,12 @@ Este ERD define la persistencia MySQL para incidentes, heartbeat del dispositivo
 
 #### 4.2.5.1. Domain Layer
 
-Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo modela canales, plantillas y registros de envio.
+Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo modela canales, plantillas y registros de envio. </br>
 
-##### Entities
+ **Entities**</br>
 
-###### `NotificationLog`
-**Proposito:** Aggregate Root que representa el rastro de una notificacion enviada. Es clave para auditoria y trazabilidad operacional.
+ `NotificationLog`</br>
+Propósito: Aggregate Root que representa el rastro de una notificacion enviada. Es clave para auditoria y trazabilidad operacional.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -3224,13 +3167,17 @@ Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo
 | `errorMessage` | `string?` | private | Motivo tecnico de fallo cuando el envio no se completa |
 | `sentAt` | `DateTime` | private | Marca de tiempo del intento de envio |
 
+</br>
+
 | Metodo | Retorno | Scope | Descripcion |
 |---|---|---|---|
 | `markAsFailed(reason: string)` | `void` | public | Marca el envio como `FAILED` y registra la razon tecnica |
 | `markAsDelivered()` | `void` | public | Marca el envio como `DELIVERED` cuando el proveedor confirma entrega |
 
-###### `NotificationTemplate`
-**Proposito:** Define plantillas estandarizadas para mantener consistencia de mensajes entre canales.
+</br>
+
+ `NotificationTemplate`</br>
+Propósito: Define plantillas estandarizadas para mantener consistencia de mensajes entre canales.</br>
 
 | Atributo | Tipo | Scope | Descripcion |
 |---|---|---|---|
@@ -3238,10 +3185,13 @@ Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo
 | `type` | `NotificationTemplateType` | private | Tipo de plantilla: `FALL_ALARM`, `LOW_BATTERY` |
 | `bodyTemplate` | `string` | private | Cuerpo parametrizable del mensaje a enviar |
 
-##### Value Objects
 
-###### `NotificationChannel`
-**Proposito:** Enumeracion de canales soportados por el BC de notificaciones.
+</br>
+
+ **Value Objects**</br>
+
+ `NotificationChannel`</br>
+Propósito: Enumeracion de canales soportados por el BC de notificaciones.</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -3249,8 +3199,8 @@ Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo
 | `VOICE_CALL` | Llamada automatizada de voz |
 | `PUSH_NOTIFICATION` | Notificacion push a app movil |
 
-###### `DeliveryStatus`
-**Proposito:** Enumeracion del estado de entrega de una notificacion.
+ `DeliveryStatus`</br>
+Propósito: Enumeracion del estado de entrega de una notificacion.</br>
 
 | Valor | Descripcion |
 |---|---|
@@ -3259,10 +3209,12 @@ Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo
 | `FAILED` | Fallo de envio |
 | `DELIVERED` | Confirmada como entregada |
 
-##### Repository Interfaces
+</br>
 
-###### `INotificationLogRepository`
-**Proposito:** Abstraccion de persistencia para el historial de notificaciones disparadas por incidentes y eventos operativos.
+ **Repository Interfaces**</br>
+
+ `INotificationLogRepository`</br>
+Propósito: Abstraccion de persistencia para el historial de notificaciones disparadas por incidentes y eventos operativos.</br>
 
 | Metodo | Retorno | Descripcion |
 |---|---|---|
@@ -3270,33 +3222,31 @@ Define el lenguaje de mensajeria del BC. Esta capa no conoce Twilio ni FCM; solo
 | `findByIncidentId(incidentId: IncidentId)` | `List<NotificationLog>` | Retorna logs asociados al incidente |
 | `findFailedByIncidentId(incidentId: IncidentId)` | `List<NotificationLog>` | Retorna solo intentos fallidos para analisis o reintento |
 
----
 
 #### 4.2.5.2. Interface Layer
 
-Este BC es de consumo interno entre microservicios. Expone endpoints privados para despacho de alertas.
+Este BC es de consumo interno entre microservicios. Expone endpoints privados para despacho de alertas.</br>
 
-##### `InternalNotificationController`
-**Proposito:** Recibe solicitudes internas de envio y delega de inmediato a la capa de aplicacion.
+ `InternalNotificationController`</br>
+Propósito: Recibe solicitudes internas de envio y delega de inmediato a la capa de aplicacion.</br>
 
 | Metodo HTTP | Endpoint | Handler delegado | Descripcion |
 |---|---|---|---|
 | `POST` | `/internal/notifications/dispatch` | `DispatchAlertCommandHandler` | Solicita despacho de alertas por los canales indicados |
 
----
+
 
 #### 4.2.5.3. Application Layer
 
-Orquesta el envio multiplataforma de alertas y la actualizacion del estado de entrega por canal.
+Orquesta el envio multiplataforma de alertas y la actualizacion del estado de entrega por canal.</br>
 
-##### Command Handlers
+ **Command Handlers**</br>
 
-###### `DispatchAlertCommandHandler`
-**Proposito:** Coordina el envio de notificaciones a multiples proveedores y consolida trazabilidad por cada canal.
+ `DispatchAlertCommandHandler`</br>
+Propósito: Coordina el envio de notificaciones a multiples proveedores y consolida trazabilidad por cada canal.</br>
+Command: `DispatchAlertCommand { incidentId, userId, channels, templateType, payload }`
 
-**Command:** `DispatchAlertCommand { incidentId, userId, channels, templateType, payload }`
-
-**Flujo:**
+Flujo:
 1. Recibe la lista de canales activos para el usuario.
 2. Para cada canal, crea un `NotificationLog` con estado inicial `PENDING`.
 3. Resuelve la `NotificationTemplate` correspondiente al tipo de alerta.
@@ -3304,46 +3254,48 @@ Orquesta el envio multiplataforma de alertas y la actualizacion del estado de en
 5. Actualiza cada `NotificationLog` como `SENT`, `DELIVERED` o `FAILED` segun la respuesta del proveedor.
 6. Persiste los resultados via `INotificationLogRepository`.
 
----
+
 
 #### 4.2.5.4. Infrastructure Layer
 
-Implementa integraciones concretas con servicios de terceros para SMS, llamadas y push notifications.
+Implementa integraciones concretas con servicios de terceros para SMS, llamadas y push notifications. </br>
 
-##### Provider Implementations
+ **Provider Implementations** </br>
 
-###### `TwilioSmsProvider`
-**Proposito:** Implementacion para envio de SMS de emergencia con contexto del incidente.  
-**Tecnologia:** Twilio REST API.
+ `TwilioSmsProvider` </br>
+Propósito: Implementacion para envio de SMS de emergencia con contexto del incidente.  </br>
+Tecnología: Twilio REST API. </br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Construye mensaje final a partir de plantilla y payload (ubicacion, hora, severidad).
 - Ejecuta envio via API de Twilio y captura identificador de mensaje.
 - Retorna resultado para actualizar `NotificationLog`.
 
-###### `TwilioVoiceProvider`
-**Proposito:** Implementacion para llamadas de voz automatizadas en incidentes criticos.  
-**Tecnologia:** Twilio Voice API + texto a voz.
+ `TwilioVoiceProvider` </br>
+Propósito: Implementacion para llamadas de voz automatizadas en incidentes criticos. </br> 
+Tecnología: Twilio Voice API + texto a voz.</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Genera script de voz usando plantilla y variables del incidente.
 - Dispara llamada saliente al telefono configurado del Cuidador.
 - Retorna estado tecnico de llamada para trazabilidad.
 
-###### `FirebasePushProvider`
-**Proposito:** Implementacion para envio de push notifications a la app movil del Cuidador.  
-**Tecnologia:** Firebase Cloud Messaging (FCM).
+ `FirebasePushProvider`</br>
+Propósito: Implementacion para envio de push notifications a la app movil del Cuidador.  </br>
+Tecnología: Firebase Cloud Messaging (FCM).</br>
 
-**Detalle de implementacion:**
+Detalle de implementación:
 - Construye payload push con datos clave del incidente.
 - Publica mensaje al token/dispositivo registrado en FCM.
 - Devuelve confirmacion o error para auditoria en logs.
 
-Persistence Implementations
+</br>
 
-`NotificationLogRepositoryImpl`
-**Proposito:** Implementacion concreta de `INotificationLogRepository`.  
-**Tecnologia:** .NET + Entity Framework Core + MySQL.
+**Persistence Implementations**</br>
+
+`NotificationLogRepositoryImpl`</br>
+Propósito: Implementacion concreta de `INotificationLogRepository`.  </br>
+Tecnología: .NET + Entity Framework Core + MySQL.</br>
 
 | Metodo | Descripcion de implementacion |
 |---|---|
@@ -3351,12 +3303,14 @@ Persistence Implementations
 | `findByIncidentId(incidentId)` | Query por `incident_id` ordenada por `sent_at DESC` |
 | `findFailedByIncidentId(incidentId)` | Query por `incident_id` y `status = FAILED` |
 
-##### Database Configuration
+</br>
 
-###### `NotificationsDbContext`
-**Proposito:** Configura mappings ORM para logs y plantillas del BC Notifications.
+ **Database Configuration** </br>
 
-**Tablas gestionadas:**
+ `NotificationsDbContext`</br>
+Propósito: Configura mappings ORM para logs y plantillas del BC Notifications.</br>
+
+Tablas gestionadas:
 
 | Tabla | Entidad mapeada | Constraints destacadas |
 |---|---|---|
