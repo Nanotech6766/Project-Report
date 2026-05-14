@@ -3398,6 +3398,9 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
 ### 5.2.5. Navigation Systems.	
 ## 5.3. Landing Page UI Design.
 ### 5.3.1. Landing Page Wireframe.
+<img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
+<img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="450"/>
+
 ### 5.3.2. Landing Page Mock-up.
 
 <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/>
@@ -3405,6 +3408,25 @@ Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. E
 
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
+
+**Web Wireframes**
+
+
+**Mobile Wireframes**
+
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-1.png" alt="Wireframe mobile 1" width="300"/>
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-2.png" alt="Wireframe mobile 2" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mis Abuelitos-1.png" alt="Wireframe mobile 3" width="300"/>
+
+<img src="img/wireframes/mobile/Foll - Bienvenida y Acceso.png" alt="Wireframe mobile 4" width="300"/>
+
+<img src="img/wireframes/mobile/Foll - Dashboard Principal.png" alt="Wireframe mobile 5" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mis Abuelitos.png" alt="Wireframe mobile 6" width="300"/>
+<img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
+<img src="img/wireframes/mobile/Foll - Historial de Eventos.png" alt="Wireframe mobile 8" width="300"/>
+<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
+
+
 ### 5.4.2. Applications Wireflow Diagrams.
 ### 5.4.3. Applications Mock-ups.
 
