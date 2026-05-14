@@ -3507,6 +3507,18 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 **Web Wireframes**
 
+![Web App Wireframe 1](./img/wireframes/web-app/wireframe-web-1.png)
+
+![Web App Wireframe 2](./img/wireframes/web-app/wireframe-web-2.png)
+
+![Web App Wireframe 3](./img/wireframes/web-app/wireframe-web-3.png)
+
+![Web App Wireframe 4](./img/wireframes/web-app/wireframe-web-4.png)
+
+![Web App Wireframe 5](./img/wireframes/web-app/wireframe-web-5.png)
+
+![Web App Wireframe 6](./img/wireframes/web-app/wireframe-web-6.png)
+
 
 **Mobile Wireframes**
 
@@ -3521,7 +3533,6 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 <img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
 <img src="img/wireframes/mobile/Foll - Historial de Eventos.png" alt="Wireframe mobile 8" width="300"/>
 <img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
-
 
 ### 5.4.2. Applications Wireflow Diagrams.
 ### 5.4.3. Applications Mock-ups.
