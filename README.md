@@ -146,7 +146,7 @@
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
 
 
-**AV1:**
+**TB1:**
 <img src="img/Insights/tb1.png" width="750"/>
 <img src="img/Insights/tb1-1.png" width="750"/>
 <img src="img/Insights/tb1-2.png" width="750"/>
