@@ -4150,7 +4150,14 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 #### 6.2.1.6. Execution Evidence for Sprint Review.	
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.	
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.	
-#### 6.2.1.9. Team Collaboration Insights during Sprint.	
+#### 6.2.1.9. Team Collaboration Insights during Sprint.
+
+La colaboración se gestionó mediante GitHub, registrando los avances a través de commits relacionados con configuración del backend, frontend, implementación de endpoints, documentación Swagger, despliegue y ajustes de estructura.
+Durante el Sprint también se revisó la coherencia entre la implementación y la arquitectura definida en el informe, asegurando que los módulos IAM, Care, Device y Emergency mantengan responsabilidades separadas y que el backend conserve una estructura clara para futuras iteraciones.
+
+<img width="1042" height="812" alt="image" src="https://github.com/user-attachments/assets/b5d45ab2-4654-40dd-ac21-8db454d42918" />
+<img width="1012" height="662" alt="image" src="https://github.com/user-attachments/assets/c4a7255f-7fe6-4d45-93a1-28effd12b7a4" />
+<img width="1037" height="680" alt="image" src="https://github.com/user-attachments/assets/49d73ec4-b454-4e79-844f-e45283fb69ce" />
 
 <div style="page-break-after: always;"></div>
 
