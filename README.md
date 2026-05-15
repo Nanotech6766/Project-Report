@@ -48,7 +48,7 @@
 </div>
 
 <p align="center">
-    <strong>Lima - Abril, 2026</strong>
+    <strong>Lima - Mayo, 2026</strong>
 </p>
 <br>
 
@@ -188,8 +188,8 @@
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
-
-**TB1:**
+</br>
+**TB1:** 
 <img src="img/Insights/tb1.png" width="750"/>
 <img src="img/Insights/tb1-1.png" width="750"/>
 <img src="img/Insights/tb1-2.png" width="750"/>
@@ -303,7 +303,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -1072,10 +1072,10 @@ Un entrevistado señaló algo valioso: la necesidad de un mecanismo para descart
 A continuación, se presentará los 2 user persona de acuerdo al segmento objetivo encontrado:
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona1.png" width=600px>
+<img src="img/needfinding/userpersona1.png" width=750px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/userpersona2.png" width=600px><br>
+<img src="img/needfinding/userpersona2.png" width=750px><br>
 
  <div style="page-break-after: always;"></div>
 
@@ -1219,6 +1219,8 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
 - **Biomechanical Sensor / Sensor Biomecánico [Sensor]:** El chip interno que "siente" hacia dónde se mueve o si se cae el paciente.
 - **Local Audio Alarm / Alarma Local Sonora [Actuador]:** La bocina del cinturón que hace un ruido fuerte para avisar a los que están cerca que el abuelito se cayó.
 - **Confirmation Motor / Motor de Confirmación [Actuador]:** La pieza que hace vibrar el cinturón para preguntarle al paciente: "¿Te caíste?.
+  
+<div style="page-break-after: always;"></div>
 
 # Capítulo III: Requirements Specification
 
@@ -3885,7 +3887,7 @@ En la simulación se utilizó únicamente el sensor MPU6050, debido a que Wokwi 
 
 Finalmente, el prototipo virtual también representa las interfaces físicas principales del dispositivo. El slide switch se conecta al pin 14 para controlar el encendido y apagado de las lecturas, el botón físico se conecta al pin 12 con resistencia interna PULLUP para silenciar manualmente el buzzer en caso de falsa alarma, y el buzzer se conecta al pin 13 para emitir la alerta sonora. La batería LiPo y el módulo TP4056 no fueron incluidos en el circuito virtual porque Wokwi proporciona alimentación continua dentro de la simulación. Por ello, la validación se enfocó principalmente en comprobar el flujo de telemetría, la lógica de detección, la interacción con los controles físicos y la respuesta del actuador sonoro.
 
-<img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
+<img width=460" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
 (https://wokwi.com/projects/463973317008005121)
 <br>
 
