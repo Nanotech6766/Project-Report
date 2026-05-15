@@ -4275,3 +4275,16 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
 - [Link de las entrevistas segmento 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
+
+- Link de la Landing Page
+https://foll-project.github.io/landing-page-foll/
+- Link de la Aplicación Web
+https://agreeable-dune-02d763510.7.azurestaticapps.net/
+- Link del Swagger
+https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html
+
+- Link del Figma 
+https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1
+
+- Link del Prototipo en Wokwi
+https://wokwi.com/projects/463973317008005121
