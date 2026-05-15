@@ -188,11 +188,12 @@
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
-</br>
-**TB1:** 
-<img src="img/Insights/tb1.png" width="750"/>
-<img src="img/Insights/tb1-1.png" width="750"/>
-<img src="img/Insights/tb1-2.png" width="750"/>
+
+
+**TB1:** </br>
+<img src="img/Insights/tb1.png" width="700"/>
+<img src="img/Insights/tb1-1.png" width="700"/>
+<img src="img/Insights/tb1-2.png" width="700"/>
 
  <div style="page-break-after: always;"></div>
 
@@ -515,7 +516,6 @@ Consolidarnos como la plataforma de cuidado preventivo más confiable de la regi
 ## 1.2. Solution Profile
  
 ### 1.2.1. Antecedentes y problemática
-
 El envejecimiento trae consigo un aumento en la vulnerabilidad y la pérdida de autonomía de los adultos mayores, siendo las caídas accidentales uno de los riesgos físicos más graves para su salud. Nos dimos cuenta de la verdadera magnitud de este problema a través de los reportes del Ministerio de Salud (MINSA, 2018), los cuales indican que uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, ocurriendo el 60% de estos accidentes dentro de su propio hogar. A esta situación se suma un factor crítico revelado por el Instituto Nacional de Estadística e Informática (Andina, 2025): actualmente, uno de cada cuatro adultos mayores en el Perú vive completamente solo, lo que eleva drásticamente su nivel de desprotección diaria. Esta realidad genera una dependencia crítica hacia el entorno familiar o médico, ya que la seguridad del paciente queda estrictamente condicionada a la supervisión constante de un tercero.
 
 En este contexto, surge como antecedente directo la incompatibilidad entre la necesidad de este cuidado constante y las dinámicas de vida actuales, donde las responsabilidades laborales y personales impiden a los cuidadores mantener una vigilancia presencial ininterrumpida. De esta limitación surge la problemática central de nuestra proyecto: la ausencia de asistencia inmediata cuando el factor humano no está disponible. Si una caída ocurre mientras el paciente está solo, el tiempo para detectar el accidente y solicitar auxilio se retrasa drásticamente, agravando de forma severa el pronóstico de las lesiones. Es frente a esta urgencia de cubrir la brecha de supervisión mediante sistemas como Foll que se hace indispensable profundizar en el contexto de esta situación; por ello, a continuación se detallan y estructuran los antecedentes y el análisis específico de esta problemática.
@@ -1171,10 +1171,10 @@ A continuación, se presentan los User Journey Maps creados para cada perfil de 
 A continuación, se mostrarán los Empathy Mapping creados para cada perfil de usuario identificado en nuestros dos segmentos objetivo. Estos mapas nos ayudarán a comprender mejor a nuestros clientes y, así, optimizar la aplicación.
 
 <strong>Segmento #1 - Adultos mayores:</strong><br>
-<img src="img/needfinding/empathymap1.png" width=700px>
+<img src="img/needfinding/empathymap1.png" width=500px>
 <br><br>
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
-<img src="img/needfinding/empathymap2.png" width=700px><br>
+<img src="img/needfinding/empathymap2.png" width=500px><br>
 
 ## 2.4. Big Picture EventStorming
 
@@ -4321,7 +4321,7 @@ Durante la iteración se logró:
 ![Landing page screenshot](img/evidence-sprint-1/landing.png)
 *Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión.*
 
-![MQTT broker screenshot](img/evidence-sprint-1/mqtt-broker.png)
+![MQTT broker screenshot](img/evidence-sprint-1/mqtt broker.png)
 *Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT.*
 
 ![FastAPI backend screenshot](img/evidence-sprint-1/backend.png)
@@ -4401,13 +4401,9 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 
 # Bibliografía
 
--Agencia Peruana de Noticias Andina. (2025). INEI en Lima Metropolitana: uno de cada cuatro adulto mayor vive solo. https://andina.pe/agencia/noticia-inei-lima-metropolitana-uno-cada-cuatro-adulto-mayor-vive-solo-1023716.aspx
-
 - Castillo Paulino, L. C. (2024). Capacidad funcional y riesgo de caídas en pacientes adultos mayores Essalud, Lima 2024 [Tesis de licenciatura, Universidad Wiener]. Repositorio Uwiener. https://repositorio.uwiener.edu.pe/entities/publication/3f46152a-5dd7-4a2d-af0f-8471d59edaa9
 
 - Minsa. (2026, marzo 9). Minsa brinda recomendaciones para prevenir caídas en adultos mayores. Ministerio de Salud del Perú. https://www.gob.pe/institucion/minsa/noticias/1362772-minsa-brinda-recomendaciones-para-prevenir-caidas-en-adultos-mayores
-
-- Ministerio de Salud. (2018). Uno de cada tres adultos mayores de 65 años sufre una caída. Plataforma digital única del Estado Peruano. https://www.gob.pe/institucion/minsa/noticias/23629-uno-de-cada-tres-adultos-mayores-de-65-anos-sufre-una-caida
 
 - Superintendencia Nacional de Salud. (2023). Boletín Estadístico 2023. SUSALUD – Gobierno del Perú. https://www.gob.pe/institucion/susalud/informes-publicaciones/4595872-boletin-estadistico-2023
 
