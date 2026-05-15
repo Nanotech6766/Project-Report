@@ -4147,6 +4147,41 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 #### 6.2.1.3. Sprint Backlog 1.	
 #### 6.2.1.4. Development Evidence for Sprint Review.	
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review.	
+
+En esta sección se presenta la evidencia de las pruebas realizadas durante el Sprint para validar el correcto funcionamiento de los principales servicios del backend del sistema Foll. Las pruebas se enfocaron en validar reglas de dominio, servicios de aplicación e integración con persistencia, principalmente en los módulos de usuarios, pacientes e incidentes de emergencia por detección de caída.
+
+<br>
+
+- **Relación de tests diseñados**
+
+| Test | Tipo de prueba | User Story relacionada | Descripción |
+|---|---|---|---|
+| `CreateFallDetected_ValidData` | Unit Test | US12 - Recepción de alerta remota / TS03 - Endpoint de persistencia | Crea un `EmergencyIncident` con datos válidos. Verifica el estado inicial y que se registre el evento de dominio `Opened`. |
+| `CreateFallDetected_InvalidDeviceId` | Unit Test | US10 - Vinculación del cinturón / TS03 - Endpoint de persistencia | Intenta crear un incidente con `deviceId` inválido. Verifica que lance `ArgumentOutOfRangeException`. |
+| `Resolve_OpenIncident` | Unit Test | US13 - Confirmación de auxilio | Resuelve un incidente abierto, normaliza la observación y verifica el cambio de estado junto con el evento `Resolved`. |
+| `Resolve_ClosedIncident` | Unit Test | US13 - Confirmación de auxilio | Intenta resolver un incidente ya cerrado. Verifica que lance `InvalidOperationException`. |
+| `CreatePatient_ValidRelationshipType` | Unit Test | US06 - Creación de perfil de paciente | Crea un paciente cuando el `RelationshipType` existe. Verifica que se llame a `AddAsync` y `CompleteAsync`. |
+| `CreatePatient_InvalidRelationshipType` | Unit Test | US06 - Creación de perfil de paciente | Intenta crear un paciente con `RelationshipTypeId` inexistente. Verifica que lance `InvalidOperationException` y no guarde datos. |
+| `RegisterUser_EmailDoesNotExist` | Unit Test | US05 - Creación de cuenta cuidador | Registra un usuario cuando el email no existe. Verifica el guardado, el hash de contraseña y la confirmación de la transacción. |
+| `RegisterUser_EmailAlreadyExists` | Unit Test | US05 - Creación de cuenta cuidador | Intenta registrar un usuario con email existente. Verifica que lance excepción y no ejecute guardado ni commit. |
+| `RegisterUser_Integration` | Integration Test | US05 - Creación de cuenta cuidador | Prueba completa de registro usando EF Core InMemory, repositorios reales y BCrypt real. Verifica persistencia y hash BCrypt. |
+| `UserConstructor_ValidData` | Unit Test | US05 - Creación de cuenta cuidador | Crea un `User` con datos válidos. Verifica normalización de datos y asignación de `CreatedAt`. |
+| `UserConstructor_EmptyEmail` | Unit Test | US05 - Creación de cuenta cuidador | Intenta crear un `User` con email vacío. Verifica que lance `ArgumentException` con `ParamName = "email"`. |
+
+
+- **Commits relacionados con Testing**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `wiwi57050/foll-backend` | `test` | `9a3f2b1` | `test: add emergency incident domain tests` | Se agregaron pruebas unitarias para validar la creación de incidentes por caída, el estado inicial del incidente y el registro del evento de dominio `Opened`. | 09/05/2026 |
+| `wiwi57050/foll-backend` | `test` | `b71c8e4` | `test: validate emergency incident error scenarios` | Se implementaron pruebas para validar errores al crear incidentes con `deviceId` inválido y al intentar resolver incidentes ya cerrados. | 10/05/2026 |
+| `wiwi57050/foll-backend` | `test` | `c42d9f6` | `test: add patient command service tests` | Se agregaron pruebas para el servicio de creación de pacientes, validando escenarios con `RelationshipType` válido e inválido. | 11/05/2026 |
+| `wiwi57050/foll-backend` | `test` | `e58a1d0` | `test: add user registration service tests` | Se implementaron pruebas unitarias para el registro de usuarios, validando emails nuevos, emails duplicados, guardado y hash de contraseña. | 12/05/2026 |
+| `wiwi57050/foll-backend` | `test` | `f93b6a7` | `test: add user integration test with in memory database` | Se agregó una prueba de integración para el registro de usuarios usando EF Core InMemory, repositorios reales y BCrypt real. | 13/05/2026 |
+| `wiwi57050/foll-backend` | `test` | `a16e4c9` | `test: add user entity validation tests` | Se añadieron pruebas para validar la creación de la entidad `User`, la normalización de datos y el manejo de email vacío. | 13/05/2026 |
+
+<br>
+
 #### 6.2.1.6. Execution Evidence for Sprint Review.	
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.	
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.	
