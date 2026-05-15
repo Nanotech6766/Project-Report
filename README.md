@@ -4219,8 +4219,6 @@ Para este Sprint se definieron aspectos clave relacionados con la entrega de val
 #### 6.2.1.3. Sprint Backlog 1.	
 El objetivo principal del Sprint 1 fue consolidar la base técnica del sistema Foll, entregando la presencia web inicial, la primera versión de la aplicación de cuidadores, los servicios backend y el prototipo IoT para captura de telemetría y GPS.
 
-![Sprint 1 Board](img/evidence-sprint-1/sprint1-board.png)
-
 Board URL: https://trello.com/b/0wcO99Dl/foll-product-backlog
 
 | Sprint # | User Story | Work-Item / Task Id | Title | Description | Estimation (Hours) | Assigned To | Status (To-do / InProcess / ToReview / Done) |
@@ -4316,7 +4314,7 @@ Durante la iteración se logró:
 ![Landing page screenshot](img/evidence-sprint-1/landing.png)
 *Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión.*
 
-![MQTT broker screenshot](img/evidence-sprint-1/mqtt broker.png)
+![MQTT broker screenshot](img/evidence-sprint-1/mqtt-broker.png)
 *Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT.*
 
 ![FastAPI backend screenshot](img/evidence-sprint-1/backend.png)
