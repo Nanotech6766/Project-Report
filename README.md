@@ -359,17 +359,32 @@
             <td style="padding: 10px;">
                 <p><strong>Ariana Agreda</strong><br> <strong>AV1:</strong><br>
                 Durante el desarrollo del proyecto, asumí el liderazgo en la definición y validación del problema. Al encargarme del Lean UX Process y el Needfinding (elaborando los User Personas, Empathy Mapping y Journey Mapping), tomé la iniciativa de guiar al equipo en la comprensión profunda del usuario. Esto permitió sentar bases sólidas para el Startup y Solution Profile, orientando las decisiones del equipo hacia una solución con verdadero valor.</p>
+				<strong>TB1:</strong><br>
+Durante esta etapa del proyecto, asumí el liderazgo en la definición visual y funcional de la experiencia de usuario. Mi participación se centró en el desarrollo de los Style Guidelines, los wireframes, los wireflow diagrams y el prototipado de la aplicación. Además, contribuí en la configuración del entorno de desarrollo y en la implementación del frontend, permitiendo que el equipo mantuviera una línea visual coherente y una estructura clara para la construcción del producto.
+</p>
                 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
                 Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
+	 <strong>TB1:</strong><br>
+				Lideré el diseño de la Landing Page UI Design, desarrollando los wireframes y mock-ups necesarios para representar visualmente la propuesta del producto. Asimismo, trabajé junto con Ariana en el diseño de los mock-ups de la aplicación, aportando en la organización visual, la consistencia de interfaces y la presentación de una experiencia más clara para los usuarios. Mi liderazgo permitió fortalecer la comunicación visual del proyecto.
+</p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
+	 	 <strong>TB1:</strong><br>
+Asumí el liderazgo en el IoT Device Design y en el desarrollo técnico relacionado con la implementación del producto. Además, participé en la corrección de los diagramas de clases y en el trabajo del backend, asegurando que la solución mantuviera coherencia entre el diseño técnico y la lógica del sistema. Mi aporte permitió reforzar la parte técnica del proyecto y apoyar al equipo en la validación de la arquitectura propuesta.</p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
+	 	 	 <strong>TB1:</strong><br>
+Lideré la revisión y mejora de los diagramas C4, además de participar en la documentación técnica relacionada con los servicios, el despliegue del software y los insights de colaboración del equipo durante el sprint. Mi responsabilidad se enfocó en asegurar que la arquitectura del sistema estuviera correctamente representada y que la documentación reflejara de manera clara el trabajo realizado por el equipo.</p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
+	 <strong>TB1:</strong><br>
+Actué como líder en la organización de la arquitectura de información y en la gestión de configuración del software. Desarrollé los apartados de Organization Systems, Labeling Systems, SEO Tags, Searching Systems y Navigation Systems, además de documentar aspectos como Source Code Management, Source Code Style Guide y Software Deployment Configuration. Mi aporte permitió ordenar la estructura del producto y establecer criterios claros para su desarrollo y mantenimiento.</p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
+				
+<strong>TB1:</strong><br>
+                Como equipo, demostramos liderazgo conjunto al distribuir responsabilidades según las fortalezas de cada integrante y coordinar los avances de diseño, arquitectura, implementación y documentación. Cada miembro asumió el liderazgo de un área específica, pero las decisiones se integraron de forma colaborativa para mantener una visión común del producto. Esta forma de trabajo permitió avanzar de manera organizada, resolver ajustes técnicos y visuales, y consolidar una entrega más completa y coherente.
             </td>
         </tr>
                 <tr>
@@ -377,17 +392,36 @@
             <td style="padding: 10px;">
                 <p><strong>Ariana Agreda</strong><br> <strong>AV1:</strong><br>
                 Para fomentar la colaboración, socialicé activamente los hallazgos del Lean UX Process con todo el equipo. Planifiqué las metas de validación estructurando los Problem y Hypothesis Statements, asegurándome de que todos los miembros comprendieran los antecedentes y la problemática, manteniendo un entorno donde las ideas de todos enriquecieran el diseño de la solución.</p>
+				<strong>TB1:</strong><br>
+				Durante esta etapa, contribuí a crear un entorno colaborativo desde el diseño UX/UI del producto, trabajando en los Style Guidelines, wireframes, wireflow diagrams y prototipado de la aplicación. Estas tareas permitieron establecer una guía visual común para que el equipo pudiera avanzar con mayor orden y coherencia. Además, al participar en la configuración del entorno y en el frontend, aporté al cumplimiento de los objetivos técnicos y visuales definidos para la entrega.
+                </p>
                 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
                 Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
+	 <strong>TB1:</strong><br>
+Participé activamente en la planificación y desarrollo del diseño de la landing page, elaborando sus wireframes y mock-ups. También colaboré con Ariana en los mock-ups de la aplicación, manteniendo una comunicación constante para asegurar que las decisiones visuales fueran consistentes. Mi aporte ayudó a que el equipo mantuviera una línea gráfica clara y cumpliera con las metas relacionadas al diseño de interfaces.
+ </p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
+	 	 <strong>TB1:</strong><br>
+Contribuí al entorno colaborativo desde el desarrollo técnico del proyecto, apoyando en el IoT Device Design, la corrección de diagramas de clases y el desarrollo del backend. Estas actividades permitieron conectar mejor la parte visual, arquitectónica y funcional del sistema. Además, organicé parte de las evidencias del sprint, lo que ayudó al equipo a documentar el avance y verificar el cumplimiento de los objetivos establecidos.
+ </p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
+	 	 	 <strong>TB1:</strong><br>
+Aporté a la planificación y mejora del trabajo técnico mediante la corrección de los diagramas C4 y la documentación de evidencias relacionadas con servicios, despliegue y colaboración del equipo. Mi participación permitió ordenar la representación arquitectónica del sistema y facilitar que los demás integrantes comprendieran mejor la estructura técnica del proyecto. Esto contribuyó a un trabajo más coordinado y orientado al cumplimiento de la entrega.
+ </p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
+	 	 	 <strong>TB1:</strong><br>
+Colaboré en la organización del producto mediante el desarrollo de la arquitectura de información y la documentación de la configuración del software. Al trabajar los apartados de Organization Systems, Labeling Systems, Navigation Systems, Source Code Management y Software Deployment Configuration, ayudé a establecer una estructura clara para el proyecto. Esto permitió que el equipo tuviera una mejor base para planificar tareas, dividir responsabilidades y cumplir los objetivos técnicos de la entrega.
+
+ </p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
+
+<strong>TB1:</strong><br>
+Como equipo, logramos crear un entorno colaborativo e inclusivo al distribuir las tareas de acuerdo con las fortalezas de cada integrante y mantener una coordinación constante durante el desarrollo de la entrega. Se establecieron metas claras para las áreas de diseño, arquitectura, implementación y documentación, lo que permitió avanzar de manera ordenada. Gracias a esta planificación conjunta, cada integrante pudo aportar desde su especialidad y el equipo logró cumplir los objetivos propuestos de forma organizada y coherente.
             </td>
         </tr>
     </tbody>
