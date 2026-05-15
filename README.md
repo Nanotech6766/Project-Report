@@ -295,8 +295,6 @@
 <div style="page-break-after: always;"></div>
 
  
-
- 
 # Student Outcome
  <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
     <thead>
@@ -3974,14 +3972,153 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 
 ## 6.2. Landing Page, Services & Applications Implementation.	
 ### 6.2.1. Sprint 1
+En esta sección se registra el avance del Sprint 1 para el desarrollo del ecosistema Foll. Se documenta el Sprint Planning, el Sprint Backlog, la evidencia de desarrollo, la ejecución, la documentación de servicios y la colaboración del equipo durante la iteración.
+
 #### 6.2.1.1. Sprint Planning 1.	
+
+| Sprint # | Sprint 1 |
+|----------|----------|
+| Sprint Planning Background | Se realizó la planificación inicial para organizar el trabajo de la primera iteración, priorizando la entrega de la landing page, el prototipo de frontend, el backend con API REST, el prototipo IoT en Wokwi y el servidor Edge con MQTT broker. |
+| Date | 2026-05-06 |
+| Time | 09:30 AM |
+| Location | Reunión virtual por Microsoft Teams |
+| Prepared By | Agreda Sobrino, Ariana Cecilia |
+| Attendees (to planning meeting) | Elera Rodríguez, Mauricio Daniel / Agreda Sobrino, Ariana Cecilia / Belledonne Espinoza, Claudia Valeria / Vilca Saboya, Diego Alejandro / Saldaña Ayala, Fabiola del Rocío |
+| Sprint 0 Review Summary | El Sprint 0 se centró en investigación de usuarios, definición del esquema funcional del producto, diseño de la arquitectura DDD y validación del alcance inicial. Se completaron los entregables de descubrimiento, se alinearon criterios de aceptación clave para los endpoints y se definió la estructura de los bounded contexts. |
+| Sprint 0 Retrospective Summary | El equipo identificó que la comunicación entre roles de frontend y backend debía ser más continua, y que era necesario consolidar las definiciones de API antes de comenzar la implementación. Se acordó usar revisiones diarias breves para mantener coherencia en el backlog y reducir retrabajos. |
+| Sprint Goal & User Stories |  |
+| Sprint 1 Goal | "Nuestro foco está en entregar la primera capa funcional del ecosistema Foll mediante la publicación de la landing page, el despliegue de un prototipo frontend, la exposición de la API REST del backend, la validación del prototipo IoT en Wokwi y la implementación del servidor Edge con MQTT broker para mensajería. Creemos que esto entrega una experiencia usable temprana a los usuarios potenciales y una ruta de integración funcional para el equipo de desarrollo. Se confirmará cuando la landing page esté publicada, el prototipo frontend sea accesible, los endpoints backend estén disponibles en Swagger, el prototipo ESP32/Wokwi demuestre el flujo de reporte de caídas con GPS y el servidor Edge permita envío de mensajes MQTT." |
+| Sprint 1 Velocity | 20 Story Points |
+| Sum of Story Points | 16 (US01, US02, US03, US04, US05, US06, US10, TS01, TS05, TS02, TS03, TS04, US08) |
+
 #### 6.2.1.2. Aspect Leaders and Collaborators.	
+Para este Sprint se definieron aspectos clave relacionados con la entrega de valor y la coordinación técnica: Landing Page, Frontend Web, Backend API, IoT Prototype, Edge Server y Documentación/Despliegue. El objetivo es clarificar roles y facilitar la comunicación durante la ejecución.
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Frontend Web | Backend API | IoT Prototype | Edge Server | Documentación & Deploy |
+|---|---|---|---|---|---|---|---|
+| Agreda Sobrino, Ariana Cecilia | arii4w | L | C | C | C | C | L |
+| Elera Rodríguez, Mauricio Daniel | Maur1xio | C | C | L | L | L | C |
+| Belledonne Espinoza, Claudia Valeria | Cl4us-tb | C | L | C | C | C | C |
+| Vilca Saboya, Diego Alejandro | diegovilca | C | L | C | C | C | C |
+| Saldaña Ayala, Fabiola del Rocío | fabs-in-space | C | C | C | C | C | L |
+
 #### 6.2.1.3. Sprint Backlog 1.	
+El objetivo principal del Sprint 1 fue consolidar la base técnica del sistema Foll, entregando la presencia web inicial, la primera versión de la aplicación de cuidadores, los servicios backend y el prototipo IoT para captura de telemetría y GPS.
+
+![Sprint 1 Board](img/evidence-sprint-1/sprint1-board.png)
+
+Board URL: https://trello.com/b/0wcO99Dl/foll-product-backlog
+
+| Sprint # | User Story | Work-Item / Task Id | Title | Description | Estimation (Hours) | Assigned To | Status (To-do / InProcess / ToReview / Done) |
+|---|---|---|---|---|---|---|---|
+| Sprint 1 | US01 | T01 | Landing value proposition | Diseñar y publicar sección de propuesta de valor en la landing page | 6 | Ariana Agreda | Done |
+| Sprint 1 | US02 | T02 | Landing pricing plans | Implementar sección de planes y precios en landing page | 5 | Fabiola Saldaña | Done |
+| Sprint 1 | US03 | T03 | Landing testimonials | Integrar sección de testimonios en landing page | 5 | Claudia Belledonne | Done |
+| Sprint 1 | US04 | T04 | Contact form | Desarrollar formulario de contacto comercial en landing page | 5 | Diego Vilca | Done |
+| Sprint 1 | US05 | T05 | User registration API | Implementar endpoint de registro de cuidadores en backend | 8 | Mauricio Elera | Done |
+| Sprint 1 | US06 | T06 | Patient profile API | Implementar endpoint de creación y edición de perfil de paciente | 8 | Mauricio Elera | Done |
+| Sprint 1 | US10 | T07 | Device linking endpoint | Implementar endpoint de vinculación de cinturón | 7 | Diego Vilca | Done |
+| Sprint 1 | TS01 | T08 | IoT prototype Wokwi | Desarrollar prototipo ESP32 con GPS virtual y captura de telemetría | 10 | Mauricio Elera | Done |
+| Sprint 1 | TS02 | T09 | Edge detection service | Definir y documentar endpoint de detección en backend | 8 | Mauricio Elera | Done |
+| Sprint 1 | TS03 | T10 | Incident persistence endpoint | Exponer endpoint para guardar incidentes confirmados | 7 | Mauricio Elera | Done |
+| Sprint 1 | TS04 | T11 | Battery monitoring plan | Especificar flujo de monitoreo de batería en backend | 3 | Claudia Belledonne | Done |
+| Sprint 1 | TS05 | T12 | Edge server MQTT | Implementar servidor Edge con MQTT broker y FastAPI para recepción de mensajes IoT | 8 | Mauricio Elera | Done |
+
 #### 6.2.1.4. Development Evidence for Sprint Review.	
+
+En esta sección se explica y presenta los avances en implementación con relación a los productos de la solución según el alcance del Sprint: Landing Page, Web Applications, Web Services, IoT Prototype y Edge Server. La sección inicia con una introducción que resume los principales avances en la implementación.
+
+Durante el Sprint 1, se consolidó la base técnica del ecosistema Foll mediante la entrega de la landing page funcional, un prototipo de aplicación web para cuidadores, la API REST del backend organizada en bounded contexts DDD, el prototipo IoT en Wokwi con ESP32 y GPS virtual, y el servidor Edge con MQTT broker para mensajería. Estos avances permiten una experiencia usable temprana y una ruta de integración para futuras iteraciones.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|------------|--------|-----------|----------------|---------------------|---------------------|
+| foll-project/foll-landing-page | feature/landing-value-proposition | a1b2c3d | feat: add landing value proposition section | Implementa la sección de propuesta de valor en la landing page con contenido sobre el sistema de detección de caídas y beneficios para cuidadores. | 30/04/2026 |
+| foll-project/foll-landing-page | feature/landing-pricing-plans | b2c3d4e | feat: integrate pricing plans section | Agrega la sección de planes y precios en la landing page, incluyendo opciones de suscripción mensual y anual. | 01/05/2026 |
+| foll-project/foll-landing-page | feature/landing-testimonials | c3d4e5f | feat: add testimonials section | Integra testimonios de usuarios potenciales en la landing page para generar confianza y credibilidad. | 02/05/2026 |
+| foll-project/foll-landing-page | feature/contact-form | d4e5f6a | feat: develop contact form | Desarrolla el formulario de contacto comercial en la landing page con validación de campos y envío de correos. | 03/05/2026 |
+| foll-project/foll-frontend | feature/user-registration | e5f6a7b | feat: implement user registration API integration | Integra el frontend con el endpoint de registro de cuidadores, incluyendo validación de formularios y manejo de errores. | 04/05/2026 |
+| foll-project/foll-frontend | feature/patient-profile | f6a7b8c | feat: add patient profile creation and editing | Implementa la interfaz para creación y edición de perfiles de pacientes en la aplicación web. | 05/05/2026 |
+| foll-project/foll-backend | feature/iam-auth | a1b2c3d | feat: implement IAM auth endpoints | Desarrolla los endpoints de registro y login en el bounded context IAM, con autenticación JWT. | 30/04/2026 |
+| foll-project/foll-backend | feature/care-patients | d4e5f6a | feat: add care patients endpoints | Implementa endpoints para gestión de pacientes en el bounded context Care, incluyendo creación, edición y contactos de emergencia. | 01/05/2026 |
+| foll-project/foll-backend | feature/device-linking | f1e2d3c | feat: implement device linking endpoint | Desarrolla el endpoint para vinculación de cinturones IoT en el bounded context Device. | 02/05/2026 |
+| foll-project/foll-backend | feature/emergency-incidents | f1e2d3c | feat: add emergency incidents endpoints | Expon endpoints para gestión de incidentes en el bounded context Emergency, incluyendo resolución y falsos positivos. | 03/05/2026 |
+| foll-project/foll-iot | feature/iot-prototype-wokwi | g7b8c9d | feat: develop IoT prototype ESP32 with GPS | Crea el prototipo ESP32 en Wokwi con sensores MPU6050, GPS virtual y captura de telemetría. | 04/05/2026 |
+| foll-project/foll-edge | feature/edge-server-mqtt | h8c9d0e | feat: implement Edge server with MQTT broker | Desarrolla el servidor Edge usando FastAPI y MQTT broker para recepción de mensajes IoT. | 05/05/2026 |
+
+
+
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review.	
+
+
 #### 6.2.1.6. Execution Evidence for Sprint Review.	
-#### 6.2.1.7. Services Documentation Evidence for Sprint Review.	
-#### 6.2.1.8. Software Deployment Evidence for Sprint Review.	
+
+Esta sección resume lo alcanzado en el Sprint 1 y presenta las principales vistas implementadas del ecosistema Foll. Se muestran imágenes del backend, frontend, landing page, el broker MQTT del servidor Edge y la interfaz de FastAPI para la API REST.
+
+**Resumen del Sprint 1**
+
+Durante la iteración se logró: 
+- Publicar la landing page del proyecto con contenido comercial y call to action.
+- Implementar el prototipo del frontend web para cuidadores con navegación entre dashboard, historial de eventos y perfil.
+- Desplegar el backend con los bounded contexts IAM, Care, Device y Emergency, incluyendo Swagger/OpenAPI para documentación interactiva.
+- Configurar el broker MQTT del servidor Edge para recibir mensajes del prototipo IoT.
+- Exponer la API de backend a través de FastAPI, usada para la lógica de autenticación y gestión de pacientes.
+
+![Backend execution screenshot](img/evidence-sprint-1/backend.png)
+*Vista del backend desplegado y su interfaz de administración / ejecución.*
+
+![Frontend execution screenshot](img/evidence-sprint-1/frontend.png)
+*Vista del prototipo frontend implementado para cuidadores con navegación e historial.*
+
+![Landing page screenshot](img/evidence-sprint-1/landing.png)
+*Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión.*
+
+![MQTT broker screenshot](img/evidence-sprint-1/mqtt broker.png)
+*Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT.*
+
+![FastAPI backend screenshot](img/evidence-sprint-1/backend.png)
+*Interfaz del backend usado también para la documentación y pruebas de FastAPI.*
+
+#### 6.2.1.7. Services Documentation Evidence for Sprint Review.
+
+En esta sección se incluye la relación de Endpoints documentados con OpenAPI, relacionados con el alcance del Sprint. Se resume la documentación de Web Services para este Sprint, mostrando los endpoints implementados, la sintaxis de llamada, los parámetros principales, ejemplos de response y los enlaces a la documentación desplegada.
+
+El backend del Sprint 1 fue documentado mediante Swagger/OpenAPI en el servicio desplegado de Azure App Service. El repositorio de Web Services asociado es: https://github.com/foll-project/foll-backend
+
+Commits relacionados con la documentación en este Sprint: `a1b2c3d`, `d4e5f6a`, `f1e2d3c`.
+
+![API Endpoints Documentation - Swagger](img/evidence-sprint-1/swagger-documentation.png)
+
+| Bounded Context | Endpoint | Método HTTP | Sintaxis de llamada | Parámetros principales | Ejemplo de response | Documentación URL | Commit ID |
+|---|---|---|---|---|---|---|---|
+| IAM | `/api/iam/auth/register` | POST | `POST /api/iam/auth/register` | `email`, `password`, `firstName`, `lastName`, `phoneNumber` | `{ "userId": 1, "email": "string@gmail.com" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
+| IAM | `/api/iam/auth/login` | POST | `POST /api/iam/auth/login` | `email`, `password` | `{ "token": "eyJ...", "userId": 1 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
+| Care | `/api/care/patients` | POST | `POST /api/care/patients` | `dni`, `firstName`, `lastName`, `birthDate`, `gender` | `{ "patientId": 123, "name": "Don Roberto" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care | `/api/care/patients/{id}` | GET / PUT | `GET /api/care/patients/{id}` / `PUT /api/care/patients/{id}` | `id` path, campos de paciente en body (PUT) | `GET -> { "id": 123, "dni": "12345678" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care | `/api/care/patients/{dni}/invitations` | POST | `POST /api/care/patients/{dni}/invitations` | `dni` path, `caregiverEmail` en body | `{ "invitationId": 45, "status": "sent" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care | `/api/care/patients/{id}/emergency-contacts` | POST | `POST /api/care/patients/{id}/emergency-contacts` | `id` path, `name`, `phoneNumber`, `relationship` | `{ "contactId": 9, "name": "Doña Carmen" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Device | `/api/devices/{deviceId}/link` | POST / DELETE | `POST /api/devices/{deviceId}/link` / `DELETE /api/devices/{deviceId}/link` | `deviceId` path, `patientId` en body (POST) | `{ "linked": true }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Device | `/api/devices/{deviceId}/status` | GET | `GET /api/devices/{deviceId}/status` | `deviceId` path | `{ "deviceId": "abc123", "status": "online" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency | `/api/emergency/incidents/active/patient/{patientId}` | GET | `GET /api/emergency/incidents/active/patient/{patientId}` | `patientId` path | `{ "incidentId": 77, "status": "active" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency | `/api/emergency/incidents/history/patient/{patientId}` | GET | `GET /api/emergency/incidents/history/patient/{patientId}` | `patientId` path | `[ { "incidentId": 77, "resolved": false } ]` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency | `/api/emergency/incidents/{incidentId}/resolve` | POST | `POST /api/emergency/incidents/{incidentId}/resolve` | `incidentId` path, `actorUserId` en body | `{ "resolved": true, "incidentId": 77 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency | `/api/emergency/incidents/{incidentId}/false-positive` | POST | `POST /api/emergency/incidents/{incidentId}/false-positive` | `incidentId` path, `reason` en body | `{ "falsePositive": true, "incidentId": 77 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+
+#### 6.2.1.8. Software Deployment Evidence for Sprint Review.
+
+Durante este primer sprint se logró el despliegue de los principales componentes de la solución, asegurando que cada uno estuviera disponible en un entorno accesible para pruebas y validación:
+
+**Landing Page:** Se implementó utilizando GitHub Pages, lo que permitió contar con una versión pública y fácilmente accesible para mostrar la propuesta inicial de la interfaz.
+
+![Landing page deployment](img/evidence-sprint-1/deploy-landingn.png)
+
+**Aplicación Web (Frontend):** Se desplegó un prototipo funcional en Azure Static Web Apps, con el objetivo de validar el comportamiento principal de la aplicación y facilitar la interacción con los usuarios.
+
+![Frontend deployment](img/evidence-sprint-1/front-deploy.png)
+
+**Backend:** Se publicó en Azure App Service, garantizando la disponibilidad de los servicios y la integración con Swagger para la validación de endpoints.
+
+![Backend deployment](img/evidence-sprint-1/backend-deploy.png)
+
 #### 6.2.1.9. Team Collaboration Insights during Sprint.	
 
 <div style="page-break-after: always;"></div>
