@@ -193,7 +193,7 @@
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
 
 
-**AV1:**
+**TB1:**
 <img src="img/Insights/tb1.png" width="750"/>
 <img src="img/Insights/tb1-1.png" width="750"/>
 <img src="img/Insights/tb1-2.png" width="750"/>
@@ -1078,6 +1078,9 @@ A continuación, se presentará los 2 user persona de acuerdo al segmento objeti
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
 <img src="img/needfinding/userpersona2.png" width=600px><br>
  
+ <div style="page-break-after: always;"></div>
+
+
 ### 2.3.2. User Task Matrix
 
 Para el análisis de las actividades críticas en el cuidado del adulto mayor, se han identificado tres segmentos clave: el Adulto Mayor, quien busca preservar su integridad física; y el Familiar Cuidador, responsable de la supervisión y respuesta inmediata.
@@ -1137,11 +1140,16 @@ A continuación, se presenta la matriz que evalúa la frecuencia e importancia d
     </tr>
 </table>
 
+</br>
+</br>
+
 <strong>Tareas críticas:</strong> La integridad física y la tranquilidad emocional son las tareas más frecuentes y vitales para ambos segmentos, ya que garantizan autonomía para el mayor y paz mental para el cuidador.
 <br><br>
 <strong>Coincidencias:</strong> Ambos coinciden en la importancia alta de las tareas de emergencia (reacción y traslado); aunque su frecuencia es baja, su ejecución oportuna es fundamental para salvar vidas.
 <br><br>
 <strong>Diferencias:</strong> El registro de historial y la verificación de bienestar presentan la mayor brecha. El cuidador les asigna importancia alta por su rol de supervisión, mientras que el adulto mayor les otorga un nivel medio para evitar ser percibido como una carga o perder su independencia.
+
+</br></br>
 
 ### 2.3.3. User Journey Mapping
 A continuación, se presentan los User Journey Maps creados para cada perfil de usuario definido en nuestros dos segmentos objetivo. Estos mapas permiten visualizar la experiencia actual y los puntos críticos de dolor, fundamentando así el diseño de nuestro prototipo.
@@ -1152,6 +1160,8 @@ A continuación, se presentan los User Journey Maps creados para cada perfil de 
 <strong>Segmento #2 - Cuidadores de Adultos mayores:</strong><br>
 <img src="img/needfinding/journey2.png" width=700px><br>
  
+</br>
+
 ### 2.3.4. Empathy Mapping
 
 A continuación, se mostrarán los Empathy Mapping creados para cada perfil de usuario identificado en nuestros dos segmentos objetivo. Estos mapas nos ayudarán a comprender mejor a nuestros clientes y, así, optimizar la aplicación.
@@ -2198,7 +2208,7 @@ Tablas gestionadas:
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 
-<img src="img/tactical-ddd/iam/component.svg" alt="IAM - Component Level Diagram" width="700"/>
+<img src="img/tactical-ddd/iam/component.svg" alt="IAM - Component Level Diagram" width="650"/>
 
 
 Este diagrama de componentes (C4 Nivel 3) ilustra la arquitectura interna y el flujo de ejecucion del contenedor `IAM Service`. Muestra como el Bounded Context esta descompuesto de forma coherente con los principios de Arquitectura Limpia (`Interface`, `Application`, `Domain` e `Infrastructure`). El diagrama traza el recorrido de las peticiones desde clientes externos (App Movil y Web) hacia los controladores REST, delegando la orquestacion en los command handlers (CQRS), interactuando con las reglas de negocio en agregados de dominio y finalizando con la persistencia en MySQL mediante implementaciones concretas de repositorios.
@@ -2213,7 +2223,8 @@ Este diagrama de clases UML ilustra el modelo conceptual y estructural del domin
  
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-![IAM - Database Design Diagram](./img/tactical-ddd/iam/db.svg)
+<img src="img/tactical-ddd/iam/db.svg" alt="IAM - Database Design Diagram" width="600"/>
+
 
 Este diagrama Entidad-Relacion (ERD) representa el esquema fisico de base de datos relacional (MySQL) para el Bounded Context IAM. Detalla las tablas principales (`USERS`, `DEVICES` y `CARE_RELATIONSHIPS`), sus columnas y tipos de datos. El diagrama destaca llaves primarias (PK), llaves foraneas (FK) y restricciones de unicidad (UK) que garantizan integridad referencial, reflejando como se almacena la relacion entre usuarios, sus dispositivos hardware asignados y sus vinculos de cuidado.
  
@@ -2592,13 +2603,12 @@ Este diagrama de clases UML representa la estructura del codigo de dominio del f
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
-![Embedded Systems - Data Structure Diagram](./img/tactical-ddd/embedded/db-se.svg)
+<img src="img/tactical-ddd/embedded/db-se.svg" alt="Embedded Systems - - Data Structure Diagram" width="400"/>
+
 
 Este diagrama describe la estructura de datos operativa del firmware en memoria volatil, en lugar de un esquema relacional persistente. El ESP32 no almacena historicos: su responsabilidad es capturar mediciones en tiempo real y transmitirlas inmediatamente al Edge. Por ello, el foco del diseno se centra en la composicion de la trama `UDP_TELEMETRY_PAYLOAD`, que empaqueta lecturas inerciales, coordenadas y timestamp en un bloque compacto y eficiente para red local. Esta representacion respalda el objetivo de baja latencia requerido por la deteccion de caidas y por el pipeline de inferencia en el Edge.
 
 ### 4.2.3. Bounded Context: Edge
-
----
 
 #### 4.2.3.1. Domain Layer
 
@@ -2726,6 +2736,8 @@ Flujo:
 3. Para cada evento pendiente, invoca `ICloudSyncService.syncIncident(event)`.
 4. Si la sincronizacion es exitosa, marca el evento como sincronizado y persiste el cambio.
 
+</br>
+</br>
 
 
 #### 4.2.3.4. Infrastructure Layer
@@ -2773,13 +2785,15 @@ Detalle de implementación:
 - Adjunta credenciales de autorizacion (JWT) para la llamada segura.
 - Ejecuta POST al servicio de emergencias en la nube y retorna resultado de sincronizacion.
 
+</br>
+</br>
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
+
 <img src= "img/tactical-ddd/edge/component-edge.svg" alt="Edge - Component Level Diagram" width="650"/>
 
-
-Este diagrama de componentes muestra el flujo concurrente del Edge: ingesta UDP de telemetria, construccion de ventana temporal e inferencia con IA. La respuesta se bifurca en dos caminos: activacion local inmediata del buzzer via UDP (baja latencia) y sincronizacion del incidente hacia la nube por HTTP. Tambien evidencia tolerancia a fallos mediante un worker de reintentos que no bloquea nuevas detecciones.
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3226,13 +3240,13 @@ Este diagrama UML modela la emergencia como un agregado gobernado por `FallIncid
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
-![Emergency Management - Database Design Diagram](./img/tactical-ddd/emergency/db-emer.svg)
+
+<img src= "img/tactical-ddd/emergency/db-emer.svg" alt="Emergency Management - Database Design Diagram" width="550"/>
+
 
 Este ERD define la persistencia MySQL para incidentes, heartbeat del dispositivo y configuracion de alertas. El uso de UUID como clave primaria facilita integracion con datos originados en Edge sin colisiones, mientras los indices priorizan consultas de incidentes activos e historicos recientes. El modelo evita acoplamiento fisico con IAM y mantiene la validacion referencial en capa de aplicacion.
 
 ### 4.2.5. Bounded Context: Notifications
-
----
 
 #### 4.2.5.1. Domain Layer
 
@@ -3427,6 +3441,8 @@ Este diagrama de clases destaca el patron Strategy mediante `INotificationProvid
 
 Este ERD se enfoca en auditoria de envios, no en datos personales del usuario. El BC conserva evidencia de que una alerta fue despachada (`incidentId`, `userId`, canal y estado), manteniendo independencia de datos respecto a IAM. Asi se garantiza trazabilidad operativa y legal incluso si el perfil del usuario cambia o se elimina en otro contexto.
 
+<div style="page-break-after: always;"></div>
+
 # Capítulo V: Solution UI/UX Design
  
 ## 5.1. Style Guidelines.
@@ -3446,18 +3462,21 @@ Nuestro Design System personalizado se basa en los principios de accesibilidad u
 
 A continuación se presentan los colores principales y secundarias que tendrán nuestras interfaces tanto en web y mobile.
 
-![Colores de Foll](img/style-guidelines/colores.png)
+
+<img src= "img/style-guidelines/colores.png" alt="Colores de Foll" width="500"/>
+
 
 *   **Typography:** Se prioriza la legibilidad por encima de la estética pura. Utilizamos la tipografía *Lexend* con pesos bien definidos (Bold para títulos, Regular para cuerpo). Los tamaños de fuente base se han escalado para garantizar que los cuidadores (que también pueden ser personas de edad avanzada) puedan leer sin forzar la vista.
 *   **Spacing & Touch Targets:** Se aplica un sistema de espaciado generoso (múltiplos de 8px). Los botones y áreas interactivas mantienen un tamaño mínimo elevado para evitar el "fat-finger error" (pulsaciones accidentales), algo crucial cuando las manos pueden temblar por el estrés de una emergencia.
 
-![Tipografía de Foll](img/style-guidelines/tipografía.png)
+<img src= "img/style-guidelines/tipografía.png" alt="Tipografía de Foll" width="500"/>
 
 **Botones**
 
 A continuación se presenta los distintos estilos de botones que habrá en la aplicación web y móvil, para que haya un contraste en cuanto a la acción que ejecute el botón.
 
-![Botones de Foll](img/style-guidelines/botones.png)
+<img src= "img/style-guidelines/botones.png" alt="Botones de Foll" width="500"/>
+
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 
@@ -3497,11 +3516,10 @@ A diferencia de las aplicaciones web o móviles, el dispositivo IoT (el cinturó
 
 *   **Integración de Sensores (MPU6050 y GPS):**
     *   Aunque el giroscopio, el acelerómetro y el chip GPS no requieren manipulación directa, la PUI dicta que la carcasa que los contiene debe asegurar su correcta orientación. El diseño exterior del cinturón incluirá marcas táctiles o formas asimétricas que guíen al adulto mayor a colocárselo siempre en la misma posición (alineando correctamente los ejes X, Y, Z del MPU6050 con su centro de gravedad), garantizando así la precisión del algoritmo de IA.
+  
 
 ## 5.2. Information Architecture.
 ### 5.2.1. Organization Systems.
-
-En esta sección se presenta los distintos sistemas de organización que vamos a usar según el tipo de contenido que se presente, con el objetivo de facilitar la comprensión, interacción del usuario en nuestra aplicación web y móvil.
 
 **Organización visual del contenido**  
 
@@ -3516,6 +3534,7 @@ En esta sección se presenta los distintos sistemas de organización que vamos a
 * **Por tópicos o categorías**: Se utilizará cuando el contenido pueda agruparse por temas, facilitando que el usuario encuentre información relacionada a través de menús de navegación como un Bottom Navigation Bar o un SideBar dependiendo de la plataforma.
 
 * **Secuencial**: Se usará cuando el usuario deba seguir un orden lógico para completar una tarea (por ejemplo el proceso de registrar un abuelito), guiándolo pantalla por pantalla para evitar frustraciones.
+  
 
 ### 5.2.2. Labeling Systems.	
 
@@ -3528,6 +3547,7 @@ La interfaz de la aplicación debe ser clara y fácil de usar, con palabras clav
 * Registro de Caídas: Acceso al historial de eventos que incluye la revisión detallada de registro de caídas y alertas del sistema
 
 * Mi Perfil: Acceso a la gestión de información personal y preferencias de seguridad.
+
 
 ### 5.2.3. SEO Tags and Meta Tags	
 
@@ -3565,6 +3585,7 @@ Para el componente móvil de Foll, el posicionamiento (SEO móvil) se rige bajo 
 *   **App Name:** "Foll: Alertas y Cuidado Mayor"
 *   **Short Description:** "Recibe alertas de caídas en tiempo real, verifica el GPS y coordina el rescate médico de tus abuelitos desde tu celular."
 *   **Keywords:** "emergencias médicas, adulto mayor, rastreo GPS, salud, caídas, cuidadores, teleasistencia"
+</br>
 
 ### 5.2.4. Searching Systems.	
 
@@ -3580,8 +3601,6 @@ En el "Registro de Caídas", los usuarios contarán con filtros para segmentar e
 En el "Panel de Inicio", los cuidadores tendrán la posibilidad de elegir entre visualizar las estadísticas mensuales (gráficos de tendencias de riesgo) o el log en vivo de las últimas actualizaciones del hardware (estado de batería del cinturón, último ping de red). Esta acción se realiza mediante pestañas (tabs) de selección simple.
 
 ### 5.2.5. Navigation Systems.	
-
-En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios cuidadores, asegurando interfaces intuitivas que permitan una reacción rápida ante emergencias. Para ello, se han definido las siguientes decisiones de UI:
 
 **Landing Page**
 *   La navegación utiliza scroll vertical continuo, ideal para contar la historia del producto y explicar el funcionamiento del Edge AI.
@@ -3604,11 +3623,20 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ### 5.3.1. Landing Page Wireframe. <img src="img/wireframes/landing/landingpage.png" alt="Mockup landing page" width="650"/>
 <img src="img/wireframes/landing/landingpage2.png" alt="Mockup landing page" width="400"/> 
 
-</br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### 5.3.2. Landing Page Mock-up. <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="650"/> </br>
+### 5.3.2. Landing Page Mock-up. <img src="img/mockups/web/landingpage.png" alt="Mockup landing page" width="600"/> </br>
 <img src="img/mockups/web/landingpagemobile.png" alt="Mockup landing page 2" width="400"/> 
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
@@ -3620,8 +3648,10 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ![Web App Wireframe 5](./img/wireframes/web-app/wireframe-web-5.png)
 ![Web App Wireframe 6](./img/wireframes/web-app/wireframe-web-6.png)
 
+<br>
 
-**Mobile Wireframes**
+**Mobile Wireframes**<br>
+
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-1.png" alt="Wireframe mobile 1" width="300"/>
 <img src="img/wireframes/mobile/Foll - Bienvenida y Acceso-2.png" alt="Wireframe mobile 2" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos-1.png" alt="Wireframe mobile 3" width="300"/>
@@ -3630,20 +3660,26 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 <img src="img/wireframes/mobile/Foll - Mis Abuelitos.png" alt="Wireframe mobile 6" width="300"/>
 <img src="img/wireframes/mobile/Foll - Mi Perfil.png" alt="Wireframe mobile 7" width="300"/>
 <img src="img/wireframes/mobile/Foll - Historial de Eventos.png" alt="Wireframe mobile 8" width="300"/>
-<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="300"/>
+<img src="img/wireframes/mobile/Foll - Alertas.png" alt="Wireframe mobile 9" width="250"/>
+
+<br>
+<br>
 
 ### 5.4.2. Applications Wireflow Diagrams.
 **User Goal: Acceder al sistema**  
 **User Persona**: Cuidador 
 **Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
 
+*Web Wireflow*
+![Wireflow Web 1](img/wireflows/wireflow-web-1.png)
+
 *Mobile Wireflow*
 
 ![Wireflow Mobile 1](img/wireflows/wireflow-mobile-1.png)  
 
-*Web Wireflow*
-![Wireflow Web 1](img/wireflows/wireflow-web-1.png)
 
+<br>
+<br>
 
 **User Goal: Registrar abuelito**
 **User Persona**: Cuidador
@@ -3655,6 +3691,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 *Web Wireflow*
 ![Wireflow Web 2](img/wireflows/wireflow-web-2.png)
+<br>
+<br>
 
 
 **User Goal: Ver mi perfil**
@@ -3665,10 +3703,11 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 ![Wireflow mobile 3](img/wireflows/wireflow-mobile-3.png)
 
-
 *Web Wireflow*
-
 ![Wireflow web 3](img/wireflows/wireflow-web-3.png)
+
+<br>
+<br>
 
 
 **User Goal: Ver registro de caídas**
@@ -3683,6 +3722,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 
 ![Wireflow web 4](img/wireflows/wireflow-web-4.png)
 
+<br>
+<br>
 
 **User Goal: Recibir alerta**
 **User Persona**: Cuidador
@@ -3692,6 +3733,8 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ![Wireflow mobile 5](img/wireflows/wireflow-mobile-5.png)
 
 *Nota*: Esta vista solo se encuentra en mobile.
+
+</br>
 
 ### 5.4.3. Applications Mock-ups.
 
@@ -3722,12 +3765,14 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 **User Persona**: Cuidador 
 **Explicación del flujo**: El cuidador accede por primera vez al sistema, donde presiona el botón registrar cuenta que le lleva a la vista de creación de cuenta, donde rellena todos sus datos para finalmente con una cuenta ya creada pueda acceder a la vista de home.  
 
+*Web Userflow*
+![Userflow Web 1](img/userflows/userflow-web-1.png)
+
 *Mobile Userflow*
 
 ![Userflow Mobile 1](img/userflows/userflow-mobile-1.png)  
 
-*Web Userflow*
-![Userflow Web 1](img/userflows/userflow-web-1.png)
+
 
 
 **User Goal: Registrar abuelito**
@@ -3777,6 +3822,12 @@ En Foll buscamos ofrecer una experiencia libre de estrés para nuestros usuarios
 ![Userflow mobile 5](img/userflows/userflow-mobile-5.png)
 *Nota*: Esta vista solo se encuentra en mobile.
 
+</br>
+</br>
+
+</br>
+</br>
+
 
 ## 5.5. Applications Prototyping.
 ## 5.6. IoT Device Design.
@@ -3802,7 +3853,7 @@ A nivel físico, el ESP32 funciona como el núcleo del dispositivo, ya que recib
 - **Flujo de uso y funcionalidad de los componentes juntos**
 
 El funcionamiento del Sistema Foll inicia cuando el adulto mayor enciende el dispositivo mediante el switch principal. Desde ese momento, los sensores MPU6050, ADXL345 y el módulo GPS capturan datos de movimiento, inclinación y ubicación, los cuales son recibidos por el ESP32 y enviados a la capa Edge para su análisis. En la capa Edge, un modelo de inteligencia artificial evalúa los patrones de movimiento para detectar una posible caída. Si se confirma el evento, el sistema envía una alerta al ESP32, que activa el buzzer para avisar al entorno cercano y confirmar que la emergencia está siendo atendida. Si se trata de una falsa alarma, el adulto mayor puede presionar un botón físico para silenciar el buzzer. Además, el switch permite apagar el dispositivo cuando se desee privacidad, ahorro de batería o detener temporalmente la captura de telemetría.
-<img width="8192" height="1479" alt="image" src="https://github.com/user-attachments/assets/5855b714-f6ed-4a26-81d8-df70350e83df" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5855b714-f6ed-4a26-81d8-df70350e83df" />
 
 <br>
 <br>
@@ -3817,17 +3868,17 @@ Finalmente, el prototipo virtual también representa las interfaces físicas pri
 
 <img width="1130" height="757" alt="image" src="https://github.com/user-attachments/assets/ea2a14c7-f6b4-435f-91c7-48047e2ec75c" />
 (https://wokwi.com/projects/463973317008005121)
-
-<br>
 <br>
 
 - **Representación visual**
 Finalmente, se elaboró una representación visual del diseño físico del dispositivo con apoyo de inteligencia artificial. Esta imagen permite mostrar de manera aproximada cómo quedaría el Sistema Foll integrado en un cinturón para el adulto mayor, conectando la propuesta técnica del circuito con una posible forma real de uso. El diseño busca resaltar que el dispositivo sería portátil, discreto y cómodo, evitando que el usuario tenga que interactuar con interfaces complejas.
 
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/d89a55ca-3e0e-4cb5-842c-caf94fedbd5b" />
 
 <br>
 <br>
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 ## 6.1. Software Configuration Management.	
@@ -3835,52 +3886,88 @@ Finalmente, se elaboró una representación visual del diseño físico del dispo
 
 <strong>Project & Requirements Management</strong><br><br>
 <ul>
-<li>Jira: Es una solución de software diseñada para la gestión y organización de proyectos bajo metodologías ágiles que resulta fundamental para nuestro equipo al permitir el desglose de requerimientos complejos en User Stories y tareas manejables, asegurando un seguimiento colaborativo y un control riguroso de la carga de trabajo durante cada Sprint. Ruta de referencia: https://www.atlassian.com/es/software/jira
+<li>Jira: Es una solución de software diseñada para la gestión y organización de proyectos bajo metodologías ágiles que resulta fundamental para nuestro equipo al permitir el desglose de requerimientos complejos en User Stories y tareas manejables, asegurando un seguimiento colaborativo y un control riguroso de la carga de trabajo durante cada Sprint. Ruta de referencia:
+
+ [https://www.atlassian.com/es/software/jira](https://www.atlassian.com/es/software/jira)
 </li><br>
-<li>UXpressia: Esta herramienta profesional se centra en el análisis detallado de la experiencia de usuario y es utilizada en el proyecto para plantear escenarios críticos como User Personas y Empathy Maps, permitiéndonos mapear con precisión las necesidades, frustraciones y realidades de los adultos mayores y sus cuidadores frente a una caída. Ruta de referencia: https://uxpressia.com/
+<li>UXpressia: Esta herramienta profesional se centra en el análisis detallado de la experiencia de usuario y es utilizada en el proyecto para plantear escenarios críticos como User Personas y Empathy Maps, permitiéndonos mapear con precisión las necesidades, frustraciones y realidades de los adultos mayores y sus cuidadores frente a una caída. Ruta de referencia:
+
+ [https://uxpressia.com/](https://uxpressia.com/)
 </li><br><br>
     </ul>
 <strong>Product Design & Architecture</strong><br><br>
 <ul>
-<li>Figma: Es la plataforma líder en el diseño de interfaces de usuario y experiencia de usuario que nos permite modelar con alta fidelidad los prototipos tanto de la aplicación móvil como de la plataforma web, sirviendo de guía visual indispensable para asegurar que la jerarquía y accesibilidad del sistema cumplan con los estándares necesarios para nuestro público objetivo. Ruta de referencia: https://www.figma.com/
+<li>Figma: Es la plataforma líder en el diseño de interfaces de usuario y experiencia de usuario que nos permite modelar con alta fidelidad los prototipos tanto de la aplicación móvil como de la plataforma web, sirviendo de guía visual indispensable para asegurar que la jerarquía y accesibilidad del sistema cumplan con los estándares necesarios para nuestro público objetivo. Ruta de referencia: 
+
+[https://www.figma.com/](https://www.figma.com/)
 </li><br>
-<li>Mermaid: Es una herramienta basada en JavaScript que genera diagramas y gráficos de forma dinámica a partir de texto, lo que nos facilita documentar y actualizar los flujos lógicos de la aplicación de manera rápida y eficiente, manteniéndose siempre alineada con el código fuente. Ruta de referencia: https://mermaid.js.org/
+<li>Mermaid: Es una herramienta basada en JavaScript que genera diagramas y gráficos de forma dinámica a partir de texto, lo que nos facilita documentar y actualizar los flujos lógicos de la aplicación de manera rápida y eficiente, manteniéndose siempre alineada con el código fuente. Ruta de referencia: 
+
+[https://mermaid.js.org/](https://mermaid.js.org/)
 </li><br>
-<li>Structurizr: Esta herramienta especializada en la generación de diagramas bajo el estándar C4 Model permite, a través de código, crear esquemas arquitectónicos precisos que definen la estructura y las relaciones de los componentes de nuestro proyecto, garantizando una documentación técnica de alto nivel. Ruta de referencia: https://structurizr.com/
+<li>Structurizr: Esta herramienta especializada en la generación de diagramas bajo el estándar C4 Model permite, a través de código, crear esquemas arquitectónicos precisos que definen la estructura y las relaciones de los componentes de nuestro proyecto, garantizando una documentación técnica de alto nivel. Ruta de referencia: 
+
+[https://structurizr.com/](https://structurizr.com/)
 </li><br><br>
 </ul>
 <strong>Software Development</strong><br><br>
 <ul>
-<li>Visual Studio Code: Es el entorno de desarrollo integrado seleccionado por el equipo por su excepcional versatilidad, permitiéndonos elaborar y ejecutar el código tanto del frontend como del backend gracias a su flexibilidad de extensiones y su capacidad para manejar múltiples lenguajes de programación en un solo flujo de trabajo. Ruta de referencia: https://code.visualstudio.com/
+<li>Visual Studio Code: Es el entorno de desarrollo integrado seleccionado por el equipo por su excepcional versatilidad, permitiéndonos elaborar y ejecutar el código tanto del frontend como del backend gracias a su flexibilidad de extensiones y su capacidad para manejar múltiples lenguajes de programación en un solo flujo de trabajo. Ruta de referencia: 
+
+[https://code.visualstudio.com/](https://code.visualstudio.com/)
 </li><br>
-<li>PostgreSQL: Un sistema de gestión de base de datos relacional de código abierto, seleccionado para este proyecto por su robustez y extensibilidad, lo que nos ofrece la facilidad de realizar consultas de datos geográficos mediante PostGIS y garantiza un almacenamiento seguro, estructurado y con alta integridad para los datos críticos de salud. Ruta de referencia: https://www.postgresql.org/
+<li>PostgreSQL: Un sistema de gestión de base de datos relacional de código abierto, seleccionado para este proyecto por su robustez y extensibilidad, lo que nos ofrece la facilidad de realizar consultas de datos geográficos mediante PostGIS y garantiza un almacenamiento seguro, estructurado y con alta integridad para los datos críticos de salud. Ruta de referencia: 
+
+[https://www.postgresql.org/](https://www.postgresql.org/)
 </li><br>
-<li>HTML5: Es el lenguaje de marcado estándar utilizado para estructurar el contenido en la web, estableciendo la base semántica de nuestra plataforma frontend. Su correcta implementación es fundamental en este proyecto para garantizar la accesibilidad de la interfaz, asegurando que elementos vitales como las alertas de emergencia o los perfiles médicos puedan ser interpretados correctamente por cualquier navegador o tecnología de asistencia tecnológica, lo cual es clave considerando que nuestro segmento involucra a adultos mayores. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/HTML
+<li>HTML5: Es el lenguaje de marcado estándar utilizado para estructurar el contenido en la web, estableciendo la base semántica de nuestra plataforma frontend. Su correcta implementación es fundamental en este proyecto para garantizar la accesibilidad de la interfaz, asegurando que elementos vitales como las alertas de emergencia o los perfiles médicos puedan ser interpretados correctamente por cualquier navegador o tecnología de asistencia tecnológica, lo cual es clave considerando que nuestro segmento involucra a adultos mayores. Ruta de referencia: 
+
+[https://developer.mozilla.org/es/docs/Web/HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 </li><br>
-<li>CSS3: Es el lenguaje de hojas de estilo utilizado para definir la presentación y el diseño visual de la interfaz de usuario. Su uso en el proyecto es indispensable para implementar un diseño responsivo que se adapte a cualquier dispositivo (móvil, tablet o escritorio) y para aplicar de forma rigurosa la psicología del color, garantizando un alto contraste y legibilidad que notifique las emergencias a los familiares de manera clara y sin generar pánico visual. Ruta de referencia: https://developer.mozilla.org/es/docs/Web/CSS
+<li>CSS3: Es el lenguaje de hojas de estilo utilizado para definir la presentación y el diseño visual de la interfaz de usuario. Su uso en el proyecto es indispensable para implementar un diseño responsivo que se adapte a cualquier dispositivo (móvil, tablet o escritorio) y para aplicar de forma rigurosa la psicología del color, garantizando un alto contraste y legibilidad que notifique las emergencias a los familiares de manera clara y sin generar pánico visual. Ruta de referencia: 
+
+[https://developer.mozilla.org/es/docs/Web/CSS](https://developer.mozilla.org/es/docs/Web/CSS)
 </li><br>
-<li>Tailwind CSS: Es un framework de CSS basado en clases utilitarias (utility-first) que permite construir interfaces de usuario a medida directamente desde el código de maquetado. Su inclusión en el entorno de desarrollo se justifica porque agiliza drásticamente la construcción del frontend y estandariza el diseño de la plataforma; en nuestro proyecto, nos permite configurar un sistema de colores semánticos globales y crear interfaces responsivas y altamente legibles, asegurando la accesibilidad visual para los adultos mayores y sus cuidadores sin la necesidad de mantener extensas y complejas hojas de estilo tradicionales. Ruta de referencia: https://tailwindcss.com/
+<li>Tailwind CSS: Es un framework de CSS basado en clases utilitarias (utility-first) que permite construir interfaces de usuario a medida directamente desde el código de maquetado. Su inclusión en el entorno de desarrollo se justifica porque agiliza drásticamente la construcción del frontend y estandariza el diseño de la plataforma; en nuestro proyecto, nos permite configurar un sistema de colores semánticos globales y crear interfaces responsivas y altamente legibles, asegurando la accesibilidad visual para los adultos mayores y sus cuidadores sin la necesidad de mantener extensas y complejas hojas de estilo tradicionales. Ruta de referencia: 
+
+[https://tailwindcss.com/](https://tailwindcss.com/)
 </li><br>
-<li>TypeScript: Es un lenguaje de programación de código abierto que añade tipado estático estricto a JavaScript, lo que mejora significativamente el desarrollo de nuestra aplicación web al integrarse con React. Su uso permite detectar errores en tiempo de compilación y definir contratos de datos claros (interfaces) para la información que viaja desde el backend, asegurando un código escalable, fácil de mantener y mucho más profesional. Ruta de referencia: https://www.typescriptlang.org
+<li>TypeScript: Es un lenguaje de programación de código abierto que añade tipado estático estricto a JavaScript, lo que mejora significativamente el desarrollo de nuestra aplicación web al integrarse con React. Su uso permite detectar errores en tiempo de compilación y definir contratos de datos claros (interfaces) para la información que viaja desde el backend, asegurando un código escalable, fácil de mantener y mucho más profesional. Ruta de referencia:
+
+ [https://www.typescriptlang.org](https://www.typescriptlang.org)
 		</li><br>
-<li>React: Es una biblioteca de JavaScript de código abierto diseñada para construir interfaces de usuario a través de componentes reutilizables, seleccionada para el frontend por su capacidad superior para gestionar interfaces reactivas y asíncronas a través de su Virtual DOM. En un sistema crítico como la detección de caídas, esta tecnología garantiza que las alertas enviadas por el servidor actualicen instantáneamente la pantalla del monitor en tiempo real y sin necesidad de recargar la página, permitiendo además un control riguroso sobre la jerarquía visual para notificar emergencias de manera efectiva. Ruta de referencia: https://es.react.dev/
+<li>React: Es una biblioteca de JavaScript de código abierto diseñada para construir interfaces de usuario a través de componentes reutilizables, seleccionada para el frontend por su capacidad superior para gestionar interfaces reactivas y asíncronas a través de su Virtual DOM. En un sistema crítico como la detección de caídas, esta tecnología garantiza que las alertas enviadas por el servidor actualicen instantáneamente la pantalla del monitor en tiempo real y sin necesidad de recargar la página, permitiendo además un control riguroso sobre la jerarquía visual para notificar emergencias de manera efectiva. Ruta de referencia: 
+
+[https://es.react.dev/](https://es.react.dev/)
 </li><br>
-<li>.NET: Es un framework de desarrollo multiplataforma y de código abierto de Microsoft utilizado para construir aplicaciones modernas y servicios en la nube, cuya adopción en el backend se fundamenta en la necesidad de garantizar alta disponibilidad y seguridad en el procesamiento de datos de salud. Al ser un entorno fuertemente tipado e incorporar SignalR de forma nativa, minimiza los errores en tiempo de ejecución, optimiza la transmisión bidireccional de alertas mediante WebSockets y asegura una integración fluida con el ecosistema de Azure para un despliegue optimizado. Ruta de referencia: https://dotnet.microsoft.com/es-es/
+<li>.NET: Es un framework de desarrollo multiplataforma y de código abierto de Microsoft utilizado para construir aplicaciones modernas y servicios en la nube, cuya adopción en el backend se fundamenta en la necesidad de garantizar alta disponibilidad y seguridad en el procesamiento de datos de salud. Al ser un entorno fuertemente tipado e incorporar SignalR de forma nativa, minimiza los errores en tiempo de ejecución, optimiza la transmisión bidireccional de alertas mediante WebSockets y asegura una integración fluida con el ecosistema de Azure para un despliegue optimizado. Ruta de referencia: 
+
+[https://dotnet.microsoft.com/es-es/](https://dotnet.microsoft.com/es-es/)
 </li><br><br></ul>
 <strong>Software Testing & Documentation</strong><br><br>
 <ul>
-<li>Git: Es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software, resultando indispensable para nuestro equipo de cinco integrantes al facilitar el trabajo en paralelo sobre diferentes funcionalidades del sistema de detección de caídas sin riesgo de pérdida de información. Su implementación asegura que cada modificación sea trazable y que podamos revertir cambios o integrar nuevas mejoras de manera controlada y predecible. Ruta de referencia: https://git-scm.com/
+<li>Git: Es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software, resultando indispensable para nuestro equipo de cinco integrantes al facilitar el trabajo en paralelo sobre diferentes funcionalidades del sistema de detección de caídas sin riesgo de pérdida de información. Su implementación asegura que cada modificación sea trazable y que podamos revertir cambios o integrar nuevas mejoras de manera controlada y predecible. Ruta de referencia: 
+
+[https://git-scm.com/](https://git-scm.com/)
 </li><br>
-<li>Swagger: Es un conjunto de herramientas de código abierto construidas en torno a la especificación OpenAPI que actúa como un contrato interactivo entre el backend y la interfaz de la aplicación, facilitando que los desarrolladores puedan diseñar, construir, documentar y consumir las APIs RESTful del proyecto en un espacio de pruebas controlado y transparente. Ruta de referencia: https://swagger.io/
+<li>Swagger: Es un conjunto de herramientas de código abierto construidas en torno a la especificación OpenAPI que actúa como un contrato interactivo entre el backend y la interfaz de la aplicación, facilitando que los desarrolladores puedan diseñar, construir, documentar y consumir las APIs RESTful del proyecto en un espacio de pruebas controlado y transparente. Ruta de referencia: 
+
+[https://swagger.io/](https://swagger.io/)
 </li><br>
-<li>Postman: Se define como una plataforma de desarrollo de APIs que facilita la construcción y validación de solicitudes HTTP, permitiéndonos probar exhaustivamente el comportamiento de cada endpoint y asegurar que las comunicaciones del sistema sean correctas antes de la integración final con las interfaces de usuario. Ruta de referencia: https://www.postman.com/
+<li>Postman: Se define como una plataforma de desarrollo de APIs que facilita la construcción y validación de solicitudes HTTP, permitiéndonos probar exhaustivamente el comportamiento de cada endpoint y asegurar que las comunicaciones del sistema sean correctas antes de la integración final con las interfaces de usuario. Ruta de referencia:
+
+ [https://www.postman.com/](https://www.postman.com/)
 </li><br>
-<li>Github: Es la plataforma de alojamiento en la nube para el control de versiones basada en Git que sirve de columna vertebral para el desarrollo simultáneo de los cinco integrantes del equipo, permitiendo combinar avances de forma segura y transparente mediante estrategias de ramificación profesional. Ruta de referencia: https://github.com/
+<li>Github: Es la plataforma de alojamiento en la nube para el control de versiones basada en Git que sirve de columna vertebral para el desarrollo simultáneo de los cinco integrantes del equipo, permitiendo combinar avances de forma segura y transparente mediante estrategias de ramificación profesional. Ruta de referencia: 
+
+[https://github.com/](https://github.com/)
 </li><br><br></ul>
 <strong>Software Deployment</strong><br><br>
 <ul>
     <li>
-Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para la gestión de servicios en la nube que constituye la infraestructura base de nuestro sistema, asegurando que el servidor esté operativo 24/7 para procesar alertas críticas de salud; para ello, se emplean servicios específicos como Azure App Service para los microservicios, Azure Static Web Apps para el frontend y Azure Database for PostgreSQL para la persistencia de datos administrada. Ruta de referencia: https://portal.azure.com/auth/login/
+Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para la gestión de servicios en la nube que constituye la infraestructura base de nuestro sistema, asegurando que el servidor esté operativo 24/7 para procesar alertas críticas de salud; para ello, se emplean servicios específicos como Azure App Service para los microservicios, Azure Static Web Apps para el frontend y Azure Database for PostgreSQL para la persistencia de datos administrada. Ruta de referencia: 
+
+[https://portal.azure.com/auth/login/](https://portal.azure.com/auth/login/)
     </li><br>
 </ul>	
 
@@ -3890,7 +3977,7 @@ Microsoft Azure Portal: Es el portal integral proporcionado por Microsoft para l
 Para la elaboración de este proyecto seguiremos los lineamientos de GitFlow, garantizando un desarrollo organizado, colaborativo y predecible, mientras GitHub actúa como nuestra principal plataforma de control de versiones.
 
 Enlace de la organización del GitHub:
-https://github.com/foll-project
+[https://github.com/foll-project](https://github.com/foll-project)
 
 <strong>Estructura de ramas:</strong>
 <ul>
@@ -4069,19 +4156,17 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 
 # Conclusiones
 
-1. La validación del problema confirmó que la mayor vulnerabilidad no es la caída en sí, sino el aislamiento posterior; Foll soluciona esto mediante un sistema pasivo que alerta automáticamente sin depender de que el adulto mayor, quien suele estar aturdido o sin el celular a la mano, realice acción alguna.
+A lo largo del informe queda claro que el daño asociado a una caída no se explica únicamente por el golpe o la fractura, sino por el tiempo que transcurre hasta que alguien puede intervenir. Cuando el cuidador no está presente, esa ventana se estrecha y las consecuencias empeoran con rapidez. Foll se plantea precisamente para acortar esa distancia: un monitoreo pasivo que acompaña al adulto mayor en su rutina diaria y, ante un evento grave, activa un canal de alerta hacia familiares o profesionales sin depender de que la persona caída recuerde usar un celular o siga un protocolo complicado en medio del susto.
 
-2. El procesamiento local mediante Edge AI representa el mayor diferencial técnico del proyecto, ya que permite que el algoritmo aprenda de los patrones biomecánicos específicos de cada usuario en su hogar, reduciendo drásticamente las falsas alarmas en comparación con algoritmos estáticos.
+La solución técnica descansa en una división de responsabilidades que el equipo documentó con cuidado. El dispositivo embebido, centrado en un microcontrolador ESP32 y sensores de movimiento junto con un módulo de ubicación, se ocupa de capturar la realidad física del usuario con la menor carga posible. La inteligencia orientada a detectar una caída se concentra en el procesamiento local del Edge Gateway, de modo que la decisión crítica no queda suspendida de una conexión a internet inestable. Este enfoque no solo reduce la latencia percibida, sino que también deja abierto el camino para mejorar modelos y reglas en el hogar sin obligar a reprogramar el cinturón cada vez que el software evoluciona.
 
-3. El diseño del hardware como un cinturón imperceptible bajo la ropa es fundamental para la adopción del producto, ya que elimina el estigma social de "dispositivo médico" y la resistencia psicológica del usuario independiente, a diferencia de los colgantes o botones de pánico tradicionales.
+El diseño del hardware como cinturón discreto responde a una preocupación humana tan importante como la técnica: que el adulto mayor acepte usar el dispositivo todos los días. Por eso se combinan elementos sencillos pero expresivos para el usuario: un zumbador que avisa al entorno, un interruptor para encender o apagar con tranquilidad, y un botón físico para cancelar una falsa alarma sin tener que navegar menús en una pantalla pequeña. La simulación en Wokwi permitió comprobar, con las limitaciones propias de la plataforma, que la lógica de telemetría, la interacción con los controles y la respuesta del actuador sonoras son coherentes con la propuesta; las adaptaciones documentadas, como la emulación del GPS mediante un chip personalizado, muestran cómo el equipo mantuvo el rigor del diseño aun cuando el entorno virtual no reproducía todos los componentes del circuito real.
 
-4. La aplicación de Domain-Driven Design permitió alinear la arquitectura de software con el valor del negocio, identificando los contextos de Edge y Emergency como el núcleo estratégico del sistema, asegurando que el desarrollo se concentre en la precisión de la detección y la rapidez de respuesta.
+ En la nube, la decisión de modelar el sistema con Domain-Driven Design no es un detalle académico, sino una forma de ordenar la complejidad de un dominio sensible como la salud y la emergencia. Los distintos contextos acotados —identidad, cuidado de personas, dispositivos, notificaciones y gestión de incidentes— permiten que cada parte del software tenga fronteras claras y que los equipos puedan evolucionar el producto sin mezclar responsabilidades. La combinación de comandos y consultas, los contratos HTTP bien definidos y el uso de PostgreSQL, con capacidad geoespacial cuando se requiere ubicar un evento, ofrecen una base sólida para registrar caídas, conocer el estado del wearable y aplicar políticas de escalamiento cuando el cuidador no responde a tiempo.
 
-5. El valor fundamental del ecosistema para el segmento de cuidadores es el alivio de la carga emocional y la ansiedad; la plataforma les devuelve la tranquilidad de saber que serán notificados con ubicación exacta e información médica solo cuando ocurra una emergencia real.
+Paralelamente, el capítulo de experiencia de usuario demuestra que la tecnología solo cumple su propósito si el cuidador entiende qué hacer en el peor momento. El trabajo en Figma, desde la landing hasta las aplicaciones web y móvil, no se limitó a “bonificar” pantallas: se recorrieron wireframes, flujos de cableado y prototipos de alta fidelidad para asegurar jerarquías visuales comprensibles, contrastes adecuados y rutas cortas hacia la información vital. Los flujos críticos, como recibir una alerta con mapa y opciones de auxilio, reflejan la intención de reducir la carga cognitiva cuando el reloj corre en contra.
 
-6. Foll logra democratizar el acceso a la tecnología de cuidado preventivo en el contexto latinoamericano, ofreciendo una alternativa de bajo costo en hardware y suscripción frente a competidores internacionales cuyos precios y modelos de retención resultan inaccesibles para la mayoría de familias locales.
-
-7. La investigación de campo demostró una alta disposición de los usuarios a compartir datos de movimiento de forma anónima y procesarlos localmente, lo que valida la viabilidad de un modelo de mejora continua donde la inteligencia artificial del dispositivo se vuelve más precisa con el uso diario.
+Finalmente, el informe describe un camino completo desde el repositorio hasta el entorno productivo. El uso de GitFlow sobre GitHub da previsibilidad al trabajo en equipo, mientras que la integración continua automatiza pasos que de otro modo serían fuente de errores: construir imágenes del backend en .NET, publicarlas en un registro de contenedores y desplegarlas en Azure App Service; compilar el frontend en React con TypeScript y Tailwind y servirlo mediante Azure Static Web Apps; exponer la landing por GitHub Pages; respaldar datos en Azure Database for PostgreSQL; y disponer de un broker MQTT con Mosquitto en una máquina virtual para el tráfico de dispositivos. En conjunto, esa cadena documentada refleja una madurez de ingeniería acorde con un servicio que pretende estar disponible cuando más se necesita.
 
 <br>
 
