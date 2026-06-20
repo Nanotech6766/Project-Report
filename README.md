@@ -328,10 +328,24 @@
       - [6.2.1.7. Services Documentation Evidence for Sprint Review.](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review.](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
+    - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2.](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators.](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2.](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review.](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review.](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review.](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews.](#63-validation-interviews)
+    - [6.3.1. Diseño de entrevistas.](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de entrevistas.](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluaciones según heurísticas.](#633-evaluaciones-según-heurísticas)
+  - [6.4. Video About-the-Product.](#64-video-about-the-product)
 - [Conclusiones](#conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
-
 
 <div style="page-break-after: always;"></div>
 
@@ -519,7 +533,6 @@ Consolidarnos como la plataforma de cuidado preventivo más confiable de la regi
 El envejecimiento trae consigo un aumento en la vulnerabilidad y la pérdida de autonomía de los adultos mayores, siendo las caídas accidentales uno de los riesgos físicos más graves para su salud. Nos dimos cuenta de la verdadera magnitud de este problema a través de los reportes del Ministerio de Salud (MINSA, 2018), los cuales indican que uno de cada tres adultos mayores de 65 años sufre al menos una caída al año, ocurriendo el 60% de estos accidentes dentro de su propio hogar. A esta situación se suma un factor crítico revelado por el Instituto Nacional de Estadística e Informática (Andina, 2025): actualmente, uno de cada cuatro adultos mayores en el Perú vive completamente solo, lo que eleva drásticamente su nivel de desprotección diaria. Esta realidad genera una dependencia crítica hacia el entorno familiar o médico, ya que la seguridad del paciente queda estrictamente condicionada a la supervisión constante de un tercero.
 
 En este contexto, surge como antecedente directo la incompatibilidad entre la necesidad de este cuidado constante y las dinámicas de vida actuales, donde las responsabilidades laborales y personales impiden a los cuidadores mantener una vigilancia presencial ininterrumpida. De esta limitación surge la problemática central de nuestra proyecto: la ausencia de asistencia inmediata cuando el factor humano no está disponible. Si una caída ocurre mientras el paciente está solo, el tiempo para detectar el accidente y solicitar auxilio se retrasa drásticamente, agravando de forma severa el pronóstico de las lesiones. Es frente a esta urgencia de cubrir la brecha de supervisión mediante sistemas como Foll que se hace indispensable profundizar en el contexto de esta situación; por ello, a continuación se detallan y estructuran los antecedentes y el análisis específico de esta problemática.
-
 
 <table>
     <tr>
@@ -4191,119 +4204,121 @@ Paso 5: Pulsamos Revisar y crear. Una vez aprovisionado, obtenemos la cadena de 
 ## 6.2. Landing Page, Services & Applications Implementation.
 
 ### 6.2.1. Sprint 1
+
 En esta sección se registra el avance del Sprint 1 para el desarrollo del ecosistema Foll. Se documenta el Sprint Planning, el Sprint Backlog, la evidencia de desarrollo, la ejecución, la documentación de servicios y la colaboración del equipo durante la iteración.
 
-#### 6.2.1.1. Sprint Planning 1.	
+#### 6.2.1.1. Sprint Planning 1.
 
-| Sprint # | Sprint 1 |
-|----------|----------|
-| Sprint Planning Background | Se realizó la planificación inicial para organizar el trabajo de la primera iteración, priorizando la entrega de la landing page, el prototipo de frontend, el backend con API REST, el prototipo IoT en Wokwi y el servidor Edge con MQTT broker. |
-| Date | 2026-05-06 |
-| Time | 09:30 AM |
-| Location | Reunión virtual por Microsoft Teams |
-| Prepared By | Agreda Sobrino, Ariana Cecilia |
-| Attendees (to planning meeting) | Elera Rodríguez, Mauricio Daniel / Agreda Sobrino, Ariana Cecilia / Belledonne Espinoza, Claudia Valeria / Vilca Saboya, Diego Alejandro / Saldaña Ayala, Fabiola del Rocío |
-| Sprint 0 Review Summary | El Sprint 0 se centró en investigación de usuarios, definición del esquema funcional del producto, diseño de la arquitectura DDD y validación del alcance inicial. Se completaron los entregables de descubrimiento, se alinearon criterios de aceptación clave para los endpoints y se definió la estructura de los bounded contexts. |
-| Sprint 0 Retrospective Summary | El equipo identificó que la comunicación entre roles de frontend y backend debía ser más continua, y que era necesario consolidar las definiciones de API antes de comenzar la implementación. Se acordó usar revisiones diarias breves para mantener coherencia en el backlog y reducir retrabajos. |
-| Sprint Goal & User Stories |  |
-| Sprint 1 Goal | "Nuestro foco está en entregar la primera capa funcional del ecosistema Foll mediante la publicación de la landing page, el despliegue de un prototipo frontend, la exposición de la API REST del backend, la validación del prototipo IoT en Wokwi y la implementación del servidor Edge con MQTT broker para mensajería. Creemos que esto entrega una experiencia usable temprana a los usuarios potenciales y una ruta de integración funcional para el equipo de desarrollo. Se confirmará cuando la landing page esté publicada, el prototipo frontend sea accesible, los endpoints backend estén disponibles en Swagger, el prototipo ESP32/Wokwi demuestre el flujo de reporte de caídas con GPS y el servidor Edge permita envío de mensajes MQTT." |
-| Sprint 1 Velocity | 20 Story Points |
-| Sum of Story Points | 16 (US01, US02, US03, US04, US05, US06, US10, TS01, TS05, TS02, TS03, TS04, US08) |
+| Sprint #                        | Sprint 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sprint Planning Background      | Se realizó la planificación inicial para organizar el trabajo de la primera iteración, priorizando la entrega de la landing page, el prototipo de frontend, el backend con API REST, el prototipo IoT en Wokwi y el servidor Edge con MQTT broker.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Date                            | 2026-05-06                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Time                            | 09:30 AM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Location                        | Reunión virtual por Microsoft Teams                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Prepared By                     | Agreda Sobrino, Ariana Cecilia                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Attendees (to planning meeting) | Elera Rodríguez, Mauricio Daniel / Agreda Sobrino, Ariana Cecilia / Belledonne Espinoza, Claudia Valeria / Vilca Saboya, Diego Alejandro / Saldaña Ayala, Fabiola del Rocío                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Sprint 0 Review Summary         | El Sprint 0 se centró en investigación de usuarios, definición del esquema funcional del producto, diseño de la arquitectura DDD y validación del alcance inicial. Se completaron los entregables de descubrimiento, se alinearon criterios de aceptación clave para los endpoints y se definió la estructura de los bounded contexts.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Sprint 0 Retrospective Summary  | El equipo identificó que la comunicación entre roles de frontend y backend debía ser más continua, y que era necesario consolidar las definiciones de API antes de comenzar la implementación. Se acordó usar revisiones diarias breves para mantener coherencia en el backlog y reducir retrabajos.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Sprint Goal & User Stories      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Sprint 1 Goal                   | "Nuestro foco está en entregar la primera capa funcional del ecosistema Foll mediante la publicación de la landing page, el despliegue de un prototipo frontend, la exposición de la API REST del backend, la validación del prototipo IoT en Wokwi y la implementación del servidor Edge con MQTT broker para mensajería. Creemos que esto entrega una experiencia usable temprana a los usuarios potenciales y una ruta de integración funcional para el equipo de desarrollo. Se confirmará cuando la landing page esté publicada, el prototipo frontend sea accesible, los endpoints backend estén disponibles en Swagger, el prototipo ESP32/Wokwi demuestre el flujo de reporte de caídas con GPS y el servidor Edge permita envío de mensajes MQTT." |
+| Sprint 1 Velocity               | 20 Story Points                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Sum of Story Points             | 16 (US01, US02, US03, US04, US05, US06, US10, TS01, TS05, TS02, TS03, TS04, US08)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-#### 6.2.1.2. Aspect Leaders and Collaborators.	
+#### 6.2.1.2. Aspect Leaders and Collaborators.
+
 Para este Sprint se definieron aspectos clave relacionados con la entrega de valor y la coordinación técnica: Landing Page, Frontend Web, Backend API, IoT Prototype, Edge Server y Documentación/Despliegue. El objetivo es clarificar roles y facilitar la comunicación durante la ejecución.
 
-| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Frontend Web | Backend API | IoT Prototype | Edge Server | Documentación & Deploy |
-|---|---|---|---|---|---|---|---|
-| Agreda Sobrino, Ariana Cecilia | arii4w | L | C | C | C | C | L |
-| Elera Rodríguez, Mauricio Daniel | Maur1xio | C | C | L | L | L | C |
-| Belledonne Espinoza, Claudia Valeria | Cl4us-tb | C | L | C | C | C | C |
-| Vilca Saboya, Diego Alejandro | diegovilca | C | L | C | C | C | C |
-| Saldaña Ayala, Fabiola del Rocío | fabs-in-space | C | C | C | C | C | L |
+| Team Member (Last Name, First Name)  | GitHub Username | Landing Page | Frontend Web | Backend API | IoT Prototype | Edge Server | Documentación & Deploy |
+| ------------------------------------ | --------------- | ------------ | ------------ | ----------- | ------------- | ----------- | ---------------------- |
+| Agreda Sobrino, Ariana Cecilia       | arii4w          | L            | C            | C           | C             | C           | L                      |
+| Elera Rodríguez, Mauricio Daniel     | Maur1xio        | C            | C            | L           | L             | L           | C                      |
+| Belledonne Espinoza, Claudia Valeria | Cl4us-tb        | C            | L            | C           | C             | C           | C                      |
+| Vilca Saboya, Diego Alejandro        | diegovilca      | C            | L            | C           | C             | C           | C                      |
+| Saldaña Ayala, Fabiola del Rocío     | fabs-in-space   | C            | C            | C           | C             | C           | L                      |
 
-#### 6.2.1.3. Sprint Backlog 1.	
+#### 6.2.1.3. Sprint Backlog 1.
+
 El objetivo principal del Sprint 1 fue consolidar la base técnica del sistema Foll, entregando la presencia web inicial, la primera versión de la aplicación de cuidadores, los servicios backend y el prototipo IoT para captura de telemetría y GPS.
 
 Board URL: https://trello.com/b/0wcO99Dl/foll-product-backlog
 
-| Sprint # | User Story | Work-Item / Task Id | Title | Description | Estimation (Hours) | Assigned To | Status (To-do / InProcess / ToReview / Done) |
-|---|---|---|---|---|---|---|---|
-| Sprint 1 | US01 | T01 | Landing value proposition | Diseñar y publicar sección de propuesta de valor en la landing page | 6 | Ariana Agreda | Done |
-| Sprint 1 | US02 | T02 | Landing pricing plans | Implementar sección de planes y precios en landing page | 5 | Fabiola Saldaña | Done |
-| Sprint 1 | US03 | T03 | Landing testimonials | Integrar sección de testimonios en landing page | 5 | Claudia Belledonne | Done |
-| Sprint 1 | US04 | T04 | Contact form | Desarrollar formulario de contacto comercial en landing page | 5 | Diego Vilca | Done |
-| Sprint 1 | US05 | T05 | User registration API | Implementar endpoint de registro de cuidadores en backend | 8 | Mauricio Elera | Done |
-| Sprint 1 | US06 | T06 | Patient profile API | Implementar endpoint de creación y edición de perfil de paciente | 8 | Mauricio Elera | Done |
-| Sprint 1 | US10 | T07 | Device linking endpoint | Implementar endpoint de vinculación de cinturón | 7 | Diego Vilca | Done |
-| Sprint 1 | TS01 | T08 | IoT prototype Wokwi | Desarrollar prototipo ESP32 con GPS virtual y captura de telemetría | 10 | Mauricio Elera | Done |
-| Sprint 1 | TS02 | T09 | Edge detection service | Definir y documentar endpoint de detección en backend | 8 | Mauricio Elera | Done |
-| Sprint 1 | TS03 | T10 | Incident persistence endpoint | Exponer endpoint para guardar incidentes confirmados | 7 | Mauricio Elera | Done |
-| Sprint 1 | TS04 | T11 | Battery monitoring plan | Especificar flujo de monitoreo de batería en backend | 3 | Claudia Belledonne | Done |
-| Sprint 1 | TS05 | T12 | Edge server MQTT | Implementar servidor Edge con MQTT broker y FastAPI para recepción de mensajes IoT | 8 | Mauricio Elera | Done |
+| Sprint # | User Story | Work-Item / Task Id | Title                         | Description                                                                        | Estimation (Hours) | Assigned To        | Status (To-do / InProcess / ToReview / Done) |
+| -------- | ---------- | ------------------- | ----------------------------- | ---------------------------------------------------------------------------------- | ------------------ | ------------------ | -------------------------------------------- |
+| Sprint 1 | US01       | T01                 | Landing value proposition     | Diseñar y publicar sección de propuesta de valor en la landing page                | 6                  | Ariana Agreda      | Done                                         |
+| Sprint 1 | US02       | T02                 | Landing pricing plans         | Implementar sección de planes y precios en landing page                            | 5                  | Fabiola Saldaña    | Done                                         |
+| Sprint 1 | US03       | T03                 | Landing testimonials          | Integrar sección de testimonios en landing page                                    | 5                  | Claudia Belledonne | Done                                         |
+| Sprint 1 | US04       | T04                 | Contact form                  | Desarrollar formulario de contacto comercial en landing page                       | 5                  | Diego Vilca        | Done                                         |
+| Sprint 1 | US05       | T05                 | User registration API         | Implementar endpoint de registro de cuidadores en backend                          | 8                  | Mauricio Elera     | Done                                         |
+| Sprint 1 | US06       | T06                 | Patient profile API           | Implementar endpoint de creación y edición de perfil de paciente                   | 8                  | Mauricio Elera     | Done                                         |
+| Sprint 1 | US10       | T07                 | Device linking endpoint       | Implementar endpoint de vinculación de cinturón                                    | 7                  | Diego Vilca        | Done                                         |
+| Sprint 1 | TS01       | T08                 | IoT prototype Wokwi           | Desarrollar prototipo ESP32 con GPS virtual y captura de telemetría                | 10                 | Mauricio Elera     | Done                                         |
+| Sprint 1 | TS02       | T09                 | Edge detection service        | Definir y documentar endpoint de detección en backend                              | 8                  | Mauricio Elera     | Done                                         |
+| Sprint 1 | TS03       | T10                 | Incident persistence endpoint | Exponer endpoint para guardar incidentes confirmados                               | 7                  | Mauricio Elera     | Done                                         |
+| Sprint 1 | TS04       | T11                 | Battery monitoring plan       | Especificar flujo de monitoreo de batería en backend                               | 3                  | Claudia Belledonne | Done                                         |
+| Sprint 1 | TS05       | T12                 | Edge server MQTT              | Implementar servidor Edge con MQTT broker y FastAPI para recepción de mensajes IoT | 8                  | Mauricio Elera     | Done                                         |
 
-#### 6.2.1.4. Development Evidence for Sprint Review.	
+#### 6.2.1.4. Development Evidence for Sprint Review.
 
 En esta sección se explica y presenta los avances en implementación con relación a los productos de la solución según el alcance del Sprint: Landing Page, Web Applications, Web Services, IoT Prototype y Edge Server. La sección inicia con una introducción que resume los principales avances en la implementación.
 
 Durante el Sprint 1, se consolidó la base técnica del ecosistema Foll mediante la entrega de la landing page funcional, un prototipo de aplicación web para cuidadores, la API REST del backend organizada en bounded contexts DDD, el prototipo IoT en Wokwi con ESP32 y GPS virtual, y el servidor Edge con MQTT broker para mensajería. Estos avances permiten una experiencia usable temprana y una ruta de integración para futuras iteraciones.
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-|------------|--------|-----------|----------------|---------------------|---------------------|
-| foll-project/foll-landing-page | feature/landing-value-proposition | a1b2c3d | feat: add landing value proposition section | Implementa la sección de propuesta de valor en la landing page con contenido sobre el sistema de detección de caídas y beneficios para cuidadores. | 30/04/2026 |
-| foll-project/foll-landing-page | feature/landing-pricing-plans | b2c3d4e | feat: integrate pricing plans section | Agrega la sección de planes y precios en la landing page, incluyendo opciones de suscripción mensual y anual. | 01/05/2026 |
-| foll-project/foll-landing-page | feature/landing-testimonials | c3d4e5f | feat: add testimonials section | Integra testimonios de usuarios potenciales en la landing page para generar confianza y credibilidad. | 02/05/2026 |
-| foll-project/foll-landing-page | feature/contact-form | d4e5f6a | feat: develop contact form | Desarrolla el formulario de contacto comercial en la landing page con validación de campos y envío de correos. | 03/05/2026 |
-| foll-project/foll-frontend | feature/user-registration | e5f6a7b | feat: implement user registration API integration | Integra el frontend con el endpoint de registro de cuidadores, incluyendo validación de formularios y manejo de errores. | 04/05/2026 |
-| foll-project/foll-frontend | feature/patient-profile | f6a7b8c | feat: add patient profile creation and editing | Implementa la interfaz para creación y edición de perfiles de pacientes en la aplicación web. | 05/05/2026 |
-| foll-project/foll-backend | feature/iam-auth | a1b2c3d | feat: implement IAM auth endpoints | Desarrolla los endpoints de registro y login en el bounded context IAM, con autenticación JWT. | 30/04/2026 |
-| foll-project/foll-backend | feature/care-patients | d4e5f6a | feat: add care patients endpoints | Implementa endpoints para gestión de pacientes en el bounded context Care, incluyendo creación, edición y contactos de emergencia. | 01/05/2026 |
-| foll-project/foll-backend | feature/device-linking | f1e2d3c | feat: implement device linking endpoint | Desarrolla el endpoint para vinculación de cinturones IoT en el bounded context Device. | 02/05/2026 |
-| foll-project/foll-backend | feature/emergency-incidents | f1e2d3c | feat: add emergency incidents endpoints | Expon endpoints para gestión de incidentes en el bounded context Emergency, incluyendo resolución y falsos positivos. | 03/05/2026 |
-| foll-project/foll-iot | feature/iot-prototype-wokwi | g7b8c9d | feat: develop IoT prototype ESP32 with GPS | Crea el prototipo ESP32 en Wokwi con sensores MPU6050, GPS virtual y captura de telemetría. | 04/05/2026 |
-| foll-project/foll-edge | feature/edge-server-mqtt | h8c9d0e | feat: implement Edge server with MQTT broker | Desarrolla el servidor Edge usando FastAPI y MQTT broker para recepción de mensajes IoT. | 05/05/2026 |
+| Repository                     | Branch                            | Commit Id | Commit Message                                    | Commit Message Body                                                                                                                                | Commited on (Date) |
+| ------------------------------ | --------------------------------- | --------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| foll-project/foll-landing-page | feature/landing-value-proposition | a1b2c3d   | feat: add landing value proposition section       | Implementa la sección de propuesta de valor en la landing page con contenido sobre el sistema de detección de caídas y beneficios para cuidadores. | 30/04/2026         |
+| foll-project/foll-landing-page | feature/landing-pricing-plans     | b2c3d4e   | feat: integrate pricing plans section             | Agrega la sección de planes y precios en la landing page, incluyendo opciones de suscripción mensual y anual.                                      | 01/05/2026         |
+| foll-project/foll-landing-page | feature/landing-testimonials      | c3d4e5f   | feat: add testimonials section                    | Integra testimonios de usuarios potenciales en la landing page para generar confianza y credibilidad.                                              | 02/05/2026         |
+| foll-project/foll-landing-page | feature/contact-form              | d4e5f6a   | feat: develop contact form                        | Desarrolla el formulario de contacto comercial en la landing page con validación de campos y envío de correos.                                     | 03/05/2026         |
+| foll-project/foll-frontend     | feature/user-registration         | e5f6a7b   | feat: implement user registration API integration | Integra el frontend con el endpoint de registro de cuidadores, incluyendo validación de formularios y manejo de errores.                           | 04/05/2026         |
+| foll-project/foll-frontend     | feature/patient-profile           | f6a7b8c   | feat: add patient profile creation and editing    | Implementa la interfaz para creación y edición de perfiles de pacientes en la aplicación web.                                                      | 05/05/2026         |
+| foll-project/foll-backend      | feature/iam-auth                  | a1b2c3d   | feat: implement IAM auth endpoints                | Desarrolla los endpoints de registro y login en el bounded context IAM, con autenticación JWT.                                                     | 30/04/2026         |
+| foll-project/foll-backend      | feature/care-patients             | d4e5f6a   | feat: add care patients endpoints                 | Implementa endpoints para gestión de pacientes en el bounded context Care, incluyendo creación, edición y contactos de emergencia.                 | 01/05/2026         |
+| foll-project/foll-backend      | feature/device-linking            | f1e2d3c   | feat: implement device linking endpoint           | Desarrolla el endpoint para vinculación de cinturones IoT en el bounded context Device.                                                            | 02/05/2026         |
+| foll-project/foll-backend      | feature/emergency-incidents       | f1e2d3c   | feat: add emergency incidents endpoints           | Expon endpoints para gestión de incidentes en el bounded context Emergency, incluyendo resolución y falsos positivos.                              | 03/05/2026         |
+| foll-project/foll-iot          | feature/iot-prototype-wokwi       | g7b8c9d   | feat: develop IoT prototype ESP32 with GPS        | Crea el prototipo ESP32 en Wokwi con sensores MPU6050, GPS virtual y captura de telemetría.                                                        | 04/05/2026         |
+| foll-project/foll-edge         | feature/edge-server-mqtt          | h8c9d0e   | feat: implement Edge server with MQTT broker      | Desarrolla el servidor Edge usando FastAPI y MQTT broker para recepción de mensajes IoT.                                                           | 05/05/2026         |
 
+#### 6.2.1.5. Testing Suite Evidence for Sprint Review.
 
-
-#### 6.2.1.5. Testing Suite Evidence for Sprint Review.	
 En esta sección se presenta la evidencia de las pruebas realizadas durante el Sprint para validar el correcto funcionamiento de los principales servicios del backend del sistema Foll. Las pruebas se enfocaron en validar reglas de dominio, servicios de aplicación e integración con persistencia, principalmente en los módulos de usuarios, pacientes e incidentes de emergencia por detección de caída.
 
 <br>
 
 - **Relación de tests diseñados**
 
-| Test | Tipo de prueba | User Story relacionada | Descripción |
-|---|---|---|---|
-| `CreateFallDetected_ValidData` | Unit Test | US12 - Recepción de alerta remota / TS03 - Endpoint de persistencia | Crea un `EmergencyIncident` con datos válidos. Verifica el estado inicial y que se registre el evento de dominio `Opened`. |
-| `CreateFallDetected_InvalidDeviceId` | Unit Test | US10 - Vinculación del cinturón / TS03 - Endpoint de persistencia | Intenta crear un incidente con `deviceId` inválido. Verifica que lance `ArgumentOutOfRangeException`. |
-| `Resolve_OpenIncident` | Unit Test | US13 - Confirmación de auxilio | Resuelve un incidente abierto, normaliza la observación y verifica el cambio de estado junto con el evento `Resolved`. |
-| `Resolve_ClosedIncident` | Unit Test | US13 - Confirmación de auxilio | Intenta resolver un incidente ya cerrado. Verifica que lance `InvalidOperationException`. |
-| `CreatePatient_ValidRelationshipType` | Unit Test | US06 - Creación de perfil de paciente | Crea un paciente cuando el `RelationshipType` existe. Verifica que se llame a `AddAsync` y `CompleteAsync`. |
-| `CreatePatient_InvalidRelationshipType` | Unit Test | US06 - Creación de perfil de paciente | Intenta crear un paciente con `RelationshipTypeId` inexistente. Verifica que lance `InvalidOperationException` y no guarde datos. |
-| `RegisterUser_EmailDoesNotExist` | Unit Test | US05 - Creación de cuenta cuidador | Registra un usuario cuando el email no existe. Verifica el guardado, el hash de contraseña y la confirmación de la transacción. |
-| `RegisterUser_EmailAlreadyExists` | Unit Test | US05 - Creación de cuenta cuidador | Intenta registrar un usuario con email existente. Verifica que lance excepción y no ejecute guardado ni commit. |
-| `RegisterUser_Integration` | Integration Test | US05 - Creación de cuenta cuidador | Prueba completa de registro usando EF Core InMemory, repositorios reales y BCrypt real. Verifica persistencia y hash BCrypt. |
-| `UserConstructor_ValidData` | Unit Test | US05 - Creación de cuenta cuidador | Crea un `User` con datos válidos. Verifica normalización de datos y asignación de `CreatedAt`. |
-| `UserConstructor_EmptyEmail` | Unit Test | US05 - Creación de cuenta cuidador | Intenta crear un `User` con email vacío. Verifica que lance `ArgumentException` con `ParamName = "email"`. |
-
+| Test                                    | Tipo de prueba   | User Story relacionada                                              | Descripción                                                                                                                       |
+| --------------------------------------- | ---------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `CreateFallDetected_ValidData`          | Unit Test        | US12 - Recepción de alerta remota / TS03 - Endpoint de persistencia | Crea un `EmergencyIncident` con datos válidos. Verifica el estado inicial y que se registre el evento de dominio `Opened`.        |
+| `CreateFallDetected_InvalidDeviceId`    | Unit Test        | US10 - Vinculación del cinturón / TS03 - Endpoint de persistencia   | Intenta crear un incidente con `deviceId` inválido. Verifica que lance `ArgumentOutOfRangeException`.                             |
+| `Resolve_OpenIncident`                  | Unit Test        | US13 - Confirmación de auxilio                                      | Resuelve un incidente abierto, normaliza la observación y verifica el cambio de estado junto con el evento `Resolved`.            |
+| `Resolve_ClosedIncident`                | Unit Test        | US13 - Confirmación de auxilio                                      | Intenta resolver un incidente ya cerrado. Verifica que lance `InvalidOperationException`.                                         |
+| `CreatePatient_ValidRelationshipType`   | Unit Test        | US06 - Creación de perfil de paciente                               | Crea un paciente cuando el `RelationshipType` existe. Verifica que se llame a `AddAsync` y `CompleteAsync`.                       |
+| `CreatePatient_InvalidRelationshipType` | Unit Test        | US06 - Creación de perfil de paciente                               | Intenta crear un paciente con `RelationshipTypeId` inexistente. Verifica que lance `InvalidOperationException` y no guarde datos. |
+| `RegisterUser_EmailDoesNotExist`        | Unit Test        | US05 - Creación de cuenta cuidador                                  | Registra un usuario cuando el email no existe. Verifica el guardado, el hash de contraseña y la confirmación de la transacción.   |
+| `RegisterUser_EmailAlreadyExists`       | Unit Test        | US05 - Creación de cuenta cuidador                                  | Intenta registrar un usuario con email existente. Verifica que lance excepción y no ejecute guardado ni commit.                   |
+| `RegisterUser_Integration`              | Integration Test | US05 - Creación de cuenta cuidador                                  | Prueba completa de registro usando EF Core InMemory, repositorios reales y BCrypt real. Verifica persistencia y hash BCrypt.      |
+| `UserConstructor_ValidData`             | Unit Test        | US05 - Creación de cuenta cuidador                                  | Crea un `User` con datos válidos. Verifica normalización de datos y asignación de `CreatedAt`.                                    |
+| `UserConstructor_EmptyEmail`            | Unit Test        | US05 - Creación de cuenta cuidador                                  | Intenta crear un `User` con email vacío. Verifica que lance `ArgumentException` con `ParamName = "email"`.                        |
 
 - **Commits relacionados con Testing**
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-|---|---|---|---|---|---|
-| `wiwi57050/foll-backend` | `test` | `9a3f2b1` | `test: add emergency incident domain tests` | Se agregaron pruebas unitarias para validar la creación de incidentes por caída, el estado inicial del incidente y el registro del evento de dominio `Opened`. | 09/05/2026 |
-| `wiwi57050/foll-backend` | `test` | `b71c8e4` | `test: validate emergency incident error scenarios` | Se implementaron pruebas para validar errores al crear incidentes con `deviceId` inválido y al intentar resolver incidentes ya cerrados. | 10/05/2026 |
-| `wiwi57050/foll-backend` | `test` | `c42d9f6` | `test: add patient command service tests` | Se agregaron pruebas para el servicio de creación de pacientes, validando escenarios con `RelationshipType` válido e inválido. | 11/05/2026 |
-| `wiwi57050/foll-backend` | `test` | `e58a1d0` | `test: add user registration service tests` | Se implementaron pruebas unitarias para el registro de usuarios, validando emails nuevos, emails duplicados, guardado y hash de contraseña. | 12/05/2026 |
-| `wiwi57050/foll-backend` | `test` | `f93b6a7` | `test: add user integration test with in memory database` | Se agregó una prueba de integración para el registro de usuarios usando EF Core InMemory, repositorios reales y BCrypt real. | 13/05/2026 |
-| `wiwi57050/foll-backend` | `test` | `a16e4c9` | `test: add user entity validation tests` | Se añadieron pruebas para validar la creación de la entidad `User`, la normalización de datos y el manejo de email vacío. | 13/05/2026 |
+| Repository               | Branch | Commit Id | Commit Message                                            | Commit Message Body                                                                                                                                            | Commited on (Date) |
+| ------------------------ | ------ | --------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `wiwi57050/foll-backend` | `test` | `9a3f2b1` | `test: add emergency incident domain tests`               | Se agregaron pruebas unitarias para validar la creación de incidentes por caída, el estado inicial del incidente y el registro del evento de dominio `Opened`. | 09/05/2026         |
+| `wiwi57050/foll-backend` | `test` | `b71c8e4` | `test: validate emergency incident error scenarios`       | Se implementaron pruebas para validar errores al crear incidentes con `deviceId` inválido y al intentar resolver incidentes ya cerrados.                       | 10/05/2026         |
+| `wiwi57050/foll-backend` | `test` | `c42d9f6` | `test: add patient command service tests`                 | Se agregaron pruebas para el servicio de creación de pacientes, validando escenarios con `RelationshipType` válido e inválido.                                 | 11/05/2026         |
+| `wiwi57050/foll-backend` | `test` | `e58a1d0` | `test: add user registration service tests`               | Se implementaron pruebas unitarias para el registro de usuarios, validando emails nuevos, emails duplicados, guardado y hash de contraseña.                    | 12/05/2026         |
+| `wiwi57050/foll-backend` | `test` | `f93b6a7` | `test: add user integration test with in memory database` | Se agregó una prueba de integración para el registro de usuarios usando EF Core InMemory, repositorios reales y BCrypt real.                                   | 13/05/2026         |
+| `wiwi57050/foll-backend` | `test` | `a16e4c9` | `test: add user entity validation tests`                  | Se añadieron pruebas para validar la creación de la entidad `User`, la normalización de datos y el manejo de email vacío.                                      | 13/05/2026         |
 
-#### 6.2.1.6. Execution Evidence for Sprint Review.	
+#### 6.2.1.6. Execution Evidence for Sprint Review.
 
 Esta sección resume lo alcanzado en el Sprint 1 y presenta las principales vistas implementadas del ecosistema Foll. Se muestran imágenes del backend, frontend, landing page, el broker MQTT del servidor Edge y la interfaz de FastAPI para la API REST.
 
 **Resumen del Sprint 1**
 
-Durante la iteración se logró: 
+Durante la iteración se logró:
+
 - Publicar la landing page del proyecto con contenido comercial y call to action.
 - Implementar el prototipo del frontend web para cuidadores con navegación entre dashboard, historial de eventos y perfil.
 - Desplegar el backend con los bounded contexts IAM, Care, Device y Emergency, incluyendo Swagger/OpenAPI para documentación interactiva.
@@ -4311,19 +4326,19 @@ Durante la iteración se logró:
 - Exponer la API de backend a través de FastAPI, usada para la lógica de autenticación y gestión de pacientes.
 
 ![Backend execution screenshot](img/evidence-sprint-1/backend.png)
-*Vista del backend desplegado y su interfaz de administración / ejecución.*
+_Vista del backend desplegado y su interfaz de administración / ejecución._
 
 ![Frontend execution screenshot](img/evidence-sprint-1/frontend.png)
-*Vista del prototipo frontend implementado para cuidadores con navegación e historial.*
+_Vista del prototipo frontend implementado para cuidadores con navegación e historial._
 
 ![Landing page screenshot](img/evidence-sprint-1/landing.png)
-*Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión.*
+_Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión._
 
 ![MQTT broker screenshot](img/evidence-sprint-1/mqtt-broker.png)
-*Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT.*
+_Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT._
 
 ![FastAPI backend screenshot](img/evidence-sprint-1/backend.png)
-*Interfaz del backend usado también para la documentación y pruebas de FastAPI.*
+_Interfaz del backend usado también para la documentación y pruebas de FastAPI._
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.
 
@@ -4335,20 +4350,20 @@ Commits relacionados con la documentación en este Sprint: `a1b2c3d`, `d4e5f6a`,
 
 ![API Endpoints Documentation - Swagger](img/evidence-sprint-1/swagger-documentation.png)
 
-| Bounded Context | Endpoint | Método HTTP | Sintaxis de llamada | Parámetros principales | Ejemplo de response | Documentación URL | Commit ID |
-|---|---|---|---|---|---|---|---|
-| IAM | `/api/iam/auth/register` | POST | `POST /api/iam/auth/register` | `email`, `password`, `firstName`, `lastName`, `phoneNumber` | `{ "userId": 1, "email": "string@gmail.com" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
-| IAM | `/api/iam/auth/login` | POST | `POST /api/iam/auth/login` | `email`, `password` | `{ "token": "eyJ...", "userId": 1 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
-| Care | `/api/care/patients` | POST | `POST /api/care/patients` | `dni`, `firstName`, `lastName`, `birthDate`, `gender` | `{ "patientId": 123, "name": "Don Roberto" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
-| Care | `/api/care/patients/{id}` | GET / PUT | `GET /api/care/patients/{id}` / `PUT /api/care/patients/{id}` | `id` path, campos de paciente en body (PUT) | `GET -> { "id": 123, "dni": "12345678" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
-| Care | `/api/care/patients/{dni}/invitations` | POST | `POST /api/care/patients/{dni}/invitations` | `dni` path, `caregiverEmail` en body | `{ "invitationId": 45, "status": "sent" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
-| Care | `/api/care/patients/{id}/emergency-contacts` | POST | `POST /api/care/patients/{id}/emergency-contacts` | `id` path, `name`, `phoneNumber`, `relationship` | `{ "contactId": 9, "name": "Doña Carmen" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
-| Device | `/api/devices/{deviceId}/link` | POST / DELETE | `POST /api/devices/{deviceId}/link` / `DELETE /api/devices/{deviceId}/link` | `deviceId` path, `patientId` en body (POST) | `{ "linked": true }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
-| Device | `/api/devices/{deviceId}/status` | GET | `GET /api/devices/{deviceId}/status` | `deviceId` path | `{ "deviceId": "abc123", "status": "online" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
-| Emergency | `/api/emergency/incidents/active/patient/{patientId}` | GET | `GET /api/emergency/incidents/active/patient/{patientId}` | `patientId` path | `{ "incidentId": 77, "status": "active" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
-| Emergency | `/api/emergency/incidents/history/patient/{patientId}` | GET | `GET /api/emergency/incidents/history/patient/{patientId}` | `patientId` path | `[ { "incidentId": 77, "resolved": false } ]` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
-| Emergency | `/api/emergency/incidents/{incidentId}/resolve` | POST | `POST /api/emergency/incidents/{incidentId}/resolve` | `incidentId` path, `actorUserId` en body | `{ "resolved": true, "incidentId": 77 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
-| Emergency | `/api/emergency/incidents/{incidentId}/false-positive` | POST | `POST /api/emergency/incidents/{incidentId}/false-positive` | `incidentId` path, `reason` en body | `{ "falsePositive": true, "incidentId": 77 }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Bounded Context | Endpoint                                               | Método HTTP   | Sintaxis de llamada                                                         | Parámetros principales                                      | Ejemplo de response                            | Documentación URL                                                                             | Commit ID |
+| --------------- | ------------------------------------------------------ | ------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------- | --------- |
+| IAM             | `/api/iam/auth/register`                               | POST          | `POST /api/iam/auth/register`                                               | `email`, `password`, `firstName`, `lastName`, `phoneNumber` | `{ "userId": 1, "email": "string@gmail.com" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
+| IAM             | `/api/iam/auth/login`                                  | POST          | `POST /api/iam/auth/login`                                                  | `email`, `password`                                         | `{ "token": "eyJ...", "userId": 1 }`           | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `a1b2c3d` |
+| Care            | `/api/care/patients`                                   | POST          | `POST /api/care/patients`                                                   | `dni`, `firstName`, `lastName`, `birthDate`, `gender`       | `{ "patientId": 123, "name": "Don Roberto" }`  | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care            | `/api/care/patients/{id}`                              | GET / PUT     | `GET /api/care/patients/{id}` / `PUT /api/care/patients/{id}`               | `id` path, campos de paciente en body (PUT)                 | `GET -> { "id": 123, "dni": "12345678" }`      | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care            | `/api/care/patients/{dni}/invitations`                 | POST          | `POST /api/care/patients/{dni}/invitations`                                 | `dni` path, `caregiverEmail` en body                        | `{ "invitationId": 45, "status": "sent" }`     | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Care            | `/api/care/patients/{id}/emergency-contacts`           | POST          | `POST /api/care/patients/{id}/emergency-contacts`                           | `id` path, `name`, `phoneNumber`, `relationship`            | `{ "contactId": 9, "name": "Doña Carmen" }`    | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `d4e5f6a` |
+| Device          | `/api/devices/{deviceId}/link`                         | POST / DELETE | `POST /api/devices/{deviceId}/link` / `DELETE /api/devices/{deviceId}/link` | `deviceId` path, `patientId` en body (POST)                 | `{ "linked": true }`                           | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Device          | `/api/devices/{deviceId}/status`                       | GET           | `GET /api/devices/{deviceId}/status`                                        | `deviceId` path                                             | `{ "deviceId": "abc123", "status": "online" }` | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency       | `/api/emergency/incidents/active/patient/{patientId}`  | GET           | `GET /api/emergency/incidents/active/patient/{patientId}`                   | `patientId` path                                            | `{ "incidentId": 77, "status": "active" }`     | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency       | `/api/emergency/incidents/history/patient/{patientId}` | GET           | `GET /api/emergency/incidents/history/patient/{patientId}`                  | `patientId` path                                            | `[ { "incidentId": 77, "resolved": false } ]`  | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency       | `/api/emergency/incidents/{incidentId}/resolve`        | POST          | `POST /api/emergency/incidents/{incidentId}/resolve`                        | `incidentId` path, `actorUserId` en body                    | `{ "resolved": true, "incidentId": 77 }`       | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
+| Emergency       | `/api/emergency/incidents/{incidentId}/false-positive` | POST          | `POST /api/emergency/incidents/{incidentId}/false-positive`                 | `incidentId` path, `reason` en body                         | `{ "falsePositive": true, "incidentId": 77 }`  | `https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html` | `f1e2d3c` |
 
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.
 
@@ -4376,6 +4391,38 @@ Durante el Sprint también se revisó la coherencia entre la implementación y l
 <img width="1042" height="812" alt="image" src="https://github.com/user-attachments/assets/b5d45ab2-4654-40dd-ac21-8db454d42918" />
 <img width="1012" height="662" alt="image" src="https://github.com/user-attachments/assets/c4a7255f-7fe6-4d45-93a1-28effd12b7a4" />
 <img width="1037" height="680" alt="image" src="https://github.com/user-attachments/assets/49d73ec4-b454-4e79-844f-e45283fb69ce" />
+
+<div style="page-break-after: always;"></div>
+
+### 6.2.2. Sprint 2
+
+#### 6.2.2.1. Sprint Planning 2.
+
+#### 6.2.2.2. Aspect Leaders and Collaborators.
+
+#### 6.2.2.3. Sprint Backlog 2.
+
+#### 6.2.2.4. Development Evidence for Sprint Review.
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review.
+
+#### 6.2.2.6. Execution Evidence for Sprint Review.
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review.
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review.
+
+#### 6.2.2.9. Team Collaboration Insights during Sprint.
+
+## 6.3. Validation Interviews.
+
+### 6.3.1. Diseño de Entrevistas.
+
+### 6.3.2. Registro de Entrevistas.
+
+### 6.3.3. Evaluaciones según heurísticas.
+
+## 6.4. Video About-the-Product.
 
 <div style="page-break-after: always;"></div>
 
@@ -4421,14 +4468,14 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 
 - Link de la Landing Page
-https://foll-project.github.io/landing-page-foll/
+  https://foll-project.github.io/landing-page-foll/
 - Link de la Aplicación Web
-https://agreeable-dune-02d763510.7.azurestaticapps.net/
+  https://agreeable-dune-02d763510.7.azurestaticapps.net/
 - Link del Swagger
-https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html
+  https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html
 
-- Link del Figma 
-https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1
+- Link del Figma
+  https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1
 
 - Link del Prototipo en Wokwi
-https://wokwi.com/projects/463973317008005121
+  https://wokwi.com/projects/463973317008005121
