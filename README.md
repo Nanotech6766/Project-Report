@@ -340,8 +340,8 @@
       - [6.2.2.8. Software Deployment Evidence for Sprint Review.](#6228-software-deployment-evidence-for-sprint-review)
       - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews.](#63-validation-interviews)
-    - [6.3.1. Diseño de entrevistas.](#631-diseño-de-entrevistas)
-    - [6.3.2. Registro de entrevistas.](#632-registro-de-entrevistas)
+    - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
     - [6.3.3. Evaluaciones según heurísticas.](#633-evaluaciones-según-heurísticas)
   - [6.4. Video About-the-Product.](#64-video-about-the-product)
 - [Conclusiones](#conclusiones)
@@ -4665,6 +4665,34 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
+
+Esta sección resume lo alcanzado en el Sprint 2 y presenta las principales vistas e integraciones implementadas del ecosistema Foll. Se muestran imágenes de las aplicaciones Web y Mobile, el panel de gestión de pacientes, el historial de incidencias y la integración de alertas en tiempo real mediante WebSockets.
+
+**Resumen del Sprint 2**
+
+Durante esta iteración, el equipo se enfocó en dotar de interfaz gráfica e interactividad al sistema, logrando lo siguiente:
+
+- Desarrollar e integrar las vistas de registro y creación de cuenta para cuidadores en las plataformas Web y Mobile.
+- Implementar el módulo de gestión de pacientes, permitiendo registrar adultos mayores, actualizar sus datos médicos (alergias, tipo de sangre), añadir contactos secundarios y vincular el cinturón IoT mediante el serial de hardware.
+- Habilitar la recepción de alertas en tiempo real y notificaciones de emergencia mediante conexión por WebSockets, incluyendo el botón interactivo de confirmación de auxilio ("Estoy en camino").
+- Construir la vista de historial de caídas, presentando una lista cronológica con la capacidad de filtrar eventos por estado (falsos positivos).
+
+<img src="./img/evidence-sprint-2/register_mobile.png"  alt="Mobile Registration screenshot" width="300">
+<img src="./img/evidence-sprint-2/login_mobile.png"  alt="Mobile Login screenshot" width="300">  <br>
+
+![Patient Profile Management screenshot](img/evidence-sprint-2/login_web.png)
+
+_Vista de las interfaces de registro e inicio de sesión para cuidadores en plataformas Web y Mobile._
+
+<img src="./img/evidence-sprint-2/detalles_abuelito_movil.png"  alt="Patient Profile Management Mobile screenshot" width="300">  
+<img src="./img/evidence-sprint-2/vinculacion_disp_movil.png"  alt="Patient Profile Management Mobile screenshot" width="300">  <br>
+![Patient Profile Management screenshot](img/evidence-sprint-2/detalles_abuelito.png)
+_Panel de gestión web y móvil de pacientes, mostrando el ingreso de datos médicos, contactos de emergencia y vinculación del dispositivo IoT._
+
+![History and Filtering screenshot](img/evidence-sprint-2/reportes.png)
+_Vista del historial cronológico de caídas registradas, incluyendo los toggles para filtrar falsos positivos._
+
+
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review.
 
