@@ -4702,6 +4702,9 @@ El backend del Sprint 2 fue documentado mediante Swagger/OpenAPI en el servicio 
 
 Commits relacionados con la documentación en este Sprint: 7a8b9c1, 2d3e4f5, 9f8e7d6, 4c5b6a7, 1e2f3d4.
 
+<img width="1866" height="905" alt="image" src="https://github.com/user-attachments/assets/e0f26de2-cab1-4ba7-91f9-6185af044c51" />
+
+
 ## Bounded Context: IAM (Identity & Access Management)
 
 Base path: `/api/iam/auth`
