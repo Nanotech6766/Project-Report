@@ -4321,7 +4321,7 @@ Durante la iteración se logró:
 ![Landing page screenshot](img/evidence-sprint-1/landing.png)
 *Captura de la landing page pública de Foll, mostrando la propuesta de valor y botones de conversión.*
 
-![MQTT broker screenshot](img/evidence-sprint-1/mqtt broker.png)
+![MQTT broker screenshot](img/evidence-sprint-1/mqtt-broker.png)
 *Configuración del broker MQTT usado por el servidor Edge para la mensajería IoT.*
 
 ![FastAPI backend screenshot](img/evidence-sprint-1/backend.png)
