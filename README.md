@@ -4703,6 +4703,63 @@ _Vista del historial cronológico de caídas registradas, incluyendo los toggles
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
+En esta sección se establecen los elementos de validación, los flujos de usuario (*user flows*) evaluados y los guiones de preguntas estructurados para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
+
+**Elementos a incluir por Segmento Objetivo**
+
+* **Segmento Cuidadores de Adultos Mayores (Canales Digitales):**
+    * **Landing Page:** Evaluación de la sección de propuesta de valor ("Cómo funciona"), validación social ("Testimonios") e intención de conversión ("Precios").
+    * **Aplicación Web y Móvil:** Validación del Dashboard de monitoreo gráfico, administración del perfil del paciente en "Mis Abuelitos" y la lectura de alertas en el "Historial de Eventos".
+* **Segmento Adultos Mayores / Abuelitos (Componente Físico):**  
+    * **Dispositivo IoT (Hardware Wearable):** Evaluación física, ergonómica y de confianza con el sensor/dispositivo portable encargado de la telemetría y detección automática de caídas.
+
+---
+
+**User Flows de las Aplicaciones a Validar**
+
+Para optimizar las sesiones de validación con el segmento de cuidadores y evitar la fatiga del usuario, el proceso se divide en dos flujos independientes distribuidos entre los entrevistados:
+
+* **User Flow A (Descubrimiento y Conversión - Landing Page):**
+    Navegación inicial en Landing Page, la comprensión de características de como funciona nuestra solución y opinión sobre la paleta de colores.
+* **User Flow B (Gestión y Monitoreo Crítico - Aplicación Web y Móvil):**
+    Visualización del estado actual en el Inicio (Métricas de caídas y falsos positivos), Control de información en la sección "Mis Abuelitos" y opinión sobre el detalle de un evento en el historial de caídas.
+
+---
+
+**Guiones y Cuestionarios de Validación por Segmento**
+
+A continuación, se presentan los cuestionarios con preguntas enumeradas que se aplican durante las entrevistas grabadas.
+
+**Segmento 1: Cuidadores de Adultos Mayores**
+
+*Guion de Preguntas para el Grupo A: Landing Page (Tiempo estimado: 5-7 mins)*  
+*(Se le presenta al entrevistado la Landing Page interactiva que abarca las secciones de "Cómo funciona", "Testimonios" y "Precios")*
+
+1. **Primera impresión:** Al mirar esta página por primera vez, ¿entiendes claramente qué problema resuelve este servicio y para quién está pensado?
+2. **Claridad de propuesta:** En la sección "Cómo funciona", ¿te queda claro cómo el sistema detecta si tu familiar sufrió una caída real? ¿Qué dudas te genera?
+3. **Conversión y Precio:** El servicio ofrece 14 días de prueba gratis y luego cuesta 39.90 soles al mes. ¿Consideras que este precio es adecuado por la tranquilidad de saber que tu familiar está a salvo?
+4. **Decisión y Estética:** ¿Qué opinas de la paleta de colores? ¿Refleja lo que el sistema quiere emitir?
+
+*Guion de Preguntas para el Grupo B: Aplicación Web y Móvil (Tiempo estimado: 7-9 mins)*  
+*(Se sitúa al entrevistado dentro del entorno de la plataforma de software con la sesión ya iniciada)*
+
+1. ¿Qué opinas del gráfico circular en la página de inicio? ¿Refleja claramente la comparación entre caídas reales y falsos positivos?
+2. ¿Consideras que la sección de "Mis abuelitos" registrados muestra todo lo que necesitas saber sobre ellos? ¿Es cómodo de ver?
+3. En la sección "Registro de caídas", ¿consideras que el detalle del evento muestra toda la información que quisieras saber sobre la caída de un abuelito?
+4. ¿Qué opinas de la paleta de colores de la aplicación? ¿Refleja lo que el sistema quiere emitir?
+
+---
+**Segmento 2: Adultos Mayores / Abuelitos**
+
+*Preguntas de Validación para Adultos Mayores (Dispositivo IoT / Hardware)*  
+*(Se interactúa con el adulto mayor mostrándole el prototipo físico o modelo tridimensional del wearable: imagen presentada en la sección iot device design)*
+
+1. Al ver o tocar este dispositivo (reloj/collar/botón), ¿le parece que es ligero y cómodo para llevarlo puesto todo el día en casa?
+2. ¿Siente que el dispositivo le estorbaría o le incomodaría al momento de realizar sus actividades diarias, como dormir, cocinar o cambiarse de ropa?
+3. Si usted se llega a caer, el aparato avisará de forma automática al celular de su familiar sin que usted tenga que presionar ningún botón. ¿Le da tranquilidad saber que recibirá ayuda rápida de esta manera?
+4. El dispositivo necesita cargarse en su base cada ciertos días (como un celular). ¿Se le haría fácil recordar ponerlo a cargar usted mismo o preferiría que su cuidador se encargue de eso?
+5. ¿Qué opina del tamaño y diseño del aparato? ¿Le gusta cómo se ve o preferiría que sea más pequeño para que pueda ocultarse fácilmente bajo la ropa?
+6. ¿Tiene algún temor de que el dispositivo "lo esté vigilando tod
 
 ### 6.3.2. Registro de Entrevistas.
 
