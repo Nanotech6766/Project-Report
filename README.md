@@ -4521,7 +4521,7 @@ Para asegurar la efectividad en la comunicación y el desarrollo durante el Spri
 
 El objetivo principal de este Sprint es dotar de interfaz gráfica e interactividad a la gestión de pacientes y habilitar las funciones de monitoreo (historial, estadísticas y recepción de alertas en vivo). A continuación, presentamos nuestro Sprint Backlog gestionado en Trello.
 
-**URL público del Board:** https://trello.com/invite/b/6a36353e6dfe8d034c0c1301/ATTI7c8e762618a27a148d3d0d2b7d1ab6d67A4341BA/sprint-2-foll
+**URL público del Board:** <a href="https://trello.com/invite/b/6a36353e6dfe8d034c0c1301/ATTI7c8e762618a27a148d3d0d2b7d1ab6d67A4341BA/sprint-2-foll">https://trello.com/invite/b/6a36353e6dfe8d034c0c1301/ATTI7c8e762618a27a148d3d0d2b7d1ab6d67A4341BA/sprint-2-foll</a>
 
 A continuación, se detalla la asignación de User Stories y Work-items/Tasks correspondientes a este sprint:
 
@@ -4662,6 +4662,24 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
+En esta sección se explica y presenta los avances en la implementación correspondientes al Sprint 2, enfocados en el desarrollo de las interfaces de usuario (Frontend Web y Mobile App) del ecosistema Foll. La sección inicia con una introducción que resume los principales logros de la iteración.
+
+Durante el Sprint 2, el equipo se enfocó en consumir los servicios backend (IAM, Care, Emergency Management y Device) construidos previamente. Se logró la implementación de los flujos de autenticación y registro en web y móvil, la gestión completa de los perfiles de los adultos mayores (datos médicos y contactos), y la vinculación del dispositivo IoT. El mayor avance técnico radicó en la conexión bidireccional mediante WebSockets para la recepción de alertas en tiempo real en el dashboard de emergencias, así como la visualización interactiva del historial cronológico y estadísticas usando Chart.js.
+
+| Repository                     | Branch                             | Commit Id | Commit Message                                          | Commit Message Body                                                                                                                                                | Commited on (Date) |
+| ------------------------------ | ---------------------------------- | --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| foll-project/foll-frontend     | feature/web-auth-ui                | a1b2c3d   | feat: implement web login and registration views        | Desarrolla las vistas de registro e inicio de sesión para cuidadores en la plataforma web, consumiendo la API del bounded context IAM.                             | 28/05/2026         |
+| foll-project/foll-mobile       | feature/mobile-auth-ui             | b2c3d4e   | feat: develop mobile registration and login flow        | Implementa las pantallas de registro e inicio de sesión en la aplicación móvil para garantizar el acceso multiplataforma de los usuarios.                          | 29/05/2026         |
+| foll-project/foll-mobile       | feature/mobile-patient-profile     | c3d4e5f   | feat: add patient profile and iot linking ui            | Crea el formulario de registro de adulto mayor en la app, incluyendo el input para ingresar el serial del hardware (IoT) y vincular el cinturón.                   | 30/05/2026         |
+| foll-project/foll-frontend     | feature/medical-data-contacts      | d4e5f6a   | feat: update medical data and emergency contacts ui     | Añade campos editables para alergias, tipo de sangre y la lista para agregar números de contactos secundarios en el perfil web del paciente.                       | 01/06/2026         |
+| foll-project/foll-frontend     | feature/monitoring-requests        | e5f6a7b   | feat: build monitoring request management view          | Construye la interfaz para que los usuarios puedan aceptar o rechazar las solicitudes de monitoreo de pacientes vinculados.                                        | 02/06/2026         |
+| foll-project/foll-frontend     | feature/websockets-emergency-alert | f6a7b8c   | feat: integrate websockets for real-time alerts         | Conecta el dashboard web mediante WebSockets para recibir notificaciones de caída en vivo e integra el botón interactivo de confirmación "Estoy en camino".          | 03/06/2026         |
+| foll-project/foll-mobile       | feature/mobile-emergency-dashboard | g7b8c9d   | feat: implement mobile emergency view with medical data | Desarrolla la vista de alerta en la app móvil, mostrando el tipo de sangre y alergias del paciente de manera prominente durante una emergencia.                    | 04/06/2026         |
+| foll-project/foll-frontend     | feature/history-and-filters        | h8c9d0e   | feat: implement fall history table with filters         | Desarrolla la vista de lista cronológica de caídas pasadas registradas, agregando toggles lógicos para filtrar los eventos por estado (ej. falsos positivos).      | 05/06/2026         |
+| foll-project/foll-frontend     | feature/statistics-chartjs         | i9d0e1f   | feat: integrate Chart.js for monthly statistics         | Implementa un gráfico de barras interactivo utilizando la librería Chart.js para visualizar el reporte de caídas mensuales en el dashboard principal.              | 05/06/2026         |
+
+
+
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
@@ -4686,7 +4704,9 @@ _Vista de las interfaces de registro e inicio de sesión para cuidadores en plat
 
 <img src="./img/evidence-sprint-2/detalles_abuelito_movil.png"  alt="Patient Profile Management Mobile screenshot" width="300">  
 <img src="./img/evidence-sprint-2/vinculacion_disp_movil.png"  alt="Patient Profile Management Mobile screenshot" width="300">  <br>
+
 ![Patient Profile Management screenshot](img/evidence-sprint-2/detalles_abuelito.png)
+
 _Panel de gestión web y móvil de pacientes, mostrando el ingreso de datos médicos, contactos de emergencia y vinculación del dispositivo IoT._
 
 ![History and Filtering screenshot](img/evidence-sprint-2/reportes.png)
