@@ -4396,11 +4396,267 @@ Durante el Sprint también se revisó la coherencia entre la implementación y l
 
 ### 6.2.2. Sprint 2
 
+En esta sección se registra el avance del Sprint 2 para el desarrollo del ecosistema Foll. Se documenta la planificación, la matriz de liderazgo, el backlog del sprint y las evidencias de desarrollo, enfocadas en la construcción de las aplicaciones Web y Mobile, la gestión de perfiles y la integración de alertas en tiempo real mediante WebSockets.
+
 #### 6.2.2.1. Sprint Planning 2.
+
+En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra reunión de Sprint Planning para el Sprint 2. El foco principal de esta iteración es consumir las APIs desarrolladas en el Sprint 1 mediante la creación de las interfaces Web y Mobile, habilitar el historial de incidencias y conectar el sistema de alertas por WebSockets.
+
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" >Sprint # 2</th>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Sprint Planning Background</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Date</strong></td>
+      <td>2026-05-27</td>
+    </tr>
+    <tr>
+      <td><strong>Time</strong></td>
+      <td>10:00 AM</td>
+    </tr>
+    <tr>
+      <td><strong>Location</strong></td>
+      <td>Reunión virtual por Microsoft Teams</td>
+    </tr>
+    <tr>
+      <td><strong>Prepared By</strong></td>
+      <td>Agreda Sobrino, Ariana Cecilia</td>
+    </tr>
+    <tr>
+      <td><strong>Attendees (to planning meeting)</strong></td>
+      <td>Elera Rodríguez, Mauricio Daniel / Agreda Sobrino, Ariana Cecilia / Belledonne Espinoza, Claudia Valeria / Vilca Saboya, Diego Alejandro / Saldaña Ayala, Fabiola del Rocío</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 1 Review Summary</strong></td>
+      <td>En el Sprint 1 logramos desplegar la Landing Page, desarrollar el prototipo IoT y exponer la primera capa del Backend RESTful API. La base del ecosistema quedó sentada, pero el Frontend Web y Mobile quedaron pendientes de integración.</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 1 Retrospective Summary</strong></td>
+      <td>El equipo concluyó que es necesario trabajar de forma más paralela entre los encargados de Web y Mobile para consumir los mismos endpoints sin bloqueos. Se acordó enfocar este sprint netamente en la interfaz de usuario (UI) y la visualización de datos.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 2 Goal</strong></td>
+      <td>"Nuestro foco está en entregar las aplicaciones Web y Mobile funcionales para que los cuidadores puedan gestionar los perfiles de los adultos mayores, visualizar su historial y recibir alertas en tiempo real. Creemos que esto entrega control y visibilidad del estado de salud a los usuarios responsables. Esto será confirmado cuando un cuidador pueda registrar un paciente, ver las estadísticas de caídas y visualizar una alerta por WebSockets en la pantalla."</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 2 Velocity</strong></td>
+      <td>35 Story Points</td>
+    </tr>
+    <tr>
+      <td><strong>Sum of Story Points</strong></td>
+      <td>32 (US05, US06, US10, US08, US07, US09, US13, US16, US17, US18, US19)</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
+Para asegurar la efectividad en la comunicación y el desarrollo durante el Sprint 2, hemos elaborado la matriz de Liderazgo y Colaboración (LACX). Los principales aspectos evaluados en este sprint incluyen el desarrollo del Frontend (Web y Mobile), la integración de WebSockets para tiempo real, y el módulo de estadísticas e historial.
+
+<table>
+  <thead>
+    <tr>
+      <th>Team Member (Last Name, First Name)</th>
+      <th>GitHub Username</th>
+      <th>Frontend Web (L/C)</th>
+      <th>Mobile App (L/C)</th>
+      <th>WebSockets & Alertas (L/C)</th>
+      <th>Historial & Stats (L/C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Agreda Sobrino, Ariana Cecilia</td>
+      <td>arii4w</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Elera Rodríguez, Mauricio Daniel</td>
+      <td>Maur1xio</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Belledonne Espinoza, Claudia Valeria</td>
+      <td>Cl4us-tb</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Vilca Saboya, Diego Alejandro</td>
+      <td>diegovilca</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Saldaña Ayala, Fabiola del Rocío</td>
+      <td>fabs-in-space</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 6.2.2.3. Sprint Backlog 2.
+
+El objetivo principal de este Sprint es dotar de interfaz gráfica e interactividad a la gestión de pacientes y habilitar las funciones de monitoreo (historial, estadísticas y recepción de alertas en vivo). A continuación, presentamos nuestro Sprint Backlog gestionado en Trello.
+
+**URL público del Board:** https://trello.com/invite/b/6a36353e6dfe8d034c0c1301/ATTI7c8e762618a27a148d3d0d2b7d1ab6d67A4341BA/sprint-2-foll
+
+A continuación, se detalla la asignación de User Stories y Work-items/Tasks correspondientes a este sprint:
+
+<table>
+  <thead>
+    <tr >
+      <th style="text-align: left;">Sprint #</th>
+      <th colspan="7" style="text-align: left;">Sprint 2</th>
+    </tr>
+    <tr >
+      <th colspan="2" style="text-align: center;">User Story</th>
+      <th colspan="5" style="text-align: center;">Work-Item/Task</th>
+      <th rowspan="2" style="text-align: center; vertical-align: middle;">Status<br>(To-do/ In-Process/ To-Review/ Done)</th>
+    </tr>
+    <tr >
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Description</th>
+      <th style="text-align: center;">Estimation (Hours)</th>
+      <th style="text-align: center;">Assigned To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">US05</td>
+      <td>Creación cuenta cuidador</td>
+      <td style="text-align: center;">T13</td>
+      <td>UI Registro (Web/Mobile)</td>
+      <td>Desarrollar vistas de registro e integrar con API.</td>
+      <td style="text-align: center;">5</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US06</td>
+      <td>Perfil de paciente</td>
+      <td style="text-align: center;">T14</td>
+      <td>UI Gestión de Pacientes</td>
+      <td>Crear formulario de registro de adulto mayor en App.</td>
+      <td style="text-align: center;">4</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US07</td>
+      <td>Datos médicos</td>
+      <td style="text-align: center;">T15</td>
+      <td>Actualización Médica UI</td>
+      <td>Añadir campos editables de alergias y tipo de sangre.</td>
+      <td style="text-align: center;">3</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US08</td>
+      <td>Contactos secundarios</td>
+      <td style="text-align: center;">T16</td>
+      <td>UI Contactos</td>
+      <td>Implementar lista para agregar números de emergencia.</td>
+      <td style="text-align: center;">3</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US09</td>
+      <td>Permiso de monitoreo</td>
+      <td style="text-align: center;">T17</td>
+      <td>Gestión de Solicitudes</td>
+      <td>Crear vista para aceptar/rechazar monitoreo.</td>
+      <td style="text-align: center;">4</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US10</td>
+      <td>Vinculación cinturón</td>
+      <td style="text-align: center;">T18</td>
+      <td>Input de Serial IoT</td>
+      <td>Formulario para ingresar el serial del hardware.</td>
+      <td style="text-align: center;">3</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US13</td>
+      <td>Confirmación auxilio</td>
+      <td style="text-align: center;">T19</td>
+      <td>Botón "Estoy en camino"</td>
+      <td>Botón interactivo y conexión por WebSockets de estado.</td>
+      <td style="text-align: center;">6</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US16</td>
+      <td>Visualización médica</td>
+      <td style="text-align: center;">T20</td>
+      <td>Dashboard Emergencia</td>
+      <td>Mostrar tipo de sangre y alergias durante la alerta.</td>
+      <td style="text-align: center;">4</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US17</td>
+      <td>Consulta historial</td>
+      <td style="text-align: center;">T21</td>
+      <td>Lista Cronológica UI</td>
+      <td>Vista de tabla/lista de caídas pasadas registradas.</td>
+      <td style="text-align: center;">5</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US18</td>
+      <td>Filtro falsos positivos</td>
+      <td style="text-align: center;">T22</td>
+      <td>Lógica de Filtros</td>
+      <td>Agregar toggles para filtrar historial por estado.</td>
+      <td style="text-align: center;">3</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">US19</td>
+      <td>Estadísticas (Gráfico)</td>
+      <td style="text-align: center;">T23</td>
+      <td>Integración Chart.js</td>
+      <td>Implementar gráfico de barras para visualizar caídas mensuales.</td>
+      <td style="text-align: center;">6</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
