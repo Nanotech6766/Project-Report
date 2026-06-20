@@ -4708,6 +4708,123 @@ _Vista del historial cronológico de caídas registradas, incluyendo los toggles
 
 ### 6.3.3. Evaluaciones según heurísticas.
 
+**TAREAS A EVALUAR:**
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas en las interfaces Web y Móvil de cuidadores:
+1. Navegación principal e interactividad de atajos en el Dashboard.
+2. Consulta de perfiles de pacientes.
+3. Vinculación y gestión visual del dispositivo IoT.
+4. Visualización y registro en la bitácora médica.
+
+No están incluidas en esta versión de la evaluación las siguientes tareas:
+1. Recepción de alertas en vivo vía WebSockets.
+2. Integraciones de hardware real en el Edge Server.
+
+---
+
+**ESCALA DE SEVERIDAD:**
+
+| Nivel | Descripción |
+|-------|-------------|
+| 1     | Problema superficial: puede ser fácilmente superado por el usuario ó ocurre con muy poco frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2     | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente release. |
+| 3     | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos y se les debe asignar una prioridad alta. |
+| 4     | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+---
+
+**TABLA RESUMEN:**
+
+| # | Problema                                                                                             | Escala de severidad | Heurística/Principio violada(o)                               |
+|---|------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------|
+| 1 | Icono de edición descuadrado en el estado vacío de la bitácora de cuidado                            | 2                   | Diseño estético y minimalista                                 |
+| 2 | Apartado de vinculación IoT movido y con asimetría en la vista móvil                                 | 2                   | Consistencia y estándares                                     |
+| 3 | Inoperancia del botón superior izquierdo en la vista móvil principal                                 | 3                   | Control y libertad del usuario / Retroalimentación del sistema|
+| 4 | Tarjetas de "Acceso Directo" inertes en el dashboard principal web                                   | 3                   | Flexibilidad y eficiencia de uso                              |
+
+---
+
+**Detalle de hallazgos**
+
+- **Hallazgo H-01**
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Tarea evaluada** | Visualización y registro en la bitácora médica |
+| **Ubicación** | Web - Modal de "Bitácora de Cuidado" |
+| **Problema identificado** | Icono descuadrado en la bitácora (estado vacío) |
+| **Severidad** | 2 |
+| **Heurística vulnerada** | Diseño estético y minimalista |
+| **Descripción** | Dentro del modal emergente de la bitácora, el contenedor inferior muestra el mensaje "No hay anotaciones registradas". En esta misma caja, el icono de un lápiz se encuentra flotando de manera desalineada en el extremo izquierdo, sin relación espacial con el texto central, rompiendo la estructura visual del componente. |
+| **Impacto para el usuario** | Transmite una sensación de falta de pulido en la interfaz y descuido en el maquetado. Aunque no bloquea el uso, genera "ruido visual" que distrae al usuario. |
+| **Recomendación** | Ajustar las reglas CSS del contenedor del estado vacío. Se recomienda agrupar el icono y el texto en un mismo contenedor *flexbox* con centrado (`justify-content: center`, `align-items: center`), o eliminar el icono si es redundante. |
+
+**Evidencia**
+
+![Figura 1 - Hallazgo H-01](./img/ev-heuristicas/bitacora_cuidados.png)
+*Figura 1. Icono de lápiz desalineado en el componente de estado vacío de la bitácora.*
+
+---
+
+- **Hallazgo H-02**
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Tarea evaluada** | Vinculación y gestión visual del dispositivo IoT |
+| **Ubicación** | App Móvil - Sección de Perfil del Paciente |
+| **Problema identificado** | Apartado de vinculación movido y desalineado |
+| **Severidad** | 2 |
+| **Heurística vulnerada** | Consistencia y estándares |
+| **Descripción** | La tarjeta blanca correspondiente a la vinculación del "Dispositivo IoT (Sensor)" presenta un desajuste en sus márgenes internos (*padding*). El contenido (icono de no vinculado, texto y botón) parece estar "movido" y no se alinea con la consistencia visual y los márgenes de los campos de texto superiores (DNI, Enfermedades, etc.). |
+| **Impacto para el usuario** | Disminuye la calidad estética general de la vista de perfil. En una aplicación de salud y monitoreo, las irregularidades de diseño pueden reducir la confianza subconsciente del usuario en la plataforma. |
+| **Recomendación** | Revisar las propiedades de margen y relleno del componente de la tarjeta. Asegurar que los márgenes laterales coincidan con los de los elementos tipo *input* de la pantalla para mantener una cuadrícula (*grid*) consistente. |
+
+**Evidencia**
+
+<img src="./img/ev-heuristicas/vincular_disp.png"  alt="Figura 2 - Hallazgo H-02" width="300"> <br>
+
+*Figura 2. Tarjeta de vinculación IoT presentando desalineación respecto al resto del perfil.*
+
+---
+
+- **Hallazgo H-03**
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Tarea evaluada** | Navegación principal |
+| **Ubicación** | App Móvil - Barra superior de la pantalla de Inicio (Home) |
+| **Problema identificado** | Botón superior izquierdo no funcional |
+| **Severidad** | 3 |
+| **Heurística vulnerada** | Control y libertad del usuario / Retroalimentación del sistema |
+| **Descripción** | En la cabecera de la aplicación móvil existe un icono en la esquina superior izquierda (con forma de maletín o identificador médico). Este elemento tiene la apariencia visual de ser un botón de acción (por ejemplo, para abrir un menú lateral o un atajo de emergencias), pero al pulsarlo no desencadena ninguna acción ni da feedback visual. |
+| **Impacto para el usuario** | Genera confusión y frustración. El usuario presiona el elemento esperando controlar el sistema o navegar, asumiendo erróneamente que la aplicación se ha congelado al no obtener respuesta. |
+| **Recomendación** | Si el icono es únicamente decorativo, debe reemplazarse por una ubicación no interactiva o cambiar su diseño para no parecer un botón. Si tiene una función prevista (ej. abrir *sidebar*), es indispensable conectar correctamente su evento `onClick`. |
+
+**Evidencia**
+
+<img src="./img/ev-heuristicas/inicio_movil.png"  alt="Figura 3 - Hallazgo H-03" width="300"> <br>
+
+*Figura 3. Icono superior izquierdo que actúa como un botón inoperante en la vista móvil.*
+
+---
+
+- **Hallazgo H-04**
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Tarea evaluada** | Interactividad de atajos en el Dashboard |
+| **Ubicación** | Web - Dashboard principal (Inicio) |
+| **Problema identificado** | Acceso directo inerte en las tarjetas de pacientes |
+| **Severidad** | 3 |
+| **Heurística vulnerada** | Flexibilidad y eficiencia de uso / Prevención de errores (Affordance engañoso) |
+| **Descripción** | En la sección central de "Acceso Directo", se muestran tarjetas para los pacientes gestionados (ej. "Don Roberto", "Doña Carmen"). Estas tarjetas incluyen un icono de flecha apuntando a la derecha (`>`), sugiriendo claramente que son clickeables. Sin embargo, hacer clic sobre ellas no produce ninguna redirección ni efecto. |
+| **Impacto para el usuario** | Impacta negativamente en la eficiencia. El propósito de un "Acceso Directo" es acortar los flujos; al estar inertes, el usuario se ve forzado a navegar manualmente desde el menú lateral hacia "Mis Abuelitos" para ver la información. |
+| **Recomendación** | Envolver el componente de la tarjeta en un enlace de enrutamiento (ej. `<Link>` o `<a>`) que dirija a la vista de detalles del paciente respectivo (`/paciente/{id}`). Además, añadir un cambio de estado en *hover* (cambio de color o sombra) para validar su interactividad. |
+
+**Evidencia**
+
+![Figura 4 - Hallazgo H-04](./img/ev-heuristicas/pantalla_inicio_web.png)
+*Figura 4. Tarjetas de Acceso Directo con diseño interactivo pero sin funcionamiento de enlace.*
+
 ## 6.4. Video About-the-Product.
 
 <div style="page-break-after: always;"></div>
