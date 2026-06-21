@@ -4703,7 +4703,7 @@ _Vista del historial cronológico de caídas registradas, incluyendo los toggles
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
-En esta sección se establecen los elementos de validación, los flujos de usuario (*user flows*) evaluados y los guiones de preguntas estructurados para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
+En esta sección se establecen los elementos de validación, los flujos de usuario (*user flows*) evaluados y las preguntas para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
 
 **Elementos a incluir por Segmento Objetivo**
 
@@ -4754,14 +4754,133 @@ A continuación, se presentan los cuestionarios con preguntas enumeradas que se 
 *Preguntas de Validación para Adultos Mayores (Dispositivo IoT / Hardware)*  
 *(Se interactúa con el adulto mayor mostrándole el prototipo físico o modelo tridimensional del wearable: imagen presentada en la sección iot device design)*
 
-1. Al ver o tocar este dispositivo (reloj/collar/botón), ¿le parece que es ligero y cómodo para llevarlo puesto todo el día en casa?
+1. Al ver o tocar este dispositivo, ¿le parece que es ligero y cómodo para llevarlo puesto todo el día en casa?
 2. ¿Siente que el dispositivo le estorbaría o le incomodaría al momento de realizar sus actividades diarias, como dormir, cocinar o cambiarse de ropa?
 3. Si usted se llega a caer, el aparato avisará de forma automática al celular de su familiar sin que usted tenga que presionar ningún botón. ¿Le da tranquilidad saber que recibirá ayuda rápida de esta manera?
 4. El dispositivo necesita cargarse en su base cada ciertos días (como un celular). ¿Se le haría fácil recordar ponerlo a cargar usted mismo o preferiría que su cuidador se encargue de eso?
 5. ¿Qué opina del tamaño y diseño del aparato? ¿Le gusta cómo se ve o preferiría que sea más pequeño para que pueda ocultarse fácilmente bajo la ropa?
-6. ¿Tiene algún temor de que el dispositivo "lo esté vigilando tod
+6. ¿Tiene algún temor de que el dispositivo "lo esté vigilando todo el tiempo.
 
 ### 6.3.2. Registro de Entrevistas.
+
+En esta sección se detalla el registro consolidado de las actividades de entrevistas de validación llevadas a cabo durante el proyecto. Las sesiones se dividieron estratégicamente según los segmentos objetivo para validar de manera óptima los canales digitales con los cuidadores y las especificaciones ergonómicas/operativas del hardware con los representantes o adultos mayores directos. Todas las entrevistas fueron registradas en video mediante Microsoft Stream/Clipchamp como evidencia obligatoria de la interacción real con la solución propuesto.
+
+---
+
+**Segmento 1: Cuidadores de Adultos Mayores (Canales Digitales)**
+
+*Entrevista 1: Validación de Landing Page*  
+* **Nombres y Apellidos:** Andres Fabian Levano Mejia
+* **Edad:** 21
+* **Distrito:** Surco
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 0:00 - 5:17
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 1](img/validation-interviews/validation-andres.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+Andres opina que la landing page muestra la información correctamente de como funciona nuestra solución Foll, resalta que la paleta de colores si logra emitir la tranquilidad que quiere reflejar Foll y también opina que le gustaría que la prueba gratuita dure 15 días en vez de 14, pero opina que el precio mensual esta muy bien si es para tener la tranquilidad de que su familiar este bien.
+
+---
+
+*Entrevista 2: Validación de Aplicacion Web*
+* **Nombres y Apellidos:** Irvin Vergara Aylas
+* **Edad:** 24
+* **Distrito:** San Juan de Lurigancho
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 5:17 - 8:38
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 2](img/validation-interviews/validation-irvin.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+Irvin opina que la aplicación web si refleja bien la comparación de falsos positivos y caídas reales, también menciona que no entiende bien que son las solicitudes de acceso. Además, menciona que toda la información que mira en el detalle de una caída en el historial de caídas es la que justo necesita saber
+
+---
+
+*Entrevista 3: Validación de Aplicación Web y Landing Page*
+* **Nombres y Apellidos:** Daniel Crispin Ramos
+* **Edad:** 21
+* **Distrito:** La Molina
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 8:38 - 13:40
+
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 3](img/validation-interviews/validation-daniel.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+ Daniel menciona que la landing page si refleja bien la problemática que foll trata de solucionar, destaca que le gusta el orden de la información de la explicación de como funciona foll, menciona que los colores le reflejan tranquilidad.
+
+ En la aplicación web, Daniel menciona que le gustaría un color mas llamativo en el grafico circular para las caídas reales, considera que la información necesaria en un evento de caída es la que necesita saber y finalmente menciona que la navegación de la aplicación es muy fácil e intuitiva.
+
+---
+
+**Segmento 2: Adultos Mayores (Dispositivo IoT / Componente Hardware)**
+
+> **Nota Metodológica de Privacidad y Accesibilidad:** Por consideraciones estrictas de privacidad, salud y comodidad del adulto mayor, la validación del hardware wearable de este segmento se realizó mediante entrevistas a sus familiares directos (nietos/cuidadores). Se enviaron previamente las preguntas y la demostración visual(prototipo físico y la imagen presentada en la sección iot device design) del dispositivo al familiar, quien recolectó de forma presencial los comentarios directos de sus abuelitos y actuó como su vocero oficial durante la sesión grabada de validación de requerimientos físicos.
+
+*Entrevista 4: Validación de Hardware IoT con Representante de "Don Ricardo"*
+* **Nombre del Adulto Mayor Validante:** Rafael
+* **Edad:** 72 años
+* **Nombre del Familiar/Vocero:**  Ricardo
+* **Distrito de Residencia:** Independencia
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:**  13:40 - 17:32
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 4](img/validation-interviews/validation-ricardo.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  El entrevistado manifestó que el dispositivo le pareció bastante ligero y cómodo para llevarlo puesto de manera continua en la sala debido a su fabricación en plástico. Respecto a las actividades diarias, aclaró que no le estorbaría para cocinar o caminar, pero admitió sentir temor de aplastarlo o experimentar inflamación en la zona donde lo use por las noches, sugiriendo quitárselo únicamente para dormir. La función de alerta automática hacia el celular de su familiar le generó un alivio y tranquilidad inmensos, destacando que es la característica más valiosa cuando el teléfono queda lejos. Admitió tener problemas de memoria para los ciclos de carga del aparato, por lo que prefiere delegar el mantenimiento energético por completo a su cuidador. Finalmente, consideró adecuado el tamaño para evitar pérdidas, aunque solicitó un diseño delgado que permita ocultarlo debajo de la camisa para evitar preguntas incómodas de visitas en el exterior.
+
+---
+
+*Entrevista 5: Validación de Hardware IoT con Representante de "Doña Elena"*
+* **Nombre del Adulto Mayor Validante:** Doña Elena
+* **Edad:** 78 años
+* **Nombre del Familiar/Vocero:** Henry Kalet
+* **Distrito de Residencia:** Ate
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 17:32 - 20:32
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 5](img/validation-interviews/validation-kalet.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  A través de su nieto, la usuaria indicó que el prototipo tiene un diseño estético atractivo y que su ligereza evitaría la fatiga en la cadera o zona de sujeción; no obstante, recalcó la importancia de verificar que el material de la correa no sea rugoso para evitar raspaduras o sudoración. Advirtió que al cambiarse de ropa el dispositivo podría engancharse si sus dimensiones son excesivas, y externó su preocupación sobre la interacción con el agua al cocinar o lavar platos; tras confirmarse su resistencia a salpicaduras, aprobó su viabilidad en la rutina. Manifestó un alto nivel de tranquilidad respecto a las caídas accidentales en áreas de alto riesgo como el baño o las escaleras, valorando que la automatización le evita tener que arrastrarse para buscar ayuda. Al ser una persona muy ordenada, afirmó que podría incorporarlo con autonomía a su rutina nocturna de carga al lado de sus lentes para no sobrecargar de tareas a su cuidador. Concluyó que el diseño actual es discreto y asimilable a un accesorio común, sugiriendo un perfil más plano y delgado para evitar abultamientos bajo casacas gruesas.
+
+---
+
+*Entrevista 6: Validación de Hardware IoT con Representante de "Don Carlos"*
+* **Nombre del Adulto Mayor Validante:** Don Carlos
+* **Edad:** 81 años
+* **Nombre del Familiar/Vocero:** Didier Meza
+* **Distrito de Residencia:** Villa María
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D 
+* **Timing de Inicio y Finalización:** 20:32 - 24:10
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 6](img/validation-interviews/validation-didier.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  El usuario final calificó el hardware como sumamente ligero y ergonómico, expresando asombro por cómo una tecnología de bajo peso puede aportar tanto valor de protección en emergencias. Declaró que al pasar la mayor parte del tiempo leyendo o viendo televisión, el aparato no interferirá con su rutina, identificando el baño y el proceso de vestimenta como los únicos momentos donde se requeriría cuidado especial para evitar impactos fortuitos. Catalogó el envío automatizado de telemetría e internet ante pérdidas de conocimiento como una "maravilla moderna" que robustece la seguridad familiar. En el aspecto operativo, indicó que se confunde con los cables e indicadores luminosos de carga, manifestando que prefiere de manera tajante que sus hijos o cuidadores gestionen el ciclo de batería del dispositivo wearable. Finalmente, validó el tamaño actual del hardware como excelente, justificando que debido a la pérdida de precisión motriz en sus manos un diseño microscópico propiciaría caídas del aparato; no obstante, recomendó que se ofrezcan variantes en colores oscuros (negro o gris) para facilitar su mimetización con su vestimenta diaria.
 
 ### 6.3.3. Evaluaciones según heurísticas.
 
