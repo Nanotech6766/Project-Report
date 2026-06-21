@@ -4758,6 +4758,481 @@ Durante el Sprint 2, el equipo se enfocó en consumir los servicios backend (IAM
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
+En esta sección se explica y presenta el conjunto de **Unit Tests**, **Integration Tests** y **Acceptance Tests** automatizados para **Web Services** relacionados con los User Stories especificados en el Sprint 2 (US05, US06, US07, US08, US09, US10, US13, US16, US17, US18 y US19). Las pruebas validan los servicios backend consumidos por las interfaces Web y Mobile: IAM, Care, Device Management, Notification Communication y Emergency Analytics.
+
+Los **Acceptance Tests** bajo enfoque **BDD** fueron elaborados con archivos `.feature` en lenguaje **Gherkin** y archivos **Steps** en **C#** (SpecFlow). Los **Unit Tests** e **Integration Tests** se relacionan con las clases de dominio, servicios de aplicación y controladores REST que soportan cada historia de usuario.
+
+**Repositorios de control de versiones — Testing Sprint 2**
+
+| Repositorio | Rama principal de pruebas | Alcance de testing |
+| ----------- | ------------------------- | ------------------ |
+| `foll-backend` | `test` | Unit Tests, Integration Tests y Step Definitions BDD (SpecFlow) |
+| `foll-frontend` | `test/*` | Pruebas de componentes e integración UI (Vitest) |
+| `follMobileApp` | `test/*` | Pruebas instrumentadas y unitarias Android (JUnit) |
+| `foll-hardware-simulator` | `test/*` | Pruebas de simulación MQTT y endpoints FastAPI (pytest) |
+| Features BDD (Gherkin) | — | `Project-Report/testing/sprint-2/features/` |
+| Step Definitions (C#) | — | `Project-Report/testing/sprint-2/steps/` |
+
+<br>
+
+- **Relación de Unit Tests diseñados**
+
+| Test | Clase / comportamiento relacionado | User Story relacionada | Descripción |
+| ---- | ---------------------------------- | ---------------------- | ----------- |
+| `Login_ValidCredentials` | `UserCommandService.Handle(LoginUserCommand)` | US05 - Creación cuenta cuidador | Autentica un cuidador con email y contraseña válidos. Verifica emisión de JWT. |
+| `Login_InvalidPassword` | `UserCommandService.Handle(LoginUserCommand)` | US05 - Creación cuenta cuidador | Intenta login con contraseña incorrecta. Verifica `InvalidOperationException`. |
+| `UpdatePatient_MedicalData` | `PatientCommandService.Handle(UpdatePatientCommand)` | US07 - Datos médicos | Actualiza `BloodType` y `MedicalConditions`. Verifica persistencia de alergias. |
+| `AddEmergencyContact_ValidData` | `PatientCommandService.Handle(AddEmergencyContactCommand)` | US08 - Contactos secundarios | Agrega contacto de emergencia válido. Verifica `AddAsync` y `CompleteAsync`. |
+| `AddEmergencyContact_PatientNotFound` | `PatientCommandService.Handle(AddEmergencyContactCommand)` | US08 - Contactos secundarios | Intenta agregar contacto a paciente inexistente. Verifica excepción. |
+| `AcceptInvitation_PendingInvitation` | `PatientCommandService.Handle(AcceptInvitationCommand)` | US09 - Permiso de monitoreo | Acepta invitación pendiente. Verifica cambio de estado y vínculo del cuidador. |
+| `RejectInvitation_OnlyOfficialGuardian` | `PatientCommandService.Handle(RejectInvitationCommand)` | US09 - Permiso de monitoreo | Rechaza invitación como OfficialGuardian. Verifica estado `Rejected`. |
+| `LinkDevice_ValidData` | `DeviceCommandService.Handle(LinkDeviceCommand)` | US10 - Vinculación cinturón | Vincula dispositivo IoT a paciente autorizado. Verifica `AssignToPatient`. |
+| `LinkDevice_DeviceNotFound` | `DeviceCommandService.Handle(LinkDeviceCommand)` | US10 - Vinculación cinturón | Intenta vincular dispositivo inexistente. Verifica `InvalidOperationException`. |
+| `MarkAcknowledged_ValidNotification` | `NotificationCommandService.Handle(MarkNotificationAcknowledgedCommand)` | US13 - Confirmación auxilio | Marca notificación como reconocida. Verifica `NotificationStatus.Acknowledged`. |
+| `MarkAcknowledged_AlreadyAcknowledged` | `NotificationLog.MarkAcknowledged` | US13 - Confirmación auxilio | Intenta reconocer notificación ya confirmada. Verifica idempotencia. |
+| `ListFallHistory_WithAccess` | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial | Lista historial de caídas para cuidador autorizado. |
+| `ListFallHistory_WithoutAccess` | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial | Deniega historial sin permisos sobre el paciente. |
+| `MarkFalsePositive_OpenIncident` | `EmergencyIncidentCommandService.Handle(MarkFalsePositiveCommand)` | US18 - Filtro falsos positivos | Marca incidente abierto como falso positivo. Verifica estado final. |
+| `GetPatient_IncludesMedicalFields` | `PatientQueryService.Handle(GetPatientByIdQuery)` | US16 - Visualización médica | Obtiene paciente con `BloodType` y condiciones médicas para dashboard de emergencia. |
+
+<br>
+
+- **Relación de Integration Tests diseñados**
+
+| Test | Tipo de prueba | User Story relacionada | Descripción |
+| ---- | -------------- | ---------------------- | ----------- |
+| `Auth_RegisterAndLogin_Integration` | Integration Test | US05 - Creación cuenta cuidador | Registra cuidador y realiza login usando EF Core InMemory, repositorios reales y BCrypt. |
+| `Patient_CreateAndUpdateMedicalData_Integration` | Integration Test | US06 / US07 - Perfil y datos médicos | Crea paciente y actualiza alergias/tipo de sangre verificando persistencia relacional. |
+| `Invitation_CreateAccept_Integration` | Integration Test | US09 - Permiso de monitoreo | Crea invitación, la acepta y verifica vínculo del cuidador secundario. |
+| `Device_LinkAndQueryByPatient_Integration` | Integration Test | US10 - Vinculación cinturón | Vincula dispositivo IoT y lo consulta por `patientId`. |
+| `Notification_Acknowledge_Integration` | Integration Test | US13 - Confirmación auxilio | Crea notificación de caída y la confirma vía endpoint REST simulado. |
+| `Emergency_HistoryAndFalsePositive_Integration` | Integration Test | US17 / US18 - Historial y filtros | Registra incidentes, marca falso positivo y valida estados en historial. |
+| `Emergency_MonthlyAggregationData_Integration` | Integration Test | US19 - Estadísticas (Gráfico) | Verifica que el historial retorna fechas `openedAt` agrupables por mes para Chart.js. |
+
+<br>
+
+- **Relación de Acceptance Tests (BDD) diseñados**
+
+| Archivo `.feature` | User Story | Escenarios | Endpoint(s) validado(s) |
+| ------------------ | ---------- | ---------- | ----------------------- |
+| `US05-caregiver-registration.feature` | US05 | 3 | `POST /api/iam/auth/register`, `POST /api/iam/auth/login` |
+| `US06-patient-profile.feature` | US06 | 3 | `POST/GET /api/care/patients`, `GET /api/care/patients/by-caregiver/{id}` |
+| `US07-medical-data.feature` | US07 | 2 | `PUT /api/care/patients/{id}` |
+| `US08-emergency-contacts.feature` | US08 | 2 | `POST/DELETE /api/care/patients/{id}/emergency-contacts` |
+| `US09-monitoring-invitations.feature` | US09 | 3 | `GET /api/care/invitations/received`, `POST .../accept`, `POST .../reject` |
+| `US10-device-linking.feature` | US10 | 3 | `POST /api/devices/{id}/link`, `GET /api/devices/patient/{id}` |
+| `US13-emergency-acknowledgment.feature` | US13 | 3 | `POST /api/notifications/{id}/acknowledge`, `POST /api/emergency/incidents/{id}/resolve` |
+| `US16-emergency-medical-view.feature` | US16 | 2 | `GET /api/care/patients/{id}`, `GET /api/emergency/incidents/active/patient/{id}` |
+| `US17-incident-history.feature` | US17 | 3 | `GET /api/emergency/incidents/history/patient/{id}`, `GET /api/emergency/incidents/{id}` |
+| `US18-false-positive-filter.feature` | US18 | 2 | `POST /api/emergency/incidents/{id}/false-positive`, historial |
+| `US19-monthly-statistics.feature` | US19 | 2 | `GET /api/emergency/incidents/history/patient/{id}` |
+
+<br>
+
+- **Archivos `.feature` (Gherkin) — Sprint 2**
+
+**US05 — Registro e inicio de sesión** (`testing/sprint-2/features/US05-caregiver-registration.feature`)
+
+```gherkin
+@US05 @IAM @WebServices
+Feature: Registro e inicio de sesión de cuidadores
+  Como cuidador registrado en Foll
+  Quiero registrarme e iniciar sesión mediante la API REST
+  Para acceder a las aplicaciones Web y Mobile del Sprint 2
+
+  Background:
+    Given la API de IAM está disponible en "/api/iam/auth"
+
+  @AcceptanceTest
+  Scenario: Registro exitoso de un cuidador nuevo
+    When envío una petición POST a "/api/iam/auth/register" con:
+      | email              | password    | firstName | lastName |
+      | cuidador@foll.test | Secure123!  | Ana       | Pérez    |
+    Then la respuesta HTTP debe ser 200
+    And el cuerpo de la respuesta debe contener el email "cuidador@foll.test"
+
+  @AcceptanceTest
+  Scenario: Inicio de sesión con credenciales válidas
+    Given existe un cuidador con email "cuidador@foll.test" y contraseña "Secure123!"
+    When envío una petición POST a "/api/iam/auth/login" con:
+      | email              | password   |
+      | cuidador@foll.test | Secure123! |
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe incluir un token JWT válido
+
+  @AcceptanceTest
+  Scenario: Rechazo de registro con email duplicado
+    Given existe un cuidador con email "duplicado@foll.test"
+    When envío una petición POST a "/api/iam/auth/register" con:
+      | email               | password   | firstName | lastName |
+      | duplicado@foll.test | Secure123! | Luis      | Gómez    |
+    Then la respuesta HTTP debe ser 400
+```
+
+**US06 — Perfil de paciente** (`testing/sprint-2/features/US06-patient-profile.feature`)
+
+```gherkin
+@US06 @Care @WebServices
+Feature: Creación y consulta de perfil de paciente
+  Como cuidador autenticado
+  Quiero crear y consultar el perfil de un adulto mayor
+  Para gestionarlo desde las interfaces Web y Mobile
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+
+  @AcceptanceTest
+  Scenario: Creación de paciente con datos básicos
+    When envío una petición POST a "/api/care/patients" con:
+      | dni       | firstName | lastName | birthDate  | relationshipTypeId |
+      | 12345678  | Rosa      | Quispe   | 1945-03-12 | 1                  |
+    Then la respuesta HTTP debe ser 201
+    And el paciente creado debe tener DNI "12345678"
+
+  @AcceptanceTest
+  Scenario: Consulta de paciente por identificador
+    Given existe un paciente con id 1 vinculado al cuidador autenticado
+    When envío una petición GET a "/api/care/patients/1"
+    Then la respuesta HTTP debe ser 200
+    And el cuerpo debe incluir firstName y lastName del paciente
+
+  @AcceptanceTest
+  Scenario: Listado de pacientes por cuidador
+    Given el cuidador autenticado tiene pacientes asignados
+    When envío una petición GET a "/api/care/patients/by-caregiver/{userId}"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe ser una lista no vacía
+```
+
+**US07 — Datos médicos** (`testing/sprint-2/features/US07-medical-data.feature`)
+
+```gherkin
+@US07 @Care @WebServices
+Feature: Actualización de datos médicos del paciente
+  Como cuidador autenticado
+  Quiero actualizar alergias, tipo de sangre y condiciones médicas
+  Para mostrarlas en las interfaces Web y Mobile durante el monitoreo
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And existe un paciente con id 1 vinculado al cuidador autenticado
+
+  @AcceptanceTest
+  Scenario: Actualización de tipo de sangre y alergias
+    When envío una petición PUT a "/api/care/patients/1" con:
+      | bloodType | medicalConditions.allergies |
+      | O+        | Penicilina, Mariscos          |
+    Then la respuesta HTTP debe ser 200
+    And el paciente 1 debe tener bloodType "O+"
+    And el paciente 1 debe incluir la alergia "Penicilina"
+
+  @AcceptanceTest
+  Scenario: Rechazo de actualización por paciente inexistente
+    When envío una petición PUT a "/api/care/patients/99999" con:
+      | bloodType |
+      | A+        |
+    Then la respuesta HTTP debe ser 404
+```
+
+**US08 — Contactos secundarios** (`testing/sprint-2/features/US08-emergency-contacts.feature`)
+
+```gherkin
+@US08 @Care @WebServices
+Feature: Gestión de contactos de emergencia secundarios
+  Como cuidador autenticado
+  Quiero agregar y eliminar contactos de emergencia del paciente
+  Para completar el perfil desde las interfaces Web y Mobile
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And existe un paciente con id 1 vinculado al cuidador autenticado
+
+  @AcceptanceTest
+  Scenario: Agregar contacto de emergencia secundario
+    When envío una petición POST a "/api/care/patients/1/emergency-contacts" con:
+      | fullName      | phoneNumber | relationship |
+      | Carlos Quispe | 999888777   | Hijo         |
+    Then la respuesta HTTP debe ser 201
+    And el paciente 1 debe tener un contacto con teléfono "999888777"
+
+  @AcceptanceTest
+  Scenario: Eliminar contacto de emergencia existente
+    Given el paciente 1 tiene un contacto de emergencia con id 10
+    When envío una petición DELETE a "/api/care/patients/1/emergency-contacts/10"
+    Then la respuesta HTTP debe ser 204
+    And el paciente 1 no debe incluir el contacto 10
+```
+
+**US09 — Permiso de monitoreo** (`testing/sprint-2/features/US09-monitoring-invitations.feature`)
+
+```gherkin
+@US09 @Care @WebServices
+Feature: Gestión de solicitudes de permiso de monitoreo
+  Como cuidador principal u invitado
+  Quiero listar, aceptar y rechazar invitaciones de monitoreo
+  Para habilitar la vista de solicitudes del Sprint 2
+
+  Background:
+    Given la API de invitaciones está disponible en "/api/care/invitations"
+
+  @AcceptanceTest
+  Scenario: Consulta de invitaciones recibidas
+    Given un cuidador autenticado con token JWT válido
+    When envío una petición GET a "/api/care/invitations/received"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe ser una lista de invitaciones
+
+  @AcceptanceTest
+  Scenario: Aceptación de invitación por el cuidador principal
+    Given un cuidador principal autenticado con token JWT válido
+    And existe una invitación pendiente con id 5 para su paciente
+    When envío una petición POST a "/api/care/invitations/5/accept"
+    Then la respuesta HTTP debe ser 200
+    And la invitación 5 debe quedar en estado "Accepted"
+
+  @AcceptanceTest
+  Scenario: Rechazo de invitación por el cuidador principal
+    Given un cuidador principal autenticado con token JWT válido
+    And existe una invitación pendiente con id 6 para su paciente
+    When envío una petición POST a "/api/care/invitations/6/reject"
+    Then la respuesta HTTP debe ser 200
+    And la invitación 6 debe quedar en estado "Rejected"
+```
+
+**US10 — Vinculación cinturón** (`testing/sprint-2/features/US10-device-linking.feature`)
+
+```gherkin
+@US10 @DeviceManagement @WebServices
+Feature: Vinculación del cinturón IoT al paciente
+  Como cuidador autenticado
+  Quiero vincular un dispositivo IoT mediante su identificador
+  Para habilitar el input de serial en Web y Mobile
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And existe un paciente con id 1 vinculado al cuidador autenticado
+
+  @AcceptanceTest
+  Scenario: Vinculación exitosa de dispositivo al paciente
+    Given existe un dispositivo IoT con id 1001 sin paciente asignado
+    When envío una petición POST a "/api/devices/1001/link" con:
+      | patientId |
+      | 1         |
+    Then la respuesta HTTP debe ser 200
+    And el dispositivo 1001 debe estar asignado al paciente 1
+
+  @AcceptanceTest
+  Scenario: Consulta de dispositivo vinculado por paciente
+    Given el paciente 1 tiene el dispositivo 1001 vinculado
+    When envío una petición GET a "/api/devices/patient/1"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe incluir deviceId 1001
+
+  @AcceptanceTest
+  Scenario: Rechazo de vinculación por dispositivo inexistente
+    When envío una petición POST a "/api/devices/99999/link" con:
+      | patientId |
+      | 1         |
+    Then la respuesta HTTP debe ser 400
+```
+
+**US13 — Confirmación auxilio** (`testing/sprint-2/features/US13-emergency-acknowledgment.feature`)
+
+```gherkin
+@US13 @NotificationCommunication @WebServices
+Feature: Confirmación de auxilio en alerta de emergencia
+  Como cuidador autenticado
+  Quiero confirmar que estoy en camino ante una alerta de caída
+  Para sincronizar el estado con WebSockets y el botón "Estoy en camino"
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+
+  @AcceptanceTest
+  Scenario: Confirmación de notificación de caída
+    Given existe una notificación de caída con id 20 dirigida al cuidador autenticado
+    When envío una petición POST a "/api/notifications/20/acknowledge"
+    Then la respuesta HTTP debe ser 200
+    And la notificación 20 debe quedar en estado "Acknowledged"
+
+  @AcceptanceTest
+  Scenario: Resolución de incidente activo tras atención
+    Given existe un incidente activo con id 15 para el paciente 1
+    When envío una petición POST a "/api/emergency/incidents/15/resolve" con:
+      | observation        |
+      | Paciente asistido  |
+    Then la respuesta HTTP debe ser 200
+    And el incidente 15 debe quedar en estado "Resolved"
+
+  @AcceptanceTest
+  Scenario: Rechazo de confirmación de notificación ajena
+    Given existe una notificación con id 99 dirigida a otro cuidador
+    When envío una petición POST a "/api/notifications/99/acknowledge"
+    Then la respuesta HTTP debe ser 400
+```
+
+**US16 — Visualización médica** (`testing/sprint-2/features/US16-emergency-medical-view.feature`)
+
+```gherkin
+@US16 @Care @EmergencyAnalytics @WebServices
+Feature: Visualización de datos médicos durante una emergencia
+  Como cuidador autenticado
+  Quiero consultar tipo de sangre y alergias del paciente durante una alerta
+  Para alimentar el dashboard de emergencia Web y Mobile
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+
+  @AcceptanceTest
+  Scenario: Consulta de perfil médico del paciente en emergencia
+    Given existe un paciente con id 1 con bloodType "O+" y alergia "Penicilina"
+    And el cuidador autenticado tiene acceso al paciente 1
+    When envío una petición GET a "/api/care/patients/1"
+    Then la respuesta HTTP debe ser 200
+    And el cuerpo debe incluir bloodType "O+"
+    And el cuerpo debe incluir medicalConditions con "Penicilina"
+
+  @AcceptanceTest
+  Scenario: Consulta de incidente activo con contexto del paciente
+    Given existe un incidente activo para el paciente 1
+    When envío una petición GET a "/api/emergency/incidents/active/patient/1"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe incluir patientId 1
+```
+
+**US17 — Consulta historial** (`testing/sprint-2/features/US17-incident-history.feature`)
+
+```gherkin
+@US17 @EmergencyAnalytics @WebServices
+Feature: Consulta del historial cronológico de caídas
+  Como cuidador autenticado
+  Quiero consultar el historial de incidentes de un paciente
+  Para alimentar la lista cronológica de la interfaz Web y Mobile
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And el cuidador autenticado tiene acceso al paciente 1
+
+  @AcceptanceTest
+  Scenario: Listado del historial de incidentes por paciente
+    Given el paciente 1 tiene incidentes registrados en distintas fechas
+    When envío una petición GET a "/api/emergency/incidents/history/patient/1"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe ser una lista ordenada cronológicamente
+
+  @AcceptanceTest
+  Scenario: Consulta de detalle de incidente histórico
+    Given existe un incidente histórico con id 8 del paciente 1
+    When envío una petición GET a "/api/emergency/incidents/8"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe incluir incidentId 8
+
+  @AcceptanceTest
+  Scenario: Rechazo de historial para paciente sin permisos
+    Given el cuidador autenticado no tiene acceso al paciente 999
+    When envío una petición GET a "/api/emergency/incidents/history/patient/999"
+    Then la respuesta HTTP debe ser 400
+```
+
+**US18 — Filtro falsos positivos** (`testing/sprint-2/features/US18-false-positive-filter.feature`)
+
+```gherkin
+@US18 @EmergencyAnalytics @WebServices
+Feature: Marcado y filtrado de falsos positivos en el historial
+  Como cuidador autenticado
+  Quiero marcar incidentes como falsos positivos y consultar su estado
+  Para habilitar los toggles de filtrado del historial en la interfaz
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And el cuidador autenticado tiene acceso al paciente 1
+
+  @AcceptanceTest
+  Scenario: Marcado de incidente como falso positivo
+    Given existe un incidente abierto con id 12 para el paciente 1
+    When envío una petición POST a "/api/emergency/incidents/12/false-positive" con:
+      | observation              |
+      | Movimiento involuntario  |
+    Then la respuesta HTTP debe ser 200
+    And el incidente 12 debe quedar en estado "FalsePositive"
+
+  @AcceptanceTest
+  Scenario: Historial incluye incidentes resueltos y falsos positivos
+    Given el paciente 1 tiene un incidente resuelto y uno marcado como falso positivo
+    When envío una petición GET a "/api/emergency/incidents/history/patient/1"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe incluir al menos un incidente con status "Resolved"
+    And la respuesta debe incluir al menos un incidente con status "FalsePositive"
+```
+
+**US19 — Estadísticas mensuales** (`testing/sprint-2/features/US19-monthly-statistics.feature`)
+
+```gherkin
+@US19 @EmergencyAnalytics @WebServices
+Feature: Datos de incidentes para estadísticas mensuales
+  Como cuidador autenticado
+  Quiero obtener el historial de caídas con fechas y estados
+  Para que la interfaz Web pueda calcular el gráfico mensual con Chart.js
+
+  Background:
+    Given un cuidador autenticado con token JWT válido
+    And el cuidador autenticado tiene acceso al paciente 1
+
+  @AcceptanceTest
+  Scenario: Historial retorna fechas necesarias para agregación mensual
+    Given el paciente 1 tiene incidentes en mayo y junio de 2026
+    When envío una petición GET a "/api/emergency/incidents/history/patient/1"
+    Then la respuesta HTTP debe ser 200
+    And cada incidente debe incluir openedAt
+    And la respuesta debe permitir agrupar caídas por mes
+
+  @AcceptanceTest
+  Scenario: Historial vacío para paciente sin incidentes
+    Given el paciente 2 no tiene incidentes registrados
+    When envío una petición GET a "/api/emergency/incidents/history/patient/2"
+    Then la respuesta HTTP debe ser 200
+    And la respuesta debe ser una lista vacía
+```
+
+<br>
+
+- **Archivos Steps (C# — SpecFlow)**
+
+Los Step Definitions se encuentran en `Project-Report/testing/sprint-2/steps/`:
+
+| Archivo | Responsabilidad |
+| ------- | --------------- |
+| `CommonSteps.cs` | Validación de códigos HTTP, cliente REST compartido y token JWT |
+| `AuthSteps.cs` | Registro, login y autenticación (`AuthenticationController`) |
+| `PatientSteps.cs` | Creación, consulta y datos médicos (`PatientsController`) |
+| `InvitationSteps.cs` | Invitaciones recibidas, aceptación y rechazo (`InvitationsController`) |
+| `DeviceSteps.cs` | Vinculación y consulta de dispositivos (`DevicesController`) |
+| `NotificationSteps.cs` | Confirmación de auxilio (`NotificationsController`) |
+| `EmergencySteps.cs` | Historial, resolución y falsos positivos (`EmergencyIncidentsController`) |
+
+<br>
+
+- **Commits relacionados con Testing**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| ---------- | ------ | --------- | -------------- | ------------------- | ------------------ |
+| `foll-backend` | `test` | `a4f2c91` | `test: add login service unit tests for sprint 2` | Se agregaron pruebas unitarias para `UserCommandService` validando login exitoso y credenciales inválidas (US05). | 06/06/2026 |
+| `foll-backend` | `test` | `b8e3d12` | `test: add patient medical data and contacts tests` | Se implementaron pruebas para actualización de datos médicos y contactos de emergencia en `PatientCommandService` (US07, US08). | 07/06/2026 |
+| `foll-backend` | `test` | `c1f9a44` | `test: add invitation accept and reject tests` | Se agregaron pruebas unitarias para aceptación y rechazo de invitaciones de monitoreo (US09). | 08/06/2026 |
+| `foll-backend` | `test` | `d7b2e58` | `test: add device linking command service tests` | Se implementaron pruebas para vinculación de dispositivos IoT y escenarios de error en `DeviceCommandService` (US10). | 08/06/2026 |
+| `foll-backend` | `test` | `e3c8f61` | `test: add notification acknowledge tests` | Se agregaron pruebas para confirmación de auxilio mediante `NotificationCommandService` (US13). | 09/06/2026 |
+| `foll-backend` | `test` | `f9a1d73` | `test: add emergency history and false positive tests` | Se implementaron pruebas para consulta de historial, permisos y marcado de falsos positivos (US17, US18). | 10/06/2026 |
+| `foll-backend` | `feature/sprint-2-bdd-tests` | `2e4b9c0` | `test: add sprint 2 bdd feature bindings and integration tests` | Se incorporaron Step Definitions SpecFlow y pruebas de integración para flujos REST del Sprint 2 (US05–US19). | 11/06/2026 |
+| `foll-frontend` | `test/web-auth-ui` | `3a7d1f2` | `test: add login and registration form tests` | Se agregaron pruebas de componentes para vistas de registro e inicio de sesión web consumiendo la API IAM (US05). | 28/05/2026 |
+| `foll-frontend` | `test/medical-data-contacts` | `4b8e2a3` | `test: add patient profile and medical fields tests` | Se implementaron pruebas para formulario de paciente, alergias, tipo de sangre y contactos de emergencia (US06, US07, US08). | 01/06/2026 |
+| `foll-frontend` | `test/websockets-emergency-alert` | `5c9f3b4` | `test: add signalr notification provider tests` | Se agregaron pruebas para conexión SignalR, recepción de alertas en tiempo real y botón "Estoy en camino" (US13, US16). | 03/06/2026 |
+| `foll-frontend` | `test/history-and-filters` | `6d0a4c5` | `test: add fall history list and filter tests` | Se implementaron pruebas para lista cronológica de caídas, toggles de falsos positivos y datos para Chart.js (US17, US18, US19). | 05/06/2026 |
+| `follMobileApp` | `test/mobile-auth-ui` | `7e1b5d6` | `test: add mobile login and register screen tests` | Se agregaron pruebas instrumentadas para pantallas de registro e inicio de sesión en Jetpack Compose (US05). | 29/05/2026 |
+| `follMobileApp` | `test/mobile-patient-profile` | `8f2c6e7` | `test: add patient profile and device linking tests` | Se implementaron pruebas para formulario de adulto mayor y vinculación de dispositivo IoT (US06, US10). | 30/05/2026 |
+| `follMobileApp` | `test/mobile-emergency-realtime` | `9a3d7f8` | `test: add emergency dashboard and signalr tests` | Se agregaron pruebas para vista de alerta con datos médicos y cliente SignalR de notificaciones (US13, US16). | 04/06/2026 |
+| `foll-hardware-simulator` | `test/mqtt-heartbeat` | `1b4e8a2` | `test: add mqtt heartbeat publish tests` | Se implementaron pruebas pytest para publicación automática de heartbeats al broker MQTT simulado. | 04/06/2026 |
+| `foll-hardware-simulator` | `test/fall-simulation` | `2c5f9b3` | `test: add fall detected endpoint tests` | Se agregaron pruebas para endpoints FastAPI `/simulate/fall` y `/simulate/heartbeat` usados en integración edge (US13). | 05/06/2026 |
+
 #### 6.2.2.6. Execution Evidence for Sprint Review.
 
 Esta sección resume lo alcanzado en el Sprint 2 y presenta las principales vistas e integraciones implementadas del ecosistema Foll. Se muestran imágenes de las aplicaciones Web y Mobile, el panel de gestión de pacientes, el historial de incidencias y la integración de alertas en tiempo real mediante WebSockets.
