@@ -231,7 +231,6 @@
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
 <img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
 
-
 **TB1:** </br>
 <img src="img/Insights/tb1.png" width="700"/>
 <img src="img/Insights/tb1-1.png" width="700"/>
@@ -353,7 +352,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -1313,7 +1312,7 @@ A continuación, se presenta el lenguaje ubicuo que permite establecer un lengua
 - **Biomechanical Sensor / Sensor Biomecánico [Sensor]:** El chip interno que "siente" hacia dónde se mueve o si se cae el paciente.
 - **Local Audio Alarm / Alarma Local Sonora [Actuador]:** La bocina del cinturón que hace un ruido fuerte para avisar a los que están cerca que el abuelito se cayó.
 - **Confirmation Motor / Motor de Confirmación [Actuador]:** La pieza que hace vibrar el cinturón para preguntarle al paciente: "¿Te caíste?.
-  
+
 <div style="page-break-after: always;"></div>
 
 # Capítulo III: Requirements Specification
@@ -4742,19 +4741,17 @@ En esta sección se explica y presenta los avances en la implementación corresp
 
 Durante el Sprint 2, el equipo se enfocó en consumir los servicios backend (IAM, Care, Emergency Management y Device) construidos previamente. Se logró la implementación de los flujos de autenticación y registro en web y móvil, la gestión completa de los perfiles de los adultos mayores (datos médicos y contactos), y la vinculación del dispositivo IoT. El mayor avance técnico radicó en la conexión bidireccional mediante WebSockets para la recepción de alertas en tiempo real en el dashboard de emergencias, así como la visualización interactiva del historial cronológico y estadísticas usando Chart.js.
 
-| Repository                     | Branch                             | Commit Id | Commit Message                                          | Commit Message Body                                                                                                                                                | Commited on (Date) |
-| ------------------------------ | ---------------------------------- | --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| foll-project/foll-frontend     | feature/web-auth-ui                | a1b2c3d   | feat: implement web login and registration views        | Desarrolla las vistas de registro e inicio de sesión para cuidadores en la plataforma web, consumiendo la API del bounded context IAM.                             | 28/05/2026         |
-| foll-project/foll-mobile       | feature/mobile-auth-ui             | b2c3d4e   | feat: develop mobile registration and login flow        | Implementa las pantallas de registro e inicio de sesión en la aplicación móvil para garantizar el acceso multiplataforma de los usuarios.                          | 29/05/2026         |
-| foll-project/foll-mobile       | feature/mobile-patient-profile     | c3d4e5f   | feat: add patient profile and iot linking ui            | Crea el formulario de registro de adulto mayor en la app, incluyendo el input para ingresar el serial del hardware (IoT) y vincular el cinturón.                   | 30/05/2026         |
-| foll-project/foll-frontend     | feature/medical-data-contacts      | d4e5f6a   | feat: update medical data and emergency contacts ui     | Añade campos editables para alergias, tipo de sangre y la lista para agregar números de contactos secundarios en el perfil web del paciente.                       | 01/06/2026         |
-| foll-project/foll-frontend     | feature/monitoring-requests        | e5f6a7b   | feat: build monitoring request management view          | Construye la interfaz para que los usuarios puedan aceptar o rechazar las solicitudes de monitoreo de pacientes vinculados.                                        | 02/06/2026         |
-| foll-project/foll-frontend     | feature/websockets-emergency-alert | f6a7b8c   | feat: integrate websockets for real-time alerts         | Conecta el dashboard web mediante WebSockets para recibir notificaciones de caída en vivo e integra el botón interactivo de confirmación "Estoy en camino".          | 03/06/2026         |
-| foll-project/foll-mobile       | feature/mobile-emergency-dashboard | g7b8c9d   | feat: implement mobile emergency view with medical data | Desarrolla la vista de alerta en la app móvil, mostrando el tipo de sangre y alergias del paciente de manera prominente durante una emergencia.                    | 04/06/2026         |
-| foll-project/foll-frontend     | feature/history-and-filters        | h8c9d0e   | feat: implement fall history table with filters         | Desarrolla la vista de lista cronológica de caídas pasadas registradas, agregando toggles lógicos para filtrar los eventos por estado (ej. falsos positivos).      | 05/06/2026         |
-| foll-project/foll-frontend     | feature/statistics-chartjs         | i9d0e1f   | feat: integrate Chart.js for monthly statistics         | Implementa un gráfico de barras interactivo utilizando la librería Chart.js para visualizar el reporte de caídas mensuales en el dashboard principal.              | 05/06/2026         |
-
-
+| Repository                 | Branch                             | Commit Id | Commit Message                                          | Commit Message Body                                                                                                                                           | Commited on (Date) |
+| -------------------------- | ---------------------------------- | --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| foll-project/foll-frontend | feature/web-auth-ui                | a1b2c3d   | feat: implement web login and registration views        | Desarrolla las vistas de registro e inicio de sesión para cuidadores en la plataforma web, consumiendo la API del bounded context IAM.                        | 28/05/2026         |
+| foll-project/foll-mobile   | feature/mobile-auth-ui             | b2c3d4e   | feat: develop mobile registration and login flow        | Implementa las pantallas de registro e inicio de sesión en la aplicación móvil para garantizar el acceso multiplataforma de los usuarios.                     | 29/05/2026         |
+| foll-project/foll-mobile   | feature/mobile-patient-profile     | c3d4e5f   | feat: add patient profile and iot linking ui            | Crea el formulario de registro de adulto mayor en la app, incluyendo el input para ingresar el serial del hardware (IoT) y vincular el cinturón.              | 30/05/2026         |
+| foll-project/foll-frontend | feature/medical-data-contacts      | d4e5f6a   | feat: update medical data and emergency contacts ui     | Añade campos editables para alergias, tipo de sangre y la lista para agregar números de contactos secundarios en el perfil web del paciente.                  | 01/06/2026         |
+| foll-project/foll-frontend | feature/monitoring-requests        | e5f6a7b   | feat: build monitoring request management view          | Construye la interfaz para que los usuarios puedan aceptar o rechazar las solicitudes de monitoreo de pacientes vinculados.                                   | 02/06/2026         |
+| foll-project/foll-frontend | feature/websockets-emergency-alert | f6a7b8c   | feat: integrate websockets for real-time alerts         | Conecta el dashboard web mediante WebSockets para recibir notificaciones de caída en vivo e integra el botón interactivo de confirmación "Estoy en camino".   | 03/06/2026         |
+| foll-project/foll-mobile   | feature/mobile-emergency-dashboard | g7b8c9d   | feat: implement mobile emergency view with medical data | Desarrolla la vista de alerta en la app móvil, mostrando el tipo de sangre y alergias del paciente de manera prominente durante una emergencia.               | 04/06/2026         |
+| foll-project/foll-frontend | feature/history-and-filters        | h8c9d0e   | feat: implement fall history table with filters         | Desarrolla la vista de lista cronológica de caídas pasadas registradas, agregando toggles lógicos para filtrar los eventos por estado (ej. falsos positivos). | 05/06/2026         |
+| foll-project/foll-frontend | feature/statistics-chartjs         | i9d0e1f   | feat: integrate Chart.js for monthly statistics         | Implementa un gráfico de barras interactivo utilizando la librería Chart.js para visualizar el reporte de caídas mensuales en el dashboard principal.         | 05/06/2026         |
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
@@ -4789,14 +4786,11 @@ _Panel de gestión web y móvil de pacientes, mostrando el ingreso de datos méd
 ![History and Filtering screenshot](img/evidence-sprint-2/reportes.png)
 _Vista del historial cronológico de caídas registradas, incluyendo los toggles para filtrar falsos positivos._
 
-
 ![Simulation Wokwi](img/evidence-sprint-2/wokwi_simulation.jpeg)
 _Vista del programa Wokwi con la simulación del hardware conectándose con el bróker para enviar datos al backend._
 
-
 ![Bróker MQTT](img/evidence-sprint-2/MQTT.jpeg)
 _Vista del bróker con la información recibida del dispositivo iot._
-
 
 ![Edge layer](img/evidence-sprint-2/capa_edge.jpeg)
 _Vista de la capa Edge con el código para comunicarse con el bróker._
@@ -4823,19 +4817,19 @@ Registra un nuevo usuario cuidador en el sistema. No requiere autenticación pre
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field        | Description        |
+| :----------- | :----------------- |
 | Content-Type | `application/json` |
 
 **Parameter (Datos que recibe el Request)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | String | ✅ | Dirección de correo electrónico del usuario. Se almacena en minúsculas. Debe tener formato de email válido. |
-| `password` | String | ✅ | Contraseña en texto plano. Se hashea con BCrypt antes de persistir. |
-| `firstName` | String | ✅ | Nombre(s) del usuario. No puede ser vacío ni solo espacios. |
-| `lastName` | String | ✅ | Apellido(s) del usuario. No puede ser vacío ni solo espacios. |
-| `phoneNumber` | String | ❌ | Número de teléfono. Campo opcional; si se envía vacío o nulo se almacena como `null`. |
+| Field         | Type   | Required | Description                                                                                                 |
+| :------------ | :----- | :------- | :---------------------------------------------------------------------------------------------------------- |
+| `email`       | String | ✅       | Dirección de correo electrónico del usuario. Se almacena en minúsculas. Debe tener formato de email válido. |
+| `password`    | String | ✅       | Contraseña en texto plano. Se hashea con BCrypt antes de persistir.                                         |
+| `firstName`   | String | ✅       | Nombre(s) del usuario. No puede ser vacío ni solo espacios.                                                 |
+| `lastName`    | String | ✅       | Apellido(s) del usuario. No puede ser vacío ni solo espacios.                                               |
+| `phoneNumber` | String | ❌       | Número de teléfono. Campo opcional; si se envía vacío o nulo se almacena como `null`.                       |
 
 **Request-Example:**
 
@@ -4851,8 +4845,8 @@ Registra un nuevo usuario cuidador en el sistema. No requiere autenticación pre
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field     | Type   | Description                        |
+| :-------- | :----- | :--------------------------------- |
 | `message` | String | Confirmación del registro exitoso. |
 
 **Success-Response:**
@@ -4866,8 +4860,8 @@ HTTP/1.1 200 OK
 
 **Error 400 Bad Request**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name      | Type   | Description                                       |
+| :-------- | :----- | :------------------------------------------------ |
 | `message` | String | Descripción del error de validación o de negocio. |
 
 **Error-Response — email ya registrado:**
@@ -4905,16 +4899,16 @@ Autentica a un usuario existente y devuelve un JWT firmado con HMAC-SHA256. El t
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field        | Description        |
+| :----------- | :----------------- |
 | Content-Type | `application/json` |
 
 **Parameter (Datos que recibe el Request)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | String | ✅ | Email con el que el usuario se registró. La comparación es case-insensitive. |
-| `password` | String | ✅ | Contraseña en texto plano. Se verifica contra el hash BCrypt almacenado. |
+| Field      | Type   | Required | Description                                                                  |
+| :--------- | :----- | :------- | :--------------------------------------------------------------------------- |
+| `email`    | String | ✅       | Email con el que el usuario se registró. La comparación es case-insensitive. |
+| `password` | String | ✅       | Contraseña en texto plano. Se verifica contra el hash BCrypt almacenado.     |
 
 **Request-Example:**
 
@@ -4927,14 +4921,14 @@ Autentica a un usuario existente y devuelve un JWT firmado con HMAC-SHA256. El t
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `userId` | Integer | Identificador único del usuario en la base de datos. |
-| `email` | String | Email del usuario autenticado. |
-| `firstName` | String | Nombre(s) del usuario. |
-| `lastName` | String | Apellido(s) del usuario. |
-| `phoneNumber` | String \| null | Teléfono del usuario. `null` si no fue registrado. |
-| `token` | String | JWT Bearer token. Debe enviarse en el header `Authorization` de todas las peticiones protegidas. |
+| Field         | Type           | Description                                                                                      |
+| :------------ | :------------- | :----------------------------------------------------------------------------------------------- |
+| `userId`      | Integer        | Identificador único del usuario en la base de datos.                                             |
+| `email`       | String         | Email del usuario autenticado.                                                                   |
+| `firstName`   | String         | Nombre(s) del usuario.                                                                           |
+| `lastName`    | String         | Apellido(s) del usuario.                                                                         |
+| `phoneNumber` | String \| null | Teléfono del usuario. `null` si no fue registrado.                                               |
+| `token`       | String         | JWT Bearer token. Debe enviarse en el header `Authorization` de todas las peticiones protegidas. |
 
 **Success-Response:**
 
@@ -4952,18 +4946,18 @@ HTTP/1.1 200 OK
 
 **JWT Claims incluidos en el token**
 
-| Claim | Valor | Descripción |
-| :--- | :--- | :--- |
-| `userId` | Integer (string) | ID del usuario. Usado por todos los endpoints protegidos para identificar al actor. |
-| `email` | String | Email del usuario. |
-| `firstName` | String | Nombre del usuario. |
-| `lastName` | String | Apellido del usuario. |
-| `exp` | Unix Timestamp | Fecha de expiración (configurable, por defecto `now + 7 días`). |
+| Claim       | Valor            | Descripción                                                                         |
+| :---------- | :--------------- | :---------------------------------------------------------------------------------- |
+| `userId`    | Integer (string) | ID del usuario. Usado por todos los endpoints protegidos para identificar al actor. |
+| `email`     | String           | Email del usuario.                                                                  |
+| `firstName` | String           | Nombre del usuario.                                                                 |
+| `lastName`  | String           | Apellido del usuario.                                                               |
+| `exp`       | Unix Timestamp   | Fecha de expiración (configurable, por defecto `now + 7 días`).                     |
 
 **Error 401 Unauthorized**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name      | Type   | Description                                                                                                                          |
+| :-------- | :----- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | `message` | String | Indica que el email no existe o la contraseña no coincide. Por seguridad el mensaje es genérico (no diferencia entre los dos casos). |
 
 **Error-Response:**
@@ -5003,22 +4997,22 @@ Crea un nuevo paciente (abuelito) y lo vincula al usuario autenticado como **cui
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Datos que recibe el Request)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `dni` | String | ✅ | DNI (documento de identidad) del paciente. Debe ser único en el sistema. No puede ser vacío. |
-| `firstName` | String | ✅ | Nombre(s) del paciente. No puede ser vacío. |
-| `lastName` | String | ✅ | Apellido(s) del paciente. No puede ser vacío. |
-| `birthDate` | String (date) | ✅ | Fecha de nacimiento en formato `YYYY-MM-DD`. |
-| `relationshipTypeId` | Integer (short) | ✅ | ID del tipo de relación del actor con el paciente. Ver catálogo en `GET /api/care/relationship-types`. |
-| `bloodType` | Integer (short) | ❌ | Tipo de sangre. Enum: `0`=Unknown, `1`=A+, `2`=A-, `3`=B+, `4`=B-, `5`=AB+, `6`=AB-, `7`=O+, `8`=O-. Default: `0`. |
-| `medicalConditions` | Object | ❌ | Diccionario de condiciones médicas. Claves y valores son strings libres. |
-| `medications` | Object | ❌ | Diccionario de medicamentos del paciente. Claves y valores son strings libres. |
+| Field                | Type            | Required | Description                                                                                                        |
+| :------------------- | :-------------- | :------- | :----------------------------------------------------------------------------------------------------------------- |
+| `dni`                | String          | ✅       | DNI (documento de identidad) del paciente. Debe ser único en el sistema. No puede ser vacío.                       |
+| `firstName`          | String          | ✅       | Nombre(s) del paciente. No puede ser vacío.                                                                        |
+| `lastName`           | String          | ✅       | Apellido(s) del paciente. No puede ser vacío.                                                                      |
+| `birthDate`          | String (date)   | ✅       | Fecha de nacimiento en formato `YYYY-MM-DD`.                                                                       |
+| `relationshipTypeId` | Integer (short) | ✅       | ID del tipo de relación del actor con el paciente. Ver catálogo en `GET /api/care/relationship-types`.             |
+| `bloodType`          | Integer (short) | ❌       | Tipo de sangre. Enum: `0`=Unknown, `1`=A+, `2`=A-, `3`=B+, `4`=B-, `5`=AB+, `6`=AB-, `7`=O+, `8`=O-. Default: `0`. |
+| `medicalConditions`  | Object          | ❌       | Diccionario de condiciones médicas. Claves y valores son strings libres.                                           |
+| `medications`        | Object          | ❌       | Diccionario de medicamentos del paciente. Claves y valores son strings libres.                                     |
 
 **Request-Example:**
 
@@ -5045,27 +5039,27 @@ Crea un nuevo paciente (abuelito) y lo vincula al usuario autenticado como **cui
 
 Devuelve el objeto completo del paciente recién creado (mismo esquema que `GET /api/care/patients/{id}`).
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `patientId` | Integer | ID único del paciente generado por la BD. |
-| `dni` | String | DNI del paciente. |
-| `firstName` | String | Nombre del paciente. |
-| `lastName` | String | Apellido del paciente. |
-| `birthDate` | String (date) | Fecha de nacimiento. |
-| `bloodType` | Integer | Tipo de sangre (enum numérico). |
-| `medicalConditions` | Object | Diccionario de condiciones médicas. |
-| `medications` | Object | Diccionario de medicamentos. |
-| `currentGuardianUserId` | Integer \| null | ID del cuidador activo en turno. |
-| `officialGuardianUserId` | Integer | ID del cuidador principal permanente. |
-| `caregivers` | Array\<Object\> | Lista de cuidadores vinculados (ver esquema abajo). |
-| `caregivers[].userId` | Integer | ID del usuario cuidador. |
-| `caregivers[].user` | Object \| null | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
-| `caregivers[].relationshipTypeId` | Integer \| null | ID de relación. `null` para el principal. |
-| `caregivers[].caregiverKind` | String | `"official"` o `"caregiver"`. |
-| `emergencyContacts` | Array\<Object\> | Contactos de emergencia. |
-| `invitations` | Array\<Object\> | Invitaciones de acceso al paciente. |
-| `device` | Object | Estado del dispositivo IoT vinculado (ver sección DeviceManagment). |
-| `device.isLinked` | Boolean | `false` si no hay dispositivo vinculado. |
+| Field                             | Type            | Description                                                               |
+| :-------------------------------- | :-------------- | :------------------------------------------------------------------------ |
+| `patientId`                       | Integer         | ID único del paciente generado por la BD.                                 |
+| `dni`                             | String          | DNI del paciente.                                                         |
+| `firstName`                       | String          | Nombre del paciente.                                                      |
+| `lastName`                        | String          | Apellido del paciente.                                                    |
+| `birthDate`                       | String (date)   | Fecha de nacimiento.                                                      |
+| `bloodType`                       | Integer         | Tipo de sangre (enum numérico).                                           |
+| `medicalConditions`               | Object          | Diccionario de condiciones médicas.                                       |
+| `medications`                     | Object          | Diccionario de medicamentos.                                              |
+| `currentGuardianUserId`           | Integer \| null | ID del cuidador activo en turno.                                          |
+| `officialGuardianUserId`          | Integer         | ID del cuidador principal permanente.                                     |
+| `caregivers`                      | Array\<Object\> | Lista de cuidadores vinculados (ver esquema abajo).                       |
+| `caregivers[].userId`             | Integer         | ID del usuario cuidador.                                                  |
+| `caregivers[].user`               | Object \| null  | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
+| `caregivers[].relationshipTypeId` | Integer \| null | ID de relación. `null` para el principal.                                 |
+| `caregivers[].caregiverKind`      | String          | `"official"` o `"caregiver"`.                                             |
+| `emergencyContacts`               | Array\<Object\> | Contactos de emergencia.                                                  |
+| `invitations`                     | Array\<Object\> | Invitaciones de acceso al paciente.                                       |
+| `device`                          | Object          | Estado del dispositivo IoT vinculado (ver sección DeviceManagment).       |
+| `device.isLinked`                 | Boolean         | `false` si no hay dispositivo vinculado.                                  |
 
 **Success-Response:**
 
@@ -5098,8 +5092,8 @@ HTTP/1.1 200 OK
 
 **Error 400 Bad Request**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name      | Type   | Description                                    |
+| :-------- | :----- | :--------------------------------------------- |
 | `message` | String | Descripción del error de dominio o validación. |
 
 **Error-Response — DNI vacío:**
@@ -5133,15 +5127,15 @@ Obtiene el detalle completo de un paciente por su `patientId`. Solo accessible s
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente a consultar. |
+| Field | Type    | Description                           |
+| :---- | :------ | :------------------------------------ |
+| `id`  | Integer | `patientId` del paciente a consultar. |
 
 **Request-Example:**
 
@@ -5176,26 +5170,26 @@ Actualiza los datos básicos de un paciente. Solo puede ejecutarlo el **cuidador
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente a actualizar. |
+| Field | Type    | Description                            |
+| :---- | :------ | :------------------------------------- |
+| `id`  | Integer | `patientId` del paciente a actualizar. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `firstName` | String | ✅ | Nuevo nombre. No puede ser vacío. |
-| `lastName` | String | ✅ | Nuevo apellido. No puede ser vacío. |
-| `birthDate` | String (date) | ✅ | Nueva fecha de nacimiento `YYYY-MM-DD`. |
-| `bloodType` | Integer (short) | ✅ | Tipo de sangre (0–8). |
-| `medicalConditions` | Object | ❌ | Reemplaza completo el diccionario de condiciones. |
-| `medications` | Object | ❌ | Reemplaza completo el diccionario de medicamentos. |
+| Field               | Type            | Required | Description                                        |
+| :------------------ | :-------------- | :------- | :------------------------------------------------- |
+| `firstName`         | String          | ✅       | Nuevo nombre. No puede ser vacío.                  |
+| `lastName`          | String          | ✅       | Nuevo apellido. No puede ser vacío.                |
+| `birthDate`         | String (date)   | ✅       | Nueva fecha de nacimiento `YYYY-MM-DD`.            |
+| `bloodType`         | Integer (short) | ✅       | Tipo de sangre (0–8).                              |
+| `medicalConditions` | Object          | ❌       | Reemplaza completo el diccionario de condiciones.  |
+| `medications`       | Object          | ❌       | Reemplaza completo el diccionario de medicamentos. |
 
 **Request-Example:**
 
@@ -5212,8 +5206,8 @@ Actualiza los datos básicos de un paciente. Solo puede ejecutarlo el **cuidador
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field     | Type   | Description                       |
+| :-------- | :----- | :-------------------------------- |
 | `message` | String | Confirmación de la actualización. |
 
 **Success-Response:**
@@ -5242,14 +5236,14 @@ Cada item incluye el campo `caregiverKind` para distinguir el rol, el `relations
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field             | Type    | Description                                          |
+| :---------------- | :------ | :--------------------------------------------------- |
 | `caregiverUserId` | Integer | ID del cuidador. Debe ser igual al `userId` del JWT. |
 
 **Request-Example:**
@@ -5263,11 +5257,11 @@ Authorization: Bearer eyJ...
 
 Array de objetos, uno por cada paciente.
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].patient` | Object | Objeto paciente completo (mismo esquema que `GET /api/care/patients/{id}`). |
-| `[].caregiverKind` | String | `"official"` si es cuidador principal, `"caregiver"` si es secundario. |
-| `[].relationshipTypeId` | Integer \| null | ID de relación del actor con el paciente. `null` si es principal. |
+| Field                   | Type            | Description                                                                 |
+| :---------------------- | :-------------- | :-------------------------------------------------------------------------- |
+| `[].patient`            | Object          | Objeto paciente completo (mismo esquema que `GET /api/care/patients/{id}`). |
+| `[].caregiverKind`      | String          | `"official"` si es cuidador principal, `"caregiver"` si es secundario.      |
+| `[].relationshipTypeId` | Integer \| null | ID de relación del actor con el paciente. `null` si es principal.           |
 
 **Success-Response:**
 
@@ -5332,21 +5326,21 @@ Transfiere temporalmente el turno de guardia activa a otro cuidador secundario. 
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `newCurrentGuardianUserId` | Integer | ✅ | `userId` del cuidador al que se le transfiere el turno. |
+| Field                      | Type    | Required | Description                                             |
+| :------------------------- | :------ | :------- | :------------------------------------------------------ |
+| `newCurrentGuardianUserId` | Integer | ✅       | `userId` del cuidador al que se le transfiere el turno. |
 
 **Request-Example:**
 
@@ -5378,15 +5372,15 @@ Restaura el turno de guardia al cuidador principal (deshace el `PUT /guard-shift
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Request-Example:**
 
@@ -5419,23 +5413,23 @@ Agrega un contacto de emergencia al paciente. Solo accesible por cuidadores vinc
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `fullName` | String | ✅ | Nombre completo del contacto de emergencia. No puede ser vacío. |
-| `phoneNumber` | String | ✅ | Número de teléfono del contacto. No puede ser vacío. |
-| `relationship` | String \| Integer | ✅ | Relación con el paciente. Acepta string (`"Hijo"`), número (`1`) u objeto con clave `name`. |
+| Field          | Type              | Required | Description                                                                                 |
+| :------------- | :---------------- | :------- | :------------------------------------------------------------------------------------------ |
+| `fullName`     | String            | ✅       | Nombre completo del contacto de emergencia. No puede ser vacío.                             |
+| `phoneNumber`  | String            | ✅       | Número de teléfono del contacto. No puede ser vacío.                                        |
+| `relationship` | String \| Integer | ✅       | Relación con el paciente. Acepta string (`"Hijo"`), número (`1`) u objeto con clave `name`. |
 
 **Request-Example:**
 
@@ -5449,8 +5443,8 @@ Agrega un contacto de emergencia al paciente. Solo accesible por cuidadores vinc
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field                | Type    | Description                   |
+| :------------------- | :------ | :---------------------------- |
 | `emergencyContactId` | Integer | ID del nuevo contacto creado. |
 
 **Success-Response:**
@@ -5487,15 +5481,15 @@ Elimina un contacto de emergencia del paciente. Solo accesible por cuidadores vi
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field       | Type    | Description                                   |
+| :---------- | :------ | :-------------------------------------------- |
+| `id`        | Integer | `patientId` del paciente.                     |
 | `contactId` | Integer | `emergencyContactId` del contacto a eliminar. |
 
 **Request-Example:**
@@ -5529,26 +5523,28 @@ Agrega una anotación/nota de bitácora al paciente. Solo pueden agregar anotaci
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `content` | String | ✅ | Texto de la anotación. No puede ser vacío ni solo espacios. |
+| Field     | Type   | Required | Description                                                 |
+| :-------- | :----- | :------- | :---------------------------------------------------------- |
+| `content` | String | ✅       | Texto de la anotación. No puede ser vacío ni solo espacios. |
 
 **Request-Example:**
 
 ```json
-{ "content": "El paciente tuvo una noche tranquila. Se administró medicación a las 8am sin incidentes." }
+{
+  "content": "El paciente tuvo una noche tranquila. Se administró medicación a las 8am sin incidentes."
+}
 ```
 
 **Success 200 OK**
@@ -5580,24 +5576,24 @@ Devuelve la bitácora de anotaciones del paciente, ordenadas de la más reciente
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Success 200 OK** — Array de anotaciones.
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].id` | String | `patientAnnotationId` serializado como string. |
-| `[].date` | String (ISO 8601) | Fecha y hora de creación en UTC. Ej: `"2026-06-07T21:45:00.000Z"`. |
-| `[].text` | String | Contenido de la anotación. |
-| `[].author` | String | Nombre completo del cuidador que la creó (resuelto desde IAM). |
+| Field       | Type              | Description                                                        |
+| :---------- | :---------------- | :----------------------------------------------------------------- |
+| `[].id`     | String            | `patientAnnotationId` serializado como string.                     |
+| `[].date`   | String (ISO 8601) | Fecha y hora de creación en UTC. Ej: `"2026-06-07T21:45:00.000Z"`. |
+| `[].text`   | String            | Contenido de la anotación.                                         |
+| `[].author` | String            | Nombre completo del cuidador que la creó (resuelto desde IAM).     |
 
 **Success-Response:**
 
@@ -5636,24 +5632,24 @@ Devuelve la lista de cuidadores vinculados a un paciente. **Solo accesible por e
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `patientId` del paciente. |
+| Field | Type    | Description               |
+| :---- | :------ | :------------------------ |
+| `id`  | Integer | `patientId` del paciente. |
 
 **Success 200 OK** — Array de cuidadores (incluyendo al principal).
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].userId` | Integer | ID del cuidador. |
-| `[].user` | Object \| null | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
-| `[].relationshipTypeId` | Integer \| null | Tipo de relación. `null` para el cuidador principal. |
-| `[].caregiverKind` | String | `"official"` o `"caregiver"`. |
+| Field                   | Type            | Description                                                               |
+| :---------------------- | :-------------- | :------------------------------------------------------------------------ |
+| `[].userId`             | Integer         | ID del cuidador.                                                          |
+| `[].user`               | Object \| null  | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
+| `[].relationshipTypeId` | Integer \| null | Tipo de relación. `null` para el cuidador principal.                      |
+| `[].caregiverKind`      | String          | `"official"` o `"caregiver"`.                                             |
 
 **Success-Response:**
 
@@ -5692,21 +5688,21 @@ Envía una solicitud de acceso al paciente identificado por su DNI. El actor (so
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field | Type   | Description                                 |
+| :---- | :----- | :------------------------------------------ |
 | `dni` | String | DNI del paciente al que se solicita acceso. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `relationshipTypeId` | Integer (short) | ✅ | Tipo de relación que el solicitante tiene con el paciente. Ver catálogo en `GET /api/care/relationship-types`. |
+| Field                | Type            | Required | Description                                                                                                    |
+| :------------------- | :-------------- | :------- | :------------------------------------------------------------------------------------------------------------- |
+| `relationshipTypeId` | Integer (short) | ✅       | Tipo de relación que el solicitante tiene con el paciente. Ver catálogo en `GET /api/care/relationship-types`. |
 
 **Request-Example:**
 
@@ -5716,8 +5712,8 @@ Envía una solicitud de acceso al paciente identificado por su DNI. El actor (so
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field          | Type    | Description                 |
+| :------------- | :------ | :-------------------------- |
 | `invitationId` | Integer | ID de la invitación creada. |
 
 **Success-Response:**
@@ -5776,27 +5772,27 @@ Devuelve todas las invitaciones pendientes e históricas que ha recibido el acto
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Success 200 OK** — Array de invitaciones, ordenadas de la más reciente a la más antigua.
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].invitationId` | Integer | ID de la invitación. |
-| `[].patientId` | Integer | ID del paciente al que se solicitó acceso. |
-| `[].patientFirstName` | String | Nombre del paciente. |
-| `[].patientLastName` | String | Apellido del paciente. |
-| `[].patientName` | String | Nombre completo del paciente (`firstName + lastName`). |
-| `[].patientDni` | String | DNI del paciente. |
-| `[].requesterUserId` | Integer | ID del usuario solicitante. |
-| `[].requesterName` | String | Nombre completo del solicitante (resuelto desde IAM). |
-| `[].requesterEmail` | String \| null | Email del solicitante. |
-| `[].relationshipTypeId` | Integer | ID del tipo de relación solicitada. |
-| `[].relationshipName` | String | Nombre del tipo de relación (ej. `"Familiar"`). |
-| `[].status` | String | Estado: `"Pending"`, `"Accepted"` o `"Rejected"`. |
-| `[].expiresAt` | String (ISO 8601) | Fecha de expiración de la invitación. |
+| Field                   | Type              | Description                                            |
+| :---------------------- | :---------------- | :----------------------------------------------------- |
+| `[].invitationId`       | Integer           | ID de la invitación.                                   |
+| `[].patientId`          | Integer           | ID del paciente al que se solicitó acceso.             |
+| `[].patientFirstName`   | String            | Nombre del paciente.                                   |
+| `[].patientLastName`    | String            | Apellido del paciente.                                 |
+| `[].patientName`        | String            | Nombre completo del paciente (`firstName + lastName`). |
+| `[].patientDni`         | String            | DNI del paciente.                                      |
+| `[].requesterUserId`    | Integer           | ID del usuario solicitante.                            |
+| `[].requesterName`      | String            | Nombre completo del solicitante (resuelto desde IAM).  |
+| `[].requesterEmail`     | String \| null    | Email del solicitante.                                 |
+| `[].relationshipTypeId` | Integer           | ID del tipo de relación solicitada.                    |
+| `[].relationshipName`   | String            | Nombre del tipo de relación (ej. `"Familiar"`).        |
+| `[].status`             | String            | Estado: `"Pending"`, `"Accepted"` o `"Rejected"`.      |
+| `[].expiresAt`          | String (ISO 8601) | Fecha de expiración de la invitación.                  |
 
 **Success-Response:**
 
@@ -5838,8 +5834,8 @@ Devuelve todas las invitaciones que ha enviado el actor como solicitante, con su
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Success 200 OK** — Mismo esquema de items que `GET /api/care/invitations/received`.
@@ -5877,14 +5873,14 @@ Acepta una invitación pendiente. Solo puede ejecutarlo el **cuidador principal*
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field          | Type    | Description                    |
+| :------------- | :------ | :----------------------------- |
 | `invitationId` | Integer | ID de la invitación a aceptar. |
 
 **Request-Example:**
@@ -5960,14 +5956,14 @@ Rechaza una invitación pendiente. Solo puede ejecutarlo el **cuidador principal
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field          | Type    | Description                     |
+| :------------- | :------ | :------------------------------ |
 | `invitationId` | Integer | ID de la invitación a rechazar. |
 
 **Request-Example:**
@@ -6034,16 +6030,16 @@ Devuelve el catálogo completo de tipos de relación disponibles. Utilizado para
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Success 200 OK** — Array del catálogo.
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].relationshipTypeId` | Integer (short) | ID numérico del tipo de relación. |
-| `[].name` | String | Nombre descriptivo de la relación. |
+| Field                   | Type            | Description                        |
+| :---------------------- | :-------------- | :--------------------------------- |
+| `[].relationshipTypeId` | Integer (short) | ID numérico del tipo de relación.  |
+| `[].name`               | String          | Nombre descriptivo de la relación. |
 
 **Success-Response:**
 
@@ -6073,22 +6069,22 @@ Base path: `/api/devices`
 
 ---
 
- Esquema de respuesta de dispositivo (reutilizado en todos los GETs)
+Esquema de respuesta de dispositivo (reutilizado en todos los GETs)
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `deviceId` | Integer | ID único del dispositivo IoT. |
-| `assignedPatientId` | Integer \| null | ID del paciente vinculado. `null` si no hay vínculo activo. |
-| `status` | String | Estado en inventario: `"Active"`, `"Lost"` o `"InRepair"`. |
-| `connectivityStatus` | String \| null | `"Connected"` o `"Disconnected"`. `null` si no está vinculado a ningún paciente. |
-| `currentBatteryLevel` | Integer \| null | Porcentaje de batería (0–100). `null` hasta recibir el primer heartbeat. |
-| `isCharging` | Boolean \| null | `true` si está cargando. `null` hasta el primer heartbeat. |
-| `lastHeartbeatAt` | String (ISO 8601) \| null | Timestamp UTC del último heartbeat MQTT recibido. |
-| `monitoringStartedAt` | String (ISO 8601) \| null | Timestamp UTC del momento en que se vinculó al paciente. |
-| `lastConnectivityChangeAt` | String (ISO 8601) \| null | Timestamp UTC del último cambio de estado de conectividad. |
-| `isOnline` | Boolean | `true` si `connectivityStatus == "Connected"`. Calculado en el servidor. |
-| `isLowBattery` | Boolean | `true` si `batteryLevel < 15 %` y no está cargando. Calculado en el servidor. |
-| `firmwareVersion` | String | Versión de firmware reportada por el dispositivo vía MQTT. |
+| Field                      | Type                      | Description                                                                      |
+| :------------------------- | :------------------------ | :------------------------------------------------------------------------------- |
+| `deviceId`                 | Integer                   | ID único del dispositivo IoT.                                                    |
+| `assignedPatientId`        | Integer \| null           | ID del paciente vinculado. `null` si no hay vínculo activo.                      |
+| `status`                   | String                    | Estado en inventario: `"Active"`, `"Lost"` o `"InRepair"`.                       |
+| `connectivityStatus`       | String \| null            | `"Connected"` o `"Disconnected"`. `null` si no está vinculado a ningún paciente. |
+| `currentBatteryLevel`      | Integer \| null           | Porcentaje de batería (0–100). `null` hasta recibir el primer heartbeat.         |
+| `isCharging`               | Boolean \| null           | `true` si está cargando. `null` hasta el primer heartbeat.                       |
+| `lastHeartbeatAt`          | String (ISO 8601) \| null | Timestamp UTC del último heartbeat MQTT recibido.                                |
+| `monitoringStartedAt`      | String (ISO 8601) \| null | Timestamp UTC del momento en que se vinculó al paciente.                         |
+| `lastConnectivityChangeAt` | String (ISO 8601) \| null | Timestamp UTC del último cambio de estado de conectividad.                       |
+| `isOnline`                 | Boolean                   | `true` si `connectivityStatus == "Connected"`. Calculado en el servidor.         |
+| `isLowBattery`             | Boolean                   | `true` si `batteryLevel < 15 %` y no está cargando. Calculado en el servidor.    |
+| `firmwareVersion`          | String                    | Versión de firmware reportada por el dispositivo vía MQTT.                       |
 
 ---
 
@@ -6098,21 +6094,21 @@ Vincula un dispositivo IoT a un paciente. Solo puede ejecutarlo el **cuidador pr
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field      | Type    | Description                                     |
+| :--------- | :------ | :---------------------------------------------- |
 | `deviceId` | Integer | ID del dispositivo IoT a vincular (ej. `1001`). |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `patientId` | Integer | ✅ | ID del paciente al que se vincula el dispositivo. El actor debe ser su cuidador principal. |
+| Field       | Type    | Required | Description                                                                                |
+| :---------- | :------ | :------- | :----------------------------------------------------------------------------------------- |
+| `patientId` | Integer | ✅       | ID del paciente al que se vincula el dispositivo. El actor debe ser su cuidador principal. |
 
 **Request-Example:**
 
@@ -6122,8 +6118,8 @@ Vincula un dispositivo IoT a un paciente. Solo puede ejecutarlo el **cuidador pr
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field     | Type   | Description                     |
+| :-------- | :----- | :------------------------------ |
 | `message` | String | Confirmación de la vinculación. |
 
 **Success-Response:**
@@ -6142,8 +6138,8 @@ HTTP/1.1 200 OK
 
 **Error 400 Bad Request**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name      | Type   | Description            |
+| :-------- | :----- | :--------------------- |
 | `message` | String | Descripción del error. |
 
 **Error-Response — no es cuidador principal:**
@@ -6185,20 +6181,20 @@ HTTP/1.1 400 Bad Request
 
 ---
 
- DELETE /api/devices/{deviceId}/link
+DELETE /api/devices/{deviceId}/link
 
 Desvincula el dispositivo IoT del paciente al que está actualmente asignado. Solo puede ejecutarlo el **cuidador principal** del paciente vinculado al dispositivo.
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field      | Type    | Description                           |
+| :--------- | :------ | :------------------------------------ |
 | `deviceId` | Integer | ID del dispositivo IoT a desvincular. |
 
 **Request-Example:**
@@ -6254,14 +6250,14 @@ Devuelve el estado en tiempo real del dispositivo por su ID. Solo accesible por 
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field      | Type    | Description                         |
+| :--------- | :------ | :---------------------------------- |
 | `deviceId` | Integer | ID del dispositivo IoT a consultar. |
 
 **Request-Example:**
@@ -6326,14 +6322,14 @@ Devuelve el dispositivo IoT vinculado a un paciente dado su `patientId`. Retorna
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field       | Type    | Description                                   |
+| :---------- | :------ | :-------------------------------------------- |
 | `patientId` | Integer | ID del paciente cuyo dispositivo se consulta. |
 
 **Request-Example:**
@@ -6385,16 +6381,16 @@ HTTP/1.1 404 Not Found
 
 ---
 
- Eventos de telemetría MQTT → NotificationCommunication (flujo interno)
+Eventos de telemetría MQTT → NotificationCommunication (flujo interno)
 
 > No son endpoints REST. Son procesados por los Background Services que escuchan al broker MQTT en los topics `foll/devices/+/heartbeat` y `foll/devices/+/power`. Se documentan porque generan **notificaciones SignalR** (`notification.created`) hacia el frontend para todos los cuidadores del paciente afectado.
 
-| Evento de dominio | Trigger | Tipo de notificación enviada |
-| :--- | :--- | :--- |
-| `LowBatteryDetected` | Batería cae por debajo del 15 % sin estar cargando | `"BatteryLow"` — enviada una sola vez hasta que se resuelva |
-| `LowBatteryResolved` | Batería sube sobre el 15 % o se conecta el cargador | `"BatteryRestored"` (informativa) |
+| Evento de dominio    | Trigger                                                        | Tipo de notificación enviada                                   |
+| :------------------- | :------------------------------------------------------------- | :------------------------------------------------------------- |
+| `LowBatteryDetected` | Batería cae por debajo del 15 % sin estar cargando             | `"BatteryLow"` — enviada una sola vez hasta que se resuelva    |
+| `LowBatteryResolved` | Batería sube sobre el 15 % o se conecta el cargador            | `"BatteryRestored"` (informativa)                              |
 | `DeviceDisconnected` | Sin heartbeat por más de 30 s, o evento `power=false` por MQTT | `"DeviceDisconnected"` — enviada una sola vez hasta reconexión |
-| `DeviceReconnected` | Llega heartbeat tras desconexión, o evento `power=true` | `"DeviceReconnected"` (informativa) |
+| `DeviceReconnected`  | Llega heartbeat tras desconexión, o evento `power=true`        | `"DeviceReconnected"` (informativa)                            |
 
 Cada evento se persiste en la tabla **`outbox_messages`** y es despachado por el `OutboxPublisherBackgroundService` al BC `NotificationCommunication`, que finalmente emite el evento `notification.created` por SignalR al grupo `user:{userId}` de cada cuidador vinculado al paciente.
 
@@ -6408,28 +6404,28 @@ Base path: `/api/notifications`
 
 ---
 
- Esquema de notificación (`NotificationResponse`)
+Esquema de notificación (`NotificationResponse`)
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `notificationLogId` | Integer | ID único del registro de notificación. |
-| `userId` | Integer | ID del cuidador destinatario. |
-| `notificationType` | String | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
-| `notificationChannel` | String | Canal de entrega: `"InApp"`, `"Push"` o `"Sms"`. |
-| `notificationStatus` | String | Estado: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`. |
-| `title` | String | Título de la notificación. |
-| `body` | String | Cuerpo/descripción de la notificación. |
-| `dataJson` | String \| null | JSON adicional con datos del evento (ej. ubicación y tipo de caída). |
-| `providerMessageId` | String \| null | ID del mensaje devuelto por el proveedor push (Firebase, etc.). |
-| `errorMessage` | String \| null | Mensaje de error si el envío falló. |
-| `deviceEventId` | Integer \| null | ID del evento de dispositivo que originó la notificación. |
-| `patientId` | Integer \| null | ID del paciente relacionado. |
-| `deviceId` | Integer \| null | ID del dispositivo relacionado. |
-| `sentAt` | String (ISO 8601) \| null | Timestamp UTC en que se envió al proveedor push. |
-| `readAt` | String (ISO 8601) \| null | Timestamp UTC en que el usuario la marcó como leída. |
-| `acknowledgedAt` | String (ISO 8601) \| null | Timestamp UTC en que el usuario la confirmó/atendió. |
-| `createdAt` | String (ISO 8601) | Timestamp UTC de creación. |
-| `updatedAt` | String (ISO 8601) | Timestamp UTC de última actualización de estado. |
+| Field                 | Type                      | Description                                                                                                                         |
+| :-------------------- | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `notificationLogId`   | Integer                   | ID único del registro de notificación.                                                                                              |
+| `userId`              | Integer                   | ID del cuidador destinatario.                                                                                                       |
+| `notificationType`    | String                    | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
+| `notificationChannel` | String                    | Canal de entrega: `"InApp"`, `"Push"` o `"Sms"`.                                                                                    |
+| `notificationStatus`  | String                    | Estado: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`.                                                              |
+| `title`               | String                    | Título de la notificación.                                                                                                          |
+| `body`                | String                    | Cuerpo/descripción de la notificación.                                                                                              |
+| `dataJson`            | String \| null            | JSON adicional con datos del evento (ej. ubicación y tipo de caída).                                                                |
+| `providerMessageId`   | String \| null            | ID del mensaje devuelto por el proveedor push (Firebase, etc.).                                                                     |
+| `errorMessage`        | String \| null            | Mensaje de error si el envío falló.                                                                                                 |
+| `deviceEventId`       | Integer \| null           | ID del evento de dispositivo que originó la notificación.                                                                           |
+| `patientId`           | Integer \| null           | ID del paciente relacionado.                                                                                                        |
+| `deviceId`            | Integer \| null           | ID del dispositivo relacionado.                                                                                                     |
+| `sentAt`              | String (ISO 8601) \| null | Timestamp UTC en que se envió al proveedor push.                                                                                    |
+| `readAt`              | String (ISO 8601) \| null | Timestamp UTC en que el usuario la marcó como leída.                                                                                |
+| `acknowledgedAt`      | String (ISO 8601) \| null | Timestamp UTC en que el usuario la confirmó/atendió.                                                                                |
+| `createdAt`           | String (ISO 8601)         | Timestamp UTC de creación.                                                                                                          |
+| `updatedAt`           | String (ISO 8601)         | Timestamp UTC de última actualización de estado.                                                                                    |
 
 ---
 
@@ -6439,8 +6435,8 @@ Devuelve todas las notificaciones del usuario autenticado, ordenadas implícitam
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Success 200 OK** — Array de objetos `NotificationResponse` (ver esquema arriba).
@@ -6503,15 +6499,15 @@ Devuelve el detalle completo de una notificación por su ID. Solo accesible si p
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `notificationLogId` de la notificación. |
+| Field | Type    | Description                             |
+| :---- | :------ | :-------------------------------------- |
+| `id`  | Integer | `notificationLogId` de la notificación. |
 
 **Request-Example:**
 
@@ -6539,28 +6535,28 @@ Devuelve solo el estado de entrega de una notificación (subset del objeto compl
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `notificationLogId` de la notificación. |
+| Field | Type    | Description                             |
+| :---- | :------ | :-------------------------------------- |
+| `id`  | Integer | `notificationLogId` de la notificación. |
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `notificationLogId` | Integer | ID de la notificación. |
-| `notificationStatus` | String | Estado actual: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`. |
-| `providerMessageId` | String \| null | ID del mensaje en el proveedor push. |
-| `errorMessage` | String \| null | Descripción del error si el estado es `"Failed"`. |
-| `sentAt` | String (ISO 8601) \| null | Timestamp de envío al proveedor. |
-| `readAt` | String (ISO 8601) \| null | Timestamp de lectura por el usuario. |
-| `acknowledgedAt` | String (ISO 8601) \| null | Timestamp de confirmación por el usuario. |
-| `updatedAt` | String (ISO 8601) | Timestamp de última actualización. |
+| Field                | Type                      | Description                                                                   |
+| :------------------- | :------------------------ | :---------------------------------------------------------------------------- |
+| `notificationLogId`  | Integer                   | ID de la notificación.                                                        |
+| `notificationStatus` | String                    | Estado actual: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`. |
+| `providerMessageId`  | String \| null            | ID del mensaje en el proveedor push.                                          |
+| `errorMessage`       | String \| null            | Descripción del error si el estado es `"Failed"`.                             |
+| `sentAt`             | String (ISO 8601) \| null | Timestamp de envío al proveedor.                                              |
+| `readAt`             | String (ISO 8601) \| null | Timestamp de lectura por el usuario.                                          |
+| `acknowledgedAt`     | String (ISO 8601) \| null | Timestamp de confirmación por el usuario.                                     |
+| `updatedAt`          | String (ISO 8601)         | Timestamp de última actualización.                                            |
 
 **Success-Response:**
 
@@ -6595,15 +6591,15 @@ Marca una notificación como leída. Idempotente: si ya estaba leída no produce
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `notificationLogId` de la notificación a marcar como leída. |
+| Field | Type    | Description                                                 |
+| :---- | :------ | :---------------------------------------------------------- |
+| `id`  | Integer | `notificationLogId` de la notificación a marcar como leída. |
 
 **Request-Example:**
 
@@ -6636,15 +6632,15 @@ Confirma que el usuario atendió una notificación (ej. confirmó que asistió a
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `notificationLogId` de la notificación a confirmar. |
+| Field | Type    | Description                                         |
+| :---- | :------ | :-------------------------------------------------- |
+| `id`  | Integer | `notificationLogId` de la notificación a confirmar. |
 
 **Request-Example:**
 
@@ -6677,17 +6673,17 @@ Registra o refresca un token push para el dispositivo del usuario autenticado. S
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `token` | String | ✅ | Token FCM/APNs del dispositivo. |
-| `platform` | String | ❌ | Plataforma: `"Web"`, `"Android"`, `"IOS"`. Si se omite o es inválida, se registra como `"Unknown"`. |
-| `deviceName` | String | ❌ | Nombre descriptivo del dispositivo (ej. `"Chrome en Windows"`). |
+| Field        | Type   | Required | Description                                                                                         |
+| :----------- | :----- | :------- | :-------------------------------------------------------------------------------------------------- |
+| `token`      | String | ✅       | Token FCM/APNs del dispositivo.                                                                     |
+| `platform`   | String | ❌       | Plataforma: `"Web"`, `"Android"`, `"IOS"`. Si se omite o es inválida, se registra como `"Unknown"`. |
+| `deviceName` | String | ❌       | Nombre descriptivo del dispositivo (ej. `"Chrome en Windows"`).                                     |
 
 **Request-Example:**
 
@@ -6701,8 +6697,8 @@ Registra o refresca un token push para el dispositivo del usuario autenticado. S
 
 **Success 200 OK**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field             | Type    | Description                                  |
+| :---------------- | :------ | :------------------------------------------- |
 | `userPushTokenId` | Integer | ID del token registrado (nuevo o existente). |
 
 **Success-Response:**
@@ -6729,23 +6725,23 @@ Lista todos los tokens push registrados por el usuario autenticado (activos e in
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Success 200 OK** — Array de tokens.
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `[].userPushTokenId` | Integer | ID del token. |
-| `[].userId` | Integer | ID del usuario propietario. |
-| `[].token` | String | Token FCM/APNs. |
-| `[].platform` | String | `"Web"`, `"Android"`, `"IOS"` o `"Unknown"`. |
-| `[].deviceName` | String \| null | Nombre descriptivo del dispositivo. |
-| `[].isActive` | Boolean | `true` si el token está activo y puede recibir notificaciones push. |
-| `[].lastUsedAt` | String (ISO 8601) \| null | Última vez que se usó exitosamente para enviar un push. |
-| `[].createdAt` | String (ISO 8601) | Timestamp de registro inicial. |
-| `[].updatedAt` | String (ISO 8601) | Timestamp de última actualización. |
+| Field                | Type                      | Description                                                         |
+| :------------------- | :------------------------ | :------------------------------------------------------------------ |
+| `[].userPushTokenId` | Integer                   | ID del token.                                                       |
+| `[].userId`          | Integer                   | ID del usuario propietario.                                         |
+| `[].token`           | String                    | Token FCM/APNs.                                                     |
+| `[].platform`        | String                    | `"Web"`, `"Android"`, `"IOS"` o `"Unknown"`.                        |
+| `[].deviceName`      | String \| null            | Nombre descriptivo del dispositivo.                                 |
+| `[].isActive`        | Boolean                   | `true` si el token está activo y puede recibir notificaciones push. |
+| `[].lastUsedAt`      | String (ISO 8601) \| null | Última vez que se usó exitosamente para enviar un push.             |
+| `[].createdAt`       | String (ISO 8601)         | Timestamp de registro inicial.                                      |
+| `[].updatedAt`       | String (ISO 8601)         | Timestamp de última actualización.                                  |
 
 **Success-Response:**
 
@@ -6770,21 +6766,21 @@ HTTP/1.1 200 OK
 
 ---
 
- DELETE /api/notifications/push-tokens/{id}
+DELETE /api/notifications/push-tokens/{id}
 
 Desactiva un token push del usuario autenticado. El token queda marcado como inactivo (`IsActive = false`) y no recibirá más notificaciones push. Solo el propietario puede desactivar su propio token.
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `id` | Integer | `userPushTokenId` del token a desactivar. |
+| Field | Type    | Description                               |
+| :---- | :------ | :---------------------------------------- |
+| `id`  | Integer | `userPushTokenId` del token a desactivar. |
 
 **Request-Example:**
 
@@ -6811,7 +6807,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
- WebSocket Hub — `/hubs/notifications`
+WebSocket Hub — `/hubs/notifications`
 
 Conexión SignalR que el frontend mantiene abierta para recibir eventos en tiempo real. Requiere JWT como query parameter.
 
@@ -6825,25 +6821,25 @@ Al conectarse, el servidor agrega al cliente al grupo privado `user:{userId}`, g
 
 ---
 
- Evento `notification.created`
+Evento `notification.created`
 
 Emitido cuando el BC NotificationCommunication genera y persiste una nueva notificación para el usuario (batería baja, desconexión, reconexión, caída detectada).
 
 **Payload:**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `notificationLogId` | Integer | ID del registro creado. |
-| `userId` | Integer | ID del destinatario. |
-| `notificationType` | String | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
-| `notificationChannel` | String | Canal: `"InApp"`, `"Push"` o `"Sms"`. |
-| `notificationStatus` | String | Estado inicial: siempre `"Sent"` o `"Failed"`. |
-| `title` | String | Título de la notificación. |
-| `body` | String | Cuerpo del mensaje. |
-| `dataJson` | String \| null | JSON con datos del evento (ej. coordenadas y tipo de caída para `FallDetected`). |
-| `patientId` | Integer \| null | ID del paciente afectado. |
-| `deviceId` | Integer \| null | ID del dispositivo involucrado. |
-| `createdAt` | String (ISO 8601) | Timestamp UTC del evento. |
+| Field                 | Type              | Description                                                                                                                         |
+| :-------------------- | :---------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `notificationLogId`   | Integer           | ID del registro creado.                                                                                                             |
+| `userId`              | Integer           | ID del destinatario.                                                                                                                |
+| `notificationType`    | String            | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
+| `notificationChannel` | String            | Canal: `"InApp"`, `"Push"` o `"Sms"`.                                                                                               |
+| `notificationStatus`  | String            | Estado inicial: siempre `"Sent"` o `"Failed"`.                                                                                      |
+| `title`               | String            | Título de la notificación.                                                                                                          |
+| `body`                | String            | Cuerpo del mensaje.                                                                                                                 |
+| `dataJson`            | String \| null    | JSON con datos del evento (ej. coordenadas y tipo de caída para `FallDetected`).                                                    |
+| `patientId`           | Integer \| null   | ID del paciente afectado.                                                                                                           |
+| `deviceId`            | Integer \| null   | ID del dispositivo involucrado.                                                                                                     |
+| `createdAt`           | String (ISO 8601) | Timestamp UTC del evento.                                                                                                           |
 
 **Ejemplo de payload `FallDetected`:**
 
@@ -6883,26 +6879,26 @@ Emitido cuando el BC NotificationCommunication genera y persiste una nueva notif
 
 ---
 
- Evento `invitation.changed`
+Evento `invitation.changed`
 
 Emitido cuando se crea, acepta o rechaza una invitación de acceso. El payload se entrega solo al usuario afectado (cuidador principal al crear; solicitante al aceptar/rechazar).
 
 **Payload:**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `kind` | String | `"created"`, `"accepted"` o `"rejected"`. |
-| `invitationId` | Integer | ID de la invitación. |
-| `patientId` | Integer | ID del paciente al que se solicita/tiene acceso. |
-| `patientName` | String | Nombre completo del paciente. |
-| `requesterUserId` | Integer | ID del usuario que envió la solicitud. |
-| `requesterName` | String | Nombre del solicitante (resuelto desde IAM). |
-| `relationshipTypeId` | Integer | ID del tipo de relación solicitada. |
-| `relationshipName` | String | Nombre del tipo de relación (ej. `"Familiar"`). |
-| `status` | String | Estado resultante: `"Pending"`, `"Accepted"` o `"Rejected"`. |
-| `title` | String | Título descriptivo del evento. |
-| `message` | String | Mensaje legible para mostrar en la UI. |
-| `occurredAt` | String (ISO 8601) | Timestamp UTC del evento. |
+| Field                | Type              | Description                                                  |
+| :------------------- | :---------------- | :----------------------------------------------------------- |
+| `kind`               | String            | `"created"`, `"accepted"` o `"rejected"`.                    |
+| `invitationId`       | Integer           | ID de la invitación.                                         |
+| `patientId`          | Integer           | ID del paciente al que se solicita/tiene acceso.             |
+| `patientName`        | String            | Nombre completo del paciente.                                |
+| `requesterUserId`    | Integer           | ID del usuario que envió la solicitud.                       |
+| `requesterName`      | String            | Nombre del solicitante (resuelto desde IAM).                 |
+| `relationshipTypeId` | Integer           | ID del tipo de relación solicitada.                          |
+| `relationshipName`   | String            | Nombre del tipo de relación (ej. `"Familiar"`).              |
+| `status`             | String            | Estado resultante: `"Pending"`, `"Accepted"` o `"Rejected"`. |
+| `title`              | String            | Título descriptivo del evento.                               |
+| `message`            | String            | Mensaje legible para mostrar en la UI.                       |
+| `occurredAt`         | String (ISO 8601) | Timestamp UTC del evento.                                    |
 
 **Ejemplo de payload `kind: "created"` (recibido por el cuidador principal):**
 
@@ -6954,43 +6950,43 @@ Base path: `/api/emergency/incidents`
 
 ---
 
- Catálogo de tipos de caída (`FallType`) — datos semilla
+Catálogo de tipos de caída (`FallType`) — datos semilla
 
-| `fallTypeId` | `name` | `description` | `severityLevel` |
-| :---: | :--- | :--- | :---: |
-| 1 | `FRONTAL` | Caída hacia adelante detectada por patrón vectorial frontal del dataset SISFALL. | 1 |
-| 2 | `LATERAL` | Caída lateral detectada por desplazamiento dominante en eje lateral del dataset SISFALL. | 2 |
-| 3 | `UNKNOWN` | Tipo de caída no clasificado o no enviado por el dispositivo/IA. | 2 |
-| 4 | `BACKWARD` | Caída hacia atrás detectada por patrón vectorial posterior del dataset SISFALL. | 1 |
+| `fallTypeId` | `name`     | `description`                                                                            | `severityLevel` |
+| :----------: | :--------- | :--------------------------------------------------------------------------------------- | :-------------: |
+|      1       | `FRONTAL`  | Caída hacia adelante detectada por patrón vectorial frontal del dataset SISFALL.         |        1        |
+|      2       | `LATERAL`  | Caída lateral detectada por desplazamiento dominante en eje lateral del dataset SISFALL. |        2        |
+|      3       | `UNKNOWN`  | Tipo de caída no clasificado o no enviado por el dispositivo/IA.                         |        2        |
+|      4       | `BACKWARD` | Caída hacia atrás detectada por patrón vectorial posterior del dataset SISFALL.          |        1        |
 
 ---
 
- Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs
+Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `incidentId` | Integer | ID único del incidente. |
-| `incidentKey` | String (UUID) | GUID único generado al crear el incidente. |
-| `deviceId` | Integer | ID del dispositivo IoT que reportó la caída. |
-| `patientId` | Integer | ID del paciente relacionado. |
-| `fallTypeId` | Integer (short) | ID del tipo de caída. |
-| `fallType` | Object \| null | Objeto enriquecido del tipo de caída. |
-| `fallType.id` | Integer | ID del tipo. |
-| `fallType.name` | String | `"FRONTAL"`, `"LATERAL"`, `"BACKWARD"` o `"UNKNOWN"`. |
-| `fallType.description` | String | Descripción técnica. |
-| `fallType.severityLevel` | Integer | Nivel de severidad (1 = alta, 2 = media). |
-| `status` | String | Estado: `"Open"`, `"Cancelled"` o `"Resolved"`. |
-| `openedAt` | String (ISO 8601) | Timestamp UTC de apertura (primera señal). |
-| `lastSignalAt` | String (ISO 8601) | Timestamp UTC de la última señal MQTT procesada. |
-| `cancelledAt` | String (ISO 8601) \| null | Timestamp UTC de cancelación. `null` si no cancelado. |
-| `resolvedAt` | String (ISO 8601) \| null | Timestamp UTC de resolución. `null` si no resuelto. |
-| `closedAt` | String (ISO 8601) \| null | Igual a `cancelledAt` o `resolvedAt`. |
-| `closedByUserId` | Integer \| null | `userId` del cuidador que cerró manualmente. `null` si fue automático. |
-| `aiConfidenceScore` | Decimal \| null | Confianza del modelo IA (0.0–1.0). |
-| `latitude` | Decimal \| null | Latitud GPS al momento de la caída. |
-| `longitude` | Decimal \| null | Longitud GPS al momento de la caída. |
-| `cancellationReason` | String \| null | `"Unknown"`, `"UserButtonPressed"` o `"FalsePositive"`. |
-| `finalObservation` | String \| null | Nota escrita por el cuidador al cerrar o actualizar el incidente. |
+| Field                    | Type                      | Description                                                            |
+| :----------------------- | :------------------------ | :--------------------------------------------------------------------- |
+| `incidentId`             | Integer                   | ID único del incidente.                                                |
+| `incidentKey`            | String (UUID)             | GUID único generado al crear el incidente.                             |
+| `deviceId`               | Integer                   | ID del dispositivo IoT que reportó la caída.                           |
+| `patientId`              | Integer                   | ID del paciente relacionado.                                           |
+| `fallTypeId`             | Integer (short)           | ID del tipo de caída.                                                  |
+| `fallType`               | Object \| null            | Objeto enriquecido del tipo de caída.                                  |
+| `fallType.id`            | Integer                   | ID del tipo.                                                           |
+| `fallType.name`          | String                    | `"FRONTAL"`, `"LATERAL"`, `"BACKWARD"` o `"UNKNOWN"`.                  |
+| `fallType.description`   | String                    | Descripción técnica.                                                   |
+| `fallType.severityLevel` | Integer                   | Nivel de severidad (1 = alta, 2 = media).                              |
+| `status`                 | String                    | Estado: `"Open"`, `"Cancelled"` o `"Resolved"`.                        |
+| `openedAt`               | String (ISO 8601)         | Timestamp UTC de apertura (primera señal).                             |
+| `lastSignalAt`           | String (ISO 8601)         | Timestamp UTC de la última señal MQTT procesada.                       |
+| `cancelledAt`            | String (ISO 8601) \| null | Timestamp UTC de cancelación. `null` si no cancelado.                  |
+| `resolvedAt`             | String (ISO 8601) \| null | Timestamp UTC de resolución. `null` si no resuelto.                    |
+| `closedAt`               | String (ISO 8601) \| null | Igual a `cancelledAt` o `resolvedAt`.                                  |
+| `closedByUserId`         | Integer \| null           | `userId` del cuidador que cerró manualmente. `null` si fue automático. |
+| `aiConfidenceScore`      | Decimal \| null           | Confianza del modelo IA (0.0–1.0).                                     |
+| `latitude`               | Decimal \| null           | Latitud GPS al momento de la caída.                                    |
+| `longitude`              | Decimal \| null           | Longitud GPS al momento de la caída.                                   |
+| `cancellationReason`     | String \| null            | `"Unknown"`, `"UserButtonPressed"` o `"FalsePositive"`.                |
+| `finalObservation`       | String \| null            | Nota escrita por el cuidador al cerrar o actualizar el incidente.      |
 
 ---
 
@@ -7000,14 +6996,14 @@ Devuelve el incidente de caída activo (`"Open"`) del paciente. Solo puede haber
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field       | Type    | Description                  |
+| :---------- | :------ | :--------------------------- |
 | `patientId` | Integer | ID del paciente a consultar. |
 
 **Request-Example:**
@@ -7069,14 +7065,14 @@ Devuelve el historial completo de incidentes del paciente en todos los estados, 
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field       | Type    | Description                                 |
+| :---------- | :------ | :------------------------------------------ |
 | `patientId` | Integer | ID del paciente cuyo historial se consulta. |
 
 **Request-Example:**
@@ -7153,14 +7149,14 @@ Devuelve el detalle completo de un incidente por su ID, con el objeto `fallType`
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field        | Type    | Description       |
+| :----------- | :------ | :---------------- |
 | `incidentId` | Integer | ID del incidente. |
 
 **Request-Example:**
@@ -7196,26 +7192,28 @@ Marca un incidente **abierto** como falso positivo. Lo cancela con `cancellation
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field        | Type    | Description       |
+| :----------- | :------ | :---------------- |
 | `incidentId` | Integer | ID del incidente. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `observation` | String | ❌ | Nota opcional explicando por qué es falso positivo. |
+| Field         | Type   | Required | Description                                         |
+| :------------ | :----- | :------- | :-------------------------------------------------- |
+| `observation` | String | ❌       | Nota opcional explicando por qué es falso positivo. |
 
 **Request-Example:**
 
 ```json
-{ "observation": "El paciente estaba sentándose rápido, no fue una caída real." }
+{
+  "observation": "El paciente estaba sentándose rápido, no fue una caída real."
+}
 ```
 
 **Success 200 OK**
@@ -7252,26 +7250,28 @@ Resuelve un incidente **abierto**, confirmando que fue real y fue atendido. Camb
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field        | Type    | Description       |
+| :----------- | :------ | :---------------- |
 | `incidentId` | Integer | ID del incidente. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `observation` | String | ❌ | Nota final del cuidador. |
+| Field         | Type   | Required | Description              |
+| :------------ | :----- | :------- | :----------------------- |
+| `observation` | String | ❌       | Nota final del cuidador. |
 
 **Request-Example:**
 
 ```json
-{ "observation": "Paciente atendido. Leve golpe en la rodilla. Se aplicó vendaje." }
+{
+  "observation": "Paciente atendido. Leve golpe en la rodilla. Se aplicó vendaje."
+}
 ```
 
 **Success 200 OK**
@@ -7308,26 +7308,28 @@ Actualiza la observación final de un incidente ya **cerrado** (`"Cancelled"` o 
 
 **Header**
 
-| Field | Description |
-| :--- | :--- |
+| Field         | Description    |
+| :------------ | :------------- |
 | Authorization | `Bearer <JWT>` |
 
 **Parameter (Path)**
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field        | Type    | Description                    |
+| :----------- | :------ | :----------------------------- |
 | `incidentId` | Integer | ID del incidente a actualizar. |
 
 **Parameter (Body)**
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `observation` | String | ✅ | Nueva observación final. No puede ser vacía ni nula. |
+| Field         | Type   | Required | Description                                          |
+| :------------ | :----- | :------- | :--------------------------------------------------- |
+| `observation` | String | ✅       | Nueva observación final. No puede ser vacía ni nula. |
 
 **Request-Example:**
 
 ```json
-{ "observation": "Confirmado por médico al día siguiente: sin fracturas. Solo contusión leve." }
+{
+  "observation": "Confirmado por médico al día siguiente: sin fracturas. Solo contusión leve."
+}
 ```
 
 **Success 200 OK**
@@ -7363,24 +7365,23 @@ HTTP/1.1 400 Bad Request
 
 ---
 
- Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
+Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
 
 > Los incidentes no se crean desde el frontend; el flujo es 100 % event-driven desde la capa Edge:
 
-| Paso | Componente | Acción |
-| :--- | :--- | :--- |
-| 1 | MQTT broker | Publica `foll/devices/{id}/fall-detected` o `fall-cancelled` |
-| 2 | `EmergencyAnalyticsMqttSubscriberBackgroundService` | Despacha `RegisterFallDetectedCommand` o `RegisterFallCancelledCommand` |
-| 3 | `EmergencyIncidentCommandService` | Abre/refresca o cancela el incidente; persiste evento en Outbox |
-| 4 | `EmergencyOutboxPublisherBackgroundService` | Lee el Outbox y despacha al handler de NotificationCommunication |
-| 5 | `EmergencyIncidentOpenedIntegrationEventHandler` | Llama a `CreateNotificationFromEventCommand` con tipo `FallDetected` |
-| 6 | `NotificationCommandService` | Crea `NotificationLog` por cada cuidador, envía push y emite SignalR `notification.created` |
+| Paso | Componente                                          | Acción                                                                                      |
+| :--- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| 1    | MQTT broker                                         | Publica `foll/devices/{id}/fall-detected` o `fall-cancelled`                                |
+| 2    | `EmergencyAnalyticsMqttSubscriberBackgroundService` | Despacha `RegisterFallDetectedCommand` o `RegisterFallCancelledCommand`                     |
+| 3    | `EmergencyIncidentCommandService`                   | Abre/refresca o cancela el incidente; persiste evento en Outbox                             |
+| 4    | `EmergencyOutboxPublisherBackgroundService`         | Lee el Outbox y despacha al handler de NotificationCommunication                            |
+| 5    | `EmergencyIncidentOpenedIntegrationEventHandler`    | Llama a `CreateNotificationFromEventCommand` con tipo `FallDetected`                        |
+| 6    | `NotificationCommandService`                        | Crea `NotificationLog` por cada cuidador, envía push y emite SignalR `notification.created` |
 
-| Evento de Outbox | Trigger | Notificación SignalR resultante |
-| :--- | :--- | :--- |
-| `emergency.incident.opened.v1` | Nueva caída detectada por IA | `notification.created` con `notificationType: "FallDetected"` a todos los cuidadores del paciente |
-| `emergency.incident.closed.v1` | Incidente cancelado (dispositivo/manual) o resuelto | Sin nueva notificación push; el frontend reconcilia el estado vía historial o SignalR previo |
-
+| Evento de Outbox               | Trigger                                             | Notificación SignalR resultante                                                                   |
+| :----------------------------- | :-------------------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| `emergency.incident.opened.v1` | Nueva caída detectada por IA                        | `notification.created` con `notificationType: "FallDetected"` a todos los cuidadores del paciente |
+| `emergency.incident.closed.v1` | Incidente cancelado (dispositivo/manual) o resuelto | Sin nueva notificación push; el frontend reconcilia el estado vía historial o SignalR previo      |
 
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review.
 
@@ -7394,19 +7395,19 @@ La colaboración del equipo se gestionó mediante GitHub para el registro de ava
 
 <img src="./img/Insights/av2_3.png" width="600"/>
 
-
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
-En esta sección se establecen los elementos de validación, los flujos de usuario (*user flows*) evaluados y las preguntas para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
+
+En esta sección se establecen los elementos de validación, los flujos de usuario (_user flows_) evaluados y las preguntas para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
 
 **Elementos a incluir por Segmento Objetivo**
 
-* **Segmento Cuidadores de Adultos Mayores (Canales Digitales):**
-    * **Landing Page:** Evaluación de la sección de propuesta de valor ("Cómo funciona"), validación social ("Testimonios") e intención de conversión ("Precios").
-    * **Aplicación Web y Móvil:** Validación del Dashboard de monitoreo gráfico, administración del perfil del paciente en "Mis Abuelitos" y la lectura de alertas en el "Historial de Eventos".
-* **Segmento Adultos Mayores / Abuelitos (Componente Físico):**  
-    * **Dispositivo IoT (Hardware Wearable):** Evaluación física, ergonómica y de confianza con el sensor/dispositivo portable encargado de la telemetría y detección automática de caídas.
+- **Segmento Cuidadores de Adultos Mayores (Canales Digitales):**
+  - **Landing Page:** Evaluación de la sección de propuesta de valor ("Cómo funciona"), validación social ("Testimonios") e intención de conversión ("Precios").
+  - **Aplicación Web y Móvil:** Validación del Dashboard de monitoreo gráfico, administración del perfil del paciente en "Mis Abuelitos" y la lectura de alertas en el "Historial de Eventos".
+- **Segmento Adultos Mayores / Abuelitos (Componente Físico):**
+  - **Dispositivo IoT (Hardware Wearable):** Evaluación física, ergonómica y de confianza con el sensor/dispositivo portable encargado de la telemetría y detección automática de caídas.
 
 ---
 
@@ -7414,10 +7415,10 @@ En esta sección se establecen los elementos de validación, los flujos de usuar
 
 Para optimizar las sesiones de validación con el segmento de cuidadores y evitar la fatiga del usuario, el proceso se divide en dos flujos independientes distribuidos entre los entrevistados:
 
-* **User Flow A (Descubrimiento y Conversión - Landing Page):**
-    Navegación inicial en Landing Page, la comprensión de características de como funciona nuestra solución y opinión sobre la paleta de colores.
-* **User Flow B (Gestión y Monitoreo Crítico - Aplicación Web y Móvil):**
-    Visualización del estado actual en el Inicio (Métricas de caídas y falsos positivos), Control de información en la sección "Mis Abuelitos" y opinión sobre el detalle de un evento en el historial de caídas.
+- **User Flow A (Descubrimiento y Conversión - Landing Page):**
+  Navegación inicial en Landing Page, la comprensión de características de como funciona nuestra solución y opinión sobre la paleta de colores.
+- **User Flow B (Gestión y Monitoreo Crítico - Aplicación Web y Móvil):**
+  Visualización del estado actual en el Inicio (Métricas de caídas y falsos positivos), Control de información en la sección "Mis Abuelitos" y opinión sobre el detalle de un evento en el historial de caídas.
 
 ---
 
@@ -7427,16 +7428,16 @@ A continuación, se presentan los cuestionarios con preguntas enumeradas que se 
 
 **Segmento 1: Cuidadores de Adultos Mayores**
 
-*Guion de Preguntas para el Grupo A: Landing Page (Tiempo estimado: 5-7 mins)*  
-*(Se le presenta al entrevistado la Landing Page interactiva que abarca las secciones de "Cómo funciona", "Testimonios" y "Precios")*
+_Guion de Preguntas para el Grupo A: Landing Page (Tiempo estimado: 5-7 mins)_  
+_(Se le presenta al entrevistado la Landing Page interactiva que abarca las secciones de "Cómo funciona", "Testimonios" y "Precios")_
 
 1. **Primera impresión:** Al mirar esta página por primera vez, ¿entiendes claramente qué problema resuelve este servicio y para quién está pensado?
 2. **Claridad de propuesta:** En la sección "Cómo funciona", ¿te queda claro cómo el sistema detecta si tu familiar sufrió una caída real? ¿Qué dudas te genera?
 3. **Conversión y Precio:** El servicio ofrece 14 días de prueba gratis y luego cuesta 39.90 soles al mes. ¿Consideras que este precio es adecuado por la tranquilidad de saber que tu familiar está a salvo?
 4. **Decisión y Estética:** ¿Qué opinas de la paleta de colores? ¿Refleja lo que el sistema quiere emitir?
 
-*Guion de Preguntas para el Grupo B: Aplicación Web y Móvil (Tiempo estimado: 7-9 mins)*  
-*(Se sitúa al entrevistado dentro del entorno de la plataforma de software con la sesión ya iniciada)*
+_Guion de Preguntas para el Grupo B: Aplicación Web y Móvil (Tiempo estimado: 7-9 mins)_  
+_(Se sitúa al entrevistado dentro del entorno de la plataforma de software con la sesión ya iniciada)_
 
 1. ¿Qué opinas del gráfico circular en la página de inicio? ¿Refleja claramente la comparación entre caídas reales y falsos positivos?
 2. ¿Consideras que la sección de "Mis abuelitos" registrados muestra todo lo que necesitas saber sobre ellos? ¿Es cómodo de ver?
@@ -7444,10 +7445,11 @@ A continuación, se presentan los cuestionarios con preguntas enumeradas que se 
 4. ¿Qué opinas de la paleta de colores de la aplicación? ¿Refleja lo que el sistema quiere emitir?
 
 ---
+
 **Segmento 2: Adultos Mayores / Abuelitos**
 
-*Preguntas de Validación para Adultos Mayores (Dispositivo IoT / Hardware)*  
-*(Se interactúa con el adulto mayor mostrándole el prototipo físico o modelo tridimensional del wearable: imagen presentada en la sección iot device design)*
+_Preguntas de Validación para Adultos Mayores (Dispositivo IoT / Hardware)_  
+_(Se interactúa con el adulto mayor mostrándole el prototipo físico o modelo tridimensional del wearable: imagen presentada en la sección iot device design)_
 
 1. Al ver o tocar este dispositivo, ¿le parece que es ligero y cómodo para llevarlo puesto todo el día en casa?
 2. ¿Siente que el dispositivo le estorbaría o le incomodaría al momento de realizar sus actividades diarias, como dormir, cocinar o cambiarse de ropa?
@@ -7464,60 +7466,63 @@ En esta sección se detalla el registro consolidado de las actividades de entrev
 
 **Segmento 1: Cuidadores de Adultos Mayores (Canales Digitales)**
 
-*Entrevista 1: Validación de Landing Page*  
-* **Nombres y Apellidos:** Andres Fabian Levano Mejia
-* **Edad:** 21
-* **Distrito:** Surco
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** [Link de la entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Timing de Inicio y Finalización:** 0:00 - 5:17
-* **Evidencia (Screenshot del Video):**
+_Entrevista 1: Validación de Landing Page_
+
+- **Nombres y Apellidos:** Andres Fabian Levano Mejia
+- **Edad:** 21
+- **Distrito:** Surco
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Cuidador de Adulto Mayor
+- **URL del Video (Stream/Clipchamp):** [Link de la entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Timing de Inicio y Finalización:** 0:00 - 5:17
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 1](img/validation-interviews/validation-andres.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
 
 Andres opina que la landing page muestra la información correctamente de como funciona nuestra solución Foll, resalta que la paleta de colores si logra emitir la tranquilidad que quiere reflejar Foll y también opina que le gustaría que la prueba gratuita dure 15 días en vez de 14, pero opina que el precio mensual esta muy bien si es para tener la tranquilidad de que su familiar este bien.
 
 ---
 
-*Entrevista 2: Validación de Aplicacion Web*
-* **Nombres y Apellidos:** Irvin Vergara Aylas
-* **Edad:** 24
-* **Distrito:** San Juan de Lurigancho
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** [Link de las entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Timing de Inicio y Finalización:** 5:17 - 8:38
-* **Evidencia (Screenshot del Video):**
+_Entrevista 2: Validación de Aplicacion Web_
+
+- **Nombres y Apellidos:** Irvin Vergara Aylas
+- **Edad:** 24
+- **Distrito:** San Juan de Lurigancho
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Cuidador de Adulto Mayor
+- **URL del Video (Stream/Clipchamp):** [Link de las entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Timing de Inicio y Finalización:** 5:17 - 8:38
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 2](img/validation-interviews/validation-irvin.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
 
 Irvin opina que la aplicación web si refleja bien la comparación de falsos positivos y caídas reales, también menciona que no entiende bien que son las solicitudes de acceso. Además, menciona que toda la información que mira en el detalle de una caída en el historial de caídas es la que justo necesita saber
 
 ---
 
-*Entrevista 3: Validación de Aplicación Web y Landing Page*
-* **Nombres y Apellidos:** Daniel Crispin Ramos
-* **Edad:** 21
-* **Distrito:** La Molina
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** [Link de las entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Timing de Inicio y Finalización:** 8:38 - 13:40
+_Entrevista 3: Validación de Aplicación Web y Landing Page_
 
-* **Evidencia (Screenshot del Video):**
+- **Nombres y Apellidos:** Daniel Crispin Ramos
+- **Edad:** 21
+- **Distrito:** La Molina
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Cuidador de Adulto Mayor
+- **URL del Video (Stream/Clipchamp):** [Link de las entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Timing de Inicio y Finalización:** 8:38 - 13:40
+
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 3](img/validation-interviews/validation-daniel.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
 
- Daniel menciona que la landing page si refleja bien la problemática que foll trata de solucionar, destaca que le gusta el orden de la información de la explicación de como funciona foll, menciona que los colores le reflejan tranquilidad.
+Daniel menciona que la landing page si refleja bien la problemática que foll trata de solucionar, destaca que le gusta el orden de la información de la explicación de como funciona foll, menciona que los colores le reflejan tranquilidad.
 
- En la aplicación web, Daniel menciona que le gustaría un color mas llamativo en el grafico circular para las caídas reales, considera que la información necesaria en un evento de caída es la que necesita saber y finalmente menciona que la navegación de la aplicación es muy fácil e intuitiva.
+En la aplicación web, Daniel menciona que le gustaría un color mas llamativo en el grafico circular para las caídas reales, considera que la información necesaria en un evento de caída es la que necesita saber y finalmente menciona que la navegación de la aplicación es muy fácil e intuitiva.
 
 ---
 
@@ -7525,67 +7530,72 @@ Irvin opina que la aplicación web si refleja bien la comparación de falsos pos
 
 > **Nota Metodológica de Privacidad y Accesibilidad:** Por consideraciones estrictas de privacidad, salud y comodidad del adulto mayor, la validación del hardware wearable de este segmento se realizó mediante entrevistas a sus familiares directos (nietos/cuidadores). Se enviaron previamente las preguntas y la demostración visual(prototipo físico y la imagen presentada en la sección iot device design) del dispositivo al familiar, quien recolectó de forma presencial los comentarios directos de sus abuelitos y actuó como su vocero oficial durante la sesión grabada de validación de requerimientos físicos.
 
-*Entrevista 4: Validación de Hardware IoT con Representante de "Don Ricardo"*
-* **Nombre del Adulto Mayor Validante:** Rafael
-* **Edad:** 72 años
-* **Nombre del Familiar/Vocero:**  Ricardo
-* **Distrito de Residencia:** Independencia
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Timing de Inicio y Finalización:**  13:40 - 17:32
-* **Evidencia (Screenshot del Video):**
+_Entrevista 4: Validación de Hardware IoT con Representante de "Don Ricardo"_
+
+- **Nombre del Adulto Mayor Validante:** Rafael
+- **Edad:** 72 años
+- **Nombre del Familiar/Vocero:** Ricardo
+- **Distrito de Residencia:** Independencia
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+- **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Timing de Inicio y Finalización:** 13:40 - 17:32
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 4](img/validation-interviews/validation-ricardo.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
   El entrevistado manifestó que el dispositivo le pareció bastante ligero y cómodo para llevarlo puesto de manera continua en la sala debido a su fabricación en plástico. Respecto a las actividades diarias, aclaró que no le estorbaría para cocinar o caminar, pero admitió sentir temor de aplastarlo o experimentar inflamación en la zona donde lo use por las noches, sugiriendo quitárselo únicamente para dormir. La función de alerta automática hacia el celular de su familiar le generó un alivio y tranquilidad inmensos, destacando que es la característica más valiosa cuando el teléfono queda lejos. Admitió tener problemas de memoria para los ciclos de carga del aparato, por lo que prefiere delegar el mantenimiento energético por completo a su cuidador. Finalmente, consideró adecuado el tamaño para evitar pérdidas, aunque solicitó un diseño delgado que permita ocultarlo debajo de la camisa para evitar preguntas incómodas de visitas en el exterior.
 
 ---
 
-*Entrevista 5: Validación de Hardware IoT con Representante de "Doña Elena"*
-* **Nombre del Adulto Mayor Validante:** Doña Elena
-* **Edad:** 78 años
-* **Nombre del Familiar/Vocero:** Henry Kalet
-* **Distrito de Residencia:** Ate
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Timing de Inicio y Finalización:** 17:32 - 20:32
-* **Evidencia (Screenshot del Video):**
+_Entrevista 5: Validación de Hardware IoT con Representante de "Doña Elena"_
+
+- **Nombre del Adulto Mayor Validante:** Doña Elena
+- **Edad:** 78 años
+- **Nombre del Familiar/Vocero:** Henry Kalet
+- **Distrito de Residencia:** Ate
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+- **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Timing de Inicio y Finalización:** 17:32 - 20:32
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 5](img/validation-interviews/validation-kalet.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
   A través de su nieto, la usuaria indicó que el prototipo tiene un diseño estético atractivo y que su ligereza evitaría la fatiga en la cadera o zona de sujeción; no obstante, recalcó la importancia de verificar que el material de la correa no sea rugoso para evitar raspaduras o sudoración. Advirtió que al cambiarse de ropa el dispositivo podría engancharse si sus dimensiones son excesivas, y externó su preocupación sobre la interacción con el agua al cocinar o lavar platos; tras confirmarse su resistencia a salpicaduras, aprobó su viabilidad en la rutina. Manifestó un alto nivel de tranquilidad respecto a las caídas accidentales en áreas de alto riesgo como el baño o las escaleras, valorando que la automatización le evita tener que arrastrarse para buscar ayuda. Al ser una persona muy ordenada, afirmó que podría incorporarlo con autonomía a su rutina nocturna de carga al lado de sus lentes para no sobrecargar de tareas a su cuidador. Concluyó que el diseño actual es discreto y asimilable a un accesorio común, sugiriendo un perfil más plano y delgado para evitar abultamientos bajo casacas gruesas.
 
 ---
 
-*Entrevista 6: Validación de Hardware IoT con Representante de "Don Carlos"*
-* **Nombre del Adulto Mayor Validante:** Don Carlos
-* **Edad:** 81 años
-* **Nombre del Familiar/Vocero:** Didier Meza
-* **Distrito de Residencia:** Villa María
-* **Fecha de la Entrevista:** 20/06/2026
-* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 6](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-* **Evidencia (Screenshot del Video):**
+_Entrevista 6: Validación de Hardware IoT con Representante de "Don Carlos"_
+
+- **Nombre del Adulto Mayor Validante:** Don Carlos
+- **Edad:** 81 años
+- **Nombre del Familiar/Vocero:** Didier Meza
+- **Distrito de Residencia:** Villa María
+- **Fecha de la Entrevista:** 20/06/2026
+- **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+- **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 6](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 6](img/validation-interviews/validation-didier.png)
 
-* **Resumen Descriptivo de Apreciaciones:**
+- **Resumen Descriptivo de Apreciaciones:**
   El usuario final calificó el hardware como sumamente ligero y ergonómico, expresando asombro por cómo una tecnología de bajo peso puede aportar tanto valor de protección en emergencias. Declaró que al pasar la mayor parte del tiempo leyendo o viendo televisión, el aparato no interferirá con su rutina, identificando el baño y el proceso de vestimenta como los únicos momentos donde se requeriría cuidado especial para evitar impactos fortuitos. Catalogó el envío automatizado de telemetría e internet ante pérdidas de conocimiento como una "maravilla moderna" que robustece la seguridad familiar. En el aspecto operativo, indicó que se confunde con los cables e indicadores luminosos de carga, manifestando que prefiere de manera tajante que sus hijos o cuidadores gestionen el ciclo de batería del dispositivo wearable. Finalmente, validó el tamaño actual del hardware como excelente, justificando que debido a la pérdida de precisión motriz en sus manos un diseño microscópico propiciaría caídas del aparato; no obstante, recomendó que se ofrezcan variantes en colores oscuros (negro o gris) para facilitar su mimetización con su vestimenta diaria.
 
 ### 6.3.3. Evaluaciones según heurísticas.
 
 **TAREAS A EVALUAR:**
 El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas en las interfaces Web y Móvil de cuidadores:
+
 1. Navegación principal e interactividad de atajos en el Dashboard.
 2. Consulta de perfiles de pacientes.
 3. Vinculación y gestión visual del dispositivo IoT.
 4. Visualización y registro en la bitácora médica.
 
 No están incluidas en esta versión de la evaluación las siguientes tareas:
+
 1. Recepción de alertas en vivo vía WebSockets.
 2. Integraciones de hardware real en el Edge Server.
 
@@ -7593,23 +7603,23 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 **ESCALA DE SEVERIDAD:**
 
-| Nivel | Descripción |
-|-------|-------------|
-| 1     | Problema superficial: puede ser fácilmente superado por el usuario ó ocurre con muy poco frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| Nivel | Descripción                                                                                                                                                                                     |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Problema superficial: puede ser fácilmente superado por el usuario ó ocurre con muy poco frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo.                    |
 | 2     | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente release. |
-| 3     | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos y se les debe asignar una prioridad alta. |
-| 4     | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+| 3     | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos y se les debe asignar una prioridad alta.                                 |
+| 4     | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento.                               |
 
 ---
 
 **TABLA RESUMEN:**
 
-| # | Problema                                                                                             | Escala de severidad | Heurística/Principio violada(o)                               |
-|---|------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------|
-| 1 | Icono de edición descuadrado en el estado vacío de la bitácora de cuidado                            | 2                   | Diseño estético y minimalista                                 |
-| 2 | Apartado de vinculación IoT movido y con asimetría en la vista móvil                                 | 2                   | Consistencia y estándares                                     |
-| 3 | Inoperancia del botón superior izquierdo en la vista móvil principal                                 | 3                   | Control y libertad del usuario / Retroalimentación del sistema|
-| 4 | Tarjetas de "Acceso Directo" inertes en el dashboard principal web                                   | 3                   | Flexibilidad y eficiencia de uso                              |
+| #   | Problema                                                                  | Escala de severidad | Heurística/Principio violada(o)                                |
+| --- | ------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------- |
+| 1   | Icono de edición descuadrado en el estado vacío de la bitácora de cuidado | 2                   | Diseño estético y minimalista                                  |
+| 2   | Apartado de vinculación IoT movido y con asimetría en la vista móvil      | 2                   | Consistencia y estándares                                      |
+| 3   | Inoperancia del botón superior izquierdo en la vista móvil principal      | 3                   | Control y libertad del usuario / Retroalimentación del sistema |
+| 4   | Tarjetas de "Acceso Directo" inertes en el dashboard principal web        | 3                   | Flexibilidad y eficiencia de uso                               |
 
 ---
 
@@ -7617,83 +7627,83 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 - **Hallazgo H-01**
 
-| Campo | Detalle |
-| :--- | :--- |
-| **Tarea evaluada** | Visualización y registro en la bitácora médica |
-| **Ubicación** | Web - Modal de "Bitácora de Cuidado" |
-| **Problema identificado** | Icono descuadrado en la bitácora (estado vacío) |
-| **Severidad** | 2 |
-| **Heurística vulnerada** | Diseño estético y minimalista |
-| **Descripción** | Dentro del modal emergente de la bitácora, el contenedor inferior muestra el mensaje "No hay anotaciones registradas". En esta misma caja, el icono de un lápiz se encuentra flotando de manera desalineada en el extremo izquierdo, sin relación espacial con el texto central, rompiendo la estructura visual del componente. |
-| **Impacto para el usuario** | Transmite una sensación de falta de pulido en la interfaz y descuido en el maquetado. Aunque no bloquea el uso, genera "ruido visual" que distrae al usuario. |
-| **Recomendación** | Ajustar las reglas CSS del contenedor del estado vacío. Se recomienda agrupar el icono y el texto en un mismo contenedor *flexbox* con centrado (`justify-content: center`, `align-items: center`), o eliminar el icono si es redundante. |
+| Campo                       | Detalle                                                                                                                                                                                                                                                                                                                         |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Tarea evaluada**          | Visualización y registro en la bitácora médica                                                                                                                                                                                                                                                                                  |
+| **Ubicación**               | Web - Modal de "Bitácora de Cuidado"                                                                                                                                                                                                                                                                                            |
+| **Problema identificado**   | Icono descuadrado en la bitácora (estado vacío)                                                                                                                                                                                                                                                                                 |
+| **Severidad**               | 2                                                                                                                                                                                                                                                                                                                               |
+| **Heurística vulnerada**    | Diseño estético y minimalista                                                                                                                                                                                                                                                                                                   |
+| **Descripción**             | Dentro del modal emergente de la bitácora, el contenedor inferior muestra el mensaje "No hay anotaciones registradas". En esta misma caja, el icono de un lápiz se encuentra flotando de manera desalineada en el extremo izquierdo, sin relación espacial con el texto central, rompiendo la estructura visual del componente. |
+| **Impacto para el usuario** | Transmite una sensación de falta de pulido en la interfaz y descuido en el maquetado. Aunque no bloquea el uso, genera "ruido visual" que distrae al usuario.                                                                                                                                                                   |
+| **Recomendación**           | Ajustar las reglas CSS del contenedor del estado vacío. Se recomienda agrupar el icono y el texto en un mismo contenedor _flexbox_ con centrado (`justify-content: center`, `align-items: center`), o eliminar el icono si es redundante.                                                                                       |
 
 **Evidencia**
 
 ![Figura 1 - Hallazgo H-01](./img/ev-heuristicas/bitacora_cuidados.png)
-*Figura 1. Icono de lápiz desalineado en el componente de estado vacío de la bitácora.*
+_Figura 1. Icono de lápiz desalineado en el componente de estado vacío de la bitácora._
 
 ---
 
 - **Hallazgo H-02**
 
-| Campo | Detalle |
-| :--- | :--- |
-| **Tarea evaluada** | Vinculación y gestión visual del dispositivo IoT |
-| **Ubicación** | App Móvil - Sección de Perfil del Paciente |
-| **Problema identificado** | Apartado de vinculación movido y desalineado |
-| **Severidad** | 2 |
-| **Heurística vulnerada** | Consistencia y estándares |
-| **Descripción** | La tarjeta blanca correspondiente a la vinculación del "Dispositivo IoT (Sensor)" presenta un desajuste en sus márgenes internos (*padding*). El contenido (icono de no vinculado, texto y botón) parece estar "movido" y no se alinea con la consistencia visual y los márgenes de los campos de texto superiores (DNI, Enfermedades, etc.). |
-| **Impacto para el usuario** | Disminuye la calidad estética general de la vista de perfil. En una aplicación de salud y monitoreo, las irregularidades de diseño pueden reducir la confianza subconsciente del usuario en la plataforma. |
-| **Recomendación** | Revisar las propiedades de margen y relleno del componente de la tarjeta. Asegurar que los márgenes laterales coincidan con los de los elementos tipo *input* de la pantalla para mantener una cuadrícula (*grid*) consistente. |
+| Campo                       | Detalle                                                                                                                                                                                                                                                                                                                                       |
+| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tarea evaluada**          | Vinculación y gestión visual del dispositivo IoT                                                                                                                                                                                                                                                                                              |
+| **Ubicación**               | App Móvil - Sección de Perfil del Paciente                                                                                                                                                                                                                                                                                                    |
+| **Problema identificado**   | Apartado de vinculación movido y desalineado                                                                                                                                                                                                                                                                                                  |
+| **Severidad**               | 2                                                                                                                                                                                                                                                                                                                                             |
+| **Heurística vulnerada**    | Consistencia y estándares                                                                                                                                                                                                                                                                                                                     |
+| **Descripción**             | La tarjeta blanca correspondiente a la vinculación del "Dispositivo IoT (Sensor)" presenta un desajuste en sus márgenes internos (_padding_). El contenido (icono de no vinculado, texto y botón) parece estar "movido" y no se alinea con la consistencia visual y los márgenes de los campos de texto superiores (DNI, Enfermedades, etc.). |
+| **Impacto para el usuario** | Disminuye la calidad estética general de la vista de perfil. En una aplicación de salud y monitoreo, las irregularidades de diseño pueden reducir la confianza subconsciente del usuario en la plataforma.                                                                                                                                    |
+| **Recomendación**           | Revisar las propiedades de margen y relleno del componente de la tarjeta. Asegurar que los márgenes laterales coincidan con los de los elementos tipo _input_ de la pantalla para mantener una cuadrícula (_grid_) consistente.                                                                                                               |
 
 **Evidencia**
 
 <img src="./img/ev-heuristicas/vincular_disp.png"  alt="Figura 2 - Hallazgo H-02" width="300"> <br>
 
-*Figura 2. Tarjeta de vinculación IoT presentando desalineación respecto al resto del perfil.*
+_Figura 2. Tarjeta de vinculación IoT presentando desalineación respecto al resto del perfil._
 
 ---
 
 - **Hallazgo H-03**
 
-| Campo | Detalle |
-| :--- | :--- |
-| **Tarea evaluada** | Navegación principal |
-| **Ubicación** | App Móvil - Barra superior de la pantalla de Inicio (Home) |
-| **Problema identificado** | Botón superior izquierdo no funcional |
-| **Severidad** | 3 |
-| **Heurística vulnerada** | Control y libertad del usuario / Retroalimentación del sistema |
-| **Descripción** | En la cabecera de la aplicación móvil existe un icono en la esquina superior izquierda (con forma de maletín o identificador médico). Este elemento tiene la apariencia visual de ser un botón de acción (por ejemplo, para abrir un menú lateral o un atajo de emergencias), pero al pulsarlo no desencadena ninguna acción ni da feedback visual. |
-| **Impacto para el usuario** | Genera confusión y frustración. El usuario presiona el elemento esperando controlar el sistema o navegar, asumiendo erróneamente que la aplicación se ha congelado al no obtener respuesta. |
-| **Recomendación** | Si el icono es únicamente decorativo, debe reemplazarse por una ubicación no interactiva o cambiar su diseño para no parecer un botón. Si tiene una función prevista (ej. abrir *sidebar*), es indispensable conectar correctamente su evento `onClick`. |
+| Campo                       | Detalle                                                                                                                                                                                                                                                                                                                                             |
+| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tarea evaluada**          | Navegación principal                                                                                                                                                                                                                                                                                                                                |
+| **Ubicación**               | App Móvil - Barra superior de la pantalla de Inicio (Home)                                                                                                                                                                                                                                                                                          |
+| **Problema identificado**   | Botón superior izquierdo no funcional                                                                                                                                                                                                                                                                                                               |
+| **Severidad**               | 3                                                                                                                                                                                                                                                                                                                                                   |
+| **Heurística vulnerada**    | Control y libertad del usuario / Retroalimentación del sistema                                                                                                                                                                                                                                                                                      |
+| **Descripción**             | En la cabecera de la aplicación móvil existe un icono en la esquina superior izquierda (con forma de maletín o identificador médico). Este elemento tiene la apariencia visual de ser un botón de acción (por ejemplo, para abrir un menú lateral o un atajo de emergencias), pero al pulsarlo no desencadena ninguna acción ni da feedback visual. |
+| **Impacto para el usuario** | Genera confusión y frustración. El usuario presiona el elemento esperando controlar el sistema o navegar, asumiendo erróneamente que la aplicación se ha congelado al no obtener respuesta.                                                                                                                                                         |
+| **Recomendación**           | Si el icono es únicamente decorativo, debe reemplazarse por una ubicación no interactiva o cambiar su diseño para no parecer un botón. Si tiene una función prevista (ej. abrir _sidebar_), es indispensable conectar correctamente su evento `onClick`.                                                                                            |
 
 **Evidencia**
 
 <img src="./img/ev-heuristicas/inicio_movil.png"  alt="Figura 3 - Hallazgo H-03" width="300"> <br>
 
-*Figura 3. Icono superior izquierdo que actúa como un botón inoperante en la vista móvil.*
+_Figura 3. Icono superior izquierdo que actúa como un botón inoperante en la vista móvil._
 
 ---
 
 - **Hallazgo H-04**
 
-| Campo | Detalle |
-| :--- | :--- |
-| **Tarea evaluada** | Interactividad de atajos en el Dashboard |
-| **Ubicación** | Web - Dashboard principal (Inicio) |
-| **Problema identificado** | Acceso directo inerte en las tarjetas de pacientes |
-| **Severidad** | 3 |
-| **Heurística vulnerada** | Flexibilidad y eficiencia de uso / Prevención de errores (Affordance engañoso) |
-| **Descripción** | En la sección central de "Acceso Directo", se muestran tarjetas para los pacientes gestionados (ej. "Don Roberto", "Doña Carmen"). Estas tarjetas incluyen un icono de flecha apuntando a la derecha (`>`), sugiriendo claramente que son clickeables. Sin embargo, hacer clic sobre ellas no produce ninguna redirección ni efecto. |
-| **Impacto para el usuario** | Impacta negativamente en la eficiencia. El propósito de un "Acceso Directo" es acortar los flujos; al estar inertes, el usuario se ve forzado a navegar manualmente desde el menú lateral hacia "Mis Abuelitos" para ver la información. |
-| **Recomendación** | Envolver el componente de la tarjeta en un enlace de enrutamiento (ej. `<Link>` o `<a>`) que dirija a la vista de detalles del paciente respectivo (`/paciente/{id}`). Además, añadir un cambio de estado en *hover* (cambio de color o sombra) para validar su interactividad. |
+| Campo                       | Detalle                                                                                                                                                                                                                                                                                                                              |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tarea evaluada**          | Interactividad de atajos en el Dashboard                                                                                                                                                                                                                                                                                             |
+| **Ubicación**               | Web - Dashboard principal (Inicio)                                                                                                                                                                                                                                                                                                   |
+| **Problema identificado**   | Acceso directo inerte en las tarjetas de pacientes                                                                                                                                                                                                                                                                                   |
+| **Severidad**               | 3                                                                                                                                                                                                                                                                                                                                    |
+| **Heurística vulnerada**    | Flexibilidad y eficiencia de uso / Prevención de errores (Affordance engañoso)                                                                                                                                                                                                                                                       |
+| **Descripción**             | En la sección central de "Acceso Directo", se muestran tarjetas para los pacientes gestionados (ej. "Don Roberto", "Doña Carmen"). Estas tarjetas incluyen un icono de flecha apuntando a la derecha (`>`), sugiriendo claramente que son clickeables. Sin embargo, hacer clic sobre ellas no produce ninguna redirección ni efecto. |
+| **Impacto para el usuario** | Impacta negativamente en la eficiencia. El propósito de un "Acceso Directo" es acortar los flujos; al estar inertes, el usuario se ve forzado a navegar manualmente desde el menú lateral hacia "Mis Abuelitos" para ver la información.                                                                                             |
+| **Recomendación**           | Envolver el componente de la tarjeta en un enlace de enrutamiento (ej. `<Link>` o `<a>`) que dirija a la vista de detalles del paciente respectivo (`/paciente/{id}`). Además, añadir un cambio de estado en _hover_ (cambio de color o sombra) para validar su interactividad.                                                      |
 
 **Evidencia**
 
 ![Figura 4 - Hallazgo H-04](./img/ev-heuristicas/pantalla_inicio_web.png)
-*Figura 4. Tarjetas de Acceso Directo con diseño interactivo pero sin funcionamiento de enlace.*
+_Figura 4. Tarjetas de Acceso Directo con diseño interactivo pero sin funcionamiento de enlace._
 
 ## 6.4. Video About-the-Product.
 
@@ -7701,8 +7711,8 @@ El video About-the-Product ha sido diseñado con un enfoque promocional y emocio
 
 <img src="img/video/video-about-the-product.png" width="600"/>
 
-Link de Youtube: https://youtu.be/I7AkZu0FCTM
-Link de Microsoft Stream: https://acortar.link/B6y3uh
+Link de Youtube: https://youtu.be/6Y08pMr2qKQ
+Link de Microsoft Stream: https://acortar.link/2dp8rZN
 
 <div style="page-break-after: always;"></div>
 
@@ -7743,17 +7753,15 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - [Link de las entrevistas segmento 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 
-- [Link de las entrevistas de validación del sprint 2]((https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D))
+- [Link de las entrevistas de validación del sprint 2](<(https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)>)
 
 - Link de la Landing Page
-   [https://landing-page-foll.vercel.app/](https://landing-page-foll.vercel.app/)
-   
+  [https://landing-page-foll.vercel.app/](https://landing-page-foll.vercel.app/)
 - Link de la Aplicación Web
   [https://agreeable-dune-02d763510.7.azurestaticapps.net/](https://agreeable-dune-02d763510.7.azurestaticapps.net/)
 
 - Link del Swagger
-  [https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html](https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html)
-
+  [https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html)
 - Link del Figma
   [https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1](https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1)
 
@@ -7761,5 +7769,5 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
   [https://wokwi.com/projects/463973317008005121](https://wokwi.com/projects/463973317008005121)
 
 - Link del Video about the product
-  [https://youtu.be/I7AkZu0FCTM](https://youtu.be/I7AkZu0FCTM) <br>
-  [https://acortar.link/B6y3uh](https://acortar.link/B6y3uh)
+  [https://youtu.be/6Y08pMr2qKQ](https://youtu.be/6Y08pMr2qKQ) <br>
+  [https://acortar.link/2dp8rZ](https://acortar.link/2dp8rZ)
