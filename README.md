@@ -48,7 +48,7 @@
 </div>
 
 <p align="center">
-    <strong>Lima - Abril, 2026</strong>
+    <strong>Lima - Junio, 2026</strong>
 </p>
 <br>
 
@@ -239,7 +239,6 @@
 **AV2:**
 <img src="img/Insights/av2-1.png" width="750"/>
 <img src="img/Insights/av2-2.png" width="750"/>
-<img src="img/Insights/av2-3.png" width="750"/>
 
  <div style="page-break-after: always;"></div>
 
@@ -4813,9 +4812,9 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - Link de la Landing Page
   https://foll-project.github.io/landing-page-foll/
 - Link de la Aplicación Web
-  https://agreeable-dune-02d763510.7.azurestaticapps.net/
+  https://foll-frontend.vercel.app/
 - Link del Swagger
-  https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html
+  https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html
 
 - Link del Figma
   https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1
