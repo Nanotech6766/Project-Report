@@ -177,6 +177,48 @@
     <td>Claudia Belledonne</td>
     <td>Diseño del IoT Device Design.</td>
 </tr>
+<tr>
+    <td>3.0</td>
+    <td>08/05/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Planificación del Sprint 2, definición de Aspect Leaders y estructuración del Sprint Backlog 2.</td>
+</tr>
+<tr>
+    <td>3.1</td>
+    <td>11/05/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Documentación de evidencias de desarrollo (Development Evidence) y ejecución (Execution Evidence) para el Sprint 2.</td>
+</tr>
+<tr>
+    <td>3.2</td>
+    <td>14/05/2026</td>
+    <td>Mauricio Elera</td>
+    <td>Desarrollo de las evidencias de Testing Suite y Software Deployment para el Sprint 2.</td>
+</tr>
+<tr>
+    <td>3.3</td>
+    <td>17/05/2026</td>
+    <td>Claudia Belledonne</td>
+    <td>Elaboración de las evidencias de documentación de servicios (Services Documentation Evidence).</td>
+</tr>
+<tr>
+    <td>3.4</td>
+    <td>20/05/2026</td>
+    <td>Diego Vilca</td>
+    <td>Diseño de entrevistas de validación (Validation Interviews) y registro detallado de las sesiones con usuarios.</td>
+</tr>
+<tr>
+    <td>3.5</td>
+    <td>22/05/2026</td>
+    <td>Fabiola Saldaña</td>
+    <td>Desarrollo de las evaluaciones de usabilidad según principios y heurísticas.</td>
+</tr>
+<tr>
+    <td>4.0</td>
+    <td>25/05/2026</td>
+    <td>Ariana Agreda</td>
+    <td>Redacción de los Team Collaboration Insights y elaboración del Video About-the-Product.</td>
+</tr>
 </table>
 
 <div style="page-break-after: always;"></div>
@@ -194,6 +236,11 @@
 <img src="img/Insights/tb1.png" width="700"/>
 <img src="img/Insights/tb1-1.png" width="700"/>
 <img src="img/Insights/tb1-2.png" width="700"/>
+
+**AV2:**
+<img src="img/Insights/av2-1.png" width="750"/>
+<img src="img/Insights/av2-2.png" width="750"/>
+<img src="img/Insights/av2-3.png" width="750"/>
 
  <div style="page-break-after: always;"></div>
 
@@ -369,30 +416,45 @@
 				<strong>TB1:</strong><br>
 Durante esta etapa del proyecto, asumí el liderazgo en la definición visual y funcional de la experiencia de usuario. Mi participación se centró en el desarrollo de los Style Guidelines, los wireframes, los wireflow diagrams y el prototipado de la aplicación. Además, contribuí en la configuración del entorno de desarrollo y en la implementación del frontend, permitiendo que el equipo mantuviera una línea visual coherente y una estructura clara para la construcción del producto.
 </p>
-                <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
-                Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
-	 <strong>TB1:</strong><br>
-				Lideré el diseño de la Landing Page UI Design, desarrollando los wireframes y mock-ups necesarios para representar visualmente la propuesta del producto. Asimismo, trabajé junto con Ariana en el diseño de los mock-ups de la aplicación, aportando en la organización visual, la consistencia de interfaces y la presentación de una experiencia más clara para los usuarios. Mi liderazgo permitió fortalecer la comunicación visual del proyecto.
+
+<strong>AV2:</strong><br>
+Lideré la planificación del Sprint 2 y estructuré el Sprint Backlog 2, organizando al equipo para avanzar con el desarrollo de FOLL. Además, asumí el liderazgo en la dirección del Video About-the-Product, asegurando que las funcionalidades clave de la detección de caídas se comunicaran de forma empática y clara, orientadas a brindar confianza tanto a los adultos mayores como a sus cuidadores.</p>
+
+<p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
+Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
+<strong>TB1:</strong><br>
+Lideré el diseño de la Landing Page UI Design, desarrollando los wireframes y mock-ups necesarios para representar visualmente la propuesta del producto. Asimismo, trabajé junto con Ariana en el diseño de los mock-ups de la aplicación, aportando en la organización visual, la consistencia de interfaces y la presentación de una experiencia más clara para los usuarios. Mi liderazgo permitió fortalecer la comunicación visual del proyecto.
+
 </p>
+<strong>AV2:</strong><br>
+                Asumí el liderazgo técnico en la demostración del trabajo al preparar las evidencias de desarrollo y ejecución del Sprint 2. También tomé la iniciativa en la etapa de validación de la experiencia de usuario al dirigir las evaluaciones de FOLL basándome en reglas heurísticas, garantizando que la interfaz sea altamente accesible y fácil de interpretar para nuestro público objetivo.</p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
 	 	 <strong>TB1:</strong><br>
 Asumí el liderazgo en el IoT Device Design y en el desarrollo técnico relacionado con la implementación del producto. Además, participé en la corrección de los diagramas de clases y en el trabajo del backend, asegurando que la solución mantuviera coherencia entre el diseño técnico y la lógica del sistema. Mi aporte permitió reforzar la parte técnica del proyecto y apoyar al equipo en la validación de la arquitectura propuesta.</p>
+                <strong>AV2:</strong><br>
+                Guié al equipo asumiendo el liderazgo total sobre la documentación de servicios desarrollada a lo largo del Sprint 2. Aseguré que las especificaciones de las APIs que conectan los dispositivos IoT de detección de caídas con nuestra arquitectura estuvieran estandarizadas y fueran comprensibles para el resto de los desarrolladores.</p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
 	 	 	 <strong>TB1:</strong><br>
 Lideré la revisión y mejora de los diagramas C4, además de participar en la documentación técnica relacionada con los servicios, el despliegue del software y los insights de colaboración del equipo durante el sprint. Mi responsabilidad se enfocó en asegurar que la arquitectura del sistema estuviera correctamente representada y que la documentación reflejara de manera clara el trabajo realizado por el equipo.</p>
+                <strong>AV2:</strong><br>
+                Lideré el aseguramiento de la calidad y el proceso de puesta en producción al desarrollar detalladamente las evidencias del Testing Suite y documentar todo el proceso del Software Deployment de FOLL, garantizando que el sistema de alertas de emergencias sea estable y funcione sin interrupciones.</p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
 	 <strong>TB1:</strong><br>
 Actué como líder en la organización de la arquitectura de información y en la gestión de configuración del software. Desarrollé los apartados de Organization Systems, Labeling Systems, SEO Tags, Searching Systems y Navigation Systems, además de documentar aspectos como Source Code Management, Source Code Style Guide y Software Deployment Configuration. Mi aporte permitió ordenar la estructura del producto y establecer criterios claros para su desarrollo y mantenimiento.</p>
+<strong>AV2:</strong><br>
+                Tomé el liderazgo en el proceso de validación del producto con el usuario final. Fui el encargado de establecer la ruta de evaluación diseñando las entrevistas y ejecutando el registro detallado de estas interacciones, asegurándome de recolectar insights valiosos directamente de los adultos mayores y sus familias.</p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
 				
 <strong>TB1:</strong><br>
                 Como equipo, demostramos liderazgo conjunto al distribuir responsabilidades según las fortalezas de cada integrante y coordinar los avances de diseño, arquitectura, implementación y documentación. Cada miembro asumió el liderazgo de un área específica, pero las decisiones se integraron de forma colaborativa para mantener una visión común del producto. Esta forma de trabajo permitió avanzar de manera organizada, resolver ajustes técnicos y visuales, y consolidar una entrega más completa y coherente.
-            </td>
+                <strong>AV2:</strong><br>
+                Durante el desarrollo de la entrega AV2, el equipo consolidó su capacidad de liderazgo distribuido al ejecutar el Sprint 2 de manera eficiente. La clara delimitación de líderes por aspecto (Aspect Leaders) garantizó que las validaciones de campo con los adultos mayores, la generación de evidencias del flujo IoT y la producción audiovisual transcurrieran paralelamente y con un alto control de calidad para respaldar la propuesta de valor de FOLL.
+            </td>            
         </tr>
                 <tr>
             <td style="padding: 10px;"><strong>Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.</strong></td>
@@ -402,33 +464,45 @@ Actué como líder en la organización de la arquitectura de información y en l
 				<strong>TB1:</strong><br>
 				Durante esta etapa, contribuí a crear un entorno colaborativo desde el diseño UX/UI del producto, trabajando en los Style Guidelines, wireframes, wireflow diagrams y prototipado de la aplicación. Estas tareas permitieron establecer una guía visual común para que el equipo pudiera avanzar con mayor orden y coherencia. Además, al participar en la configuración del entorno y en el frontend, aporté al cumplimiento de los objetivos técnicos y visuales definidos para la entrega.
                 </p>
+                <strong>AV2:</strong><br>
+                Fomenté la transparencia y la participación del equipo al redactar los Team Collaboration Insights del Sprint 2. Como responsable del Sprint Planning, fijé metas asertivas y distribuí la carga de trabajo de manera equitativa para que todos aportaran eficientemente al avance del ecosistema de prevención de FOLL.</p>
                 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
                 Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
 	 <strong>TB1:</strong><br>
 Participé activamente en la planificación y desarrollo del diseño de la landing page, elaborando sus wireframes y mock-ups. También colaboré con Ariana en los mock-ups de la aplicación, manteniendo una comunicación constante para asegurar que las decisiones visuales fueran consistentes. Mi aporte ayudó a que el equipo mantuviera una línea gráfica clara y cumpliera con las metas relacionadas al diseño de interfaces.
  </p>
+ <strong>AV2:</strong><br>
+                Contribuí al análisis colaborativo integrando la visión técnica y de usuario en las evidencias de ejecución. Mediante la evaluación heurística, convertí los errores y fricciones detectadas en tareas documentadas para que el equipo iterara la aplicación de FOLL con un enfoque centrado en la usabilidad inclusiva y la accesibilidad.</p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
 	 	 <strong>TB1:</strong><br>
 Contribuí al entorno colaborativo desde el desarrollo técnico del proyecto, apoyando en el IoT Device Design, la corrección de diagramas de clases y el desarrollo del backend. Estas actividades permitieron conectar mejor la parte visual, arquitectónica y funcional del sistema. Además, organicé parte de las evidencias del sprint, lo que ayudó al equipo a documentar el avance y verificar el cumplimiento de los objetivos establecidos.
  </p>
+ <strong>AV2:</strong><br>
+                Garantice que el conocimiento técnico fuera accesible para todo el equipo de desarrollo mediante la correcta documentación de los servicios creados en el Sprint 2. Mi estandarización permitió que el equipo conectara las interfaces visuales con la lógica backend de las detecciones sin cuellos de botella.</p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
 	 	 	 <strong>TB1:</strong><br>
 Aporté a la planificación y mejora del trabajo técnico mediante la corrección de los diagramas C4 y la documentación de evidencias relacionadas con servicios, despliegue y colaboración del equipo. Mi participación permitió ordenar la representación arquitectónica del sistema y facilitar que los demás integrantes comprendieran mejor la estructura técnica del proyecto. Esto contribuyó a un trabajo más coordinado y orientado al cumplimiento de la entrega.
  </p>
+ <strong>AV2:</strong><br>
+                Aseguré el cumplimiento de los objetivos compartidos de estabilidad planificando y estructurando la suite de pruebas del sistema. Comuniqué activamente las configuraciones del entorno de despliegue para que cualquier miembro probara los avances del Sprint 2 de FOLL en tiempo real y colaborara en la detección de fallos.</p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
 	 	 	 <strong>TB1:</strong><br>
 Colaboré en la organización del producto mediante el desarrollo de la arquitectura de información y la documentación de la configuración del software. Al trabajar los apartados de Organization Systems, Labeling Systems, Navigation Systems, Source Code Management y Software Deployment Configuration, ayudé a establecer una estructura clara para el proyecto. Esto permitió que el equipo tuviera una mejor base para planificar tareas, dividir responsabilidades y cumplir los objetivos técnicos de la entrega.
 
  </p>
+ <strong>AV2:</strong><br>
+                Promoví un entorno empático acercando las opiniones, temores y necesidades reales de los adultos mayores y sus cuidadores a los desarrolladores a través de las sesiones de validación. Puse a disposición de todos el registro de entrevistas, permitiéndonos ajustar nuestras funcionalidades basándonos en retroalimentación real.</p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
 
 <strong>TB1:</strong><br>
 Como equipo, logramos crear un entorno colaborativo e inclusivo al distribuir las tareas de acuerdo con las fortalezas de cada integrante y mantener una coordinación constante durante el desarrollo de la entrega. Se establecieron metas claras para las áreas de diseño, arquitectura, implementación y documentación, lo que permitió avanzar de manera ordenada. Gracias a esta planificación conjunta, cada integrante pudo aportar desde su especialidad y el equipo logró cumplir los objetivos propuestos de forma organizada y coherente.
+<strong>AV2:</strong><br>
+Nuestra madurez organizativa nos permitió afrontar el Sprint 2 de FOLL cumpliendo a cabalidad las tareas proyectadas. Comprobamos nuestra capacidad de adaptarnos a la retroalimentación continua mediante las entrevistas de validación con nuestro público objetivo y las respectivas evaluaciones heurísticas. El trabajo colaborativo facilitó la rápida integración del código y despliegue del sistema, asegurando entregables a tiempo y con propósito.
 
 </td>
 </tr>
@@ -7299,6 +7373,12 @@ HTTP/1.1 400 Bad Request
 
 #### 6.2.2.9. Team Collaboration Insights during Sprint.
 
+La colaboración del equipo se gestionó mediante GitHub para el registro de avances. Esto permitió paralelizar eficazmente el trabajo, logrando completar las historias de usuario planificadas sin bloqueos. El desarrollo se centró en consumir las APIs creadas en el Sprint 1 , construir las interfaces nativas para Android con Jetpack Compose y habilitar la recepción de información en tiempo real mediante WebSockets. Durante todo el ciclo, se respetó rigurosamente la coherencia arquitectónica basada en Domain-Driven Design (DDD) , asegurando que los módulos de IAM, Device Management, Emergency & Analytics, y Notification & Communication conserven sus límites establecidos y garantizando una separación clara entre la interfaz visual y la lógica del hardware.
+
+<img src="img/Insights/av2_1.png" width="600"/>
+
+<img src="img/Insights/av2_2.png" width="600"/>
+
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
@@ -7426,6 +7506,13 @@ No están incluidas en esta versión de la evaluación las siguientes tareas:
 
 ## 6.4. Video About-the-Product.
 
+El video About-the-Product ha sido diseñado con un enfoque promocional y emocional para ser incrustado en nuestra Landing Page. Su objetivo principal es comunicar la problemática que sufren los adultos mayores cuando sus cuidadores no pueden estar presentes, introduciendo a Foll como la solución tecnológica ideal frente a esta brecha.
+
+<img src="img/video/video-about-the-product.png" width="600"/>
+
+Link de Youtube: https://youtu.be/I7AkZu0FCTM
+Link de Microsoft Stream: https://acortar.link/B6y3uh
+
 <div style="page-break-after: always;"></div>
 
 # Conclusiones
@@ -7477,3 +7564,6 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 
 - Link del Prototipo en Wokwi
   https://wokwi.com/projects/463973317008005121
+- Link del Video about the product
+  https://youtu.be/I7AkZu0FCTM
+  https://acortar.link/B6y3uh
