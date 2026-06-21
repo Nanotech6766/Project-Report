@@ -7390,6 +7390,9 @@ La colaboración del equipo se gestionó mediante GitHub para el registro de ava
 
 <img src="./img/Insights/av2_2.png" width="600"/>
 
+<img src="./img/Insights/av2_3.png" width="600"/>
+
+
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
