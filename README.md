@@ -4798,6 +4798,2576 @@ Commits relacionados con la documentación en este Sprint: 7a8b9c1, 2d3e4f5, 9f8
 
 <img width="1866" height="905" alt="image" src="https://github.com/user-attachments/assets/e0f26de2-cab1-4ba7-91f9-6185af044c51" />
 
+Bounded Context: IAM (Identity & Access Management)
+
+Base path: `/api/iam/auth`
+
+---
+
+POST /api/iam/auth/register
+
+Registra un nuevo usuario cuidador en el sistema. No requiere autenticación previa. No devuelve token; tras el registro el usuario debe iniciar sesión por separado.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Content-Type | `application/json` |
+
+**Parameter (Datos que recibe el Request)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | String | ✅ | Dirección de correo electrónico del usuario. Se almacena en minúsculas. Debe tener formato de email válido. |
+| `password` | String | ✅ | Contraseña en texto plano. Se hashea con BCrypt antes de persistir. |
+| `firstName` | String | ✅ | Nombre(s) del usuario. No puede ser vacío ni solo espacios. |
+| `lastName` | String | ✅ | Apellido(s) del usuario. No puede ser vacío ni solo espacios. |
+| `phoneNumber` | String | ❌ | Número de teléfono. Campo opcional; si se envía vacío o nulo se almacena como `null`. |
+
+**Request-Example:**
+
+```json
+{
+  "email": "maria.garcia@example.com",
+  "password": "MiPassword123!",
+  "firstName": "María",
+  "lastName": "García",
+  "phoneNumber": "+51 987654321"
+}
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Confirmación del registro exitoso. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "message": "Usuario registrado exitosamente."
+}
+```
+
+**Error 400 Bad Request**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Descripción del error de validación o de negocio. |
+
+**Error-Response — email ya registrado:**
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "message": "El correo maria.garcia@example.com ya se encuentra registrado."
+}
+```
+
+**Error-Response — email con formato inválido:**
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "message": "El formato del email es inválido."
+}
+```
+
+**Error-Response — campos obligatorios vacíos (firstName, lastName, password):**
+
+```json
+HTTP/1.1 400 Bad Request
+{
+  "message": "El nombre es obligatorio."
+}
+```
+
+---
+
+POST /api/iam/auth/login
+
+Autentica a un usuario existente y devuelve un JWT firmado con HMAC-SHA256. El token contiene los claims `userId`, `email`, `firstName` y `lastName`, y tiene vigencia configurable (por defecto 7 días).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Content-Type | `application/json` |
+
+**Parameter (Datos que recibe el Request)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | String | ✅ | Email con el que el usuario se registró. La comparación es case-insensitive. |
+| `password` | String | ✅ | Contraseña en texto plano. Se verifica contra el hash BCrypt almacenado. |
+
+**Request-Example:**
+
+```json
+{
+  "email": "maria.garcia@example.com",
+  "password": "MiPassword123!"
+}
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `userId` | Integer | Identificador único del usuario en la base de datos. |
+| `email` | String | Email del usuario autenticado. |
+| `firstName` | String | Nombre(s) del usuario. |
+| `lastName` | String | Apellido(s) del usuario. |
+| `phoneNumber` | String \| null | Teléfono del usuario. `null` si no fue registrado. |
+| `token` | String | JWT Bearer token. Debe enviarse en el header `Authorization` de todas las peticiones protegidas. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "userId": 42,
+  "email": "maria.garcia@example.com",
+  "firstName": "María",
+  "lastName": "García",
+  "phoneNumber": "+51 987654321",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MiIsImVtYWlsIjoibWFyaWEuZ2FyY2lhQGV4YW1wbGUuY29tIiwiZmlyc3ROYW1lIjoiTWFyw61hIiwibGFzdE5hbWUiOiJHYXJjw61hIiwibmJmIjoxNzQ5MzQyMDAwLCJleHAiOjE3NDk5NDY4MDB9.FIRMA"
+}
+```
+
+**JWT Claims incluidos en el token**
+
+| Claim | Valor | Descripción |
+| :--- | :--- | :--- |
+| `userId` | Integer (string) | ID del usuario. Usado por todos los endpoints protegidos para identificar al actor. |
+| `email` | String | Email del usuario. |
+| `firstName` | String | Nombre del usuario. |
+| `lastName` | String | Apellido del usuario. |
+| `exp` | Unix Timestamp | Fecha de expiración (configurable, por defecto `now + 7 días`). |
+
+**Error 401 Unauthorized**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Indica que el email no existe o la contraseña no coincide. Por seguridad el mensaje es genérico (no diferencia entre los dos casos). |
+
+**Error-Response:**
+
+```json
+HTTP/1.1 401 Unauthorized
+{
+  "message": "Credenciales inválidas."
+}
+```
+
+---
+
+> **Nota sobre SignalR (WebSockets)**
+>
+> El Hub de notificaciones en tiempo real (`/hubs/notifications`) también pertenece a la capa de IAM desde el punto de vista de autenticación. Se conecta enviando el JWT como query parameter:
+>
+> ```
+> wss://host/hubs/notifications?access_token=<JWT>
+> ```
+>
+> Al conectarse, el servidor extrae el claim `userId` del token y agrega al cliente al grupo `user:{userId}`, garantizando que cada usuario solo reciba sus propios eventos en tiempo real (notificaciones de caída, batería, e invitaciones).
+
+---
+
+Bounded Context: Care (Gestión de Pacientes)
+
+Base paths: `/api/care/patients` · `/api/care/invitations` · `/api/care/relationship-types`
+
+> Todos los endpoints de este BC requieren JWT. El claim `userId` del token es el **actor** que ejecuta cada operación. Las reglas de autorización se aplican en el dominio (no en el middleware).
+
+---
+
+POST /api/care/patients
+
+Crea un nuevo paciente (abuelito) y lo vincula al usuario autenticado como **cuidador principal** (`OfficialGuardianUserId`). Se agrega automáticamente al actor como primer `CaregiverRole` con el `relationshipTypeId` indicado.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Datos que recibe el Request)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `dni` | String | ✅ | DNI (documento de identidad) del paciente. Debe ser único en el sistema. No puede ser vacío. |
+| `firstName` | String | ✅ | Nombre(s) del paciente. No puede ser vacío. |
+| `lastName` | String | ✅ | Apellido(s) del paciente. No puede ser vacío. |
+| `birthDate` | String (date) | ✅ | Fecha de nacimiento en formato `YYYY-MM-DD`. |
+| `relationshipTypeId` | Integer (short) | ✅ | ID del tipo de relación del actor con el paciente. Ver catálogo en `GET /api/care/relationship-types`. |
+| `bloodType` | Integer (short) | ❌ | Tipo de sangre. Enum: `0`=Unknown, `1`=A+, `2`=A-, `3`=B+, `4`=B-, `5`=AB+, `6`=AB-, `7`=O+, `8`=O-. Default: `0`. |
+| `medicalConditions` | Object | ❌ | Diccionario de condiciones médicas. Claves y valores son strings libres. |
+| `medications` | Object | ❌ | Diccionario de medicamentos del paciente. Claves y valores son strings libres. |
+
+**Request-Example:**
+
+```json
+{
+  "dni": "70123456",
+  "firstName": "Carlos",
+  "lastName": "Mamani",
+  "birthDate": "1945-03-15",
+  "relationshipTypeId": 1,
+  "bloodType": 1,
+  "medicalConditions": {
+    "Hipertensión": "Confirmado",
+    "Diabetes tipo 2": "En tratamiento"
+  },
+  "medications": {
+    "Metformina 500mg": "Dosis estándar",
+    "Losartán 50mg": "Dosis estándar"
+  }
+}
+```
+
+**Success 200 OK**
+
+Devuelve el objeto completo del paciente recién creado (mismo esquema que `GET /api/care/patients/{id}`).
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `patientId` | Integer | ID único del paciente generado por la BD. |
+| `dni` | String | DNI del paciente. |
+| `firstName` | String | Nombre del paciente. |
+| `lastName` | String | Apellido del paciente. |
+| `birthDate` | String (date) | Fecha de nacimiento. |
+| `bloodType` | Integer | Tipo de sangre (enum numérico). |
+| `medicalConditions` | Object | Diccionario de condiciones médicas. |
+| `medications` | Object | Diccionario de medicamentos. |
+| `currentGuardianUserId` | Integer \| null | ID del cuidador activo en turno. |
+| `officialGuardianUserId` | Integer | ID del cuidador principal permanente. |
+| `caregivers` | Array\<Object\> | Lista de cuidadores vinculados (ver esquema abajo). |
+| `caregivers[].userId` | Integer | ID del usuario cuidador. |
+| `caregivers[].user` | Object \| null | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
+| `caregivers[].relationshipTypeId` | Integer \| null | ID de relación. `null` para el principal. |
+| `caregivers[].caregiverKind` | String | `"official"` o `"caregiver"`. |
+| `emergencyContacts` | Array\<Object\> | Contactos de emergencia. |
+| `invitations` | Array\<Object\> | Invitaciones de acceso al paciente. |
+| `device` | Object | Estado del dispositivo IoT vinculado (ver sección DeviceManagment). |
+| `device.isLinked` | Boolean | `false` si no hay dispositivo vinculado. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "patientId": 7,
+  "dni": "70123456",
+  "firstName": "Carlos",
+  "lastName": "Mamani",
+  "birthDate": "1945-03-15",
+  "bloodType": 1,
+  "medicalConditions": { "Hipertensión": "Confirmado" },
+  "medications": { "Metformina 500mg": "Dosis estándar" },
+  "currentGuardianUserId": 42,
+  "officialGuardianUserId": 42,
+  "caregivers": [
+    {
+      "userId": 42,
+      "user": { "userId": 42, "email": "maria@example.com", "firstName": "María", "lastName": "García", "phoneNumber": null },
+      "relationshipTypeId": null,
+      "caregiverKind": "official"
+    }
+  ],
+  "emergencyContacts": [],
+  "invitations": [],
+  "device": { "isLinked": false }
+}
+```
+
+**Error 400 Bad Request**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Descripción del error de dominio o validación. |
+
+**Error-Response — DNI vacío:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El DNI del paciente es obligatorio." }
+```
+
+**Error-Response — nombre o apellido vacío:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El nombre es obligatorio." }
+```
+
+**Error-Response — `relationshipTypeId` no existe en el catálogo:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "RelationshipType inválido." }
+```
+
+**Error 401 Unauthorized** — JWT ausente, expirado o inválido.
+
+---
+
+GET /api/care/patients/{id}
+
+Obtiene el detalle completo de un paciente por su `patientId`. Solo accessible si el actor es cuidador principal o secundario de ese paciente.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente a consultar. |
+
+**Request-Example:**
+
+```
+GET /api/care/patients/7
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Mismo esquema de respuesta que `POST /api/care/patients`.
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos sobre este paciente." }
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "Paciente no encontrado." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+PUT /api/care/patients/{id}
+
+Actualiza los datos básicos de un paciente. Solo puede ejecutarlo el **cuidador principal** (`OfficialGuardianUserId`).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente a actualizar. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `firstName` | String | ✅ | Nuevo nombre. No puede ser vacío. |
+| `lastName` | String | ✅ | Nuevo apellido. No puede ser vacío. |
+| `birthDate` | String (date) | ✅ | Nueva fecha de nacimiento `YYYY-MM-DD`. |
+| `bloodType` | Integer (short) | ✅ | Tipo de sangre (0–8). |
+| `medicalConditions` | Object | ❌ | Reemplaza completo el diccionario de condiciones. |
+| `medications` | Object | ❌ | Reemplaza completo el diccionario de medicamentos. |
+
+**Request-Example:**
+
+```json
+{
+  "firstName": "Carlos Alberto",
+  "lastName": "Mamani Quispe",
+  "birthDate": "1945-03-15",
+  "bloodType": 7,
+  "medicalConditions": { "Hipertensión": "Controlada" },
+  "medications": { "Losartán 50mg": "1 vez al día" }
+}
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Confirmación de la actualización. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Paciente actualizado." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo el OficialGuardian puede actualizar el paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/patients/by-caregiver/{caregiverUserId}
+
+Devuelve todos los pacientes asociados al usuario autenticado, tanto como cuidador principal como secundario. El `caregiverUserId` de la ruta debe coincidir con el `userId` del JWT (no puedes consultar la lista de otro usuario).
+
+Cada item incluye el campo `caregiverKind` para distinguir el rol, el `relationshipTypeId` para los secundarios, y el objeto `device` con el estado en tiempo real del dispositivo IoT.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `caregiverUserId` | Integer | ID del cuidador. Debe ser igual al `userId` del JWT. |
+
+**Request-Example:**
+
+```
+GET /api/care/patients/by-caregiver/42
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+Array de objetos, uno por cada paciente.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].patient` | Object | Objeto paciente completo (mismo esquema que `GET /api/care/patients/{id}`). |
+| `[].caregiverKind` | String | `"official"` si es cuidador principal, `"caregiver"` si es secundario. |
+| `[].relationshipTypeId` | Integer \| null | ID de relación del actor con el paciente. `null` si es principal. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "patient": {
+      "patientId": 7,
+      "dni": "70123456",
+      "firstName": "Carlos",
+      "lastName": "Mamani",
+      "birthDate": "1945-03-15",
+      "bloodType": 1,
+      "medicalConditions": { "Hipertensión": "Confirmado" },
+      "medications": { "Metformina 500mg": "Dosis estándar" },
+      "currentGuardianUserId": 42,
+      "officialGuardianUserId": 42,
+      "caregivers": [ { "userId": 42, "user": { "firstName": "María", "lastName": "García", "email": "maria@example.com", "phoneNumber": null }, "relationshipTypeId": null, "caregiverKind": "official" } ],
+      "emergencyContacts": [],
+      "invitations": [],
+      "device": {
+        "isLinked": true,
+        "deviceId": 1001,
+        "status": "Active",
+        "connectivityStatus": "Online",
+        "currentBatteryLevel": 78,
+        "isCharging": false,
+        "lastHeartbeatAt": "2026-06-07T21:30:00Z",
+        "isOnline": true,
+        "isLowBattery": false,
+        "firmwareVersion": "1.0.3"
+      }
+    },
+    "caregiverKind": "official",
+    "relationshipTypeId": null
+  }
+]
+```
+
+**Error 403 Forbidden**
+
+```json
+HTTP/1.1 403 Forbidden
+{ "message": "Solo puedes consultar tus propios pacientes." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Error interno al obtener pacientes." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+PUT /api/care/patients/{id}/guard-shift
+
+Transfiere temporalmente el turno de guardia activa a otro cuidador secundario. Solo puede ejecutarlo el **cuidador principal**.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `newCurrentGuardianUserId` | Integer | ✅ | `userId` del cuidador al que se le transfiere el turno. |
+
+**Request-Example:**
+
+```json
+{ "newCurrentGuardianUserId": 55 }
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Turno asignado." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo el OficialGuardian puede asignar el turno de guardia." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/patients/{id}/guard-shift/restore
+
+Restaura el turno de guardia al cuidador principal (deshace el `PUT /guard-shift`). Solo puede ejecutarlo el **cuidador principal**.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Request-Example:**
+
+```
+POST /api/care/patients/7/guard-shift/restore
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Turno restaurado." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo el OficialGuardian puede limpiar el turno de guardia." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/patients/{id}/emergency-contacts
+
+Agrega un contacto de emergencia al paciente. Solo accesible por cuidadores vinculados al paciente (principal o secundario).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `fullName` | String | ✅ | Nombre completo del contacto de emergencia. No puede ser vacío. |
+| `phoneNumber` | String | ✅ | Número de teléfono del contacto. No puede ser vacío. |
+| `relationship` | String \| Integer | ✅ | Relación con el paciente. Acepta string (`"Hijo"`), número (`1`) u objeto con clave `name`. |
+
+**Request-Example:**
+
+```json
+{
+  "fullName": "Juan Mamani",
+  "phoneNumber": "+51 912345678",
+  "relationship": "Hijo"
+}
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `emergencyContactId` | Integer | ID del nuevo contacto creado. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{ "emergencyContactId": 3 }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos sobre este paciente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El nombre es obligatorio." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El campo relationship debe ser texto, número o un objeto con name." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+DELETE /api/care/patients/{id}/emergency-contacts/{contactId}
+
+Elimina un contacto de emergencia del paciente. Solo accesible por cuidadores vinculados.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+| `contactId` | Integer | `emergencyContactId` del contacto a eliminar. |
+
+**Request-Example:**
+
+```
+DELETE /api/care/patients/7/emergency-contacts/3
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Contacto eliminado." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos sobre este paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/patients/{id}/annotations
+
+Agrega una anotación/nota de bitácora al paciente. Solo pueden agregar anotaciones los cuidadores vinculados (principal o secundario).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `content` | String | ✅ | Texto de la anotación. No puede ser vacío ni solo espacios. |
+
+**Request-Example:**
+
+```json
+{ "content": "El paciente tuvo una noche tranquila. Se administró medicación a las 8am sin incidentes." }
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Anotación guardada exitosamente." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo los cuidadores asignados pueden dejar anotaciones." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El contenido de la anotación es obligatorio." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/patients/{id}/annotations
+
+Devuelve la bitácora de anotaciones del paciente, ordenadas de la más reciente a la más antigua. Solo accesible por cuidadores vinculados. Incluye el nombre del autor resuelto desde IAM.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Success 200 OK** — Array de anotaciones.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].id` | String | `patientAnnotationId` serializado como string. |
+| `[].date` | String (ISO 8601) | Fecha y hora de creación en UTC. Ej: `"2026-06-07T21:45:00.000Z"`. |
+| `[].text` | String | Contenido de la anotación. |
+| `[].author` | String | Nombre completo del cuidador que la creó (resuelto desde IAM). |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "id": "12",
+    "date": "2026-06-07T21:45:00.0000000Z",
+    "text": "El paciente tuvo una noche tranquila.",
+    "author": "María García"
+  },
+  {
+    "id": "11",
+    "date": "2026-06-06T08:00:00.0000000Z",
+    "text": "Se administró Metformina sin novedades.",
+    "author": "Juan Quispe"
+  }
+]
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos sobre este paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/patients/{id}/caregivers
+
+Devuelve la lista de cuidadores vinculados a un paciente. **Solo accesible por el cuidador principal** (`OfficialGuardianUserId`). Incluye datos del usuario resueltos desde IAM.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `patientId` del paciente. |
+
+**Success 200 OK** — Array de cuidadores (incluyendo al principal).
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].userId` | Integer | ID del cuidador. |
+| `[].user` | Object \| null | Datos del usuario: `{ userId, email, firstName, lastName, phoneNumber }`. |
+| `[].relationshipTypeId` | Integer \| null | Tipo de relación. `null` para el cuidador principal. |
+| `[].caregiverKind` | String | `"official"` o `"caregiver"`. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "userId": 42,
+    "user": { "userId": 42, "email": "maria@example.com", "firstName": "María", "lastName": "García", "phoneNumber": null },
+    "relationshipTypeId": null,
+    "caregiverKind": "official"
+  },
+  {
+    "userId": 55,
+    "user": { "userId": 55, "email": "juan@example.com", "firstName": "Juan", "lastName": "Quispe", "phoneNumber": "+51 987000001" },
+    "relationshipTypeId": 1,
+    "caregiverKind": "caregiver"
+  }
+]
+```
+
+**Error 403 Forbidden**
+
+```json
+HTTP/1.1 403 Forbidden
+{ "message": "Solo el OficialGuardian puede ver los cuidadores." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/patients/{dni}/invitations
+
+Envía una solicitud de acceso al paciente identificado por su DNI. El actor (solicitante) no puede estar ya vinculado al paciente. La invitación expira en **2 días**. Al crearse, el cuidador principal recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "created"`).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `dni` | String | DNI del paciente al que se solicita acceso. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `relationshipTypeId` | Integer (short) | ✅ | Tipo de relación que el solicitante tiene con el paciente. Ver catálogo en `GET /api/care/relationship-types`. |
+
+**Request-Example:**
+
+```json
+{ "relationshipTypeId": 4 }
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `invitationId` | Integer | ID de la invitación creada. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{ "invitationId": 9 }
+```
+
+**Evento SignalR emitido al cuidador principal**
+
+Evento: `invitation.changed`  
+Grupo destino: `user:{officialGuardianUserId}`
+
+```json
+{
+  "kind": "created",
+  "invitationId": 9,
+  "patientId": 7,
+  "patientName": "Carlos Mamani",
+  "requesterUserId": 60,
+  "requesterName": "Ana Torres",
+  "relationshipTypeId": 4,
+  "relationshipName": "Familiar",
+  "status": "Pending",
+  "title": "Nueva solicitud de vinculación",
+  "message": "Ana Torres solicita acceso para cuidar a Carlos Mamani (como Familiar).",
+  "occurredAt": "2026-06-07T22:00:00Z"
+}
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "RelationshipType inválido." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Paciente no encontrado por DNI." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No puedes enviar una invitación a un paciente que ya está vinculado a tu usuario." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/invitations/received
+
+Devuelve todas las invitaciones pendientes e históricas que ha recibido el actor en calidad de **cuidador principal** de sus pacientes. Incluye datos del solicitante resueltos desde IAM.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Success 200 OK** — Array de invitaciones, ordenadas de la más reciente a la más antigua.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].invitationId` | Integer | ID de la invitación. |
+| `[].patientId` | Integer | ID del paciente al que se solicitó acceso. |
+| `[].patientFirstName` | String | Nombre del paciente. |
+| `[].patientLastName` | String | Apellido del paciente. |
+| `[].patientName` | String | Nombre completo del paciente (`firstName + lastName`). |
+| `[].patientDni` | String | DNI del paciente. |
+| `[].requesterUserId` | Integer | ID del usuario solicitante. |
+| `[].requesterName` | String | Nombre completo del solicitante (resuelto desde IAM). |
+| `[].requesterEmail` | String \| null | Email del solicitante. |
+| `[].relationshipTypeId` | Integer | ID del tipo de relación solicitada. |
+| `[].relationshipName` | String | Nombre del tipo de relación (ej. `"Familiar"`). |
+| `[].status` | String | Estado: `"Pending"`, `"Accepted"` o `"Rejected"`. |
+| `[].expiresAt` | String (ISO 8601) | Fecha de expiración de la invitación. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "invitationId": 9,
+    "patientId": 7,
+    "patientFirstName": "Carlos",
+    "patientLastName": "Mamani",
+    "patientName": "Carlos Mamani",
+    "patientDni": "70123456",
+    "requesterUserId": 60,
+    "requesterName": "Ana Torres",
+    "requesterEmail": "ana.torres@example.com",
+    "relationshipTypeId": 4,
+    "relationshipName": "Familiar",
+    "status": "Pending",
+    "expiresAt": "2026-06-09T22:00:00Z"
+  }
+]
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Error al obtener invitaciones recibidas." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/invitations/sent
+
+Devuelve todas las invitaciones que ha enviado el actor como solicitante, con su estado actual. Incluye datos del paciente al que se solicitó acceso.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Success 200 OK** — Mismo esquema de items que `GET /api/care/invitations/received`.
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "invitationId": 9,
+    "patientId": 7,
+    "patientFirstName": "Carlos",
+    "patientLastName": "Mamani",
+    "patientName": "Carlos Mamani",
+    "patientDni": "70123456",
+    "requesterUserId": 60,
+    "requesterName": "Ana Torres",
+    "requesterEmail": "ana.torres@example.com",
+    "relationshipTypeId": 4,
+    "relationshipName": "Familiar",
+    "status": "Accepted",
+    "expiresAt": "2026-06-09T22:00:00Z"
+  }
+]
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/invitations/{invitationId}/accept
+
+Acepta una invitación pendiente. Solo puede ejecutarlo el **cuidador principal** del paciente al que apunta la invitación. Al aceptar: el solicitante es agregado a `Caregivers` con su `RelationshipTypeId` y recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "accepted"`).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `invitationId` | Integer | ID de la invitación a aceptar. |
+
+**Request-Example:**
+
+```
+POST /api/care/invitations/9/accept
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Invitación aceptada." }
+```
+
+**Evento SignalR emitido al solicitante**
+
+Evento: `invitation.changed`  
+Grupo destino: `user:{invitingUserId}`
+
+```json
+{
+  "kind": "accepted",
+  "invitationId": 9,
+  "patientId": 7,
+  "patientName": "Carlos Mamani",
+  "requesterUserId": 60,
+  "requesterName": "Ana Torres",
+  "relationshipTypeId": 4,
+  "relationshipName": "Familiar",
+  "status": "Accepted",
+  "title": "Invitación aceptada",
+  "message": "Tu solicitud para cuidar a Carlos Mamani fue aceptada.",
+  "occurredAt": "2026-06-07T22:10:00Z"
+}
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Invitación no encontrada." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo el OficialGuardian puede aceptar invitaciones." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "La invitación no está pendiente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "La invitación está expirada." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El usuario ya está vinculado como cuidador." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/care/invitations/{invitationId}/reject
+
+Rechaza una invitación pendiente. Solo puede ejecutarlo el **cuidador principal** del paciente. El solicitante recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "rejected"`).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `invitationId` | Integer | ID de la invitación a rechazar. |
+
+**Request-Example:**
+
+```
+POST /api/care/invitations/9/reject
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Invitación rechazada." }
+```
+
+**Evento SignalR emitido al solicitante**
+
+Evento: `invitation.changed`  
+Grupo destino: `user:{invitingUserId}`
+
+```json
+{
+  "kind": "rejected",
+  "invitationId": 9,
+  "patientId": 7,
+  "patientName": "Carlos Mamani",
+  "status": "Rejected",
+  "title": "Invitación rechazada",
+  "message": "Tu solicitud para cuidar a Carlos Mamani fue rechazada.",
+  "occurredAt": "2026-06-07T22:15:00Z"
+}
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Invitación no encontrada." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo el OficialGuardian puede rechazar invitaciones." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "La invitación no está pendiente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "La invitación está expirada." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/care/relationship-types
+
+Devuelve el catálogo completo de tipos de relación disponibles. Utilizado para poblar selects en el frontend (registro de paciente, envío de invitaciones).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Success 200 OK** — Array del catálogo.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].relationshipTypeId` | Integer (short) | ID numérico del tipo de relación. |
+| `[].name` | String | Nombre descriptivo de la relación. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  { "relationshipTypeId": 1, "name": "Hijo" },
+  { "relationshipTypeId": 2, "name": "Vecino" },
+  { "relationshipTypeId": 3, "name": "Enfermera" },
+  { "relationshipTypeId": 4, "name": "Familiar" }
+]
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+Bounded Context: DeviceManagment (Gestión de Dispositivos IoT)
+
+Base path: `/api/devices`
+
+> Todos los endpoints requieren JWT. La autorización de gestión de dispositivos (`link`, `unlink`, `status`) está delegada al ACL de Care: **solo el cuidador principal** (`OfficialGuardianUserId`) de un paciente puede vincular, desvincular o consultar su dispositivo.
+>
+> El umbral de batería baja por defecto es **15 %** (`DeviceMonitoringOptions.LowBatteryThreshold`). Un dispositivo se considera offline si no envía heartbeat en `ExpectedHeartbeatIntervalSeconds × MissedHeartbeatsBeforeDisconnect` segundos (default: 10 s × 3 = 30 s).
+>
+> **Nota:** el endpoint de debug (`GET /api/device-managment/debug/events`) es interno y está marcado como `[ApiExplorerSettings(IgnoreApi = true)]`; no forma parte de la API pública.
+
+---
+
+ Esquema de respuesta de dispositivo (reutilizado en todos los GETs)
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `deviceId` | Integer | ID único del dispositivo IoT. |
+| `assignedPatientId` | Integer \| null | ID del paciente vinculado. `null` si no hay vínculo activo. |
+| `status` | String | Estado en inventario: `"Active"`, `"Lost"` o `"InRepair"`. |
+| `connectivityStatus` | String \| null | `"Connected"` o `"Disconnected"`. `null` si no está vinculado a ningún paciente. |
+| `currentBatteryLevel` | Integer \| null | Porcentaje de batería (0–100). `null` hasta recibir el primer heartbeat. |
+| `isCharging` | Boolean \| null | `true` si está cargando. `null` hasta el primer heartbeat. |
+| `lastHeartbeatAt` | String (ISO 8601) \| null | Timestamp UTC del último heartbeat MQTT recibido. |
+| `monitoringStartedAt` | String (ISO 8601) \| null | Timestamp UTC del momento en que se vinculó al paciente. |
+| `lastConnectivityChangeAt` | String (ISO 8601) \| null | Timestamp UTC del último cambio de estado de conectividad. |
+| `isOnline` | Boolean | `true` si `connectivityStatus == "Connected"`. Calculado en el servidor. |
+| `isLowBattery` | Boolean | `true` si `batteryLevel < 15 %` y no está cargando. Calculado en el servidor. |
+| `firmwareVersion` | String | Versión de firmware reportada por el dispositivo vía MQTT. |
+
+---
+
+POST /api/devices/{deviceId}/link
+
+Vincula un dispositivo IoT a un paciente. Solo puede ejecutarlo el **cuidador principal** del paciente (`OfficialGuardianUserId`). El dispositivo debe existir, estar en estado `Active`, y el paciente no debe tener ya otro dispositivo vinculado.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `deviceId` | Integer | ID del dispositivo IoT a vincular (ej. `1001`). |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `patientId` | Integer | ✅ | ID del paciente al que se vincula el dispositivo. El actor debe ser su cuidador principal. |
+
+**Request-Example:**
+
+```json
+{ "patientId": 7 }
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Confirmación de la vinculación. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Dispositivo vinculado." }
+```
+
+**Efectos secundarios tras la vinculación**
+
+- `AssignedPatientId` se establece al `patientId`.
+- `MonitoringStartedAt` se fija en `DateTime.UtcNow`.
+- `ConnectivityStatus` se establece automáticamente en `"Connected"`.
+- El backend comienza a procesar telemetría MQTT del dispositivo y a generar notificaciones para los cuidadores del paciente.
+
+**Error 400 Bad Request**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `message` | String | Descripción del error. |
+
+**Error-Response — no es cuidador principal:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para vincular dispositivos a este paciente." }
+```
+
+**Error-Response — dispositivo no existe en la BD:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Dispositivo no encontrado." }
+```
+
+**Error-Response — el paciente ya tiene un dispositivo diferente vinculado:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El paciente ya tiene un dispositivo vinculado." }
+```
+
+**Error-Response — el dispositivo ya está asignado a ese mismo paciente:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El dispositivo ya está vinculado a un paciente." }
+```
+
+**Error-Response — dispositivo no está en estado `Active`:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo los dispositivos activos pueden operar en esta versión." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+ DELETE /api/devices/{deviceId}/link
+
+Desvincula el dispositivo IoT del paciente al que está actualmente asignado. Solo puede ejecutarlo el **cuidador principal** del paciente vinculado al dispositivo.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `deviceId` | Integer | ID del dispositivo IoT a desvincular. |
+
+**Request-Example:**
+
+```
+DELETE /api/devices/1001/link
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Dispositivo desvinculado." }
+```
+
+**Efectos secundarios**
+
+- `AssignedPatientId` se establece en `null`.
+- `ConnectivityStatus`, `MonitoringStartedAt` y `LastConnectivityChangeAt` se resetean a `null`.
+- El backend deja de procesar telemetría del dispositivo para ese paciente y sus cuidadores dejan de recibir notificaciones relacionadas.
+
+**Error 400 Bad Request**
+
+**Error-Response — dispositivo no encontrado:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Dispositivo no encontrado." }
+```
+
+**Error-Response — el dispositivo no está vinculado a ningún paciente:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El dispositivo no está vinculado a ningún paciente." }
+```
+
+**Error-Response — no es cuidador principal del paciente vinculado:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para desvincular este dispositivo." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/devices/{deviceId}/status
+
+Devuelve el estado en tiempo real del dispositivo por su ID. Solo accesible por el **cuidador principal** del paciente al que está vinculado.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `deviceId` | Integer | ID del dispositivo IoT a consultar. |
+
+**Request-Example:**
+
+```
+GET /api/devices/1001/status
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Ver [Esquema de respuesta de dispositivo](#esquema-de-respuesta-de-dispositivo-reutilizado-en-todos-los-gets).
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "deviceId": 1001,
+  "assignedPatientId": 7,
+  "status": "Active",
+  "connectivityStatus": "Connected",
+  "currentBatteryLevel": 78,
+  "isCharging": false,
+  "lastHeartbeatAt": "2026-06-07T22:30:00Z",
+  "monitoringStartedAt": "2026-06-01T10:00:00Z",
+  "lastConnectivityChangeAt": "2026-06-07T20:00:00Z",
+  "isOnline": true,
+  "isLowBattery": false,
+  "firmwareVersion": "1.0.3"
+}
+```
+
+**Error 400 Bad Request**
+
+**Error-Response — sin permisos sobre el dispositivo:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para consultar este dispositivo." }
+```
+
+**Error-Response — dispositivo existe pero no está vinculado a ningún paciente:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El dispositivo no está vinculado a ningún paciente." }
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "Dispositivo no encontrado." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/devices/patient/{patientId}
+
+Devuelve el dispositivo IoT vinculado a un paciente dado su `patientId`. Retorna `404` si el paciente no tiene ningún dispositivo vinculado. Solo accesible por el **cuidador principal** del paciente.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `patientId` | Integer | ID del paciente cuyo dispositivo se consulta. |
+
+**Request-Example:**
+
+```
+GET /api/devices/patient/7
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Ver [Esquema de respuesta de dispositivo](#esquema-de-respuesta-de-dispositivo-reutilizado-en-todos-los-gets).
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "deviceId": 1001,
+  "assignedPatientId": 7,
+  "status": "Active",
+  "connectivityStatus": "Connected",
+  "currentBatteryLevel": 62,
+  "isCharging": true,
+  "lastHeartbeatAt": "2026-06-07T22:35:00Z",
+  "monitoringStartedAt": "2026-06-01T10:00:00Z",
+  "lastConnectivityChangeAt": "2026-06-07T22:00:00Z",
+  "isOnline": true,
+  "isLowBattery": false,
+  "firmwareVersion": "1.0.3"
+}
+```
+
+**Error 400 Bad Request**
+
+**Error-Response — sin permisos:**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para consultar el dispositivo de este paciente." }
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "No hay dispositivo vinculado a este paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+ Eventos de telemetría MQTT → NotificationCommunication (flujo interno)
+
+> No son endpoints REST. Son procesados por los Background Services que escuchan al broker MQTT en los topics `foll/devices/+/heartbeat` y `foll/devices/+/power`. Se documentan porque generan **notificaciones SignalR** (`notification.created`) hacia el frontend para todos los cuidadores del paciente afectado.
+
+| Evento de dominio | Trigger | Tipo de notificación enviada |
+| :--- | :--- | :--- |
+| `LowBatteryDetected` | Batería cae por debajo del 15 % sin estar cargando | `"BatteryLow"` — enviada una sola vez hasta que se resuelva |
+| `LowBatteryResolved` | Batería sube sobre el 15 % o se conecta el cargador | `"BatteryRestored"` (informativa) |
+| `DeviceDisconnected` | Sin heartbeat por más de 30 s, o evento `power=false` por MQTT | `"DeviceDisconnected"` — enviada una sola vez hasta reconexión |
+| `DeviceReconnected` | Llega heartbeat tras desconexión, o evento `power=true` | `"DeviceReconnected"` (informativa) |
+
+Cada evento se persiste en la tabla **`outbox_messages`** y es despachado por el `OutboxPublisherBackgroundService` al BC `NotificationCommunication`, que finalmente emite el evento `notification.created` por SignalR al grupo `user:{userId}` de cada cuidador vinculado al paciente.
+
+---
+
+Bounded Context: NotificationCommunication (Notificaciones)
+
+Base path: `/api/notifications`
+
+> Todos los endpoints requieren JWT. Cada usuario solo puede ver y gestionar **sus propias** notificaciones (el `userId` del JWT filtra automáticamente en todos los queries). Las notificaciones se crean exclusivamente de forma interna (desde el Outbox + Event Handlers); no existe un endpoint público de creación.
+
+---
+
+ Esquema de notificación (`NotificationResponse`)
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `notificationLogId` | Integer | ID único del registro de notificación. |
+| `userId` | Integer | ID del cuidador destinatario. |
+| `notificationType` | String | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
+| `notificationChannel` | String | Canal de entrega: `"InApp"`, `"Push"` o `"Sms"`. |
+| `notificationStatus` | String | Estado: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`. |
+| `title` | String | Título de la notificación. |
+| `body` | String | Cuerpo/descripción de la notificación. |
+| `dataJson` | String \| null | JSON adicional con datos del evento (ej. ubicación y tipo de caída). |
+| `providerMessageId` | String \| null | ID del mensaje devuelto por el proveedor push (Firebase, etc.). |
+| `errorMessage` | String \| null | Mensaje de error si el envío falló. |
+| `deviceEventId` | Integer \| null | ID del evento de dispositivo que originó la notificación. |
+| `patientId` | Integer \| null | ID del paciente relacionado. |
+| `deviceId` | Integer \| null | ID del dispositivo relacionado. |
+| `sentAt` | String (ISO 8601) \| null | Timestamp UTC en que se envió al proveedor push. |
+| `readAt` | String (ISO 8601) \| null | Timestamp UTC en que el usuario la marcó como leída. |
+| `acknowledgedAt` | String (ISO 8601) \| null | Timestamp UTC en que el usuario la confirmó/atendió. |
+| `createdAt` | String (ISO 8601) | Timestamp UTC de creación. |
+| `updatedAt` | String (ISO 8601) | Timestamp UTC de última actualización de estado. |
+
+---
+
+GET /api/notifications
+
+Devuelve todas las notificaciones del usuario autenticado, ordenadas implícitamente por creación descendente.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Success 200 OK** — Array de objetos `NotificationResponse` (ver esquema arriba).
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "notificationLogId": 101,
+    "userId": 42,
+    "notificationType": "FallDetected",
+    "notificationChannel": "Push",
+    "notificationStatus": "Sent",
+    "title": "¡Caída detectada!",
+    "body": "Se detectó una caída de Carlos Mamani.",
+    "dataJson": "{\"fallType\":\"Forward\",\"confidence\":0.98,\"latitude\":-12.046374,\"longitude\":-77.042793}",
+    "providerMessageId": "firebase-msg-xyz123",
+    "errorMessage": null,
+    "deviceEventId": 55,
+    "patientId": 7,
+    "deviceId": 1001,
+    "sentAt": "2026-06-07T22:15:00Z",
+    "readAt": null,
+    "acknowledgedAt": null,
+    "createdAt": "2026-06-07T22:15:00Z",
+    "updatedAt": "2026-06-07T22:15:00Z"
+  },
+  {
+    "notificationLogId": 98,
+    "userId": 42,
+    "notificationType": "LowBattery",
+    "notificationChannel": "Push",
+    "notificationStatus": "Read",
+    "title": "Batería baja",
+    "body": "El dispositivo #1001 tiene la batería al 12 %.",
+    "dataJson": null,
+    "providerMessageId": "firebase-msg-abc456",
+    "errorMessage": null,
+    "deviceEventId": 50,
+    "patientId": 7,
+    "deviceId": 1001,
+    "sentAt": "2026-06-07T18:00:00Z",
+    "readAt": "2026-06-07T18:05:00Z",
+    "acknowledgedAt": null,
+    "createdAt": "2026-06-07T18:00:00Z",
+    "updatedAt": "2026-06-07T18:05:00Z"
+  }
+]
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/notifications/{id}
+
+Devuelve el detalle completo de una notificación por su ID. Solo accesible si pertenece al usuario autenticado.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `notificationLogId` de la notificación. |
+
+**Request-Example:**
+
+```
+GET /api/notifications/101
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Objeto `NotificationResponse` (ver esquema arriba).
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "Notificacion no encontrada." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/notifications/{id}/delivery-status
+
+Devuelve solo el estado de entrega de una notificación (subset del objeto completo). Útil para polling de confirmación de envío push.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `notificationLogId` de la notificación. |
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `notificationLogId` | Integer | ID de la notificación. |
+| `notificationStatus` | String | Estado actual: `"Pending"`, `"Sent"`, `"Failed"`, `"Read"`, `"Acknowledged"`. |
+| `providerMessageId` | String \| null | ID del mensaje en el proveedor push. |
+| `errorMessage` | String \| null | Descripción del error si el estado es `"Failed"`. |
+| `sentAt` | String (ISO 8601) \| null | Timestamp de envío al proveedor. |
+| `readAt` | String (ISO 8601) \| null | Timestamp de lectura por el usuario. |
+| `acknowledgedAt` | String (ISO 8601) \| null | Timestamp de confirmación por el usuario. |
+| `updatedAt` | String (ISO 8601) | Timestamp de última actualización. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "notificationLogId": 101,
+  "notificationStatus": "Sent",
+  "providerMessageId": "firebase-msg-xyz123",
+  "errorMessage": null,
+  "sentAt": "2026-06-07T22:15:00Z",
+  "readAt": null,
+  "acknowledgedAt": null,
+  "updatedAt": "2026-06-07T22:15:00Z"
+}
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "Notificacion no encontrada." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/notifications/{id}/read
+
+Marca una notificación como leída. Idempotente: si ya estaba leída no produce error. Cambia el estado a `"Read"` y registra `readAt`.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `notificationLogId` de la notificación a marcar como leída. |
+
+**Request-Example:**
+
+```
+POST /api/notifications/101/read
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Notificacion marcada como leida." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Notificacion no encontrada." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/notifications/{id}/acknowledge
+
+Confirma que el usuario atendió una notificación (ej. confirmó que asistió al caído). Idempotente: si ya estaba confirmada no produce error. Cambia el estado a `"Acknowledged"` y registra `acknowledgedAt`. Este estado es el más alto en la jerarquía; no puede revertirse.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `notificationLogId` de la notificación a confirmar. |
+
+**Request-Example:**
+
+```
+POST /api/notifications/101/acknowledge
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Notificacion atendida." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Notificacion no encontrada." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/notifications/push-tokens
+
+Registra o refresca un token push para el dispositivo del usuario autenticado. Si el token ya existe para ese usuario, lo reactiva y actualiza su plataforma, nombre de dispositivo y `LastUsedAt` (upsert). Si no existe, crea un nuevo registro.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `token` | String | ✅ | Token FCM/APNs del dispositivo. |
+| `platform` | String | ❌ | Plataforma: `"Web"`, `"Android"`, `"IOS"`. Si se omite o es inválida, se registra como `"Unknown"`. |
+| `deviceName` | String | ❌ | Nombre descriptivo del dispositivo (ej. `"Chrome en Windows"`). |
+
+**Request-Example:**
+
+```json
+{
+  "token": "fcm-token-abcdef123456",
+  "platform": "Web",
+  "deviceName": "Chrome en Windows"
+}
+```
+
+**Success 200 OK**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `userPushTokenId` | Integer | ID del token registrado (nuevo o existente). |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{ "userPushTokenId": 15 }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "El token push es obligatorio." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/notifications/push-tokens
+
+Lista todos los tokens push registrados por el usuario autenticado (activos e inactivos).
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Success 200 OK** — Array de tokens.
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `[].userPushTokenId` | Integer | ID del token. |
+| `[].userId` | Integer | ID del usuario propietario. |
+| `[].token` | String | Token FCM/APNs. |
+| `[].platform` | String | `"Web"`, `"Android"`, `"IOS"` o `"Unknown"`. |
+| `[].deviceName` | String \| null | Nombre descriptivo del dispositivo. |
+| `[].isActive` | Boolean | `true` si el token está activo y puede recibir notificaciones push. |
+| `[].lastUsedAt` | String (ISO 8601) \| null | Última vez que se usó exitosamente para enviar un push. |
+| `[].createdAt` | String (ISO 8601) | Timestamp de registro inicial. |
+| `[].updatedAt` | String (ISO 8601) | Timestamp de última actualización. |
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "userPushTokenId": 15,
+    "userId": 42,
+    "token": "fcm-token-abcdef123456",
+    "platform": "Web",
+    "deviceName": "Chrome en Windows",
+    "isActive": true,
+    "lastUsedAt": "2026-06-07T22:15:00Z",
+    "createdAt": "2026-06-01T10:00:00Z",
+    "updatedAt": "2026-06-07T22:15:00Z"
+  }
+]
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+ DELETE /api/notifications/push-tokens/{id}
+
+Desactiva un token push del usuario autenticado. El token queda marcado como inactivo (`IsActive = false`) y no recibirá más notificaciones push. Solo el propietario puede desactivar su propio token.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `id` | Integer | `userPushTokenId` del token a desactivar. |
+
+**Request-Example:**
+
+```
+DELETE /api/notifications/push-tokens/15
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Token push desactivado." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Token push no encontrado." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+ WebSocket Hub — `/hubs/notifications`
+
+Conexión SignalR que el frontend mantiene abierta para recibir eventos en tiempo real. Requiere JWT como query parameter.
+
+**Conexión:**
+
+```
+wss://host/hubs/notifications?access_token=<JWT>
+```
+
+Al conectarse, el servidor agrega al cliente al grupo privado `user:{userId}`, garantizando que cada usuario reciba únicamente sus propios eventos.
+
+---
+
+ Evento `notification.created`
+
+Emitido cuando el BC NotificationCommunication genera y persiste una nueva notificación para el usuario (batería baja, desconexión, reconexión, caída detectada).
+
+**Payload:**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `notificationLogId` | Integer | ID del registro creado. |
+| `userId` | Integer | ID del destinatario. |
+| `notificationType` | String | Tipo de evento: `"LowBattery"`, `"BatteryRecovered"`, `"DeviceDisconnected"`, `"DeviceReconnected"`, `"FallDetected"`, `"Generic"`. |
+| `notificationChannel` | String | Canal: `"InApp"`, `"Push"` o `"Sms"`. |
+| `notificationStatus` | String | Estado inicial: siempre `"Sent"` o `"Failed"`. |
+| `title` | String | Título de la notificación. |
+| `body` | String | Cuerpo del mensaje. |
+| `dataJson` | String \| null | JSON con datos del evento (ej. coordenadas y tipo de caída para `FallDetected`). |
+| `patientId` | Integer \| null | ID del paciente afectado. |
+| `deviceId` | Integer \| null | ID del dispositivo involucrado. |
+| `createdAt` | String (ISO 8601) | Timestamp UTC del evento. |
+
+**Ejemplo de payload `FallDetected`:**
+
+```json
+{
+  "notificationLogId": 101,
+  "userId": 42,
+  "notificationType": "FallDetected",
+  "notificationChannel": "Push",
+  "notificationStatus": "Sent",
+  "title": "¡Caída detectada!",
+  "body": "Se detectó una caída de Carlos Mamani.",
+  "dataJson": "{\"fallType\":\"Forward\",\"confidence\":0.98,\"latitude\":-12.046374,\"longitude\":-77.042793}",
+  "patientId": 7,
+  "deviceId": 1001,
+  "createdAt": "2026-06-07T22:15:00Z"
+}
+```
+
+**Ejemplo de payload `LowBattery`:**
+
+```json
+{
+  "notificationLogId": 98,
+  "userId": 42,
+  "notificationType": "LowBattery",
+  "notificationChannel": "Push",
+  "notificationStatus": "Sent",
+  "title": "Batería baja",
+  "body": "El dispositivo #1001 tiene la batería al 12 %.",
+  "dataJson": null,
+  "patientId": 7,
+  "deviceId": 1001,
+  "createdAt": "2026-06-07T18:00:00Z"
+}
+```
+
+---
+
+ Evento `invitation.changed`
+
+Emitido cuando se crea, acepta o rechaza una invitación de acceso. El payload se entrega solo al usuario afectado (cuidador principal al crear; solicitante al aceptar/rechazar).
+
+**Payload:**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `kind` | String | `"created"`, `"accepted"` o `"rejected"`. |
+| `invitationId` | Integer | ID de la invitación. |
+| `patientId` | Integer | ID del paciente al que se solicita/tiene acceso. |
+| `patientName` | String | Nombre completo del paciente. |
+| `requesterUserId` | Integer | ID del usuario que envió la solicitud. |
+| `requesterName` | String | Nombre del solicitante (resuelto desde IAM). |
+| `relationshipTypeId` | Integer | ID del tipo de relación solicitada. |
+| `relationshipName` | String | Nombre del tipo de relación (ej. `"Familiar"`). |
+| `status` | String | Estado resultante: `"Pending"`, `"Accepted"` o `"Rejected"`. |
+| `title` | String | Título descriptivo del evento. |
+| `message` | String | Mensaje legible para mostrar en la UI. |
+| `occurredAt` | String (ISO 8601) | Timestamp UTC del evento. |
+
+**Ejemplo de payload `kind: "created"` (recibido por el cuidador principal):**
+
+```json
+{
+  "kind": "created",
+  "invitationId": 9,
+  "patientId": 7,
+  "patientName": "Carlos Mamani",
+  "requesterUserId": 60,
+  "requesterName": "Ana Torres",
+  "relationshipTypeId": 4,
+  "relationshipName": "Familiar",
+  "status": "Pending",
+  "title": "Nueva solicitud de vinculación",
+  "message": "Ana Torres solicita acceso para cuidar a Carlos Mamani (como Familiar).",
+  "occurredAt": "2026-06-07T22:00:00Z"
+}
+```
+
+**Ejemplo de payload `kind: "accepted"` (recibido por el solicitante):**
+
+```json
+{
+  "kind": "accepted",
+  "invitationId": 9,
+  "patientId": 7,
+  "patientName": "Carlos Mamani",
+  "requesterUserId": 60,
+  "requesterName": "Ana Torres",
+  "relationshipTypeId": 4,
+  "relationshipName": "Familiar",
+  "status": "Accepted",
+  "title": "Invitación aceptada",
+  "message": "Tu solicitud para cuidar a Carlos Mamani fue aceptada.",
+  "occurredAt": "2026-06-07T22:10:00Z"
+}
+```
+
+---
+
+Bounded Context: EmergencyAnalytics (Incidentes de Caída)
+
+Base path: `/api/emergency/incidents`
+
+> Todos los endpoints requieren JWT. El control de acceso está delegado al ACL de Care (`IPatientEmergencyAcl`): pueden acceder el **cuidador principal**, el **cuidador en turno activo** (`CurrentGuardianUserId`) y **todos los cuidadores secundarios** vinculados al paciente.
+>
+> Los incidentes se crean exclusivamente de forma interna, vía mensajes MQTT (`foll/devices/+/fall-detected` y `foll/devices/+/fall-cancelled`). No existe un endpoint público de creación.
+
+---
+
+ Catálogo de tipos de caída (`FallType`) — datos semilla
+
+| `fallTypeId` | `name` | `description` | `severityLevel` |
+| :---: | :--- | :--- | :---: |
+| 1 | `FRONTAL` | Caída hacia adelante detectada por patrón vectorial frontal del dataset SISFALL. | 1 |
+| 2 | `LATERAL` | Caída lateral detectada por desplazamiento dominante en eje lateral del dataset SISFALL. | 2 |
+| 3 | `UNKNOWN` | Tipo de caída no clasificado o no enviado por el dispositivo/IA. | 2 |
+| 4 | `BACKWARD` | Caída hacia atrás detectada por patrón vectorial posterior del dataset SISFALL. | 1 |
+
+---
+
+ Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `incidentId` | Integer | ID único del incidente. |
+| `incidentKey` | String (UUID) | GUID único generado al crear el incidente. |
+| `deviceId` | Integer | ID del dispositivo IoT que reportó la caída. |
+| `patientId` | Integer | ID del paciente relacionado. |
+| `fallTypeId` | Integer (short) | ID del tipo de caída. |
+| `fallType` | Object \| null | Objeto enriquecido del tipo de caída. |
+| `fallType.id` | Integer | ID del tipo. |
+| `fallType.name` | String | `"FRONTAL"`, `"LATERAL"`, `"BACKWARD"` o `"UNKNOWN"`. |
+| `fallType.description` | String | Descripción técnica. |
+| `fallType.severityLevel` | Integer | Nivel de severidad (1 = alta, 2 = media). |
+| `status` | String | Estado: `"Open"`, `"Cancelled"` o `"Resolved"`. |
+| `openedAt` | String (ISO 8601) | Timestamp UTC de apertura (primera señal). |
+| `lastSignalAt` | String (ISO 8601) | Timestamp UTC de la última señal MQTT procesada. |
+| `cancelledAt` | String (ISO 8601) \| null | Timestamp UTC de cancelación. `null` si no cancelado. |
+| `resolvedAt` | String (ISO 8601) \| null | Timestamp UTC de resolución. `null` si no resuelto. |
+| `closedAt` | String (ISO 8601) \| null | Igual a `cancelledAt` o `resolvedAt`. |
+| `closedByUserId` | Integer \| null | `userId` del cuidador que cerró manualmente. `null` si fue automático. |
+| `aiConfidenceScore` | Decimal \| null | Confianza del modelo IA (0.0–1.0). |
+| `latitude` | Decimal \| null | Latitud GPS al momento de la caída. |
+| `longitude` | Decimal \| null | Longitud GPS al momento de la caída. |
+| `cancellationReason` | String \| null | `"Unknown"`, `"UserButtonPressed"` o `"FalsePositive"`. |
+| `finalObservation` | String \| null | Nota escrita por el cuidador al cerrar o actualizar el incidente. |
+
+---
+
+GET /api/emergency/incidents/active/patient/{patientId}
+
+Devuelve el incidente de caída activo (`"Open"`) del paciente. Solo puede haber uno abierto por paciente a la vez. Retorna `404` si no hay ninguno activo.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `patientId` | Integer | ID del paciente a consultar. |
+
+**Request-Example:**
+
+```
+GET /api/emergency/incidents/active/patient/7
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Objeto incidente (ver esquema arriba).
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+{
+  "incidentId": 23,
+  "incidentKey": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "deviceId": 1001,
+  "patientId": 7,
+  "fallTypeId": 1,
+  "fallType": { "id": 1, "name": "FRONTAL", "description": "Caída hacia adelante...", "severityLevel": 1 },
+  "status": "Open",
+  "openedAt": "2026-06-07T22:15:00Z",
+  "lastSignalAt": "2026-06-07T22:15:05Z",
+  "cancelledAt": null,
+  "resolvedAt": null,
+  "closedAt": null,
+  "closedByUserId": null,
+  "aiConfidenceScore": 0.98,
+  "latitude": -12.046374,
+  "longitude": -77.042793,
+  "cancellationReason": null,
+  "finalObservation": null
+}
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para consultar incidentes de este paciente." }
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "No hay caída activa para este paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/emergency/incidents/history/patient/{patientId}
+
+Devuelve el historial completo de incidentes del paciente en todos los estados, de más reciente a más antiguo. Puede devolver array vacío `[]`.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `patientId` | Integer | ID del paciente cuyo historial se consulta. |
+
+**Request-Example:**
+
+```
+GET /api/emergency/incidents/history/patient/7
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Array de objetos incidente.
+
+**Success-Response:**
+
+```json
+HTTP/1.1 200 OK
+[
+  {
+    "incidentId": 23,
+    "incidentKey": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "deviceId": 1001,
+    "patientId": 7,
+    "fallTypeId": 1,
+    "fallType": { "id": 1, "name": "FRONTAL", "description": "Caída hacia adelante...", "severityLevel": 1 },
+    "status": "Resolved",
+    "openedAt": "2026-06-07T22:15:00Z",
+    "lastSignalAt": "2026-06-07T22:20:00Z",
+    "cancelledAt": null,
+    "resolvedAt": "2026-06-07T22:20:00Z",
+    "closedAt": "2026-06-07T22:20:00Z",
+    "closedByUserId": 42,
+    "aiConfidenceScore": 0.98,
+    "latitude": -12.046374,
+    "longitude": -77.042793,
+    "cancellationReason": null,
+    "finalObservation": "Paciente atendido. Leve golpe en la rodilla, sin consecuencias graves."
+  },
+  {
+    "incidentId": 18,
+    "incidentKey": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "deviceId": 1001,
+    "patientId": 7,
+    "fallTypeId": 3,
+    "fallType": { "id": 3, "name": "UNKNOWN", "description": "Tipo de caída no clasificado...", "severityLevel": 2 },
+    "status": "Cancelled",
+    "openedAt": "2026-06-05T10:00:00Z",
+    "lastSignalAt": "2026-06-05T10:00:30Z",
+    "cancelledAt": "2026-06-05T10:00:30Z",
+    "resolvedAt": null,
+    "closedAt": "2026-06-05T10:00:30Z",
+    "closedByUserId": null,
+    "aiConfidenceScore": 0.55,
+    "latitude": null,
+    "longitude": null,
+    "cancellationReason": "UserButtonPressed",
+    "finalObservation": null
+  }
+]
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para consultar incidentes de este paciente." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+GET /api/emergency/incidents/{incidentId}
+
+Devuelve el detalle completo de un incidente por su ID, con el objeto `fallType` enriquecido.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `incidentId` | Integer | ID del incidente. |
+
+**Request-Example:**
+
+```
+GET /api/emergency/incidents/23
+Authorization: Bearer eyJ...
+```
+
+**Success 200 OK** — Objeto incidente completo (ver esquema).
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para consultar este incidente." }
+```
+
+**Error 404 Not Found**
+
+```json
+HTTP/1.1 404 Not Found
+{ "message": "Incidente no encontrado." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/emergency/incidents/{incidentId}/false-positive
+
+Marca un incidente **abierto** como falso positivo. Lo cancela con `cancellationReason = "FalsePositive"`, registra al actor y genera el evento `IncidentClosed` en el Outbox.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `incidentId` | Integer | ID del incidente. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `observation` | String | ❌ | Nota opcional explicando por qué es falso positivo. |
+
+**Request-Example:**
+
+```json
+{ "observation": "El paciente estaba sentándose rápido, no fue una caída real." }
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Incidente marcado como falso positivo." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Incidente no encontrado." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para modificar este incidente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo un incidente abierto puede modificarse." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+POST /api/emergency/incidents/{incidentId}/resolve
+
+Resuelve un incidente **abierto**, confirmando que fue real y fue atendido. Cambia el estado a `"Resolved"`, registra `resolvedAt`, `closedAt` y el `closedByUserId`. Genera el evento `IncidentClosed` en el Outbox.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `incidentId` | Integer | ID del incidente. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `observation` | String | ❌ | Nota final del cuidador. |
+
+**Request-Example:**
+
+```json
+{ "observation": "Paciente atendido. Leve golpe en la rodilla. Se aplicó vendaje." }
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Incidente resuelto." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Incidente no encontrado." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para modificar este incidente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo un incidente abierto puede modificarse." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+PUT /api/emergency/incidents/{incidentId}/observation
+
+Actualiza la observación final de un incidente ya **cerrado** (`"Cancelled"` o `"Resolved"`). No puede aplicarse a incidentes `"Open"`. El campo `observation` es obligatorio y no puede ser vacío.
+
+**Header**
+
+| Field | Description |
+| :--- | :--- |
+| Authorization | `Bearer <JWT>` |
+
+**Parameter (Path)**
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `incidentId` | Integer | ID del incidente a actualizar. |
+
+**Parameter (Body)**
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `observation` | String | ✅ | Nueva observación final. No puede ser vacía ni nula. |
+
+**Request-Example:**
+
+```json
+{ "observation": "Confirmado por médico al día siguiente: sin fracturas. Solo contusión leve." }
+```
+
+**Success 200 OK**
+
+```json
+HTTP/1.1 200 OK
+{ "message": "Observación actualizada." }
+```
+
+**Error 400 Bad Request**
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Incidente no encontrado." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "No tienes permisos para actualizar este incidente." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "Solo se pueden agregar observaciones finales a incidentes cerrados." }
+```
+
+```json
+HTTP/1.1 400 Bad Request
+{ "message": "La observación es obligatoria." }
+```
+
+**Error 401 Unauthorized** — JWT inválido.
+
+---
+
+ Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
+
+> Los incidentes no se crean desde el frontend; el flujo es 100 % event-driven desde la capa Edge:
+
+| Paso | Componente | Acción |
+| :--- | :--- | :--- |
+| 1 | MQTT broker | Publica `foll/devices/{id}/fall-detected` o `fall-cancelled` |
+| 2 | `EmergencyAnalyticsMqttSubscriberBackgroundService` | Despacha `RegisterFallDetectedCommand` o `RegisterFallCancelledCommand` |
+| 3 | `EmergencyIncidentCommandService` | Abre/refresca o cancela el incidente; persiste evento en Outbox |
+| 4 | `EmergencyOutboxPublisherBackgroundService` | Lee el Outbox y despacha al handler de NotificationCommunication |
+| 5 | `EmergencyIncidentOpenedIntegrationEventHandler` | Llama a `CreateNotificationFromEventCommand` con tipo `FallDetected` |
+| 6 | `NotificationCommandService` | Crea `NotificationLog` por cada cuidador, envía push y emite SignalR `notification.created` |
+
+| Evento de Outbox | Trigger | Notificación SignalR resultante |
+| :--- | :--- | :--- |
+| `emergency.incident.opened.v1` | Nueva caída detectada por IA | `notification.created` con `notificationType: "FallDetected"` a todos los cuidadores del paciente |
+| `emergency.incident.closed.v1` | Incidente cancelado (dispositivo/manual) o resuelto | Sin nueva notificación push; el frontend reconcilia el estado vía historial o SignalR previo |
+
 
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review.
 
