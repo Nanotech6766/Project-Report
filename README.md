@@ -352,7 +352,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -8246,3 +8246,9 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - Link del Video about the product
   [https://youtu.be/6Y08pMr2qKQ](https://youtu.be/6Y08pMr2qKQ) <br>
   [https://acortar.link/2dp8rZ](https://acortar.link/2dp8rZ)
+
+- Videos About the team y About the product:
+[https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx](https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx)
+
+- Prototipo Wokwi:
+[https://github.com/foll-project/Foll-Wokwi-Prototype.git](https://github.com/foll-project/Foll-Wokwi-Prototype.git)
