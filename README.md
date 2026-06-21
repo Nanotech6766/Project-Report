@@ -4860,14 +4860,13 @@ Commits relacionados con la documentación en este Sprint: 7a8b9c1, 2d3e4f5, 9f8
 
 <img width="1866" height="905" alt="image" src="https://github.com/user-attachments/assets/e0f26de2-cab1-4ba7-91f9-6185af044c51" />
 
-
-## Bounded Context: IAM (Identity & Access Management)
+Bounded Context: IAM (Identity & Access Management)
 
 Base path: `/api/iam/auth`
 
 ---
 
-### POST /api/iam/auth/register
+POST /api/iam/auth/register
 
 Registra un nuevo usuario cuidador en el sistema. No requiere autenticación previa. No devuelve token; tras el registro el usuario debe iniciar sesión por separado.
 
@@ -4949,7 +4948,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/iam/auth/login
+POST /api/iam/auth/login
 
 Autentica a un usuario existente y devuelve un JWT firmado con HMAC-SHA256. El token contiene los claims `userId`, `email`, `firstName` y `lastName`, y tiene vigencia configurable (por defecto 7 días).
 
@@ -5039,7 +5038,7 @@ HTTP/1.1 401 Unauthorized
 
 ---
 
-## Bounded Context: Care (Gestión de Pacientes)
+Bounded Context: Care (Gestión de Pacientes)
 
 Base paths: `/api/care/patients` · `/api/care/invitations` · `/api/care/relationship-types`
 
@@ -5047,7 +5046,7 @@ Base paths: `/api/care/patients` · `/api/care/invitations` · `/api/care/relati
 
 ---
 
-### POST /api/care/patients
+POST /api/care/patients
 
 Crea un nuevo paciente (abuelito) y lo vincula al usuario autenticado como **cuidador principal** (`OfficialGuardianUserId`). Se agrega automáticamente al actor como primer `CaregiverRole` con el `relationshipTypeId` indicado.
 
@@ -5177,7 +5176,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/patients/{id}
+GET /api/care/patients/{id}
 
 Obtiene el detalle completo de un paciente por su `patientId`. Solo accessible si el actor es cuidador principal o secundario de ese paciente.
 
@@ -5220,7 +5219,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### PUT /api/care/patients/{id}
+PUT /api/care/patients/{id}
 
 Actualiza los datos básicos de un paciente. Solo puede ejecutarlo el **cuidador principal** (`OfficialGuardianUserId`).
 
@@ -5284,7 +5283,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/patients/by-caregiver/{caregiverUserId}
+GET /api/care/patients/by-caregiver/{caregiverUserId}
 
 Devuelve todos los pacientes asociados al usuario autenticado, tanto como cuidador principal como secundario. El `caregiverUserId` de la ruta debe coincidir con el `userId` del JWT (no puedes consultar la lista de otro usuario).
 
@@ -5376,7 +5375,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### PUT /api/care/patients/{id}/guard-shift
+PUT /api/care/patients/{id}/guard-shift
 
 Transfiere temporalmente el turno de guardia activa a otro cuidador secundario. Solo puede ejecutarlo el **cuidador principal**.
 
@@ -5422,7 +5421,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/care/patients/{id}/guard-shift/restore
+POST /api/care/patients/{id}/guard-shift/restore
 
 Restaura el turno de guardia al cuidador principal (deshace el `PUT /guard-shift`). Solo puede ejecutarlo el **cuidador principal**.
 
@@ -5463,7 +5462,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/care/patients/{id}/emergency-contacts
+POST /api/care/patients/{id}/emergency-contacts
 
 Agrega un contacto de emergencia al paciente. Solo accesible por cuidadores vinculados al paciente (principal o secundario).
 
@@ -5531,7 +5530,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### DELETE /api/care/patients/{id}/emergency-contacts/{contactId}
+DELETE /api/care/patients/{id}/emergency-contacts/{contactId}
 
 Elimina un contacto de emergencia del paciente. Solo accesible por cuidadores vinculados.
 
@@ -5573,7 +5572,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/care/patients/{id}/annotations
+POST /api/care/patients/{id}/annotations
 
 Agrega una anotación/nota de bitácora al paciente. Solo pueden agregar anotaciones los cuidadores vinculados (principal o secundario).
 
@@ -5624,7 +5623,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/patients/{id}/annotations
+GET /api/care/patients/{id}/annotations
 
 Devuelve la bitácora de anotaciones del paciente, ordenadas de la más reciente a la más antigua. Solo accesible por cuidadores vinculados. Incluye el nombre del autor resuelto desde IAM.
 
@@ -5680,7 +5679,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/patients/{id}/caregivers
+GET /api/care/patients/{id}/caregivers
 
 Devuelve la lista de cuidadores vinculados a un paciente. **Solo accesible por el cuidador principal** (`OfficialGuardianUserId`). Incluye datos del usuario resueltos desde IAM.
 
@@ -5736,7 +5735,7 @@ HTTP/1.1 403 Forbidden
 
 ---
 
-### POST /api/care/patients/{dni}/invitations
+POST /api/care/patients/{dni}/invitations
 
 Envía una solicitud de acceso al paciente identificado por su DNI. El actor (solicitante) no puede estar ya vinculado al paciente. La invitación expira en **2 días**. Al crearse, el cuidador principal recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "created"`).
 
@@ -5820,7 +5819,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/invitations/received
+GET /api/care/invitations/received
 
 Devuelve todas las invitaciones pendientes e históricas que ha recibido el actor en calidad de **cuidador principal** de sus pacientes. Incluye datos del solicitante resueltos desde IAM.
 
@@ -5882,7 +5881,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/invitations/sent
+GET /api/care/invitations/sent
 
 Devuelve todas las invitaciones que ha enviado el actor como solicitante, con su estado actual. Incluye datos del paciente al que se solicitó acceso.
 
@@ -5921,7 +5920,7 @@ HTTP/1.1 200 OK
 
 ---
 
-### POST /api/care/invitations/{invitationId}/accept
+POST /api/care/invitations/{invitationId}/accept
 
 Acepta una invitación pendiente. Solo puede ejecutarlo el **cuidador principal** del paciente al que apunta la invitación. Al aceptar: el solicitante es agregado a `Caregivers` con su `RelationshipTypeId` y recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "accepted"`).
 
@@ -6004,7 +6003,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/care/invitations/{invitationId}/reject
+POST /api/care/invitations/{invitationId}/reject
 
 Rechaza una invitación pendiente. Solo puede ejecutarlo el **cuidador principal** del paciente. El solicitante recibe un push en tiempo real por SignalR (evento `invitation.changed` con `kind: "rejected"`).
 
@@ -6078,7 +6077,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/care/relationship-types
+GET /api/care/relationship-types
 
 Devuelve el catálogo completo de tipos de relación disponibles. Utilizado para poblar selects en el frontend (registro de paciente, envío de invitaciones).
 
@@ -6111,7 +6110,7 @@ HTTP/1.1 200 OK
 
 ---
 
-## Bounded Context: DeviceManagment (Gestión de Dispositivos IoT)
+Bounded Context: DeviceManagment (Gestión de Dispositivos IoT)
 
 Base path: `/api/devices`
 
@@ -6123,7 +6122,7 @@ Base path: `/api/devices`
 
 ---
 
-### Esquema de respuesta de dispositivo (reutilizado en todos los GETs)
+ Esquema de respuesta de dispositivo (reutilizado en todos los GETs)
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -6142,7 +6141,7 @@ Base path: `/api/devices`
 
 ---
 
-### POST /api/devices/{deviceId}/link
+POST /api/devices/{deviceId}/link
 
 Vincula un dispositivo IoT a un paciente. Solo puede ejecutarlo el **cuidador principal** del paciente (`OfficialGuardianUserId`). El dispositivo debe existir, estar en estado `Active`, y el paciente no debe tener ya otro dispositivo vinculado.
 
@@ -6235,7 +6234,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### DELETE /api/devices/{deviceId}/link
+ DELETE /api/devices/{deviceId}/link
 
 Desvincula el dispositivo IoT del paciente al que está actualmente asignado. Solo puede ejecutarlo el **cuidador principal** del paciente vinculado al dispositivo.
 
@@ -6298,7 +6297,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/devices/{deviceId}/status
+GET /api/devices/{deviceId}/status
 
 Devuelve el estado en tiempo real del dispositivo por su ID. Solo accesible por el **cuidador principal** del paciente al que está vinculado.
 
@@ -6370,7 +6369,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### GET /api/devices/patient/{patientId}
+GET /api/devices/patient/{patientId}
 
 Devuelve el dispositivo IoT vinculado a un paciente dado su `patientId`. Retorna `404` si el paciente no tiene ningún dispositivo vinculado. Solo accesible por el **cuidador principal** del paciente.
 
@@ -6435,7 +6434,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### Eventos de telemetría MQTT → NotificationCommunication (flujo interno)
+ Eventos de telemetría MQTT → NotificationCommunication (flujo interno)
 
 > No son endpoints REST. Son procesados por los Background Services que escuchan al broker MQTT en los topics `foll/devices/+/heartbeat` y `foll/devices/+/power`. Se documentan porque generan **notificaciones SignalR** (`notification.created`) hacia el frontend para todos los cuidadores del paciente afectado.
 
@@ -6450,7 +6449,7 @@ Cada evento se persiste en la tabla **`outbox_messages`** y es despachado por el
 
 ---
 
-## Bounded Context: NotificationCommunication (Notificaciones)
+Bounded Context: NotificationCommunication (Notificaciones)
 
 Base path: `/api/notifications`
 
@@ -6458,7 +6457,7 @@ Base path: `/api/notifications`
 
 ---
 
-### Esquema de notificación (`NotificationResponse`)
+ Esquema de notificación (`NotificationResponse`)
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -6483,7 +6482,7 @@ Base path: `/api/notifications`
 
 ---
 
-### GET /api/notifications
+GET /api/notifications
 
 Devuelve todas las notificaciones del usuario autenticado, ordenadas implícitamente por creación descendente.
 
@@ -6547,7 +6546,7 @@ HTTP/1.1 200 OK
 
 ---
 
-### GET /api/notifications/{id}
+GET /api/notifications/{id}
 
 Devuelve el detalle completo de una notificación por su ID. Solo accesible si pertenece al usuario autenticado.
 
@@ -6583,7 +6582,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### GET /api/notifications/{id}/delivery-status
+GET /api/notifications/{id}/delivery-status
 
 Devuelve solo el estado de entrega de una notificación (subset del objeto completo). Útil para polling de confirmación de envío push.
 
@@ -6639,7 +6638,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### POST /api/notifications/{id}/read
+POST /api/notifications/{id}/read
 
 Marca una notificación como leída. Idempotente: si ya estaba leída no produce error. Cambia el estado a `"Read"` y registra `readAt`.
 
@@ -6680,7 +6679,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/notifications/{id}/acknowledge
+POST /api/notifications/{id}/acknowledge
 
 Confirma que el usuario atendió una notificación (ej. confirmó que asistió al caído). Idempotente: si ya estaba confirmada no produce error. Cambia el estado a `"Acknowledged"` y registra `acknowledgedAt`. Este estado es el más alto en la jerarquía; no puede revertirse.
 
@@ -6721,7 +6720,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/notifications/push-tokens
+POST /api/notifications/push-tokens
 
 Registra o refresca un token push para el dispositivo del usuario autenticado. Si el token ya existe para ese usuario, lo reactiva y actualiza su plataforma, nombre de dispositivo y `LastUsedAt` (upsert). Si no existe, crea un nuevo registro.
 
@@ -6773,7 +6772,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/notifications/push-tokens
+GET /api/notifications/push-tokens
 
 Lista todos los tokens push registrados por el usuario autenticado (activos e inactivos).
 
@@ -6820,7 +6819,7 @@ HTTP/1.1 200 OK
 
 ---
 
-### DELETE /api/notifications/push-tokens/{id}
+ DELETE /api/notifications/push-tokens/{id}
 
 Desactiva un token push del usuario autenticado. El token queda marcado como inactivo (`IsActive = false`) y no recibirá más notificaciones push. Solo el propietario puede desactivar su propio token.
 
@@ -6861,7 +6860,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### WebSocket Hub — `/hubs/notifications`
+ WebSocket Hub — `/hubs/notifications`
 
 Conexión SignalR que el frontend mantiene abierta para recibir eventos en tiempo real. Requiere JWT como query parameter.
 
@@ -6875,7 +6874,7 @@ Al conectarse, el servidor agrega al cliente al grupo privado `user:{userId}`, g
 
 ---
 
-#### Evento `notification.created`
+ Evento `notification.created`
 
 Emitido cuando el BC NotificationCommunication genera y persiste una nueva notificación para el usuario (batería baja, desconexión, reconexión, caída detectada).
 
@@ -6933,7 +6932,7 @@ Emitido cuando el BC NotificationCommunication genera y persiste una nueva notif
 
 ---
 
-#### Evento `invitation.changed`
+ Evento `invitation.changed`
 
 Emitido cuando se crea, acepta o rechaza una invitación de acceso. El payload se entrega solo al usuario afectado (cuidador principal al crear; solicitante al aceptar/rechazar).
 
@@ -6994,7 +6993,7 @@ Emitido cuando se crea, acepta o rechaza una invitación de acceso. El payload s
 
 ---
 
-## Bounded Context: EmergencyAnalytics (Incidentes de Caída)
+Bounded Context: EmergencyAnalytics (Incidentes de Caída)
 
 Base path: `/api/emergency/incidents`
 
@@ -7004,7 +7003,7 @@ Base path: `/api/emergency/incidents`
 
 ---
 
-### Catálogo de tipos de caída (`FallType`) — datos semilla
+ Catálogo de tipos de caída (`FallType`) — datos semilla
 
 | `fallTypeId` | `name` | `description` | `severityLevel` |
 | :---: | :--- | :--- | :---: |
@@ -7015,7 +7014,7 @@ Base path: `/api/emergency/incidents`
 
 ---
 
-### Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs
+ Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
@@ -7044,7 +7043,7 @@ Base path: `/api/emergency/incidents`
 
 ---
 
-### GET /api/emergency/incidents/active/patient/{patientId}
+GET /api/emergency/incidents/active/patient/{patientId}
 
 Devuelve el incidente de caída activo (`"Open"`) del paciente. Solo puede haber uno abierto por paciente a la vez. Retorna `404` si no hay ninguno activo.
 
@@ -7113,7 +7112,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### GET /api/emergency/incidents/history/patient/{patientId}
+GET /api/emergency/incidents/history/patient/{patientId}
 
 Devuelve el historial completo de incidentes del paciente en todos los estados, de más reciente a más antiguo. Puede devolver array vacío `[]`.
 
@@ -7197,7 +7196,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### GET /api/emergency/incidents/{incidentId}
+GET /api/emergency/incidents/{incidentId}
 
 Devuelve el detalle completo de un incidente por su ID, con el objeto `fallType` enriquecido.
 
@@ -7240,7 +7239,7 @@ HTTP/1.1 404 Not Found
 
 ---
 
-### POST /api/emergency/incidents/{incidentId}/false-positive
+POST /api/emergency/incidents/{incidentId}/false-positive
 
 Marca un incidente **abierto** como falso positivo. Lo cancela con `cancellationReason = "FalsePositive"`, registra al actor y genera el evento `IncidentClosed` en el Outbox.
 
@@ -7296,7 +7295,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### POST /api/emergency/incidents/{incidentId}/resolve
+POST /api/emergency/incidents/{incidentId}/resolve
 
 Resuelve un incidente **abierto**, confirmando que fue real y fue atendido. Cambia el estado a `"Resolved"`, registra `resolvedAt`, `closedAt` y el `closedByUserId`. Genera el evento `IncidentClosed` en el Outbox.
 
@@ -7352,7 +7351,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### PUT /api/emergency/incidents/{incidentId}/observation
+PUT /api/emergency/incidents/{incidentId}/observation
 
 Actualiza la observación final de un incidente ya **cerrado** (`"Cancelled"` o `"Resolved"`). No puede aplicarse a incidentes `"Open"`. El campo `observation` es obligatorio y no puede ser vacío.
 
@@ -7413,7 +7412,7 @@ HTTP/1.1 400 Bad Request
 
 ---
 
-### Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
+ Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
 
 > Los incidentes no se crean desde el frontend; el flujo es 100 % event-driven desde la capa Edge:
 
@@ -7431,6 +7430,7 @@ HTTP/1.1 400 Bad Request
 | `emergency.incident.opened.v1` | Nueva caída detectada por IA | `notification.created` con `notificationType: "FallDetected"` a todos los cuidadores del paciente |
 | `emergency.incident.closed.v1` | Incidente cancelado (dispositivo/manual) o resuelto | Sin nueva notificación push; el frontend reconcilia el estado vía historial o SignalR previo |
 
+
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review.
 
 #### 6.2.2.9. Team Collaboration Insights during Sprint.
@@ -7444,8 +7444,184 @@ La colaboración del equipo se gestionó mediante GitHub para el registro de ava
 ## 6.3. Validation Interviews.
 
 ### 6.3.1. Diseño de Entrevistas.
+En esta sección se establecen los elementos de validación, los flujos de usuario (*user flows*) evaluados y las preguntas para cada segmento objetivo del proyecto. El proceso busca validar de manera ágil tanto la experiencia digital (canales de software) como la aceptación física del hardware IoT.
+
+**Elementos a incluir por Segmento Objetivo**
+
+* **Segmento Cuidadores de Adultos Mayores (Canales Digitales):**
+    * **Landing Page:** Evaluación de la sección de propuesta de valor ("Cómo funciona"), validación social ("Testimonios") e intención de conversión ("Precios").
+    * **Aplicación Web y Móvil:** Validación del Dashboard de monitoreo gráfico, administración del perfil del paciente en "Mis Abuelitos" y la lectura de alertas en el "Historial de Eventos".
+* **Segmento Adultos Mayores / Abuelitos (Componente Físico):**  
+    * **Dispositivo IoT (Hardware Wearable):** Evaluación física, ergonómica y de confianza con el sensor/dispositivo portable encargado de la telemetría y detección automática de caídas.
+
+---
+
+**User Flows de las Aplicaciones a Validar**
+
+Para optimizar las sesiones de validación con el segmento de cuidadores y evitar la fatiga del usuario, el proceso se divide en dos flujos independientes distribuidos entre los entrevistados:
+
+* **User Flow A (Descubrimiento y Conversión - Landing Page):**
+    Navegación inicial en Landing Page, la comprensión de características de como funciona nuestra solución y opinión sobre la paleta de colores.
+* **User Flow B (Gestión y Monitoreo Crítico - Aplicación Web y Móvil):**
+    Visualización del estado actual en el Inicio (Métricas de caídas y falsos positivos), Control de información en la sección "Mis Abuelitos" y opinión sobre el detalle de un evento en el historial de caídas.
+
+---
+
+**Guiones y Cuestionarios de Validación por Segmento**
+
+A continuación, se presentan los cuestionarios con preguntas enumeradas que se aplican durante las entrevistas grabadas.
+
+**Segmento 1: Cuidadores de Adultos Mayores**
+
+*Guion de Preguntas para el Grupo A: Landing Page (Tiempo estimado: 5-7 mins)*  
+*(Se le presenta al entrevistado la Landing Page interactiva que abarca las secciones de "Cómo funciona", "Testimonios" y "Precios")*
+
+1. **Primera impresión:** Al mirar esta página por primera vez, ¿entiendes claramente qué problema resuelve este servicio y para quién está pensado?
+2. **Claridad de propuesta:** En la sección "Cómo funciona", ¿te queda claro cómo el sistema detecta si tu familiar sufrió una caída real? ¿Qué dudas te genera?
+3. **Conversión y Precio:** El servicio ofrece 14 días de prueba gratis y luego cuesta 39.90 soles al mes. ¿Consideras que este precio es adecuado por la tranquilidad de saber que tu familiar está a salvo?
+4. **Decisión y Estética:** ¿Qué opinas de la paleta de colores? ¿Refleja lo que el sistema quiere emitir?
+
+*Guion de Preguntas para el Grupo B: Aplicación Web y Móvil (Tiempo estimado: 7-9 mins)*  
+*(Se sitúa al entrevistado dentro del entorno de la plataforma de software con la sesión ya iniciada)*
+
+1. ¿Qué opinas del gráfico circular en la página de inicio? ¿Refleja claramente la comparación entre caídas reales y falsos positivos?
+2. ¿Consideras que la sección de "Mis abuelitos" registrados muestra todo lo que necesitas saber sobre ellos? ¿Es cómodo de ver?
+3. En la sección "Registro de caídas", ¿consideras que el detalle del evento muestra toda la información que quisieras saber sobre la caída de un abuelito?
+4. ¿Qué opinas de la paleta de colores de la aplicación? ¿Refleja lo que el sistema quiere emitir?
+
+---
+**Segmento 2: Adultos Mayores / Abuelitos**
+
+*Preguntas de Validación para Adultos Mayores (Dispositivo IoT / Hardware)*  
+*(Se interactúa con el adulto mayor mostrándole el prototipo físico o modelo tridimensional del wearable: imagen presentada en la sección iot device design)*
+
+1. Al ver o tocar este dispositivo, ¿le parece que es ligero y cómodo para llevarlo puesto todo el día en casa?
+2. ¿Siente que el dispositivo le estorbaría o le incomodaría al momento de realizar sus actividades diarias, como dormir, cocinar o cambiarse de ropa?
+3. Si usted se llega a caer, el aparato avisará de forma automática al celular de su familiar sin que usted tenga que presionar ningún botón. ¿Le da tranquilidad saber que recibirá ayuda rápida de esta manera?
+4. El dispositivo necesita cargarse en su base cada ciertos días (como un celular). ¿Se le haría fácil recordar ponerlo a cargar usted mismo o preferiría que su cuidador se encargue de eso?
+5. ¿Qué opina del tamaño y diseño del aparato? ¿Le gusta cómo se ve o preferiría que sea más pequeño para que pueda ocultarse fácilmente bajo la ropa?
+6. ¿Tiene algún temor de que el dispositivo "lo esté vigilando todo el tiempo.
 
 ### 6.3.2. Registro de Entrevistas.
+
+En esta sección se detalla el registro consolidado de las actividades de entrevistas de validación llevadas a cabo durante el proyecto. Las sesiones se dividieron estratégicamente según los segmentos objetivo para validar de manera óptima los canales digitales con los cuidadores y las especificaciones ergonómicas/operativas del hardware con los representantes o adultos mayores directos. Todas las entrevistas fueron registradas en video mediante Microsoft Stream/Clipchamp como evidencia obligatoria de la interacción real con la solución propuesto.
+
+---
+
+**Segmento 1: Cuidadores de Adultos Mayores (Canales Digitales)**
+
+*Entrevista 1: Validación de Landing Page*  
+* **Nombres y Apellidos:** Andres Fabian Levano Mejia
+* **Edad:** 21
+* **Distrito:** Surco
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 0:00 - 5:17
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 1](img/validation-interviews/validation-andres.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+Andres opina que la landing page muestra la información correctamente de como funciona nuestra solución Foll, resalta que la paleta de colores si logra emitir la tranquilidad que quiere reflejar Foll y también opina que le gustaría que la prueba gratuita dure 15 días en vez de 14, pero opina que el precio mensual esta muy bien si es para tener la tranquilidad de que su familiar este bien.
+
+---
+
+*Entrevista 2: Validación de Aplicacion Web*
+* **Nombres y Apellidos:** Irvin Vergara Aylas
+* **Edad:** 24
+* **Distrito:** San Juan de Lurigancho
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 5:17 - 8:38
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 2](img/validation-interviews/validation-irvin.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+Irvin opina que la aplicación web si refleja bien la comparación de falsos positivos y caídas reales, también menciona que no entiende bien que son las solicitudes de acceso. Además, menciona que toda la información que mira en el detalle de una caída en el historial de caídas es la que justo necesita saber
+
+---
+
+*Entrevista 3: Validación de Aplicación Web y Landing Page*
+* **Nombres y Apellidos:** Daniel Crispin Ramos
+* **Edad:** 21
+* **Distrito:** La Molina
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Cuidador de Adulto Mayor
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 8:38 - 13:40
+
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 3](img/validation-interviews/validation-daniel.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+
+ Daniel menciona que la landing page si refleja bien la problemática que foll trata de solucionar, destaca que le gusta el orden de la información de la explicación de como funciona foll, menciona que los colores le reflejan tranquilidad.
+
+ En la aplicación web, Daniel menciona que le gustaría un color mas llamativo en el grafico circular para las caídas reales, considera que la información necesaria en un evento de caída es la que necesita saber y finalmente menciona que la navegación de la aplicación es muy fácil e intuitiva.
+
+---
+
+**Segmento 2: Adultos Mayores (Dispositivo IoT / Componente Hardware)**
+
+> **Nota Metodológica de Privacidad y Accesibilidad:** Por consideraciones estrictas de privacidad, salud y comodidad del adulto mayor, la validación del hardware wearable de este segmento se realizó mediante entrevistas a sus familiares directos (nietos/cuidadores). Se enviaron previamente las preguntas y la demostración visual(prototipo físico y la imagen presentada en la sección iot device design) del dispositivo al familiar, quien recolectó de forma presencial los comentarios directos de sus abuelitos y actuó como su vocero oficial durante la sesión grabada de validación de requerimientos físicos.
+
+*Entrevista 4: Validación de Hardware IoT con Representante de "Don Ricardo"*
+* **Nombre del Adulto Mayor Validante:** Rafael
+* **Edad:** 72 años
+* **Nombre del Familiar/Vocero:**  Ricardo
+* **Distrito de Residencia:** Independencia
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:**  13:40 - 17:32
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 4](img/validation-interviews/validation-ricardo.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  El entrevistado manifestó que el dispositivo le pareció bastante ligero y cómodo para llevarlo puesto de manera continua en la sala debido a su fabricación en plástico. Respecto a las actividades diarias, aclaró que no le estorbaría para cocinar o caminar, pero admitió sentir temor de aplastarlo o experimentar inflamación en la zona donde lo use por las noches, sugiriendo quitárselo únicamente para dormir. La función de alerta automática hacia el celular de su familiar le generó un alivio y tranquilidad inmensos, destacando que es la característica más valiosa cuando el teléfono queda lejos. Admitió tener problemas de memoria para los ciclos de carga del aparato, por lo que prefiere delegar el mantenimiento energético por completo a su cuidador. Finalmente, consideró adecuado el tamaño para evitar pérdidas, aunque solicitó un diseño delgado que permita ocultarlo debajo de la camisa para evitar preguntas incómodas de visitas en el exterior.
+
+---
+
+*Entrevista 5: Validación de Hardware IoT con Representante de "Doña Elena"*
+* **Nombre del Adulto Mayor Validante:** Doña Elena
+* **Edad:** 78 años
+* **Nombre del Familiar/Vocero:** Henry Kalet
+* **Distrito de Residencia:** Ate
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **Timing de Inicio y Finalización:** 17:32 - 20:32
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 5](img/validation-interviews/validation-kalet.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  A través de su nieto, la usuaria indicó que el prototipo tiene un diseño estético atractivo y que su ligereza evitaría la fatiga en la cadera o zona de sujeción; no obstante, recalcó la importancia de verificar que el material de la correa no sea rugoso para evitar raspaduras o sudoración. Advirtió que al cambiarse de ropa el dispositivo podría engancharse si sus dimensiones son excesivas, y externó su preocupación sobre la interacción con el agua al cocinar o lavar platos; tras confirmarse su resistencia a salpicaduras, aprobó su viabilidad en la rutina. Manifestó un alto nivel de tranquilidad respecto a las caídas accidentales en áreas de alto riesgo como el baño o las escaleras, valorando que la automatización le evita tener que arrastrarse para buscar ayuda. Al ser una persona muy ordenada, afirmó que podría incorporarlo con autonomía a su rutina nocturna de carga al lado de sus lentes para no sobrecargar de tareas a su cuidador. Concluyó que el diseño actual es discreto y asimilable a un accesorio común, sugiriendo un perfil más plano y delgado para evitar abultamientos bajo casacas gruesas.
+
+---
+
+*Entrevista 6: Validación de Hardware IoT con Representante de "Don Carlos"*
+* **Nombre del Adulto Mayor Validante:** Don Carlos
+* **Edad:** 81 años
+* **Nombre del Familiar/Vocero:** Didier Meza
+* **Distrito de Residencia:** Villa María
+* **Fecha de la Entrevista:** 20/06/2026
+* **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
+* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D 
+* **Timing de Inicio y Finalización:** 20:32 - 24:10
+* **Evidencia (Screenshot del Video):**
+
+  ![Screenshot Entrevista 6](img/validation-interviews/validation-didier.png)
+
+* **Resumen Descriptivo de Apreciaciones:**
+  El usuario final calificó el hardware como sumamente ligero y ergonómico, expresando asombro por cómo una tecnología de bajo peso puede aportar tanto valor de protección en emergencias. Declaró que al pasar la mayor parte del tiempo leyendo o viendo televisión, el aparato no interferirá con su rutina, identificando el baño y el proceso de vestimenta como los únicos momentos donde se requeriría cuidado especial para evitar impactos fortuitos. Catalogó el envío automatizado de telemetría e internet ante pérdidas de conocimiento como una "maravilla moderna" que robustece la seguridad familiar. En el aspecto operativo, indicó que se confunde con los cables e indicadores luminosos de carga, manifestando que prefiere de manera tajante que sus hijos o cuidadores gestionen el ciclo de batería del dispositivo wearable. Finalmente, validó el tamaño actual del hardware como excelente, justificando que debido a la pérdida de precisión motriz en sus manos un diseño microscópico propiciaría caídas del aparato; no obstante, recomendó que se ofrezcan variantes en colores oscuros (negro o gris) para facilitar su mimetización con su vestimenta diaria.
 
 ### 6.3.3. Evaluaciones según heurísticas.
 
