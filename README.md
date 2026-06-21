@@ -384,57 +384,6 @@
       - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
       - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
       - [6.2.2.7. Services Documentation Evidence for Sprint Review.](#6227-services-documentation-evidence-for-sprint-review)
-  - [Bounded Context: IAM (Identity \& Access Management)](#bounded-context-iam-identity--access-management)
-    - [POST /api/iam/auth/register](#post-apiiamauthregister)
-    - [POST /api/iam/auth/login](#post-apiiamauthlogin)
-  - [Bounded Context: Care (Gestión de Pacientes)](#bounded-context-care-gestión-de-pacientes)
-    - [POST /api/care/patients](#post-apicarepatients)
-    - [GET /api/care/patients/{id}](#get-apicarepatientsid)
-    - [PUT /api/care/patients/{id}](#put-apicarepatientsid)
-    - [GET /api/care/patients/by-caregiver/{caregiverUserId}](#get-apicarepatientsby-caregivercaregiveruserid)
-    - [PUT /api/care/patients/{id}/guard-shift](#put-apicarepatientsidguard-shift)
-    - [POST /api/care/patients/{id}/guard-shift/restore](#post-apicarepatientsidguard-shiftrestore)
-    - [POST /api/care/patients/{id}/emergency-contacts](#post-apicarepatientsidemergency-contacts)
-    - [DELETE /api/care/patients/{id}/emergency-contacts/{contactId}](#delete-apicarepatientsidemergency-contactscontactid)
-    - [POST /api/care/patients/{id}/annotations](#post-apicarepatientsidannotations)
-    - [GET /api/care/patients/{id}/annotations](#get-apicarepatientsidannotations)
-    - [GET /api/care/patients/{id}/caregivers](#get-apicarepatientsidcaregivers)
-    - [POST /api/care/patients/{dni}/invitations](#post-apicarepatientsdniinvitations)
-    - [GET /api/care/invitations/received](#get-apicareinvitationsreceived)
-    - [GET /api/care/invitations/sent](#get-apicareinvitationssent)
-    - [POST /api/care/invitations/{invitationId}/accept](#post-apicareinvitationsinvitationidaccept)
-    - [POST /api/care/invitations/{invitationId}/reject](#post-apicareinvitationsinvitationidreject)
-    - [GET /api/care/relationship-types](#get-apicarerelationship-types)
-  - [Bounded Context: DeviceManagment (Gestión de Dispositivos IoT)](#bounded-context-devicemanagment-gestión-de-dispositivos-iot)
-    - [Esquema de respuesta de dispositivo (reutilizado en todos los GETs)](#esquema-de-respuesta-de-dispositivo-reutilizado-en-todos-los-gets)
-    - [POST /api/devices/{deviceId}/link](#post-apidevicesdeviceidlink)
-    - [DELETE /api/devices/{deviceId}/link](#delete-apidevicesdeviceidlink)
-    - [GET /api/devices/{deviceId}/status](#get-apidevicesdeviceidstatus)
-    - [GET /api/devices/patient/{patientId}](#get-apidevicespatientpatientid)
-    - [Eventos de telemetría MQTT → NotificationCommunication (flujo interno)](#eventos-de-telemetría-mqtt--notificationcommunication-flujo-interno)
-  - [Bounded Context: NotificationCommunication (Notificaciones)](#bounded-context-notificationcommunication-notificaciones)
-    - [Esquema de notificación (`NotificationResponse`)](#esquema-de-notificación-notificationresponse)
-    - [GET /api/notifications](#get-apinotifications)
-    - [GET /api/notifications/{id}](#get-apinotificationsid)
-    - [GET /api/notifications/{id}/delivery-status](#get-apinotificationsiddelivery-status)
-    - [POST /api/notifications/{id}/read](#post-apinotificationsidread)
-    - [POST /api/notifications/{id}/acknowledge](#post-apinotificationsidacknowledge)
-    - [POST /api/notifications/push-tokens](#post-apinotificationspush-tokens)
-    - [GET /api/notifications/push-tokens](#get-apinotificationspush-tokens)
-    - [DELETE /api/notifications/push-tokens/{id}](#delete-apinotificationspush-tokensid)
-    - [WebSocket Hub — `/hubs/notifications`](#websocket-hub--hubsnotifications)
-      - [Evento `notification.created`](#evento-notificationcreated)
-      - [Evento `invitation.changed`](#evento-invitationchanged)
-  - [Bounded Context: EmergencyAnalytics (Incidentes de Caída)](#bounded-context-emergencyanalytics-incidentes-de-caída)
-    - [Catálogo de tipos de caída (`FallType`) — datos semilla](#catálogo-de-tipos-de-caída-falltype--datos-semilla)
-    - [Esquema de incidente (`EmergencyIncident`) — reutilizado en todos los GETs](#esquema-de-incidente-emergencyincident--reutilizado-en-todos-los-gets)
-    - [GET /api/emergency/incidents/active/patient/{patientId}](#get-apiemergencyincidentsactivepatientpatientid)
-    - [GET /api/emergency/incidents/history/patient/{patientId}](#get-apiemergencyincidentshistorypatientpatientid)
-    - [GET /api/emergency/incidents/{incidentId}](#get-apiemergencyincidentsincidentid)
-    - [POST /api/emergency/incidents/{incidentId}/false-positive](#post-apiemergencyincidentsincidentidfalse-positive)
-    - [POST /api/emergency/incidents/{incidentId}/resolve](#post-apiemergencyincidentsincidentidresolve)
-    - [PUT /api/emergency/incidents/{incidentId}/observation](#put-apiemergencyincidentsincidentidobservation)
-    - [Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)](#flujo-mqtt--emergencyanalytics--notificationcommunication-interno)
       - [6.2.2.8. Software Deployment Evidence for Sprint Review.](#6228-software-deployment-evidence-for-sprint-review)
       - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews.](#63-validation-interviews)
@@ -4858,7 +4807,7 @@ El backend del Sprint 2 fue documentado mediante Swagger/OpenAPI en el servicio 
 
 Commits relacionados con la documentación en este Sprint: 7a8b9c1, 2d3e4f5, 9f8e7d6, 4c5b6a7, 1e2f3d4.
 
-<img width="1866" height="905" alt="image" src="https://github.com/user-attachments/assets/e0f26de2-cab1-4ba7-91f9-6185af044c51" />
+<img width="1866" alt="image" src="https://github.com/user-attachments/assets/e0f26de2-cab1-4ba7-91f9-6185af044c51" />
 
 Bounded Context: IAM (Identity & Access Management)
 
@@ -7437,9 +7386,9 @@ HTTP/1.1 400 Bad Request
 
 La colaboración del equipo se gestionó mediante GitHub para el registro de avances. Esto permitió paralelizar eficazmente el trabajo, logrando completar las historias de usuario planificadas sin bloqueos. El desarrollo se centró en consumir las APIs creadas en el Sprint 1 , construir las interfaces nativas para Android con Jetpack Compose y habilitar la recepción de información en tiempo real mediante WebSockets. Durante todo el ciclo, se respetó rigurosamente la coherencia arquitectónica basada en Domain-Driven Design (DDD) , asegurando que los módulos de IAM, Device Management, Emergency & Analytics, y Notification & Communication conserven sus límites establecidos y garantizando una separación clara entre la interfaz visual y la lógica del hardware.
 
-<img src="img/Insights/av2_1.png" width="600"/>
+<img src="./img/Insights/av2_1.png" width="600"/>
 
-<img src="img/Insights/av2_2.png" width="600"/>
+<img src="./img/Insights/av2_2.png" width="600"/>
 
 ## 6.3. Validation Interviews.
 
@@ -7783,25 +7732,28 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 
 # Anexos
 
-- Link de la organización: https://github.com/Nanotech6766
-- Link del informe: https://github.com/Nanotech6766/Project-Report
-- Link de event storming: https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369
-- Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
+- Link de la organización: [https://github.com/Nanotech6766](https://github.com/Nanotech6766)
+- Link del informe: [https://github.com/Nanotech6766/Project-Report](https://github.com/Nanotech6766/Project-Report)
+- Link de event storming: [https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369](https://miro.com/app/board/uXjVHfOJLLk=/?share_link_id=62528786369)
+- Link del product backlog: [https://trello.com/b/0wcO99Dl/foll-product-backlog](https://trello.com/b/0wcO99Dl/foll-product-backlog)
 - [Link de las entrevistas segmento 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
 
 - Link de la Landing Page
-   https://landing-page-foll.vercel.app/
+   [https://landing-page-foll.vercel.app/](https://landing-page-foll.vercel.app/)
+   
 - Link de la Aplicación Web
-  https://agreeable-dune-02d763510.7.azurestaticapps.net/
+  [https://agreeable-dune-02d763510.7.azurestaticapps.net/](https://agreeable-dune-02d763510.7.azurestaticapps.net/)
+
 - Link del Swagger
-  https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html
+  [https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html](https://foll-backend-c3efamfqdebdehgt.canadacentral-01.azurewebsites.net/swagger/index.html)
 
 - Link del Figma
-  https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1
+  [https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1](https://www.figma.com/design/iLcpRm2frGq6wF9RlDoQA6/Foll?node-id=0-1&t=dgDSwUcIuXjOl38T-1)
 
 - Link del Prototipo en Wokwi
-  https://wokwi.com/projects/463973317008005121
+  [https://wokwi.com/projects/463973317008005121](https://wokwi.com/projects/463973317008005121)
+
 - Link del Video about the product
-  https://youtu.be/I7AkZu0FCTM
-  https://acortar.link/B6y3uh
+  [https://youtu.be/I7AkZu0FCTM](https://youtu.be/I7AkZu0FCTM) <br>
+  [https://acortar.link/B6y3uh](https://acortar.link/B6y3uh)
