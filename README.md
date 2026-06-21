@@ -238,9 +238,11 @@
 <img src="img/Insights/tb1-2.png" width="700"/>
 
 **AV2:**
-<img src="img/Insights/av2-1.png" width="750"/>
-<img src="img/Insights/av2-2.png" width="750"/>
-<img src="img/Insights/av2-3.png" width="750"/>
+<img src="./img/Insights/av2_1.png" width="600"/>
+
+<img src="./img/Insights/av2_2.png" width="600"/>
+
+<img src="./img/Insights/av2_3.png" width="600"/>
 
  <div style="page-break-after: always;"></div>
 
