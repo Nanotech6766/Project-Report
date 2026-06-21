@@ -4775,7 +4775,7 @@ En esta sección se detalla el registro consolidado de las actividades de entrev
 * **Distrito:** Surco
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **URL del Video (Stream/Clipchamp):** [Link de la entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Timing de Inicio y Finalización:** 0:00 - 5:17
 * **Evidencia (Screenshot del Video):**
 
@@ -4793,7 +4793,7 @@ Andres opina que la landing page muestra la información correctamente de como f
 * **Distrito:** San Juan de Lurigancho
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **URL del Video (Stream/Clipchamp):** [Link de las entrevista 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Timing de Inicio y Finalización:** 5:17 - 8:38
 * **Evidencia (Screenshot del Video):**
 
@@ -4811,7 +4811,7 @@ Irvin opina que la aplicación web si refleja bien la comparación de falsos pos
 * **Distrito:** La Molina
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Cuidador de Adulto Mayor
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **URL del Video (Stream/Clipchamp):** [Link de las entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Timing de Inicio y Finalización:** 8:38 - 13:40
 
 * **Evidencia (Screenshot del Video):**
@@ -4837,7 +4837,7 @@ Irvin opina que la aplicación web si refleja bien la comparación de falsos pos
 * **Distrito de Residencia:** Independencia
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Timing de Inicio y Finalización:**  13:40 - 17:32
 * **Evidencia (Screenshot del Video):**
 
@@ -4855,7 +4855,7 @@ Irvin opina que la aplicación web si refleja bien la comparación de falsos pos
 * **Distrito de Residencia:** Ate
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D  
+* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Timing de Inicio y Finalización:** 17:32 - 20:32
 * **Evidencia (Screenshot del Video):**
 
@@ -4873,8 +4873,7 @@ Irvin opina que la aplicación web si refleja bien la comparación de falsos pos
 * **Distrito de Residencia:** Villa María
 * **Fecha de la Entrevista:** 20/06/2026
 * **Segmento Objetivo:** Adulto Mayor (Representante de Usuario Final de Hardware IoT)
-* **URL del Video (Stream/Clipchamp):** https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=kJVGkq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D 
-* **Timing de Inicio y Finalización:** 20:32 - 24:10
+* **URL del Video (Stream/Clipchamp):** [Link de las entrevistas segmento 6](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Evidencia (Screenshot del Video):**
 
   ![Screenshot Entrevista 6](img/validation-interviews/validation-didier.png)
@@ -4924,6 +4923,8 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
 - Link del product backlog: https://trello.com/b/0wcO99Dl/foll-product-backlog
 - [Link de las entrevistas segmento 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQCxJcHRe5V5R5pyQP0Q4l6cAXdU6jpPalqP63w-N8kiN9o?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=T5Cjbn)
 - [Link de las entrevistas segmento 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202315044_upc_edu_pe/IQC5upcUmFlkR4SKz8NWKpaoAbT-efi8SR0IvHU82kzFRiI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dOgBBV)
+
+- [Link de las entrevistas de validación del sprint 2]((https://upcedupe-my.sharepoint.com/:v:/g/personal/u20231a778_upc_edu_pe/IQD0sAtvys-VSKlVNtVNCeIZAYkBv8-hoSWv-tph4BTwsAI?e=7IgUwj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D))
 
 - Link de la Landing Page
   https://foll-project.github.io/landing-page-foll/
