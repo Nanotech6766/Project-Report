@@ -7860,6 +7860,102 @@ Flujo MQTT → EmergencyAnalytics → NotificationCommunication (interno)
 
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review.
 
+En esta sección se resume el proceso de **Deployment** realizado durante el Sprint 2. El foco de la iteración en infraestructura fue conectar la **capa Edge** (simulador/dispositivos IoT) con el **backend desplegado** mediante un **broker MQTT en Azure**, reemplazando la comunicación local del Sprint 1.
+
+Durante este sprint se ejecutaron las siguientes actividades de despliegue:
+
+- Creación del proyecto **`foll-mqtt-broker`** con imagen Docker basada en Eclipse Mosquitto.
+- Configuración de seguridad del broker (autenticación por usuario/contraseña).
+- Publicación de la imagen en **Azure Container Registry** (`follregistry2.azurecr.io`).
+- Despliegue del broker como **Azure Container Instance** en `rg-foll-prod` (Brazil South).
+- Configuración del **App Service `foll-backend-iot`** para suscribirse al broker MQTT en la nube.
+- Validación end-to-end: backend conectado al broker y capa Edge publicando heartbeats.
+
+**Recursos desplegados en Azure (Sprint 2)**
+
+| Recurso | Nombre | Propósito |
+| ------- | ------ | --------- |
+| Azure Container Registry | `follregistry2` | Almacenar imagen `foll-mqtt-broker:latest` |
+| Azure Container Instance | `foll-mqtt-broker` | Broker MQTT público en puerto 1883 |
+| Azure App Service | `foll-backend-iot` | Backend .NET con suscriptores MQTT configurados |
+| Capa Edge (local) | `foll-hardware-simulator` | Publica telemetría y eventos al broker Azure |
+
+**FQDN del broker:** `foll-mqtt.f7evgkdsd9cvbgbj.brazilsouth.azurecontainer.io`
+
+<br>
+
+**Paso 1 — Dockerfile del broker MQTT**
+
+Se creó el `Dockerfile` en `foll-mqtt-broker` usando la imagen base `eclipse-mosquitto:2.1.2-alpine`, copiando `mosquitto.conf` y el archivo `passwd` con credenciales, y exponiendo el puerto **1883**.
+
+![Creación del Dockerfile para foll-mqtt-broker](img/deploy/sprint2/1-create-dockerfile-foll-mqtt-broker.png)
+
+**Paso 2 — Configuración de Mosquitto**
+
+Se definió `mosquitto.conf` con listener en puerto 1883, autenticación obligatoria (`allow_anonymous false`), archivo de contraseñas, persistencia de datos y logs hacia stdout para monitoreo en contenedor.
+
+![Configuración mosquitto.conf](img/deploy/sprint2/2-create-mosquitto-conf-foll-mqtt-broker.png)
+
+**Paso 3 — Script de generación de credenciales**
+
+Se implementó `create-passwd.ps1` para crear el archivo `passwd` mediante `mosquitto_passwd` en un contenedor Docker temporal, definiendo el usuario `foll_mqtt` y su contraseña de forma segura.
+
+![Script create-passwd.ps1](img/deploy/sprint2/3-create-command-to-create-password-ps1.png)
+
+**Paso 4 — Autenticación en Azure CLI**
+
+Se inició sesión en Azure con `az login` para habilitar el push de imágenes al Container Registry y la creación de recursos en la suscripción **Azure for Students**.
+
+![Login en Azure CLI](img/deploy/sprint2/4-login-azure.png)
+
+**Paso 5 — Script de despliegue automatizado**
+
+Se creó `deploy.ps1` para automatizar el build de la imagen Docker, login en ACR (`follregistry2`) y push de `follregistry2.azurecr.io/foll-mqtt-broker:latest`.
+
+![Script deploy.ps1](img/deploy/sprint2/5-deploy-ps1.png)
+
+**Paso 6 — Ejecución del despliegue al registry**
+
+Se ejecutó `.\deploy.ps1` con éxito: build en 0.7s, login ACR exitoso y push de la imagen al registry con digest SHA256 confirmado.
+
+![Ejecución de deploy.ps1](img/deploy/sprint2/6-execute-deploy-ps1.png)
+
+**Paso 7 — Creación de Azure Container Instance**
+
+En Azure Portal se configuró la Container Instance `foll-mqtt-broker` en `rg-foll-prod` (Brazil South), usando imagen desde ACR (`follregistry2/foll-mqtt-broker:latest`), SO Linux y tamaño Standard (1 vCPU, 1.5 GiB).
+
+![Creación de Container Instance](img/deploy/sprint2/7-create-container-instance.png)
+
+**Paso 8 — Broker MQTT en ejecución**
+
+La instancia quedó en estado **Running** con IP pública `20.201.71.161` y FQDN `foll-mqtt.f7evgkdsd9cvbgbj.brazilsouth.azurecontainer.io`, confirmando disponibilidad del broker en la nube.
+
+![Container Instance creada y en ejecución](img/deploy/sprint2/8-containier-instance-createed.png)
+
+**Paso 9 — Variables de entorno en el backend**
+
+Se configuraron en `foll-backend-iot` las App Settings MQTT (`Mqtt__Host`, `Mqtt__Port`, `Mqtt__Username`, `Mqtt__Password`, `Mqtt__UseTls`) y las equivalentes de `EmergencyAnalyticsMqtt__*`, apuntando al FQDN del broker desplegado.
+
+![Variables de entorno en App Service](img/deploy/sprint2/9-add-enviroment-variables-to-backend-app-service.png)
+
+**Paso 10 — Verificación: backend conectado al broker**
+
+En Log stream del App Service se confirmó la conexión exitosa: `MQTT subscriber conectado` y `Emergency MQTT conectado` al FQDN del broker, con suscripción a tópicos `foll/devices/+/heartbeat`, `foll/devices/+/fall-detected` y relacionados.
+
+![Backend conectado al broker MQTT](img/deploy/sprint2/10-check-backend-connect-mqtt-broker.png)
+
+**Paso 11 — Verificación: capa Edge conectada al broker**
+
+El simulador `foll-hardware-simulator` se configuró con el FQDN Azure y publicó heartbeats automáticos de dispositivos 1001/1002 a `foll/devices/{id}/heartbeat`, cerrando el flujo Edge → MQTT Azure → Backend.
+
+![Capa Edge conectada al broker MQTT](img/deploy/sprint2/11-check-edge-layer-connect-mqtt-broker.png)
+
+<br>
+
+**Resultado del despliegue Sprint 2**
+
+El pipeline Edge → MQTT (Azure) → Backend quedó operativo. Los dispositivos simulados publican telemetría al broker en la nube, el backend la consume mediante sus suscriptores MQTT y las aplicaciones Web/Mobile reciben actualizaciones en tiempo real vía SignalR sobre la misma instancia desplegada.
+
 #### 6.2.2.9. Team Collaboration Insights during Sprint.
 
 La colaboración del equipo se gestionó mediante GitHub para el registro de avances. Esto permitió paralelizar eficazmente el trabajo, logrando completar las historias de usuario planificadas sin bloqueos. El desarrollo se centró en consumir las APIs creadas en el Sprint 1 , construir las interfaces nativas para Android con Jetpack Compose y habilitar la recepción de información en tiempo real mediante WebSockets. Durante todo el ciclo, se respetó rigurosamente la coherencia arquitectónica basada en Domain-Driven Design (DDD) , asegurando que los módulos de IAM, Device Management, Emergency & Analytics, y Notification & Communication conserven sus límites establecidos y garantizando una separación clara entre la interfaz visual y la lógica del hardware.
