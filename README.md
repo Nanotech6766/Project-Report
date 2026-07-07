@@ -352,7 +352,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -4325,20 +4325,246 @@ El objetivo principal del Sprint 1 fue consolidar la base técnica del sistema F
 
 Board URL: https://trello.com/b/0wcO99Dl/foll-product-backlog
 
-| Sprint # | User Story | Work-Item / Task Id | Title                         | Description                                                                        | Estimation (Hours) | Assigned To        | Status (To-do / InProcess / ToReview / Done) |
-| -------- | ---------- | ------------------- | ----------------------------- | ---------------------------------------------------------------------------------- | ------------------ | ------------------ | -------------------------------------------- |
-| Sprint 1 | US01       | T01                 | Landing value proposition     | Diseñar y publicar sección de propuesta de valor en la landing page                | 6                  | Ariana Agreda      | Done                                         |
-| Sprint 1 | US02       | T02                 | Landing pricing plans         | Implementar sección de planes y precios en landing page                            | 5                  | Fabiola Saldaña    | Done                                         |
-| Sprint 1 | US03       | T03                 | Landing testimonials          | Integrar sección de testimonios en landing page                                    | 5                  | Claudia Belledonne | Done                                         |
-| Sprint 1 | US04       | T04                 | Contact form                  | Desarrollar formulario de contacto comercial en landing page                       | 5                  | Diego Vilca        | Done                                         |
-| Sprint 1 | US05       | T05                 | User registration API         | Implementar endpoint de registro de cuidadores en backend                          | 8                  | Mauricio Elera     | Done                                         |
-| Sprint 1 | US06       | T06                 | Patient profile API           | Implementar endpoint de creación y edición de perfil de paciente                   | 8                  | Mauricio Elera     | Done                                         |
-| Sprint 1 | US10       | T07                 | Device linking endpoint       | Implementar endpoint de vinculación de cinturón                                    | 7                  | Diego Vilca        | Done                                         |
-| Sprint 1 | TS01       | T08                 | IoT prototype Wokwi           | Desarrollar prototipo ESP32 con GPS virtual y captura de telemetría                | 10                 | Mauricio Elera     | Done                                         |
-| Sprint 1 | TS02       | T09                 | Edge detection service        | Definir y documentar endpoint de detección en backend                              | 8                  | Mauricio Elera     | Done                                         |
-| Sprint 1 | TS03       | T10                 | Incident persistence endpoint | Exponer endpoint para guardar incidentes confirmados                               | 7                  | Mauricio Elera     | Done                                         |
-| Sprint 1 | TS04       | T11                 | Battery monitoring plan       | Especificar flujo de monitoreo de batería en backend                               | 3                  | Claudia Belledonne | Done                                         |
-| Sprint 1 | TS05       | T12                 | Edge server MQTT              | Implementar servidor Edge con MQTT broker y FastAPI para recepción de mensajes IoT | 8                  | Mauricio Elera     | Done                                         |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left;">Sprint #</th>
+      <th colspan="7" style="text-align: left;">Sprint 1</th>
+    </tr>
+    <tr>
+      <th colspan="2" style="text-align: center;">User Story / Tech Story</th>
+      <th colspan="5" style="text-align: center;">Work-Item/Task</th>
+      <th rowspan="2" style="text-align: center; vertical-align: middle;">Status<br>(To-do/ In-Process/ To-Review/ Done)</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Description</th>
+      <th style="text-align: center;">Estimation (Hours)</th>
+      <th style="text-align: center;">Assigned To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US01</td>
+      <td rowspan="2" style="vertical-align: middle;">Landing value proposition</td>
+      <td style="text-align: center;">T01</td>
+      <td>Implementación de componente Hero.tsx</td>
+      <td>Diseñar y publicar el componente principal de bienvenida en src/components/Hero/Hero.tsx para la propuesta de valor.</td>
+      <td style="text-align: center;">3</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T02</td>
+      <td>Desarrollo de Features y HowItWorks</td>
+      <td>Implementar Features.tsx y HowItWorks.tsx para exponer los beneficios clave y el funcionamiento del sistema IoT.</td>
+      <td style="text-align: center;">3</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US02</td>
+      <td rowspan="2" style="vertical-align: middle;">Landing pricing plans</td>
+      <td style="text-align: center;">T03</td>
+      <td>Maquetación de la sección de planes</td>
+      <td>Diseñar e integrar la estructura visual de las tarjetas de precios dentro de CallToAction.tsx.</td>
+      <td style="text-align: center;">3</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T04</td>
+      <td>Configuración de botones de suscripción</td>
+      <td>Implementar los botones de acción para la prueba gratuita y redirección comercial en la sección pricing.</td>
+      <td style="text-align: center;">2</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US03</td>
+      <td rowspan="2" style="vertical-align: middle;">Landing testimonials</td>
+      <td style="text-align: center;">T05</td>
+      <td>Creación de estructura de Testimonials.tsx</td>
+      <td>Implementar el layout en src/components/Testimonials/Testimonials.tsx para organizar las reseñas.</td>
+      <td style="text-align: center;">3</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T06</td>
+      <td>Inyección de datos estáticos de testimonios</td>
+      <td>Cargar y dar formato a las reseñas e historias validadas de los usuarios dentro del componente.</td>
+      <td style="text-align: center;">2</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US04</td>
+      <td rowspan="2" style="vertical-align: middle;">Contact form</td>
+      <td style="text-align: center;">T07</td>
+      <td>Estructura de Footer.tsx corporativo</td>
+      <td>Construir la base visual del pie de página de la landing page para el ordenamiento de enlaces.</td>
+      <td style="text-align: center;">3</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T08</td>
+      <td>Integración de canales de soporte y contacto</td>
+      <td>Vincular enlaces directos a las páginas de Contacto y Centro de Ayuda para captación comercial.</td>
+      <td style="text-align: center;">2</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US05</td>
+      <td rowspan="2" style="vertical-align: middle;">User registration API</td>
+      <td style="text-align: center;">T09</td>
+      <td>Endpoint POST /api/iam/auth/register</td>
+      <td>Desarrollar el método de registro de cuidadores en el controlador AuthenticationController.cs.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T10</td>
+      <td>Implementación de IUserCommandService</td>
+      <td>Programar la lógica de negocio subyacente del módulo IAM para procesar y almacenar credenciales.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US06</td>
+      <td rowspan="2" style="vertical-align: middle;">Patient profile API</td>
+      <td style="text-align: center;">T11</td>
+      <td>Controlador REST PatientsController.cs</td>
+      <td>Crear el controlador base en el módulo Care configurando las rutas HTTP de administración.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T12</td>
+      <td>Mapeo de DTOs y persistencia de perfiles</td>
+      <td>Desarrollar los recursos de guardado y edición de la información demográfica del adulto mayor.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US10</td>
+      <td rowspan="2" style="vertical-align: middle;">Device linking endpoint</td>
+      <td style="text-align: center;">T13</td>
+      <td>Endpoint POST en DevicesController.cs</td>
+      <td>Implementar el método Link en el controlador del módulo DeviceManagement para peticiones HTTP.</td>
+      <td style="text-align: center;">4</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T14</td>
+      <td>Lógica de comando LinkDeviceCommand</td>
+      <td>Desarrollar el caso de uso que asocia el identificador de hardware único con la ID del paciente.</td>
+      <td style="text-align: center;">3</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">TS01</td>
+      <td rowspan="2" style="vertical-align: middle;">IoT prototype Wokwi</td>
+      <td style="text-align: center;">T15</td>
+      <td>Procesamiento de estado global local</td>
+      <td>Escribir funciones en main.py (Edge Layer) para mantener y actualizar las variables dinámicas del dispositivo.</td>
+      <td style="text-align: center;">5</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T16</td>
+      <td>Simulación de telemetría y loop heartbeat</td>
+      <td>Configurar la suscripción al tópico MQTT de telemetría y emitir tramas cíclicas simulando GPS/batería.</td>
+      <td style="text-align: center;">5</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">TS02</td>
+      <td rowspan="2" style="vertical-align: middle;">Edge detection service</td>
+      <td style="text-align: center;">T17</td>
+      <td>Estructuración de payload de caída MQTT</td>
+      <td>Definir el formato de intercambio de datos incluyendo el score de confianza y el tipo de incidente.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T18</td>
+      <td>Consumidor del tópico fall-detected</td>
+      <td>Implementar la lógica en EmergencyAnalytics para capturar y procesar el aviso remoto de impacto.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">TS03</td>
+      <td rowspan="2" style="vertical-align: middle;">Incident persistence endpoint</td>
+      <td style="text-align: center;">T19</td>
+      <td>Controlador EmergencyIncidentsController</td>
+      <td>Crear el controlador HTTP especializado en la gestión del ciclo de vida de emergencias en backend.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T20</td>
+      <td>Endpoints de resolución e incidentes falsos</td>
+      <td>Desarrollar los métodos POST resolve y false-positive para actualizar el estado final del incidente.</td>
+      <td style="text-align: center;">3</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">TS04</td>
+      <td rowspan="2" style="vertical-align: middle;">Battery monitoring plan</td>
+      <td style="text-align: center;">T21</td>
+      <td>Lógica de evaluación de voltaje isLowBattery</td>
+      <td>Programar la condicional en DevicesController que compara el nivel reportado con el umbral configurado.</td>
+      <td style="text-align: center;">2</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T22</td>
+      <td>Mapeo de opciones de configuración</td>
+      <td>Enlazar las variables dinámicas de monitoreo con las propiedades del archivo appsettings.json.</td>
+      <td style="text-align: center;">1</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">TS05</td>
+      <td rowspan="2" style="vertical-align: middle;">Edge server MQTT</td>
+      <td style="text-align: center;">T23</td>
+      <td>Orquestación FastAPI y Paho MQTT</td>
+      <td>Escribir el servidor principal en main.py inicializando los clientes asíncronos de red de comunicación local.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T24</td>
+      <td>Carga e inferencia de foll_cnn_v1.tflite</td>
+      <td>Integrar la clase FallDetector en logic.py encargada de procesar las ventanas del acelerómetro usando la IA.</td>
+      <td style="text-align: center;">4</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 6.2.1.4. Development Evidence for Sprint Review.
 
@@ -4526,7 +4752,7 @@ En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra
     </tr>
     <tr>
       <td><strong>Sprint 2 Goal</strong></td>
-      <td>"Nuestro foco está en entregar las aplicaciones Web y Mobile funcionales para que los cuidadores puedan gestionar los perfiles de los adultos mayores, visualizar su historial y recibir alertas en tiempo real. Creemos que esto entrega control y visibilidad del estado de salud a los usuarios responsables. Esto será confirmado cuando un cuidador pueda registrar un paciente, ver las estadísticas de caídas y visualizar una alerta por WebSockets en la pantalla."</td>
+      <td>"Nuestro foco está en entregar las aplicaciones Web y Mobile funcionales para que los cuidadores puedan gestionar los perfiles de los adultos mayores, visualizar su historial y recibir alertas en tiempo real, mientras avanzamos en paralelo con el desarrollo físico del sistema embebido. Creemos que esto entrega control y visibilidad del estado de salud a los usuarios responsables. Esto será confirmado cuando un cuidador pueda registrar un paciente, ver las estadísticas de caídas y visualizar una alerta por WebSockets en la pantalla."</td>
     </tr>
     <tr>
       <td><strong>Sprint 2 Velocity</strong></td>
@@ -4608,16 +4834,16 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
 
 <table>
   <thead>
-    <tr >
+    <tr>
       <th style="text-align: left;">Sprint #</th>
       <th colspan="7" style="text-align: left;">Sprint 2</th>
     </tr>
-    <tr >
+    <tr>
       <th colspan="2" style="text-align: center;">User Story</th>
       <th colspan="5" style="text-align: center;">Work-Item/Task</th>
       <th rowspan="2" style="text-align: center; vertical-align: middle;">Status<br>(To-do/ In-Process/ To-Review/ Done)</th>
     </tr>
-    <tr >
+    <tr>
       <th style="text-align: center;">Id</th>
       <th style="text-align: center;">Title</th>
       <th style="text-align: center;">Id</th>
@@ -4629,112 +4855,200 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center;">US05</td>
-      <td>Creación cuenta cuidador</td>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US05</td>
+      <td rowspan="2" style="vertical-align: middle;">Creación cuenta cuidador</td>
       <td style="text-align: center;">T13</td>
-      <td>UI Registro (Web/Mobile)</td>
-      <td>Desarrollar vistas de registro e integrar con API.</td>
-      <td style="text-align: center;">5</td>
+      <td>Vistas de autenticación Web</td>
+      <td>Implementar los componentes visuales en Login.tsx y Register.tsx para el acceso web.</td>
+      <td style="text-align: center;">3</td>
       <td>Ariana Agreda</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US06</td>
-      <td>Perfil de paciente</td>
       <td style="text-align: center;">T14</td>
-      <td>UI Gestión de Pacientes</td>
-      <td>Crear formulario de registro de adulto mayor en App.</td>
-      <td style="text-align: center;">4</td>
+      <td>Pantallas de autenticación Mobile</td>
+      <td>Desarrollar en Jetpack Compose las pantallas LoginScreen.kt y RegisterScreen.kt.</td>
+      <td style="text-align: center;">2</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US06</td>
+      <td rowspan="2" style="vertical-align: middle;">Perfil de paciente</td>
+      <td style="text-align: center;">T15</td>
+      <td>Vista Web de gestión de pacientes</td>
+      <td>Construir la pantalla principal de gestión y listado en MisAbuelitos.tsx.</td>
+      <td style="text-align: center;">2</td>
       <td>Diego Vilca</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US07</td>
-      <td>Datos médicos</td>
-      <td style="text-align: center;">T15</td>
-      <td>Actualización Médica UI</td>
-      <td>Añadir campos editables de alergias y tipo de sangre.</td>
-      <td style="text-align: center;">3</td>
+      <td style="text-align: center;">T16</td>
+      <td>Pantallas Mobile de listado y alta</td>
+      <td>Implementar MisAbuelitosScreen.kt para listado y CrearAbuelitoScreen.kt para el formulario de alta.</td>
+      <td style="text-align: center;">2</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US07</td>
+      <td rowspan="2" style="vertical-align: middle;">Datos médicos</td>
+      <td style="text-align: center;">T17</td>
+      <td>Formulario clínico en AbuelitoDetailScreen.kt</td>
+      <td>Construir los inputs interactivos y dropdowns para ingresar Grupo Sanguíneo, Enfermedades y Medicamentos.</td>
+      <td style="text-align: center;">2</td>
       <td>Claudia Belledonne</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US08</td>
-      <td>Contactos secundarios</td>
-      <td style="text-align: center;">T16</td>
-      <td>UI Contactos</td>
-      <td>Implementar lista para agregar números de emergencia.</td>
-      <td style="text-align: center;">3</td>
+      <td style="text-align: center;">T18</td>
+      <td>Integración de AbuelitoDetailViewModel</td>
+      <td>Conectar el ViewModel para manejar los estados y validaciones del formulario clínico de manera reactiva.</td>
+      <td style="text-align: center;">1</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US08</td>
+      <td rowspan="2" style="vertical-align: middle;">Contactos secundarios</td>
+      <td style="text-align: center;">T19</td>
+      <td>Componente EmergencyContactItemRow</td>
+      <td>Implementar el componente dentro de CuidadoresScreen.kt para listar y eliminar contactos de emergencia.</td>
+      <td style="text-align: center;">2</td>
       <td>Fabiola Saldaña</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US09</td>
-      <td>Permiso de monitoreo</td>
-      <td style="text-align: center;">T17</td>
-      <td>Gestión de Solicitudes</td>
-      <td>Crear vista para aceptar/rechazar monitoreo.</td>
-      <td style="text-align: center;">4</td>
+      <td style="text-align: center;">T20</td>
+      <td>Cuadro de diálogo AddContactDialog</td>
+      <td>Construir el modal dentro de CuidadoresScreen.kt para ingresar Nombre, Teléfono y Parentesco.</td>
+      <td style="text-align: center;">1</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US09</td>
+      <td rowspan="2" style="vertical-align: middle;">Permiso de monitoreo</td>
+      <td style="text-align: center;">T21</td>
+      <td>Vista de gestión de solicitudes</td>
+      <td>Desarrollar la pantalla Invitaciones.tsx para listar y responder solicitudes pendientes enviadas a otros cuidadores.</td>
+      <td style="text-align: center;">2</td>
       <td>Claudia Belledonne</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US10</td>
-      <td>Vinculación cinturón</td>
-      <td style="text-align: center;">T18</td>
-      <td>Input de Serial IoT</td>
-      <td>Formulario para ingresar el serial del hardware.</td>
-      <td style="text-align: center;">3</td>
+      <td style="text-align: center;">T22</td>
+      <td>Integración de alertas emergentes</td>
+      <td>Implementar InvitationToast.tsx conectado al invitationHub.ts de SignalR para mostrar avisos en tiempo real.</td>
+      <td style="text-align: center;">2</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US10</td>
+      <td rowspan="2" style="vertical-align: middle;">Vinculación cinturón</td>
+      <td style="text-align: center;">T23</td>
+      <td>Modal de vinculación de hardware</td>
+      <td>Desarrollar el AlertDialog dentro de AbuelitoDetailScreen.kt para ingresar el ID serial del dispositivo IoT.</td>
+      <td style="text-align: center;">2</td>
       <td>Diego Vilca</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US13</td>
-      <td>Confirmación auxilio</td>
-      <td style="text-align: center;">T19</td>
-      <td>Botón "Estoy en camino"</td>
-      <td>Botón interactivo y conexión por WebSockets de estado.</td>
-      <td style="text-align: center;">6</td>
+      <td style="text-align: center;">T24</td>
+      <td>Lógica de desvinculación visual</td>
+      <td>Implementar el renderizado condicional de estados y el botón de Desvincular en el perfil clínico.</td>
+      <td style="text-align: center;">1</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US13</td>
+      <td rowspan="2" style="vertical-align: middle;">Confirmación auxilio</td>
+      <td style="text-align: center;">T25</td>
+      <td>Interfaz crítica AlertDetailScreen.kt</td>
+      <td>Implementar la vista de emergencia activa con el mapa y el botón interactivo de Estoy en Camino.</td>
+      <td style="text-align: center;">3</td>
       <td>Mauricio Elera</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US16</td>
-      <td>Visualización médica</td>
-      <td style="text-align: center;">T20</td>
-      <td>Dashboard Emergencia</td>
-      <td>Mostrar tipo de sangre y alergias durante la alerta.</td>
-      <td style="text-align: center;">4</td>
+      <td style="text-align: center;">T26</td>
+      <td>Cliente SignalR para WebSockets</td>
+      <td>Configurar la recepción en tiempo real mediante NotificationRealtimeService.kt en Android y notificationHub.ts en Web.</td>
+      <td style="text-align: center;">3</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US16</td>
+      <td rowspan="2" style="vertical-align: middle;">Visualización médica</td>
+      <td style="text-align: center;">T27</td>
+      <td>Dashboard Principal Web</td>
+      <td>Desarrollar la pantalla Inicio.tsx con el ProfileCard y el layout principal con accesos rápidos.</td>
+      <td style="text-align: center;">2</td>
       <td>Ariana Agreda</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US17</td>
-      <td>Consulta historial</td>
-      <td style="text-align: center;">T21</td>
-      <td>Lista Cronológica UI</td>
-      <td>Vista de tabla/lista de caídas pasadas registradas.</td>
-      <td style="text-align: center;">5</td>
-      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">T28</td>
+      <td>Vista móvil DashboardScreen.kt</td>
+      <td>Construir la vista que resume el estado general de los pacientes y sus datos vitales en tiempo real.</td>
+      <td style="text-align: center;">2</td>
+      <td>Ariana Agreda</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US18</td>
-      <td>Filtro falsos positivos</td>
-      <td style="text-align: center;">T22</td>
-      <td>Lógica de Filtros</td>
-      <td>Agregar toggles para filtrar historial por estado.</td>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US17</td>
+      <td rowspan="2" style="vertical-align: middle;">Consulta historial</td>
+      <td style="text-align: center;">T29</td>
+      <td>Tabla cronológica Historial.tsx</td>
+      <td>Implementar la tabla de registro y listado de eventos de caídas dentro de la plataforma web.</td>
       <td style="text-align: center;">3</td>
       <td>Fabiola Saldaña</td>
       <td style="text-align: center;">Done</td>
     </tr>
     <tr>
-      <td style="text-align: center;">US19</td>
-      <td>Estadísticas (Gráfico)</td>
-      <td style="text-align: center;">T23</td>
-      <td>Integración Chart.js</td>
-      <td>Implementar gráfico de barras para visualizar caídas mensuales.</td>
-      <td style="text-align: center;">6</td>
+      <td style="text-align: center;">T30</td>
+      <td>Lista LazyColumn en HistoryScreen.kt</td>
+      <td>Desarrollar la lista de tarjetas mostrando fechas y severidad de incidentes en la aplicación móvil.</td>
+      <td style="text-align: center;">2</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US18</td>
+      <td rowspan="2" style="vertical-align: middle;">Filtro falsos positivos</td>
+      <td style="text-align: center;">T31</td>
+      <td>Controles visuales de filtro</td>
+      <td>Incorporar Tabs y Chips en las pantallas de historial para seleccionar entre Confirmadas y Falsos Positivos.</td>
+      <td style="text-align: center;">2</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T32</td>
+      <td>Lógica de discriminación de estados</td>
+      <td>Escribir el código para procesar y filtrar la lista de incidentes renderizada según el control seleccionado.</td>
+      <td style="text-align: center;">1</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US19</td>
+      <td rowspan="2" style="vertical-align: middle;">Estadísticas (Gráfico)</td>
+      <td style="text-align: center;">T33</td>
+      <td>Gráfico circular DonutChart</td>
+      <td>Desarrollar el componente SVG personalizado en Inicio.tsx para representar el porcentaje de falsos positivos.</td>
+      <td style="text-align: center;">3</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T34</td>
+      <td>Pantalla analítica Reportes.tsx</td>
+      <td>Implementar la vista que centraliza los gráficos mensuales para el análisis a profundidad del paciente.</td>
+      <td style="text-align: center;">3</td>
       <td>Mauricio Elera</td>
       <td style="text-align: center;">Done</td>
     </tr>
@@ -4767,68 +5081,68 @@ Los **Acceptance Tests** bajo enfoque **BDD** fueron elaborados con archivos `.f
 
 **Repositorios de control de versiones — Testing Sprint 2**
 
-| Repositorio | Rama principal de pruebas | Alcance de testing |
-| ----------- | ------------------------- | ------------------ |
-| `foll-backend` | `test` | Unit Tests, Integration Tests y Step Definitions BDD (SpecFlow) |
-| `foll-frontend` | `test/*` | Pruebas de componentes e integración UI (Vitest) |
-| `follMobileApp` | `test/*` | Pruebas instrumentadas y unitarias Android (JUnit) |
-| `foll-hardware-simulator` | `test/*` | Pruebas de simulación MQTT y endpoints FastAPI (pytest) |
-| Features BDD (Gherkin) | — | `Project-Report/testing/sprint-2/features/` |
-| Step Definitions (C#) | — | `Project-Report/testing/sprint-2/steps/` |
+| Repositorio               | Rama principal de pruebas | Alcance de testing                                              |
+| ------------------------- | ------------------------- | --------------------------------------------------------------- |
+| `foll-backend`            | `test`                    | Unit Tests, Integration Tests y Step Definitions BDD (SpecFlow) |
+| `foll-frontend`           | `test/*`                  | Pruebas de componentes e integración UI (Vitest)                |
+| `follMobileApp`           | `test/*`                  | Pruebas instrumentadas y unitarias Android (JUnit)              |
+| `foll-hardware-simulator` | `test/*`                  | Pruebas de simulación MQTT y endpoints FastAPI (pytest)         |
+| Features BDD (Gherkin)    | —                         | `Project-Report/testing/sprint-2/features/`                     |
+| Step Definitions (C#)     | —                         | `Project-Report/testing/sprint-2/steps/`                        |
 
 <br>
 
 - **Relación de Unit Tests diseñados**
 
-| Test | Clase / comportamiento relacionado | User Story relacionada | Descripción |
-| ---- | ---------------------------------- | ---------------------- | ----------- |
-| `Login_ValidCredentials` | `UserCommandService.Handle(LoginUserCommand)` | US05 - Creación cuenta cuidador | Autentica un cuidador con email y contraseña válidos. Verifica emisión de JWT. |
-| `Login_InvalidPassword` | `UserCommandService.Handle(LoginUserCommand)` | US05 - Creación cuenta cuidador | Intenta login con contraseña incorrecta. Verifica `InvalidOperationException`. |
-| `UpdatePatient_MedicalData` | `PatientCommandService.Handle(UpdatePatientCommand)` | US07 - Datos médicos | Actualiza `BloodType` y `MedicalConditions`. Verifica persistencia de alergias. |
-| `AddEmergencyContact_ValidData` | `PatientCommandService.Handle(AddEmergencyContactCommand)` | US08 - Contactos secundarios | Agrega contacto de emergencia válido. Verifica `AddAsync` y `CompleteAsync`. |
-| `AddEmergencyContact_PatientNotFound` | `PatientCommandService.Handle(AddEmergencyContactCommand)` | US08 - Contactos secundarios | Intenta agregar contacto a paciente inexistente. Verifica excepción. |
-| `AcceptInvitation_PendingInvitation` | `PatientCommandService.Handle(AcceptInvitationCommand)` | US09 - Permiso de monitoreo | Acepta invitación pendiente. Verifica cambio de estado y vínculo del cuidador. |
-| `RejectInvitation_OnlyOfficialGuardian` | `PatientCommandService.Handle(RejectInvitationCommand)` | US09 - Permiso de monitoreo | Rechaza invitación como OfficialGuardian. Verifica estado `Rejected`. |
-| `LinkDevice_ValidData` | `DeviceCommandService.Handle(LinkDeviceCommand)` | US10 - Vinculación cinturón | Vincula dispositivo IoT a paciente autorizado. Verifica `AssignToPatient`. |
-| `LinkDevice_DeviceNotFound` | `DeviceCommandService.Handle(LinkDeviceCommand)` | US10 - Vinculación cinturón | Intenta vincular dispositivo inexistente. Verifica `InvalidOperationException`. |
-| `MarkAcknowledged_ValidNotification` | `NotificationCommandService.Handle(MarkNotificationAcknowledgedCommand)` | US13 - Confirmación auxilio | Marca notificación como reconocida. Verifica `NotificationStatus.Acknowledged`. |
-| `MarkAcknowledged_AlreadyAcknowledged` | `NotificationLog.MarkAcknowledged` | US13 - Confirmación auxilio | Intenta reconocer notificación ya confirmada. Verifica idempotencia. |
-| `ListFallHistory_WithAccess` | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial | Lista historial de caídas para cuidador autorizado. |
-| `ListFallHistory_WithoutAccess` | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial | Deniega historial sin permisos sobre el paciente. |
-| `MarkFalsePositive_OpenIncident` | `EmergencyIncidentCommandService.Handle(MarkFalsePositiveCommand)` | US18 - Filtro falsos positivos | Marca incidente abierto como falso positivo. Verifica estado final. |
-| `GetPatient_IncludesMedicalFields` | `PatientQueryService.Handle(GetPatientByIdQuery)` | US16 - Visualización médica | Obtiene paciente con `BloodType` y condiciones médicas para dashboard de emergencia. |
+| Test                                    | Clase / comportamiento relacionado                                              | User Story relacionada          | Descripción                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------ |
+| `Login_ValidCredentials`                | `UserCommandService.Handle(LoginUserCommand)`                                   | US05 - Creación cuenta cuidador | Autentica un cuidador con email y contraseña válidos. Verifica emisión de JWT.       |
+| `Login_InvalidPassword`                 | `UserCommandService.Handle(LoginUserCommand)`                                   | US05 - Creación cuenta cuidador | Intenta login con contraseña incorrecta. Verifica `InvalidOperationException`.       |
+| `UpdatePatient_MedicalData`             | `PatientCommandService.Handle(UpdatePatientCommand)`                            | US07 - Datos médicos            | Actualiza `BloodType` y `MedicalConditions`. Verifica persistencia de alergias.      |
+| `AddEmergencyContact_ValidData`         | `PatientCommandService.Handle(AddEmergencyContactCommand)`                      | US08 - Contactos secundarios    | Agrega contacto de emergencia válido. Verifica `AddAsync` y `CompleteAsync`.         |
+| `AddEmergencyContact_PatientNotFound`   | `PatientCommandService.Handle(AddEmergencyContactCommand)`                      | US08 - Contactos secundarios    | Intenta agregar contacto a paciente inexistente. Verifica excepción.                 |
+| `AcceptInvitation_PendingInvitation`    | `PatientCommandService.Handle(AcceptInvitationCommand)`                         | US09 - Permiso de monitoreo     | Acepta invitación pendiente. Verifica cambio de estado y vínculo del cuidador.       |
+| `RejectInvitation_OnlyOfficialGuardian` | `PatientCommandService.Handle(RejectInvitationCommand)`                         | US09 - Permiso de monitoreo     | Rechaza invitación como OfficialGuardian. Verifica estado `Rejected`.                |
+| `LinkDevice_ValidData`                  | `DeviceCommandService.Handle(LinkDeviceCommand)`                                | US10 - Vinculación cinturón     | Vincula dispositivo IoT a paciente autorizado. Verifica `AssignToPatient`.           |
+| `LinkDevice_DeviceNotFound`             | `DeviceCommandService.Handle(LinkDeviceCommand)`                                | US10 - Vinculación cinturón     | Intenta vincular dispositivo inexistente. Verifica `InvalidOperationException`.      |
+| `MarkAcknowledged_ValidNotification`    | `NotificationCommandService.Handle(MarkNotificationAcknowledgedCommand)`        | US13 - Confirmación auxilio     | Marca notificación como reconocida. Verifica `NotificationStatus.Acknowledged`.      |
+| `MarkAcknowledged_AlreadyAcknowledged`  | `NotificationLog.MarkAcknowledged`                                              | US13 - Confirmación auxilio     | Intenta reconocer notificación ya confirmada. Verifica idempotencia.                 |
+| `ListFallHistory_WithAccess`            | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial       | Lista historial de caídas para cuidador autorizado.                                  |
+| `ListFallHistory_WithoutAccess`         | `EmergencyIncidentQueryService.Handle(ListFallIncidentHistoryByPatientIdQuery)` | US17 - Consulta historial       | Deniega historial sin permisos sobre el paciente.                                    |
+| `MarkFalsePositive_OpenIncident`        | `EmergencyIncidentCommandService.Handle(MarkFalsePositiveCommand)`              | US18 - Filtro falsos positivos  | Marca incidente abierto como falso positivo. Verifica estado final.                  |
+| `GetPatient_IncludesMedicalFields`      | `PatientQueryService.Handle(GetPatientByIdQuery)`                               | US16 - Visualización médica     | Obtiene paciente con `BloodType` y condiciones médicas para dashboard de emergencia. |
 
 <br>
 
 - **Relación de Integration Tests diseñados**
 
-| Test | Tipo de prueba | User Story relacionada | Descripción |
-| ---- | -------------- | ---------------------- | ----------- |
-| `Auth_RegisterAndLogin_Integration` | Integration Test | US05 - Creación cuenta cuidador | Registra cuidador y realiza login usando EF Core InMemory, repositorios reales y BCrypt. |
-| `Patient_CreateAndUpdateMedicalData_Integration` | Integration Test | US06 / US07 - Perfil y datos médicos | Crea paciente y actualiza alergias/tipo de sangre verificando persistencia relacional. |
-| `Invitation_CreateAccept_Integration` | Integration Test | US09 - Permiso de monitoreo | Crea invitación, la acepta y verifica vínculo del cuidador secundario. |
-| `Device_LinkAndQueryByPatient_Integration` | Integration Test | US10 - Vinculación cinturón | Vincula dispositivo IoT y lo consulta por `patientId`. |
-| `Notification_Acknowledge_Integration` | Integration Test | US13 - Confirmación auxilio | Crea notificación de caída y la confirma vía endpoint REST simulado. |
-| `Emergency_HistoryAndFalsePositive_Integration` | Integration Test | US17 / US18 - Historial y filtros | Registra incidentes, marca falso positivo y valida estados en historial. |
-| `Emergency_MonthlyAggregationData_Integration` | Integration Test | US19 - Estadísticas (Gráfico) | Verifica que el historial retorna fechas `openedAt` agrupables por mes para Chart.js. |
+| Test                                             | Tipo de prueba   | User Story relacionada               | Descripción                                                                              |
+| ------------------------------------------------ | ---------------- | ------------------------------------ | ---------------------------------------------------------------------------------------- |
+| `Auth_RegisterAndLogin_Integration`              | Integration Test | US05 - Creación cuenta cuidador      | Registra cuidador y realiza login usando EF Core InMemory, repositorios reales y BCrypt. |
+| `Patient_CreateAndUpdateMedicalData_Integration` | Integration Test | US06 / US07 - Perfil y datos médicos | Crea paciente y actualiza alergias/tipo de sangre verificando persistencia relacional.   |
+| `Invitation_CreateAccept_Integration`            | Integration Test | US09 - Permiso de monitoreo          | Crea invitación, la acepta y verifica vínculo del cuidador secundario.                   |
+| `Device_LinkAndQueryByPatient_Integration`       | Integration Test | US10 - Vinculación cinturón          | Vincula dispositivo IoT y lo consulta por `patientId`.                                   |
+| `Notification_Acknowledge_Integration`           | Integration Test | US13 - Confirmación auxilio          | Crea notificación de caída y la confirma vía endpoint REST simulado.                     |
+| `Emergency_HistoryAndFalsePositive_Integration`  | Integration Test | US17 / US18 - Historial y filtros    | Registra incidentes, marca falso positivo y valida estados en historial.                 |
+| `Emergency_MonthlyAggregationData_Integration`   | Integration Test | US19 - Estadísticas (Gráfico)        | Verifica que el historial retorna fechas `openedAt` agrupables por mes para Chart.js.    |
 
 <br>
 
 - **Relación de Acceptance Tests (BDD) diseñados**
 
-| Archivo `.feature` | User Story | Escenarios | Endpoint(s) validado(s) |
-| ------------------ | ---------- | ---------- | ----------------------- |
-| `US05-caregiver-registration.feature` | US05 | 3 | `POST /api/iam/auth/register`, `POST /api/iam/auth/login` |
-| `US06-patient-profile.feature` | US06 | 3 | `POST/GET /api/care/patients`, `GET /api/care/patients/by-caregiver/{id}` |
-| `US07-medical-data.feature` | US07 | 2 | `PUT /api/care/patients/{id}` |
-| `US08-emergency-contacts.feature` | US08 | 2 | `POST/DELETE /api/care/patients/{id}/emergency-contacts` |
-| `US09-monitoring-invitations.feature` | US09 | 3 | `GET /api/care/invitations/received`, `POST .../accept`, `POST .../reject` |
-| `US10-device-linking.feature` | US10 | 3 | `POST /api/devices/{id}/link`, `GET /api/devices/patient/{id}` |
-| `US13-emergency-acknowledgment.feature` | US13 | 3 | `POST /api/notifications/{id}/acknowledge`, `POST /api/emergency/incidents/{id}/resolve` |
-| `US16-emergency-medical-view.feature` | US16 | 2 | `GET /api/care/patients/{id}`, `GET /api/emergency/incidents/active/patient/{id}` |
-| `US17-incident-history.feature` | US17 | 3 | `GET /api/emergency/incidents/history/patient/{id}`, `GET /api/emergency/incidents/{id}` |
-| `US18-false-positive-filter.feature` | US18 | 2 | `POST /api/emergency/incidents/{id}/false-positive`, historial |
-| `US19-monthly-statistics.feature` | US19 | 2 | `GET /api/emergency/incidents/history/patient/{id}` |
+| Archivo `.feature`                      | User Story | Escenarios | Endpoint(s) validado(s)                                                                  |
+| --------------------------------------- | ---------- | ---------- | ---------------------------------------------------------------------------------------- |
+| `US05-caregiver-registration.feature`   | US05       | 3          | `POST /api/iam/auth/register`, `POST /api/iam/auth/login`                                |
+| `US06-patient-profile.feature`          | US06       | 3          | `POST/GET /api/care/patients`, `GET /api/care/patients/by-caregiver/{id}`                |
+| `US07-medical-data.feature`             | US07       | 2          | `PUT /api/care/patients/{id}`                                                            |
+| `US08-emergency-contacts.feature`       | US08       | 2          | `POST/DELETE /api/care/patients/{id}/emergency-contacts`                                 |
+| `US09-monitoring-invitations.feature`   | US09       | 3          | `GET /api/care/invitations/received`, `POST .../accept`, `POST .../reject`               |
+| `US10-device-linking.feature`           | US10       | 3          | `POST /api/devices/{id}/link`, `GET /api/devices/patient/{id}`                           |
+| `US13-emergency-acknowledgment.feature` | US13       | 3          | `POST /api/notifications/{id}/acknowledge`, `POST /api/emergency/incidents/{id}/resolve` |
+| `US16-emergency-medical-view.feature`   | US16       | 2          | `GET /api/care/patients/{id}`, `GET /api/emergency/incidents/active/patient/{id}`        |
+| `US17-incident-history.feature`         | US17       | 3          | `GET /api/emergency/incidents/history/patient/{id}`, `GET /api/emergency/incidents/{id}` |
+| `US18-false-positive-filter.feature`    | US18       | 2          | `POST /api/emergency/incidents/{id}/false-positive`, historial                           |
+| `US19-monthly-statistics.feature`       | US19       | 2          | `GET /api/emergency/incidents/history/patient/{id}`                                      |
 
 <br>
 
@@ -5203,38 +5517,38 @@ Feature: Datos de incidentes para estadísticas mensuales
 
 Los Step Definitions se encuentran en `Project-Report/testing/sprint-2/steps/`:
 
-| Archivo | Responsabilidad |
-| ------- | --------------- |
-| `CommonSteps.cs` | Validación de códigos HTTP, cliente REST compartido y token JWT |
-| `AuthSteps.cs` | Registro, login y autenticación (`AuthenticationController`) |
-| `PatientSteps.cs` | Creación, consulta y datos médicos (`PatientsController`) |
-| `InvitationSteps.cs` | Invitaciones recibidas, aceptación y rechazo (`InvitationsController`) |
-| `DeviceSteps.cs` | Vinculación y consulta de dispositivos (`DevicesController`) |
-| `NotificationSteps.cs` | Confirmación de auxilio (`NotificationsController`) |
-| `EmergencySteps.cs` | Historial, resolución y falsos positivos (`EmergencyIncidentsController`) |
+| Archivo                | Responsabilidad                                                           |
+| ---------------------- | ------------------------------------------------------------------------- |
+| `CommonSteps.cs`       | Validación de códigos HTTP, cliente REST compartido y token JWT           |
+| `AuthSteps.cs`         | Registro, login y autenticación (`AuthenticationController`)              |
+| `PatientSteps.cs`      | Creación, consulta y datos médicos (`PatientsController`)                 |
+| `InvitationSteps.cs`   | Invitaciones recibidas, aceptación y rechazo (`InvitationsController`)    |
+| `DeviceSteps.cs`       | Vinculación y consulta de dispositivos (`DevicesController`)              |
+| `NotificationSteps.cs` | Confirmación de auxilio (`NotificationsController`)                       |
+| `EmergencySteps.cs`    | Historial, resolución y falsos positivos (`EmergencyIncidentsController`) |
 
 <br>
 
 - **Commits relacionados con Testing**
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-| ---------- | ------ | --------- | -------------- | ------------------- | ------------------ |
-| `foll-backend` | `test` | `a4f2c91` | `test: add login service unit tests for sprint 2` | Se agregaron pruebas unitarias para `UserCommandService` validando login exitoso y credenciales inválidas (US05). | 06/06/2026 |
-| `foll-backend` | `test` | `b8e3d12` | `test: add patient medical data and contacts tests` | Se implementaron pruebas para actualización de datos médicos y contactos de emergencia en `PatientCommandService` (US07, US08). | 07/06/2026 |
-| `foll-backend` | `test` | `c1f9a44` | `test: add invitation accept and reject tests` | Se agregaron pruebas unitarias para aceptación y rechazo de invitaciones de monitoreo (US09). | 08/06/2026 |
-| `foll-backend` | `test` | `d7b2e58` | `test: add device linking command service tests` | Se implementaron pruebas para vinculación de dispositivos IoT y escenarios de error en `DeviceCommandService` (US10). | 08/06/2026 |
-| `foll-backend` | `test` | `e3c8f61` | `test: add notification acknowledge tests` | Se agregaron pruebas para confirmación de auxilio mediante `NotificationCommandService` (US13). | 09/06/2026 |
-| `foll-backend` | `test` | `f9a1d73` | `test: add emergency history and false positive tests` | Se implementaron pruebas para consulta de historial, permisos y marcado de falsos positivos (US17, US18). | 10/06/2026 |
-| `foll-backend` | `feature/sprint-2-bdd-tests` | `2e4b9c0` | `test: add sprint 2 bdd feature bindings and integration tests` | Se incorporaron Step Definitions SpecFlow y pruebas de integración para flujos REST del Sprint 2 (US05–US19). | 11/06/2026 |
-| `foll-frontend` | `test/web-auth-ui` | `3a7d1f2` | `test: add login and registration form tests` | Se agregaron pruebas de componentes para vistas de registro e inicio de sesión web consumiendo la API IAM (US05). | 28/05/2026 |
-| `foll-frontend` | `test/medical-data-contacts` | `4b8e2a3` | `test: add patient profile and medical fields tests` | Se implementaron pruebas para formulario de paciente, alergias, tipo de sangre y contactos de emergencia (US06, US07, US08). | 01/06/2026 |
-| `foll-frontend` | `test/websockets-emergency-alert` | `5c9f3b4` | `test: add signalr notification provider tests` | Se agregaron pruebas para conexión SignalR, recepción de alertas en tiempo real y botón "Estoy en camino" (US13, US16). | 03/06/2026 |
-| `foll-frontend` | `test/history-and-filters` | `6d0a4c5` | `test: add fall history list and filter tests` | Se implementaron pruebas para lista cronológica de caídas, toggles de falsos positivos y datos para Chart.js (US17, US18, US19). | 05/06/2026 |
-| `follMobileApp` | `test/mobile-auth-ui` | `7e1b5d6` | `test: add mobile login and register screen tests` | Se agregaron pruebas instrumentadas para pantallas de registro e inicio de sesión en Jetpack Compose (US05). | 29/05/2026 |
-| `follMobileApp` | `test/mobile-patient-profile` | `8f2c6e7` | `test: add patient profile and device linking tests` | Se implementaron pruebas para formulario de adulto mayor y vinculación de dispositivo IoT (US06, US10). | 30/05/2026 |
-| `follMobileApp` | `test/mobile-emergency-realtime` | `9a3d7f8` | `test: add emergency dashboard and signalr tests` | Se agregaron pruebas para vista de alerta con datos médicos y cliente SignalR de notificaciones (US13, US16). | 04/06/2026 |
-| `foll-hardware-simulator` | `test/mqtt-heartbeat` | `1b4e8a2` | `test: add mqtt heartbeat publish tests` | Se implementaron pruebas pytest para publicación automática de heartbeats al broker MQTT simulado. | 04/06/2026 |
-| `foll-hardware-simulator` | `test/fall-simulation` | `2c5f9b3` | `test: add fall detected endpoint tests` | Se agregaron pruebas para endpoints FastAPI `/simulate/fall` y `/simulate/heartbeat` usados en integración edge (US13). | 05/06/2026 |
+| Repository                | Branch                            | Commit Id | Commit Message                                                  | Commit Message Body                                                                                                              | Commited on (Date) |
+| ------------------------- | --------------------------------- | --------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `foll-backend`            | `test`                            | `a4f2c91` | `test: add login service unit tests for sprint 2`               | Se agregaron pruebas unitarias para `UserCommandService` validando login exitoso y credenciales inválidas (US05).                | 06/06/2026         |
+| `foll-backend`            | `test`                            | `b8e3d12` | `test: add patient medical data and contacts tests`             | Se implementaron pruebas para actualización de datos médicos y contactos de emergencia en `PatientCommandService` (US07, US08).  | 07/06/2026         |
+| `foll-backend`            | `test`                            | `c1f9a44` | `test: add invitation accept and reject tests`                  | Se agregaron pruebas unitarias para aceptación y rechazo de invitaciones de monitoreo (US09).                                    | 08/06/2026         |
+| `foll-backend`            | `test`                            | `d7b2e58` | `test: add device linking command service tests`                | Se implementaron pruebas para vinculación de dispositivos IoT y escenarios de error en `DeviceCommandService` (US10).            | 08/06/2026         |
+| `foll-backend`            | `test`                            | `e3c8f61` | `test: add notification acknowledge tests`                      | Se agregaron pruebas para confirmación de auxilio mediante `NotificationCommandService` (US13).                                  | 09/06/2026         |
+| `foll-backend`            | `test`                            | `f9a1d73` | `test: add emergency history and false positive tests`          | Se implementaron pruebas para consulta de historial, permisos y marcado de falsos positivos (US17, US18).                        | 10/06/2026         |
+| `foll-backend`            | `feature/sprint-2-bdd-tests`      | `2e4b9c0` | `test: add sprint 2 bdd feature bindings and integration tests` | Se incorporaron Step Definitions SpecFlow y pruebas de integración para flujos REST del Sprint 2 (US05–US19).                    | 11/06/2026         |
+| `foll-frontend`           | `test/web-auth-ui`                | `3a7d1f2` | `test: add login and registration form tests`                   | Se agregaron pruebas de componentes para vistas de registro e inicio de sesión web consumiendo la API IAM (US05).                | 28/05/2026         |
+| `foll-frontend`           | `test/medical-data-contacts`      | `4b8e2a3` | `test: add patient profile and medical fields tests`            | Se implementaron pruebas para formulario de paciente, alergias, tipo de sangre y contactos de emergencia (US06, US07, US08).     | 01/06/2026         |
+| `foll-frontend`           | `test/websockets-emergency-alert` | `5c9f3b4` | `test: add signalr notification provider tests`                 | Se agregaron pruebas para conexión SignalR, recepción de alertas en tiempo real y botón "Estoy en camino" (US13, US16).          | 03/06/2026         |
+| `foll-frontend`           | `test/history-and-filters`        | `6d0a4c5` | `test: add fall history list and filter tests`                  | Se implementaron pruebas para lista cronológica de caídas, toggles de falsos positivos y datos para Chart.js (US17, US18, US19). | 05/06/2026         |
+| `follMobileApp`           | `test/mobile-auth-ui`             | `7e1b5d6` | `test: add mobile login and register screen tests`              | Se agregaron pruebas instrumentadas para pantallas de registro e inicio de sesión en Jetpack Compose (US05).                     | 29/05/2026         |
+| `follMobileApp`           | `test/mobile-patient-profile`     | `8f2c6e7` | `test: add patient profile and device linking tests`            | Se implementaron pruebas para formulario de adulto mayor y vinculación de dispositivo IoT (US06, US10).                          | 30/05/2026         |
+| `follMobileApp`           | `test/mobile-emergency-realtime`  | `9a3d7f8` | `test: add emergency dashboard and signalr tests`               | Se agregaron pruebas para vista de alerta con datos médicos y cliente SignalR de notificaciones (US13, US16).                    | 04/06/2026         |
+| `foll-hardware-simulator` | `test/mqtt-heartbeat`             | `1b4e8a2` | `test: add mqtt heartbeat publish tests`                        | Se implementaron pruebas pytest para publicación automática de heartbeats al broker MQTT simulado.                               | 04/06/2026         |
+| `foll-hardware-simulator` | `test/fall-simulation`            | `2c5f9b3` | `test: add fall detected endpoint tests`                        | Se agregaron pruebas para endpoints FastAPI `/simulate/fall` y `/simulate/heartbeat` usados en integración edge (US13).          | 05/06/2026         |
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
 
@@ -7879,12 +8193,12 @@ Durante este sprint se ejecutaron las siguientes actividades de despliegue:
 
 **Recursos desplegados en Azure (Sprint 2)**
 
-| Recurso | Nombre | Propósito |
-| ------- | ------ | --------- |
-| Azure Container Registry | `follregistry2` | Almacenar imagen `foll-mqtt-broker:latest` |
-| Azure Container Instance | `foll-mqtt-broker` | Broker MQTT público en puerto 1883 |
-| Azure App Service | `foll-backend-iot` | Backend .NET con suscriptores MQTT configurados |
-| Capa Edge (local) | `foll-hardware-simulator` | Publica telemetría y eventos al broker Azure |
+| Recurso                  | Nombre                    | Propósito                                       |
+| ------------------------ | ------------------------- | ----------------------------------------------- |
+| Azure Container Registry | `follregistry2`           | Almacenar imagen `foll-mqtt-broker:latest`      |
+| Azure Container Instance | `foll-mqtt-broker`        | Broker MQTT público en puerto 1883              |
+| Azure App Service        | `foll-backend-iot`        | Backend .NET con suscriptores MQTT configurados |
+| Capa Edge (local)        | `foll-hardware-simulator` | Publica telemetría y eventos al broker Azure    |
 
 **FQDN del broker:** `foll-mqtt.f7evgkdsd9cvbgbj.brazilsouth.azurecontainer.io`
 
@@ -7973,14 +8287,304 @@ La colaboración del equipo se gestionó mediante GitHub para el registro de ava
 <img src="./img/Insights/av2_3.png" width="600"/>
 
 ### 6.2.3. Sprint 3
-#### 6.2.3.1. Sprint Planning 2.
+
+En esta sección se registra el avance del Sprint 3 para el desarrollo del ecosistema Foll. Se documenta la planificación, la matriz de liderazgo, el backlog del sprint y las evidencias de desarrollo, enfocadas en la integración del sistema embebido físico ya funcional, la automatización del protocolo de escalamiento de alertas críticas y la vinculación rápida mediante códigos QR.
+
+#### 6.2.3.1. Sprint Planning 3.
+
+Markdown
+
+### 6.2.3. Sprint 3
+
+En esta sección se registra el avance del Sprint 3 para el desarrollo del ecosistema Foll. Se documenta la planificación, la matriz de liderazgo, el backlog del sprint y las evidencias de desarrollo, alineados a la arquitectura real del sistema (Python en Edge, .NET en Backend, Kotlin en Mobile y React en Web) para asegurar el escalamiento de alertas y robustecer la seguridad en la vinculación y reportería.
+
+#### 6.2.3.1. Sprint Planning 3.
+
+En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra reunión de Sprint Planning para el Sprint 3. El foco principal de esta iteración es adaptar la base de código actual para soportar los flujos críticos (timers de cancelación, HostedServices para escalamiento, integración con Twilio/Firebase) e implementar desde cero la funcionalidad de vinculación rápida mediante códigos QR y la exportación de PDFs clínicos.
+
+<table>
+  <tbody>
+    <tr>
+      <th colspan="2" >Sprint # 3</th>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Sprint Planning Background</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Date</strong></td>
+      <td>2026-06-10</td>
+    </tr>
+    <tr>
+      <td><strong>Time</strong></td>
+      <td>10:00 AM</td>
+    </tr>
+    <tr>
+      <td><strong>Location</strong></td>
+      <td>Reunión virtual por Microsoft Teams</td>
+    </tr>
+    <tr>
+      <td><strong>Prepared By</strong></td>
+      <td>Agreda Sobrino, Ariana Cecilia</td>
+    </tr>
+    <tr>
+      <td><strong>Attendees (to planning meeting)</strong></td>
+      <td>Elera Rodríguez, Mauricio Daniel / Agreda Sobrino, Ariana Cecilia / Belledonne Espinoza, Claudia Valeria / Vilca Saboya, Diego Alejandro / Saldaña Ayala, Fabiola del Rocío</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 2 Review Summary</strong></td>
+      <td>En el Sprint 2 se logró un gran avance en Mobile (Kotlin) y Web (React), teniendo ya flujos como la gestión de pacientes, el historial y las estadísticas casi listos en UI. En la capa Edge (Python), la detección MQTT se comunica instantáneamente con el Backend (.NET), el cual ya tiene las interfaces de notificación preparadas pero funcionando con implementaciones simuladas ("Fake").</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 2 Retrospective Summary</strong></td>
+      <td>El análisis técnico reveló que necesitamos implementar servicios reales (Twilio, Firebase FCM), agregar Workers en segundo plano (IHostedService) en el Backend para el escalamiento por inactividad, y desarrollar el nuevo flujo de vinculación presencial mediante códigos QR para facilitar la adhesión segura de nuevos cuidadores.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 3 Goal</strong></td>
+      <td>"Nuestro objetivo es implementar las lógicas reales de escalamiento sobre la arquitectura existente y desarrollar la funcionalidad de vinculación presencial. Esto incluye programar la ventana de cancelación asíncrona en el firmware Python, configurar Firebase/Twilio en el backend .NET para despachar alertas remotas y llamadas automatizadas, desplegar un Background Worker para monitorear inactividad, y construir la generación y escaneo de códigos QR en Kotlin y .NET."</td>
+    </tr>
+    <tr>
+      <td><strong>Sprint 3 Velocity</strong></td>
+      <td>38 Story Points</td>
+    </tr>
+    <tr>
+      <td><strong>Sum of Story Points</strong></td>
+      <td>38 (US11, US12, US14, US15, US20, US21, US22)</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 6.2.3.2. Aspect Leaders and Collaborators.
-#### 6.2.3.3. Sprint Backlog 2.
+
+Para asegurar la efectividad en la comunicación y el desarrollo durante el Sprint 3, hemos elaborado la matriz de Liderazgo y Colaboración (LACX). Los aspectos evaluados en esta iteración involucran la interacción con el Hardware Físico, la integración de APIs de Escalamiento Telefónico/SMS, el módulo de Escáner y generación de códigos QR, y los servicios de Exportación Clínica.
+
+<table>
+  <thead>
+    <tr>
+      <th>Team Member (Last Name, First Name)</th>
+      <th>GitHub Username</th>
+      <th>Edge/Firmware Python (L/C)</th>
+      <th>Backend .NET & Workers (L/C)</th>
+      <th>Mobile Kotlin & FCM (L/C)</th>
+      <th>Web React & PDF (L/C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Agreda Sobrino, Ariana Cecilia</td>
+      <td>arii4w</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Elera Rodríguez, Mauricio Daniel</td>
+      <td>Maur1xio</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Belledonne Espinoza, Claudia Valeria</td>
+      <td>Cl4us-tb</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Vilca Saboya, Diego Alejandro</td>
+      <td>diegovilca</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+    </tr>
+    <tr>
+      <td>Saldaña Ayala, Fabiola del Rocío</td>
+      <td>fabs-in-space</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">C</td>
+      <td style="text-align:center;">L</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 6.2.3.3. Sprint Backlog 3.
+
+El objetivo principal de este Sprint es dotar al ecosistema de mecanismos de alta disponibilidad para la gestión de incidentes graves, garantizando la interoperabilidad con el hardware embebido y facilitando herramientas administrativas fluidas para los cuidadores. A continuación, presentamos nuestro Sprint Backlog gestionado en Trello.
+
+**URL público del Board:**
+https://trello.com/invite/b/6a4d0e2897328172e1254dc2/ATTI0c0f1cc0a379aab071ea010c2b1a86e4E4529647/foll-sprint-3
+
+A continuación, se detalla la asignación de User Stories y Work-items/Tasks correspondientes a este sprint, garantizando un mínimo de 2 tareas por cada historia de usuario:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left;">Sprint #</th>
+      <th colspan="7" style="text-align: left;">Sprint 3</th>
+    </tr>
+    <tr>
+      <th colspan="2" style="text-align: center;">User Story</th>
+      <th colspan="5" style="text-align: center;">Work-Item/Task</th>
+      <th rowspan="2" style="text-align: center; vertical-align: middle;">Status<br>(To-do/ In-Process/ To-Review/ Done)</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Title</th>
+      <th style="text-align: center;">Description</th>
+      <th style="text-align: center;">Estimation (Hours)</th>
+      <th style="text-align: center;">Assigned To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US11</td>
+      <td rowspan="2" style="vertical-align: middle;">Protocolo de verificación de alerta local</td>
+      <td style="text-align: center;">T24</td>
+      <td>Configuración de hardware para interrupción local</td>
+      <td>Modificar main.ino en foll-embedded-system para leer el estado del botón físico durante el loop de gracia y emitir evento MQTT.</td>
+      <td style="text-align: center;">3</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T25</td>
+      <td>Intercepción de cancelación en capa Edge</td>
+      <td>Actualizar main.py en Foll-Edge-Layer implementando la lógica handle_user_cancel para detener el envío de la alerta a la nube.</td>
+      <td style="text-align: center;">3</td>
+      <td>Mauricio Elera</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US12</td>
+      <td rowspan="2" style="vertical-align: middle;">Recepción de alerta remota</td>
+      <td style="text-align: center;">T26</td>
+      <td>Integración de Firebase Cloud Messaging</td>
+      <td>Implementar FirebasePushNotificationSender.cs en foll-backend para enviar notificaciones push mediante la API de FCM.</td>
+      <td style="text-align: center;">3</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T27</td>
+      <td>Implementación de proveedor SMS de contingencia</td>
+      <td>Añadir la dependencia de Twilio en TwilioSmsNotificationSender.cs como respaldo si el cuidador no cuenta con conexión de datos.</td>
+      <td style="text-align: center;">3</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US14</td>
+      <td rowspan="2" style="vertical-align: middle;">Escalamiento telefónico</td>
+      <td style="text-align: center;">T28</td>
+      <td>Configuración de Background Worker para monitoreo</td>
+      <td>Estructurar DeviceConnectivityMonitorBackgroundService.cs en foll-backend para verificar timeouts e inactividad de alertas.</td>
+      <td style="text-align: center;">3</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T29</td>
+      <td>Lógica de agotamiento y escalamiento de contactos</td>
+      <td>Desarrollar lógica en EmergencyAnalytics para transicionar el estado del incidente tras 3 minutos desencadenando notificaciones.</td>
+      <td style="text-align: center;">3</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US15</td>
+      <td rowspan="2" style="vertical-align: middle;">Solicitud de ambulancia</td>
+      <td style="text-align: center;">T30</td>
+      <td>Interfaz manual de solicitud de ambulancia</td>
+      <td>Modificar la vista AlertDetailScreen.kt en follMobileApp integrando el botón visual para llamar a la ambulancia directamente.</td>
+      <td style="text-align: center;">2</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T31</td>
+      <td>Integración de Webhook para centros médicos</td>
+      <td>Configurar la emisión de una solicitud electrónica en foll-backend cuando ningún contacto atiende la emergencia.</td>
+      <td style="text-align: center;">3</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US20</td>
+      <td rowspan="2" style="vertical-align: middle;">Exportación de reporte clínico</td>
+      <td style="text-align: center;">T32</td>
+      <td>Integración de motor de generación PDF</td>
+      <td>Configurar las dependencias jspdf y jspdf-autotable en foll-frontend para el renderizado de documentos en el lado del cliente.</td>
+      <td style="text-align: center;">2</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T33</td>
+      <td>Estructuración y descarga del reporte de caídas</td>
+      <td>Implementar la función descargarPDF en Reportes.tsx mapeando el historial del paciente y métricas en un documento tabulado.</td>
+      <td style="text-align: center;">3</td>
+      <td>Fabiola Saldaña</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US21</td>
+      <td rowspan="2" style="vertical-align: middle;">Generación de QR de perfil</td>
+      <td style="text-align: center;">T34</td>
+      <td>Endpoint de fast-track QR en backend</td>
+      <td>Crear el comando LinkCaregiverViaQrCommand y el endpoint POST /qr en PatientCaregiversController.cs.</td>
+      <td style="text-align: center;">3</td>
+      <td>Claudia Belledonne</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T35</td>
+      <td>Renderizado de matriz QR en UI</td>
+      <td>Utilizar la librería ZXing en PatientCardItem.kt (follMobileApp) para transformar el token del paciente en un gráfico QR.</td>
+      <td style="text-align: center;">2</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="text-align: center; vertical-align: middle;">US22</td>
+      <td rowspan="2" style="vertical-align: middle;">Vinculación de paciente vía QR</td>
+      <td style="text-align: center;">T36</td>
+      <td>Integración de escáner en dispositivo móvil</td>
+      <td>Construir ScanPatientQrScreen.kt en follMobileApp habilitando permisos de cámara para leer el QR del paciente.</td>
+      <td style="text-align: center;">3</td>
+      <td>Ariana Agreda</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">T37</td>
+      <td>Conexión de vinculación remota</td>
+      <td>Modificar PatientService.kt y PatientRepositoryImpl.kt para consumir la API de vinculación e inyectar el resultado en el estado.</td>
+      <td style="text-align: center;">2</td>
+      <td>Diego Vilca</td>
+      <td style="text-align: center;">Done</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 6.2.3.4. Development Evidence for Sprint Review.
+
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+
 #### 6.2.3.6. Execution Evidence for Sprint Review.
+
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review.
+
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review.
+
 #### 6.2.3.9. Team Collaboration Insights during Sprint.
 
 ## 6.3. Validation Interviews.
@@ -8361,7 +8965,7 @@ Finalmente, el informe describe un camino completo desde el repositorio hasta el
   [https://acortar.link/2dp8rZ](https://acortar.link/2dp8rZ)
 
 - Videos About the team y About the product:
-[https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx](https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx)
+  [https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx](https://upcedupe-my.sharepoint.com/:f:/g/personal/u202315044_upc_edu_pe/IgA4mYmKdV5PSqRyCDcgTN3tATG9iQk_XrJyOfwWa3k5leU?e=MJI0Gx)
 
 - Prototipo Wokwi:
-[https://github.com/foll-project/Foll-Wokwi-Prototype.git](https://github.com/foll-project/Foll-Wokwi-Prototype.git)
+  [https://github.com/foll-project/Foll-Wokwi-Prototype.git](https://github.com/foll-project/Foll-Wokwi-Prototype.git)
