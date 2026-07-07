@@ -236,7 +236,7 @@
 <img src="img/Insights/tb1-1.png" width="700"/>
 <img src="img/Insights/tb1-2.png" width="700"/>
 
-**AV2:**
+**AV2:** </br>
 <img src="./img/Insights/av2_1.png" width="600"/>
 
 <img src="./img/Insights/av2_2.png" width="600"/>
@@ -387,6 +387,16 @@
       - [6.2.2.7. Services Documentation Evidence for Sprint Review.](#6227-services-documentation-evidence-for-sprint-review)
       - [6.2.2.8. Software Deployment Evidence for Sprint Review.](#6228-software-deployment-evidence-for-sprint-review)
       - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+    - [6.2.3. Sprint 3](#623-sprint-3)
+      - [6.2.3.1. Sprint Planning 2.](#6231-sprint-planning-2)
+      - [6.2.3.2. Aspect Leaders and Collaborators.](#6232-aspect-leaders-and-collaborators)
+      - [6.2.3.3. Sprint Backlog 2.](#6233-sprint-backlog-2)
+      - [6.2.3.4. Development Evidence for Sprint Review.](#6234-development-evidence-for-sprint-review)
+      - [6.2.3.5. Testing Suite Evidence for Sprint Review.](#6235-testing-suite-evidence-for-sprint-review)
+      - [6.2.3.6. Execution Evidence for Sprint Review.](#6236-execution-evidence-for-sprint-review)
+      - [6.2.3.7. Services Documentation Evidence for Sprint Review.](#6237-services-documentation-evidence-for-sprint-review)
+      - [6.2.3.8. Software Deployment Evidence for Sprint Review.](#6238-software-deployment-evidence-for-sprint-review)
+      - [6.2.3.9. Team Collaboration Insights during Sprint.](#6239-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews.](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
     - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
@@ -417,15 +427,12 @@
 				<strong>TB1:</strong><br>
 Durante esta etapa del proyecto, asumí el liderazgo en la definición visual y funcional de la experiencia de usuario. Mi participación se centró en el desarrollo de los Style Guidelines, los wireframes, los wireflow diagrams y el prototipado de la aplicación. Además, contribuí en la configuración del entorno de desarrollo y en la implementación del frontend, permitiendo que el equipo mantuviera una línea visual coherente y una estructura clara para la construcción del producto.
 </p>
-
 <strong>AV2:</strong><br>
 Lideré la planificación del Sprint 2 y estructuré el Sprint Backlog 2, organizando al equipo para avanzar con el desarrollo de FOLL. Además, asumí el liderazgo en la dirección del Video About-the-Product, asegurando que las funcionalidades clave de la detección de caídas se comunicaran de forma empática y clara, orientadas a brindar confianza tanto a los adultos mayores como a sus cuidadores.</p>
-
 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
 Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
 <strong>TB1:</strong><br>
 Lideré el diseño de la Landing Page UI Design, desarrollando los wireframes y mock-ups necesarios para representar visualmente la propuesta del producto. Asimismo, trabajé junto con Ariana en el diseño de los mock-ups de la aplicación, aportando en la organización visual, la consistencia de interfaces y la presentación de una experiencia más clara para los usuarios. Mi liderazgo permitió fortalecer la comunicación visual del proyecto.
-
 </p>
 <strong>AV2:</strong><br>
                 Asumí el liderazgo técnico en la demostración del trabajo al preparar las evidencias de desarrollo y ejecución del Sprint 2. También tomé la iniciativa en la etapa de validación de la experiencia de usuario al dirigir las evaluaciones de FOLL basándome en reglas heurísticas, garantizando que la interfaz sea altamente accesible y fácil de interpretar para nuestro público objetivo.</p>
@@ -492,7 +499,6 @@ Aporté a la planificación y mejora del trabajo técnico mediante la correcció
                 Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
 	 	 	 <strong>TB1:</strong><br>
 Colaboré en la organización del producto mediante el desarrollo de la arquitectura de información y la documentación de la configuración del software. Al trabajar los apartados de Organization Systems, Labeling Systems, Navigation Systems, Source Code Management y Software Deployment Configuration, ayudé a establecer una estructura clara para el proyecto. Esto permitió que el equipo tuviera una mejor base para planificar tareas, dividir responsabilidades y cumplir los objetivos técnicos de la entrega.
-
  </p>
  <strong>AV2:</strong><br>
                 Promoví un entorno empático acercando las opiniones, temores y necesidades reales de los adultos mayores y sus cuidadores a los desarrolladores a través de las sesiones de validación. Puse a disposición de todos el registro de entrevistas, permitiéndonos ajustar nuestras funcionalidades basándonos en retroalimentación real.</p>
@@ -7965,6 +7971,17 @@ La colaboración del equipo se gestionó mediante GitHub para el registro de ava
 <img src="./img/Insights/av2_2.png" width="600"/>
 
 <img src="./img/Insights/av2_3.png" width="600"/>
+
+### 6.2.3. Sprint 3
+#### 6.2.3.1. Sprint Planning 2.
+#### 6.2.3.2. Aspect Leaders and Collaborators.
+#### 6.2.3.3. Sprint Backlog 2.
+#### 6.2.3.4. Development Evidence for Sprint Review.
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+#### 6.2.3.6. Execution Evidence for Sprint Review.
+#### 6.2.3.7. Services Documentation Evidence for Sprint Review.
+#### 6.2.3.8. Software Deployment Evidence for Sprint Review.
+#### 6.2.3.9. Team Collaboration Insights during Sprint.
 
 ## 6.3. Validation Interviews.
 
