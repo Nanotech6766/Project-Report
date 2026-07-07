@@ -352,7 +352,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -8292,7 +8292,7 @@ En esta sección se registra el avance del Sprint 3 para el desarrollo del ecosi
 
 #### 6.2.3.1. Sprint Planning 3.
 
-En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra reunión de Sprint Planning para el Sprint 3. El foco principal de esta iteración es adaptar la base de código actual para soportar los flujos críticos (timers de cancelación, HostedServices para escalamiento, integración con Twilio/Firebase) e implementar desde cero la funcionalidad de vinculación rápida mediante códigos QR y la exportación de PDFs clínicos.
+En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra reunión de Sprint Planning para el Sprint 3. El foco principal de esta iteración es culminar la construcción del sistema embebido (dispositivo físico IoT) y adaptar la base de código actual para soportar la comunicación del hardware con los flujos críticos de la nube (timers de cancelación, HostedServices para escalamiento, integración con Twilio/Firebase), además de implementar desde cero la funcionalidad de vinculación rápida mediante códigos QR y la exportación de PDFs clínicos.
 
 <table>
   <tbody>
@@ -8324,18 +8324,18 @@ En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra
     </tr>
     <tr>
       <td><strong>Sprint 2 Review Summary</strong></td>
-      <td>En el Sprint 2 se logró un gran avance en Mobile (Kotlin) y Web (React), teniendo ya flujos como la gestión de pacientes, el historial y las estadísticas casi listos en UI. En la capa Edge (Python), la detección MQTT se comunica instantáneamente con el Backend (.NET), el cual ya tiene las interfaces de notificación preparadas pero funcionando con implementaciones simuladas ("Fake").</td>
+      <td>En el Sprint 2 se logró un gran avance en Mobile (Kotlin) y Web (React), teniendo ya flujos como la gestión de pacientes, el historial y las estadísticas casi listos en UI. En la capa Edge (Python), la detección MQTT se comunica instantáneamente con el Backend (.NET), el cual ya tiene las interfaces de notificación preparadas pero funcionando con implementaciones simuladas ("Fake"). El ensamblaje y programación final del dispositivo físico quedó como prioridad para el siguiente ciclo.</td>
     </tr>
     <tr>
       <td><strong>Sprint 2 Retrospective Summary</strong></td>
-      <td>El análisis técnico reveló que necesitamos implementar servicios reales (Twilio, Firebase FCM), agregar Workers en segundo plano (IHostedService) en el Backend para el escalamiento por inactividad, y desarrollar el nuevo flujo de vinculación presencial mediante códigos QR para facilitar la adhesión segura de nuevos cuidadores.</td>
+      <td>El análisis técnico reveló que necesitamos enfocar nuestros esfuerzos en terminar el dispositivo IoT físico para integrarlo al ecosistema. A la par, es necesario implementar los servicios reales (Twilio, Firebase FCM), agregar Workers en segundo plano (IHostedService) en el Backend para el escalamiento por inactividad, y desarrollar el nuevo flujo de vinculación presencial mediante códigos QR para facilitar la adhesión de nuevos cuidadores.</td>
     </tr>
     <tr>
       <td colspan="2"><strong>Sprint Goal & User Stories</strong></td>
     </tr>
     <tr>
       <td><strong>Sprint 3 Goal</strong></td>
-      <td>"Nuestro objetivo es implementar las lógicas reales de escalamiento sobre la arquitectura existente y desarrollar la funcionalidad de vinculación presencial. Esto incluye programar la ventana de cancelación asíncrona en el firmware Python, configurar Firebase/Twilio en el backend .NET para despachar alertas remotas y llamadas automatizadas, desplegar un Background Worker para monitorear inactividad, y construir la generación y escaneo de códigos QR en Kotlin y .NET."</td>
+      <td>"Nuestro objetivo es finalizar por completo el dispositivo físico IoT y conectarlo con las lógicas reales de escalamiento sobre la arquitectura existente, desarrollando además la funcionalidad de vinculación presencial. Esto incluye terminar el hardware, programar la ventana de cancelación asíncrona que responde a los botones del cinturón, configurar Firebase/Twilio en el backend .NET para despachar alertas remotas y llamadas automatizadas, desplegar un Background Worker para monitorear inactividad, y construir la generación y escaneo de códigos QR en Kotlin y .NET."</td>
     </tr>
     <tr>
       <td><strong>Sprint 3 Velocity</strong></td>
@@ -8573,19 +8573,19 @@ En esta sección se explica y presenta los avances en la implementación corresp
 
 Durante este Sprint, el equipo logró hitos significativos tanto en el Bounded Context de Sistema Embebido como en la orquestación de servicios en la nube. A nivel de hardware, se completó el prototipo físico ensamblando y soldando los microcontroladores y sensores dentro del contenedor impreso en 3D, manteniendo el diseño de cinturón imperceptible. En cuanto al software, el esfuerzo se centró en los Bounded Contexts de Emergency Management y Notification, implementando el protocolo de alerta de caídas multicapa: alarma local con ventana de cancelación mediante Edge AI, notificaciones Push/SMS con GPS, escalamiento telefónico automatizado y conexión con servicios médicos. Finalmente, se agilizó el proceso de alta en la plataforma móvil mediante la generación y lectura de códigos QR.
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| foll-project/foll-iot | hardware/prototype-assembly | 3a4b5c6 | feat: assemble and solder prototype in 3D container | Ensamblado y soldado final de los componentes electrónicos e integración dentro del contenedor impreso en 3D para el cinturón imperceptible. | 22/06/2026 |
-| foll-project/foll-iot | feature/local-alarm-protocol | 4b5c6d7 | feat: implement local audible alarm and cancellation | Integración de alarma sonora mediante el buzzer del cinturón y lógica Edge para cancelar la alerta en un lapso de 10 segundos antes del envío remoto. | 24/06/2026 |
-| foll-project/foll-backend | feature/push-sms-alerts | 5c6d7e8 | feat: add real-time push notifications and SMS fallback | Envío de notificaciones Push con ubicación GPS al cuidador a través del Bounded Context de Notification, con respaldo vía SMS si no hay conexión a internet. | 26/06/2026 |
-| foll-project/foll-backend | feature/call-escalation | 6d7e8f9 | feat: automate phone calls for secondary contacts | Implementación de la lógica en Emergency Management para ejecutar una llamada telefónica automatizada si el cuidador principal no responde en 3 minutos. | 29/06/2026 |
-| foll-project/foll-backend | feature/ambulance-request | 7e8f9a0 | feat: add electronic ambulance request system | Emisión de una solicitud electrónica automática a los centros médicos en caso de que ningún contacto de la red de respaldo responda a la emergencia. | 01/07/2026 |
-| foll-project/foll-frontend | feature/clinical-report-export | 8f9a0b1 | feat: implement PDF export for clinical history | Generación y descarga del historial de incidencias en formato PDF desde el panel web, estructurado específicamente para revisión del médico tratante. | 03/07/2026 |
-| foll-project/foll-mobile | feature/qr-profile-generation | 9a0b1c2 | feat: render unique profile QR code | Renderizado de un código QR único en la pantalla del perfil del paciente dentro de la app para facilitar la vinculación presencial de nuevos cuidadores. | 04/07/2026 |
-| foll-project/foll-mobile | feature/qr-scanner-linking | 0b1c2d3 | feat: add in-app camera scanner for QR linking | Integración de escáner de cámara en la app móvil para leer el código QR de pacientes existentes y agregarlos de forma instantánea a la red de cuidado. | 05/07/2026 |
-
+| Repository                 | Branch                         | Commit Id | Commit Message                                          | Commit Message Body                                                                                                                                          | Commited on (Date) |
+| :------------------------- | :----------------------------- | :-------- | :------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
+| foll-project/foll-iot      | hardware/prototype-assembly    | 3a4b5c6   | feat: assemble and solder prototype in 3D container     | Ensamblado y soldado final de los componentes electrónicos e integración dentro del contenedor impreso en 3D para el cinturón imperceptible.                 | 22/06/2026         |
+| foll-project/foll-iot      | feature/local-alarm-protocol   | 4b5c6d7   | feat: implement local audible alarm and cancellation    | Integración de alarma sonora mediante el buzzer del cinturón y lógica Edge para cancelar la alerta en un lapso de 10 segundos antes del envío remoto.        | 24/06/2026         |
+| foll-project/foll-backend  | feature/push-sms-alerts        | 5c6d7e8   | feat: add real-time push notifications and SMS fallback | Envío de notificaciones Push con ubicación GPS al cuidador a través del Bounded Context de Notification, con respaldo vía SMS si no hay conexión a internet. | 26/06/2026         |
+| foll-project/foll-backend  | feature/call-escalation        | 6d7e8f9   | feat: automate phone calls for secondary contacts       | Implementación de la lógica en Emergency Management para ejecutar una llamada telefónica automatizada si el cuidador principal no responde en 3 minutos.     | 29/06/2026         |
+| foll-project/foll-backend  | feature/ambulance-request      | 7e8f9a0   | feat: add electronic ambulance request system           | Emisión de una solicitud electrónica automática a los centros médicos en caso de que ningún contacto de la red de respaldo responda a la emergencia.         | 01/07/2026         |
+| foll-project/foll-frontend | feature/clinical-report-export | 8f9a0b1   | feat: implement PDF export for clinical history         | Generación y descarga del historial de incidencias en formato PDF desde el panel web, estructurado específicamente para revisión del médico tratante.        | 03/07/2026         |
+| foll-project/foll-mobile   | feature/qr-profile-generation  | 9a0b1c2   | feat: render unique profile QR code                     | Renderizado de un código QR único en la pantalla del perfil del paciente dentro de la app para facilitar la vinculación presencial de nuevos cuidadores.     | 04/07/2026         |
+| foll-project/foll-mobile   | feature/qr-scanner-linking     | 0b1c2d3   | feat: add in-app camera scanner for QR linking          | Integración de escáner de cámara en la app móvil para leer el código QR de pacientes existentes y agregarlos de forma instantánea a la red de cuidado.       | 05/07/2026         |
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+
 #### 6.2.3.6. Execution Evidence for Sprint Review.
 
 Esta sección resume lo alcanzado en el presente Sprint y presenta las principales vistas e integraciones implementadas del ecosistema Foll. Se muestran imágenes de las aplicaciones Web y Mobile, el ensamblaje del hardware IoT, el protocolo de alertas escalonadas y las nuevas funcionalidades de vinculación rápida y exportación de reportes.
@@ -8605,25 +8605,72 @@ Durante esta iteración, el equipo se enfocó en consolidar la arquitectura de a
 <img src="./img/evidence-sprint-3/hardware-soldado-2.jpg"  alt="Hardware Prototype Assembly" width="400"> <br>
 <img src="./img/evidence-sprint-3/hardware-armado-cerrado.jpg"  alt="Hardware Prototype Assembly" width="400"> <br>
 
-*Vista del prototipo físico ensamblado, mostrando los componentes electrónicos soldados y ubicados de forma compacta dentro del contenedor impreso en 3D.*
+_Vista del prototipo físico ensamblado, mostrando los componentes electrónicos soldados y ubicados de forma compacta dentro del contenedor impreso en 3D._
 
 <img src="./img/evidence-sprint/alarma_local_edge.jpeg"  alt="Edge AI Local Alarm" width="400"> <br>
 
-*Detalle del código y ejecución en la capa Edge manejando la alarma sonora local y la ventana de cancelación de 10 segundos.*
+_Detalle del código y ejecución en la capa Edge manejando la alarma sonora local y la ventana de cancelación de 10 segundos._
 
 <img src="./img/evidence-sprint/notificacion_push_sms.png"  alt="Push and SMS Notifications Mobile screenshot" width="300">  
 <img src="./img/evidence-sprint/escalamiento_llamada.png"  alt="Automated Call Mobile screenshot" width="300">  <br>
 
-*Capturas del dispositivo móvil recibiendo la notificación Push con GPS, el SMS de respaldo (offline) y la llamada telefónica automatizada dirigida a los contactos secundarios.*
+_Capturas del dispositivo móvil recibiendo la notificación Push con GPS, el SMS de respaldo (offline) y la llamada telefónica automatizada dirigida a los contactos secundarios._
 
 <img src="./img/evidence-sprint/generacion_qr.png"  alt="QR Code Generation Mobile" width="300">  
 <img src="./img/evidence-sprint/escaner_qr.png"  alt="QR Scanner Mobile" width="300">  <br>
 
-*Pantallas de la aplicación móvil mostrando el renderizado del código QR único del perfil y la interfaz del escáner de cámara para vincular nuevos cuidadores de forma presencial.*
+_Pantallas de la aplicación móvil mostrando el renderizado del código QR único del perfil y la interfaz del escáner de cámara para vincular nuevos cuidadores de forma presencial._
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review.
 
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review.
+
+**Landing Page**
+
+Se mantuvo desplegada en GitHub Pages, permitiendo el acceso público a la información del proyecto y conservando la disponibilidad alcanzada en el Sprint anterior.
+
+<img src="img/sw-deploy-ev/landing1.png" width="500px">
+<img src="img/sw-deploy-ev/landing2.png" width="500px">
+
+**Backend**
+
+Se realizó el despliegue actualizado de los servicios backend en Azure App Service, integrando los bounded context mediante el API Gateway. Este despliegue permitió validar la comunicación entre servicios, la autenticación de usuarios y el acceso a los recursos expuestos por cada contexto.
+
+<img src="img/sw-deploy-ev/back1.png" width="500px">
+<img src="img/sw-deploy-ev/back2.png" width="500px">
+
+**Load Balancer y Frontend**
+
+Desplegamos nuestra arquitectura en Google Cloud usando máquinas virtuales, donde instalamos un Load Balancer (balanceador de carga) basado en Nginx para gestionar todo el tráfico. Optamos por este despliegue estático de tres instancias balanceadas en lugar de autoescalado para tener un control absoluto sobre el rendimiento y los costos, garantizando siempre una capacidad de respuesta constante y alta disponibilidad ante cualquier fallo.
+Al configurar este Load Balancer, desplegamos simultáneamente tres instancias del frontend utilizando Docker. Gracias a esta integración, el Load Balancer actúa como el punto de entrada principal, recibiendo todas las peticiones y repartiendo a los usuarios de forma equitativa entre estas tres copias del frontend. Esta estructura permite que el sistema sea mucho más resiliente y fácil de administrar, ya que el despliegue del frontend queda perfectamente centralizado y sincronizado a través de esta misma infraestructura.
+
+<img src="img/sw-deploy-ev/front1.png" width="500px">
+<img src="img/sw-deploy-ev/front2.png" width="500px">
+<img src="img/sw-deploy-ev/front3.png" width="500px">
+<img src="img/sw-deploy-ev/front4.png" width="500px">
+<img src="img/sw-deploy-ev/front5.png" width="500px">
+
+**Api Gateway**
+
+Se realizó con éxito el despliegue del API Gateway basado en KrakenD sobre la infraestructura serverless de Google Cloud Run, consolidando un punto de entrada unificado para la comunicación entre el frontend y el monolito alojado en Azure. El proceso implicó una reingeniería técnica de la configuración declarativa, donde se estandarizaron los parámetros de enrutamiento a nivel jerárquico para resolver conflictos de ambigüedad en los endpoints y se establecieron políticas de acceso IAM granulares para la gestión segura de imágenes en Artifact Registry. Tras asegurar la integración de una política global de CORS para la interoperabilidad del frontend y realizar las pruebas de carga necesarias, el servicio se encuentra actualmente en producción procesando el 100% del tráfico a través de la URL https://krakend-api-gateway-54345958397.southamerica-east1.run.app, proporcionando una arquitectura escalable, segura y altamente performante para la gestión centralizada de peticiones.
+
+<img src="img/sw-deploy-ev/api1.png" width="500px">
+<img src="img/sw-deploy-ev/api2.png" width="500px">
+<img src="img/sw-deploy-ev/api3.png" width="500px">
+
+**Broker MQTT**
+
+Para el despliegue del broker MQTT en Azure, se utilizó Azure Container Instances (ACI) para montar rápidamente la solución, iniciando con la creación de un Dockerfile que definió el entorno del broker, el cual fue construido y enviado a un registro de imágenes. Posteriormente, mediante la interfaz de Azure o una ejecución de Azure CLI, se aprovisionó la instancia en el grupo de recursos rg-foll-prod bajo la región de Brazil South, configurando específicamente el puerto 1883 para habilitar la conectividad pública, lo que resultó en la obtención del FQDN foll-mqtt.f7evgksd9cvbgbj.brazilsouth.azurecontainer.io, permitiendo así que el servicio quedara en estado "Running" y comenzara a procesar tráfico de red de inmediato.
+
+<img src="img/sw-deploy-ev/broker1.png" width="500px">
+
+**Mobile App**
+
+Para la aplicación móvil, se generó y firmó digitalmente el archivo ejecutable en formato APK. En lugar de publicarla en una tienda de aplicaciones, optamos por habilitar su descarga directa desde nuestra Landing Page. De esta manera, centralizamos la distribución y facilitamos que cualquier usuario o evaluador pueda descargar e instalar la app rápidamente en su dispositivo Android, permitiendo validar sin complicaciones las funcionalidades desarrolladas durante el Sprint.
+
+<img src="img/sw-deploy-ev/mobile1.png" width="500px">
+<img src="img/sw-deploy-ev/mobile2.png" width="500px">
+<img src="img/sw-deploy-ev/mobile3.png" width="500px">
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint.
 
