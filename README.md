@@ -1,28 +1,26 @@
-<center>Project Report</center>
-
 <p align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png"></img><br>
-    <strong>Universidad Peruana de Ciencias Aplicadas</strong><br>
-    <strong>Facultad de Ingeniería</strong><br><br><br>
-    <strong>Curso:</strong> 1ASI0572 - Desarrollo de Soluciones IOT<br>
-    <strong>NRC:</strong> 6766<br><br>
-    <strong>Nombre del Profesor: Marco Antonio Leon Baca</strong><br><br>
-    <br><strong>"Informe del Trabajo Final"</strong>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png" width="100"><br><br>
+    Universidad Peruana de Ciencias Aplicadas<br>
+    Carrera de Ingeniería de Software<br><br><br>
+    <strong>1ASI0572</strong><br><br>
+    <strong>Desarrollo de Soluciones IoT</strong><br><br>
+    NRC<br><br>
+    <strong>6766</strong><br><br>
+    <strong>Informe del Trabajo Final</strong><br><br>
+    Docente<br><br>
+    <strong>León Baca, Marco Antonio</strong><br><br><br>
+    Equipo<br><br>
+    <strong>nanoTech</strong><br><br><br>
+    Proyecto<br><br>
+    <strong>Foll</strong><br><br><br>
+    <strong>Integrantes</strong><br><br>
 </p>
 
-</p>
-
-<p align="center">
-    <strong>Nombre del grupo: nanoTech</strong><br>
-    <strong>Nombre del producto: Foll</strong>
-</p>
-
-<div style="text-align:center;">
-    <h3>Integrantes:</h3>
-    <table align="center">
+<div align="center">
+    <table>
         <tr>
-            <th style="text-align:center;">Code</th>
-            <th style="text-align:center;">Apellidos y Nombres</th>
+            <th align="left">Código</th>
+            <th align="left">Apellidos y Nombres</th>
         </tr>
         <tr>
             <td>u202315044</td>
@@ -48,9 +46,9 @@
 </div>
 
 <p align="center">
-    <strong>Lima - Junio, 2026</strong>
+    <br><br><strong>Período 202610</strong>
 </p>
-<br>
+
 
 <div style="page-break-after: always;"></div>
 
