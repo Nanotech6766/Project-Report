@@ -8586,6 +8586,139 @@ Durante este Sprint, el equipo logró hitos significativos tanto en el Bounded C
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
 
+En esta sección se explica y presenta el conjunto de **Unit Tests**, **Integration Tests** y **Acceptance Tests** automatizados para **Web Services** relacionados con los User Stories especificados en el Sprint (US28, US32 y US34). Las pruebas validan los servicios backend consumidos por las interfaces Web y Mobile: Care, Device Management y Emergency Analytics.
+
+Los **Acceptance Tests** bajo enfoque **BDD** fueron elaborados con archivos `.feature` en lenguaje **Gherkin** y archivos **Steps** en **C#** (SpecFlow). Los **Unit Tests** e **Integration Tests** se relacionan con las clases de dominio, servicios de aplicación y controladores REST que soportan cada historia de usuario.
+
+**Repositorios de control de versiones — Testing Sprint**
+
+| Repositorio             | Rama principal de pruebas | Alcance de testing                                              |
+| ----------------------- | ------------------------- | --------------------------------------------------------------- |
+| `foll-backend`          | `test`                    | Unit Tests, Integration Tests y Step Definitions BDD (SpecFlow) |
+| `foll-frontend`         | `test/*`                  | Pruebas de componentes e integración UI (Vitest/Jest)           |
+| `follMobileApp`         | `test/*`                  | Pruebas unitarias Android y renderizado QR (JUnit)              |
+| Features BDD (Gherkin)  | —                         | `Project-Report/testing/sprint/features/`                        |
+| Step Definitions (C#)   | —                         | `Project-Report/testing/sprint/steps/`                          |
+
+<br>
+
+- **Relación de Unit Tests diseñados**
+
+| Test                                                         | Clase / comportamiento relacionado                                              | User Story relacionada                   | Descripción                                                                                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `ExecuteAsync_ShouldTriggerCheckConnectivityCommand`        | `DeviceConnectivityMonitorBackgroundService.ExecuteAsync`                       | US28 - Escalamiento y monitoreo (T28)    | Ejecuta el background worker de monitoreo de dispositivos. Verifica que calcula el umbral y despacha comandos de chequeo.  |
+| `VerifyIncident_TransitionsToEscalated_AfterTimeout`         | `EmergencyIncident.EvaluateEscalationTimeout`                                   | US28 - Escalamiento y monitoreo (T29)    | Transiciona un incidente abierto a "Escalado" si transcurren más de 3 minutos de inactividad.                              |
+| `Handle_WithValidPatientAndCaregiver_ShouldLinkSuccessfully` | `LinkCaregiverViaQrCommandHandler.Handle`                                       | US34 - Vinculación rápida por QR (T34)   | Vincula exitosamente a un cuidador a un paciente usando su ID obtenido del QR.                                             |
+| `Handle_WhenPatientNotFound_ShouldThrowException`            | `LinkCaregiverViaQrCommandHandler.Handle`                                       | US34 - Vinculación rápida por QR (T34)   | Intenta vincular a un paciente inexistente. Verifica que lanza `InvalidOperationException`.                                |
+| `Handle_WhenCaregiverNotFound_ShouldThrowException`          | `LinkCaregiverViaQrCommandHandler.Handle`                                       | US34 - Vinculación rápida por QR (T34)   | Intenta vincular a un cuidador inexistente en el sistema. Verifica error controlado.                                       |
+| `Handle_WhenCaregiverAlreadyLinked_ShouldThrowException`     | `LinkCaregiverViaQrCommandHandler.Handle`                                       | US34 - Vinculación rápida por QR (T34)   | Evita vinculaciones duplicadas lanzando excepción si el cuidador ya está asociado al paciente.                             |
+| `DownloadPDF_GeneratesCorrectStructureAndFilename`           | `Reportes.tsx -> descargarPDF`                                                  | US32 - Exportación reporte clínico (T33) | Valida en frontend que la función inicializa `jspdf`, llena la tabla con el historial de caídas y descarga el archivo PDF. |
+| `PatientQrCodeGenerator_CreatesValidMatrixBitmap`            | `PatientCardItem.kt`                                                            | US34 - Vinculación rápida por QR (T35)   | Codifica el token del paciente en un bitmap gráfico utilizando la biblioteca ZXing en Android.                             |
+
+<br>
+
+- **Relación de Integration Tests diseñados**
+
+| Test                                                 | Tipo de prueba   | User Story relacionada                   | Descripción                                                                                                                   |
+| ---------------------------------------------------- | ---------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `DeviceConnectivity_WorkerCheck_Integration`         | Integration Test | US28 - Escalamiento y monitoreo (T28)    | Valida la interacción entre el Background Service y `IDeviceRepository` usando la base de datos para consultar dispositivos.  |
+| `LinkCaregiverViaQr_ControllerAndHandler_Integration` | Integration Test | US34 - Vinculación rápida por QR (T34)   | Ejecuta una petición HTTP POST a `/api/patients/{id}/caregivers/qr` y valida la inserción en base de datos real del cuidador. |
+| `Emergency_EscalationNotificationFlow_Integration`   | Integration Test | US28 - Escalamiento y monitoreo (T29)    | Registra caída, simula el paso del tiempo y valida que se inserte en outbox el mensaje de envío de SMS de auxilio.            |
+| `Report_DataMappingToPdf_Integration`                | Integration Test | US32 - Exportación reporte clínico (T33) | Verifica que los datos clínicos del paciente obtenidos por API se inyectan correctamente en las filas de jspdf-autotable.     |
+
+<br>
+
+- **Relación de Acceptance Tests (BDD) diseñados**
+
+| Archivo `.feature`                     | User Story | Escenarios | Endpoint(s) validado(s)                                   |
+| -------------------------------------- | ---------- | ---------- | --------------------------------------------------------- |
+| `US28-incident-escalation.feature`     | US28       | 1          | Background Worker (Envío de SMS automatizado)             |
+| `US34-caregiver-qr-link.feature`       | US34       | 1          | `POST /api/patients/{patientId}/caregivers/qr`            |
+| `US32-clinical-report-export.feature`  | US32       | 1          | Simulación UI (Acción de descarga en `Reportes.tsx`)      |
+
+<br>
+
+- **Archivos `.feature` (Gherkin) — Sprint**
+
+**US28 — Escalamiento de incidentes de emergencia** (`testing/sprint/features/US28-incident-escalation.feature`)
+
+```gherkin
+@US28 @EmergencyAnalytics @WebServices
+Feature: Escalamiento de incidentes de emergencia
+  Como sistema de monitoreo de salud
+  Quiero transicionar el estado de un incidente a "Escalado" después de 3 minutos de inactividad o falta de confirmación
+  Para notificar a los contactos de emergencia cuando el paciente principal no responde
+
+  @AcceptanceTest
+  Scenario: Transición automática de incidente abierto a escalado por timeout
+    Given un paciente "Juan Perez" con un dispositivo activo
+    And un incidente de emergencia abierto registrado hace 3 minutos
+    When el background worker detecta el timeout del incidente
+    Then el estado del incidente debe cambiar a "Escalado"
+    And se debe disparar la notificación de alerta de escalamiento a los contactos de emergencia mediante SMS
+```
+
+**US34 — Vinculación rápida de cuidador mediante código QR** (`testing/sprint/features/US34-caregiver-qr-link.feature`)
+
+```gherkin
+@US34 @Care @WebServices
+Feature: Vinculación rápida de cuidador mediante código QR
+  Como cuidador registrado
+  Quiero escanear el código QR del paciente
+  Para vincularme a él rápidamente sin flujos complejos de invitación
+
+  @AcceptanceTest
+  Scenario: Vinculación exitosa de cuidador a través de QR
+    Given un paciente "Juan Perez" registrado en el sistema con ID 1
+    And un cuidador registrado con ID 2 que no está vinculado al paciente
+    When se realiza una solicitud POST a "/api/patients/1/caregivers/qr" con el ID del cuidador
+    Then el servidor debe responder con un código de estado 200 OK
+    And el cuidador debe quedar vinculado al paciente con el rol por defecto de cuidador
+```
+
+**US32 — Exportación de reporte clínico en formato PDF** (`testing/sprint/features/US32-clinical-report-export.feature`)
+
+```gherkin
+@US32 @Care @Frontend
+Feature: Exportación de reporte clínico en formato PDF
+  Como médico o cuidador
+  Quiero exportar el historial de caídas del paciente en un archivo PDF tabulado
+  Para presentarlo en consultas clínicas
+
+  @AcceptanceTest
+  Scenario: Descarga de reporte de caídas de paciente exitoso
+    Given el usuario se encuentra en la pantalla de "Reportes" del paciente "Juan Perez"
+    And el paciente tiene un historial de caídas registrado en el sistema
+    When el usuario hace clic en el botón de descarga del reporte PDF
+    Then el sistema debe generar un documento PDF estructurado en el navegador
+    And el archivo PDF debe descargarse automáticamente con la información del paciente
+```
+
+<br>
+
+- **Archivos Steps (C# — SpecFlow)**
+
+Los Step Definitions se encuentran en `Project-Report/testing/sprint/steps/`:
+
+| Archivo                   | Responsabilidad                                                                          |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| `EscalationAndQrSteps.cs` | Vinculación rápida de cuidadores y flujo de escalamiento tras inactividad (`foll-backend`)|
+| `ReportPdfSteps.js`       | Pasos para interacción UI y renderizado del PDF con jsPDF (`foll-frontend`)              |
+| `PatientQrSteps.kt`       | Pasos para procesamiento y renderizado de Bitmap QR de ZXing (`follMobileApp`)           |
+
+<br>
+
+- **Commits relacionados con Testing**
+
+| Repository     | Branch                       | Commit Id | Commit Message                                                 | Commit Message Body                                                                                                              | Commited on (Date) |
+| -------------- | ---------------------------- | --------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `foll-backend` | `test`                       | `b1e2a3c` | `test: add device connectivity background service tests`      | Se agregaron pruebas unitarias para `DeviceConnectivityMonitorBackgroundService` validando heartbeats y timeouts (T28).           | 07/07/2026         |
+| `foll-backend` | `test`                       | `c4d5e6f` | `test: add qr caregiver linking command handler tests`         | Se implementaron las pruebas unitarias para `LinkCaregiverViaQrCommandHandler` validando paciente y vinculación (T34).          | 07/07/2026         |
+| `foll-backend` | `test`                       | `e7f8a9b` | `test: add gherkin feature and step bindings for backend tests`| Se incorporó el archivo de características Gherkin y las definiciones de pasos SpecFlow en C# para QR y Timeout (T28, T29, T34). | 07/07/2026         |
+| `foll-frontend`| `test/pdf-export`            | `f0a1b2c` | `test: add jest tests for pdf clinical report download`        | Se crearon pruebas unitarias Jest y mocking de `jspdf`/`jspdf-autotable` para `descargarPDF` en `Reportes.tsx` (T32, T33).       | 07/07/2026         |
+| `follMobileApp`| `test/qr-rendering`          | `a3b4c5d` | `test: add android zxing qr generation unit tests`             | Se implementó la prueba unitaria en Kotlin con Mockk para evaluar la generación del Bitmap de la matriz QR (T35).                | 07/07/2026         |
+
+
 #### 6.2.3.6. Execution Evidence for Sprint Review.
 
 Esta sección resume lo alcanzado en el presente Sprint y presenta las principales vistas e integraciones implementadas del ecosistema Foll. Se muestran imágenes de las aplicaciones Web y Mobile, el ensamblaje del hardware IoT, el protocolo de alertas escalonadas y las nuevas funcionalidades de vinculación rápida y exportación de reportes.
