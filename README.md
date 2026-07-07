@@ -8623,6 +8623,158 @@ Durante esta iteración, el equipo se enfocó en consolidar la arquitectura de a
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review.
 
+Durante el presente Sprint, el equipo de desarrollo enfocó sus esfuerzos en expandir y consolidar las capacidades de la API del sistema, garantizando la interoperabilidad robusta entre las capas de servicios web y las aplicaciones cliente (web y móvil). Los logros clave alcanzados en relación con la documentación de Web Services abarcan:
+
+* **Estandarización de Endpoints con OpenAPI:** Se implementó y actualizó la especificación OpenAPI (Swagger), cubriendo nuevos flujos críticos de negocio como la gestión de accesos e identidades (IAM), la vinculación rápida mediante códigos QR de cuidadores, el desmapeo de personal a cargo y la visibilidad de emergencias públicas mediante tokens de seguridad temporales.
+* **Aseguramiento del Ciclo de Vida del Dato:** Se diseñaron mecanismos para operaciones destructivas seguras (`DELETE`), permitiendo dar de baja cuentas de usuario y pacientes bajo criterios estrictos de consistencia relacional.
+* **Acceso Público Seguro Basado en Tokens:** Se habilitó un canal para servicios de emergencia que permite rastrear la geolocalización de un incidente crítico de forma anónima y controlada por tiempo.
+
+---
+
+**Tabla Resumen de Endpoints Documentados**
+
+| HTTP Verbo | Endpoint / Sintaxis de Llamada | Acción Implementada / Descripción | Enlace a Documentación Desplegada |
+| :--- | :--- | :--- | :--- |
+| **DELETE** | `/api/iam/auth` | Eliminación definitiva de la cuenta del usuario autenticado tras validación de credenciales. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **POST** | `/api/patients/{patientId}/caregivers/qr` | Vinculación segura de un cuidador a un adulto mayor mediante la lectura de un código QR. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **DELETE** | `/api/patients/{patientId}/caregivers/{caregiverId}` | Desvinculación de un cuidador asignado a un paciente específico. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **DELETE** | `/api/care/patients/{id}` | Eliminación lógica/física del expediente del paciente en el módulo de cuidado integral. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **GET** | `/api/emergency/public-location/{token}` | Consulta pública de la ubicación en tiempo real de un incidente de caída mediante un token seguro. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+
+---
+
+**Especificación Detallada de Acciones Soportadas**
+
+**Autenticación e Identidad (IAM)**  
+* **Verbo HTTP:** `DELETE`
+* **Sintaxis de llamada:** `/api/iam/auth`
+* **Especificación de Parámetros:**
+    * *Headers:* `Content-Type: application/json` | `Authorization: Bearer <JWT-Token>` (Requerido para identificar al usuario actual)
+    * *Request Body (JSON):*
+        ```json
+        {
+          "password": "string"
+        }
+        ```
+* **Explicación y Ejemplo del Response:**
+    * **Response 200 OK:** Se devuelve cuando la contraseña coincide y la cuenta es eliminada con éxito del sistema transaccional.
+        ```json
+        {
+          "message": "Cuenta eliminada exitosamente. Adiós."
+        }
+        ```
+    * **Response 400 Bad Request:** Se genera si el usuario implícito en el token de autenticación no se encuentra registrado en la base de datos o los parámetros de validación fallan.
+        ```json
+        {
+          "message": "Usuario no encontrado."
+        }
+        ```
+
+---
+
+**Gestión de Relaciones Paciente-Cuidador (PatientCaregivers)**
+
+**Vincular Cuidador vía QR**
+* **Verbo HTTP:** `POST`
+* **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/qr`
+* **Especificación de Parámetros:**
+    * *Path Parameters:* `{patientId}` (Integer, ID único del abuelito/paciente a vincular).
+    * *Request Body (JSON):*
+        ```json
+        {
+          "caregiverId": 0
+        }
+        ```
+* **Explicación y Ejemplo del Response:**
+    * **Response 200 OK:** La aplicación móvil/web procesó correctamente el código QR del cuidador y lo registró en la bitácora de cuidadores secundarios del abuelito.
+        ```json
+        {
+          "message": "Cuidador vinculado exitosamente al paciente a través de QR."
+        }
+        ```
+
+**Desvincular Cuidador de Paciente**
+* **Verbo HTTP:** `DELETE`
+* **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/{caregiverId}`
+* **Especificación de Parámetros:**
+    * *Path Parameters:* * `{patientId}` (Integer, ID único del paciente).
+        * `{caregiverId}` (Integer, ID único del cuidador que se removerá de la lista de accesos).
+    * *Request Body:* Ninguno (`No Content`).
+* **Explicación y Ejemplo del Response:**
+    * **Response 200 OK:** El cuidador pierde los privilegios de monitoreo sobre el adulto mayor de forma inmediata. Devuelve un cuerpo vacío confirmando el éxito.
+        ```json
+        * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
+        ```
+
+---
+
+**Módulo de Cuidado Médico (Care Module)**  
+* **Verbo HTTP:** `DELETE`
+* **Sintaxis de llamada:** `/api/care/patients/{id}`
+* **Especificación de Parámetros:**
+    * *Path Parameters:* `{id}` (Integer, Identificador numérico único del registro del paciente).
+    * *Request Body:* Ninguno.
+* **Explicación y Ejemplo del Response:**
+    * **Response 200 OK:** El registro médico, historial de caídas asociadas y parámetros del paciente han sido dados de baja del sistema sin afectar la integridad del IAM de sus familiares vinculados.
+        ```json
+        * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
+        ```
+
+---
+
+**Gestión de Eventos Críticos y Emergencias (PublicEmergencyLocation)**
+* **Verbo HTTP:** `GET`
+* **Sintaxis de llamada:** `/api/emergency/public-location/{token}`
+* **Especificación de Parámetros:**
+    * *Path Parameters:* `{token}` (String de tipo UUID o hash alfanumérico seguro generado dinámicamente al registrarse una caída). No requiere cabeceras de autorización privadas, pues es un link de uso libre para centrales de auxilio médico externado.
+    * *Request Body:* Ninguno.
+* **Explicación y Ejemplo del Response:**
+    * **Response 200 OK:** Retorna las coordenadas geográficas precisas e información de bitácora esencial para que ambulancias o paramédicos ubiquen al paciente de forma inmediata.
+        ```json
+        {
+          "latitude": -12.087432,
+          "longitude": -76.974321,
+          "patientName": "Ricardo Al Moen",
+          "incidentTime": "2026-07-07T11:50:00Z",
+          "observations": "Caída brusca detectada por acelerómetro en sala principal. Pérdida temporal de verticalidad."
+        }
+        ```
+
+---
+
+**Evidencia Gráfica de Interacción (OpenAPI / Swagger UI)**
+
+A continuación, se presentan las capturas de pantalla tomadas directamente desde la interfaz interactiva de Swagger UI, simulando peticiones exitosas y flujos alternos utilizando datos de prueba en un entorno controlado.
+
+**Interacción 1: Eliminación de Cuenta de Usuario (`DELETE /api/iam/auth`)**  
+Para validar el flujo, se colocó el token JWT asignado en el botón "Authorize" de Swagger y se envió la clave actual para reconfirmar la acción destructiva.
+![](./img/services-documentation/sprint-3-delete-auth.png)  
+*Figura 3.1: Prueba de respuesta exitosa del servidor ante la eliminación segura de credenciales.*
+
+**Interacción 2: Vinculación Exitosa vía QR (`POST /api/patients/{patientId}/caregivers/qr`)**  
+Se interactuó con los campos parametrizados ingresando un `patientId` real e inyectando el ID del cuidador simulado desde la carga útil JSON.
+![](./img/services-documentation/sprint-3-qr.png)
+*Figura 3.2: Registro de un nuevo cuidador secundario empleando el endpoint transaccional del QR.*
+
+**Interacción 3: Consulta Pública de Alerta Crítica (`GET /api/emergency/public-location/{token}`)**  
+Prueba efectuada simulando un acceso anónimo de emergencia para validar que el endpoint responda sin solicitar tokens del módulo IAM.  
+![](./img/services-documentation/sprint-3-emergency-location.png)
+*Figura 3.3: Visualización de response el endpoint de emergency location en caso de expiracion.*
+
+---
+
+Para validar el despliegue e implementación de los artefactos de documentación OpenAPI, se detalla la ubicación oficial del código fuente de los Web Services junto con los identificadores criptográficos SHA de Git correspondientes a las modificaciones de este periodo.
+
+* **URL del Repositorio de Web Services:** `https://github.com/foll-project/foll-backend`
+* **Identificadores de Commits Relacionados (Documentation Logs):**
+
+| ID del Commit (SHA-1) | Autor | Fecha | Descripción del Cambio Relacionado a Documentación |
+| :--- | :--- | :--- | :--- |
+| `e632a36829acfd913c6961c6f474c5fe28bbe847` | Claus-tb | 04/07/2026 | feat: delete account completed |
+| `f6e28b2e4fe1849cbc9b7ce3ffd884e7999be391` | Maur1xio | 05/07/2026 | docs: add apigateway configuration |
+| `573900dd0de48fa19173dc173385ac5027e4caa5` | Maur1xio | 07/07/2026 | fix: emergency analytics |
+
+
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review.
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint.
