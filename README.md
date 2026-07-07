@@ -8292,14 +8292,6 @@ En esta sección se registra el avance del Sprint 3 para el desarrollo del ecosi
 
 #### 6.2.3.1. Sprint Planning 3.
 
-Markdown
-
-### 6.2.3. Sprint 3
-
-En esta sección se registra el avance del Sprint 3 para el desarrollo del ecosistema Foll. Se documenta la planificación, la matriz de liderazgo, el backlog del sprint y las evidencias de desarrollo, alineados a la arquitectura real del sistema (Python en Edge, .NET en Backend, Kotlin en Mobile y React en Web) para asegurar el escalamiento de alertas y robustecer la seguridad en la vinculación y reportería.
-
-#### 6.2.3.1. Sprint Planning 3.
-
 En esta sección detallamos los resultados y acuerdos alcanzados durante nuestra reunión de Sprint Planning para el Sprint 3. El foco principal de esta iteración es adaptar la base de código actual para soportar los flujos críticos (timers de cancelación, HostedServices para escalamiento, integración con Twilio/Firebase) e implementar desde cero la funcionalidad de vinculación rápida mediante códigos QR y la exportación de PDFs clínicos.
 
 <table>
@@ -8586,6 +8578,14 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review.
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint.
+
+La colaboración del equipo se gestionó mediante GitHub para el registro y sincronización de avances a través de múltiples repositorios simultáneos. Esto permitió paralelizar eficazmente el trabajo, logrando integrar el hardware físico con los servicios en la nube sin bloqueos críticos. El desarrollo se centró en la implementación de flujos de alta disponibilidad, orquestando servicios en segundo plano (Background Workers) en el backend, integrando APIs de terceros (Twilio, Firebase FCM) para el escalamiento automático de alertas, y construyendo la funcionalidad de vinculación presencial segura mediante tokens JWT y códigos QR. Durante todo el ciclo, se respetó rigurosamente la coherencia arquitectónica basada en Domain-Driven Design (DDD), asegurando que los módulos de Emergency & Analytics y Notification & Communication interactúen fluidamente con el firmware embebido y la capa Edge, manteniendo una estricta separación de responsabilidades entre la captura local de datos físicos y el procesamiento remoto en la nube.
+
+<br>
+<img src="img/Insights/tb2_1.png" width="500px"><br>
+<img src="img/Insights/tb2_2.png" width="500px"><br>
+<img src="img/Insights/tb2_3.png" width="500px"><br>
+<img src="img/Insights/tb2_4.png" width="500px"><br>
 
 ## 6.3. Validation Interviews.
 
