@@ -219,6 +219,60 @@
     <td>Ariana Agreda</td>
     <td>Redacción de los Team Collaboration Insights y elaboración del Video About-the-Product.</td>
 </tr>
+<tr>
+        <td>4.1</td>
+        <td>22/06/2026</td>
+        <td>Ariana Agreda</td>
+        <td>Elaboración del Sprint Planning 3.</td>
+    </tr>
+    <tr>
+        <td>4.2</td>
+        <td>24/06/2026</td>
+        <td>Mauricio Elera</td>
+        <td>Definición de Aspect Leaders and Collaborators para el Sprint 3.</td>
+    </tr>
+    <tr>
+        <td>4.3</td>
+        <td>26/06/2026</td>
+        <td>Ariana Agreda</td>
+        <td>Estructuración del Sprint Backlog 3.</td>
+    </tr>
+    <tr>
+        <td>4.4</td>
+        <td>28/06/2026</td>
+        <td>Fabiola Saldaña</td>
+        <td>Documentación del Development Evidence for Sprint Review.</td>
+    </tr>
+    <tr>
+        <td>4.5</td>
+        <td>30/06/2026</td>
+        <td>Claudia Belledonne</td>
+        <td>Elaboración del Testing Suite Evidence for Sprint Review.</td>
+    </tr>
+    <tr>
+        <td>4.6</td>
+        <td>02/07/2026</td>
+        <td>Fabiola Saldaña</td>
+        <td>Generación del Execution Evidence for Sprint Review.</td>
+    </tr>
+    <tr>
+        <td>4.7</td>
+        <td>04/07/2026</td>
+        <td>Diego Vilca</td>
+        <td>Desarrollo del Services Documentation Evidence for Sprint Review.</td>
+    </tr>
+    <tr>
+        <td>4.8</td>
+        <td>06/07/2026</td>
+        <td>Mauricio Elera</td>
+        <td>Documentación del Software Deployment Evidence for Sprint Review.</td>
+    </tr>
+    <tr>
+        <td>5.0</td>
+        <td>07/07/2026</td>
+        <td>Ariana Agreda</td>
+        <td>Redacción de los Team Collaboration Insights during Sprint.</td>
+    </tr>
 </table>
 
 <div style="page-break-after: always;"></div>
@@ -227,14 +281,14 @@
 
 **AV1**
 
-<img width="750" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
-<img width="750" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
-<img width="750" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/d672acb1-d83b-4213-ab78-456ae97d2803" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/006ccd0c-b7e5-491f-afad-836cdf4f3266" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/e334d876-e7f5-4ee2-be4b-57c4fc60d8d7" />
 
 **TB1:** </br>
-<img src="img/Insights/tb1.png" width="700"/>
-<img src="img/Insights/tb1-1.png" width="700"/>
-<img src="img/Insights/tb1-2.png" width="700"/>
+<img src="img/Insights/tb1.png" width="600"/>
+<img src="img/Insights/tb1-1.png" width="600"/>
+<img src="img/Insights/tb1-2.png" width="600"/>
 
 **AV2:** </br>
 <img src="./img/Insights/av2_1.png" width="600"/>
@@ -242,6 +296,10 @@
 <img src="./img/Insights/av2_2.png" width="600"/>
 
 <img src="./img/Insights/av2_3.png" width="600"/>
+
+**TB2:** </br>
+<img src="img/Insights/tb2-1.png" width="600"/>
+<img src="img/Insights/tb2-2.png" width="600"/>
 
  <div style="page-break-after: always;"></div>
 
@@ -429,6 +487,10 @@ Durante esta etapa del proyecto, asumí el liderazgo en la definición visual y 
 </p>
 <strong>AV2:</strong><br>
 Lideré la planificación del Sprint 2 y estructuré el Sprint Backlog 2, organizando al equipo para avanzar con el desarrollo de FOLL. Además, asumí el liderazgo en la dirección del Video About-the-Product, asegurando que las funcionalidades clave de la detección de caídas se comunicaran de forma empática y clara, orientadas a brindar confianza tanto a los adultos mayores como a sus cuidadores.</p>
+
+<strong>TB2:</strong><br>
+Lideré la organización general del Sprint 3 mediante la elaboración del Sprint Planning y la estructuración del Sprint Backlog. Asimismo, me encargué de compilar y analizar los Team Collaboration Insights, guiando al equipo a reflexionar sobre nuestra dinámica de trabajo y asegurando que la comunicación y distribución de tareas se mantuviera eficiente de cara al Sprint Review.</p>
+
 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
 Lideré el modelado estratégico del dominio al dirigir las dinámicas de Big Picture y Design-Level EventStorming. A través del descubrimiento de Candidate Contexts y el modelado de flujos, tomé la responsabilidad de unificar la visión de negocio con el diseño técnico, guiando a mis compañeros en la toma de decisiones conjuntas sobre la arquitectura del sistema.</p>
 <strong>TB1:</strong><br>
@@ -436,24 +498,32 @@ Lideré el diseño de la Landing Page UI Design, desarrollando los wireframes y 
 </p>
 <strong>AV2:</strong><br>
                 Asumí el liderazgo técnico en la demostración del trabajo al preparar las evidencias de desarrollo y ejecución del Sprint 2. También tomé la iniciativa en la etapa de validación de la experiencia de usuario al dirigir las evaluaciones de FOLL basándome en reglas heurísticas, garantizando que la interfaz sea altamente accesible y fácil de interpretar para nuestro público objetivo.</p>
+                <strong>TB2:</strong><br>
+                Asumí el liderazgo técnico en la consolidación de las entregas al preparar de forma exhaustiva las evidencias de desarrollo y ejecución para el Sprint Review. Mi liderazgo se centró en garantizar que el código desarrollado y su funcionamiento en tiempo real reflejaran con precisión la calidad y el alcance técnico propuesto para esta etapa del producto.</p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Asumí el liderazgo técnico en el diseño de la Arquitectura de Software utilizando el modelo C4 (Landscape, Context, Container, Deployment). Además, dirigí el análisis competitivo y el diseño de entrevistas. Mi liderazgo se enfocó en proveer directrices arquitectónicas claras, asegurando que las propuestas de desarrollo fueran escalables y competitivas.</p>
 	 	 <strong>TB1:</strong><br>
 Asumí el liderazgo en el IoT Device Design y en el desarrollo técnico relacionado con la implementación del producto. Además, participé en la corrección de los diagramas de clases y en el trabajo del backend, asegurando que la solución mantuviera coherencia entre el diseño técnico y la lógica del sistema. Mi aporte permitió reforzar la parte técnica del proyecto y apoyar al equipo en la validación de la arquitectura propuesta.</p>
                 <strong>AV2:</strong><br>
                 Guié al equipo asumiendo el liderazgo total sobre la documentación de servicios desarrollada a lo largo del Sprint 2. Aseguré que las especificaciones de las APIs que conectan los dispositivos IoT de detección de caídas con nuestra arquitectura estuvieran estandarizadas y fueran comprensibles para el resto de los desarrolladores.</p>
+                <strong>TB2:</strong><br>
+                Lideré el control de calidad integral del sistema al elaborar y documentar el Testing Suite Evidence para el Sprint Review. Me aseguré de que todos los escenarios de uso y casos críticos estuvieran cubiertos y comunicados, brindando al equipo la confianza técnica necesaria sobre la robustez y estabilidad de nuestro software.</p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Lideré la implementación del Tactical-Level Domain-Driven Design. Mi responsabilidad principal fue traducir los requerimientos estratégicos a nivel de código y diseño de base de datos. Orienté al equipo técnico definiendo la estructuración en capas (Domain, Application, Infrastructure) y elaborando los diagramas de clases, garantizando estándares técnicos de alta calidad.</p>
 	 	 	 <strong>TB1:</strong><br>
 Lideré la revisión y mejora de los diagramas C4, además de participar en la documentación técnica relacionada con los servicios, el despliegue del software y los insights de colaboración del equipo durante el sprint. Mi responsabilidad se enfocó en asegurar que la arquitectura del sistema estuviera correctamente representada y que la documentación reflejara de manera clara el trabajo realizado por el equipo.</p>
                 <strong>AV2:</strong><br>
                 Lideré el aseguramiento de la calidad y el proceso de puesta en producción al desarrollar detalladamente las evidencias del Testing Suite y documentar todo el proceso del Software Deployment de FOLL, garantizando que el sistema de alertas de emergencias sea estable y funcione sin interrupciones.</p>
+                <strong>TB2:</strong><br>
+                Lideré la gestión de la estructura del equipo definiendo los Aspect Leaders and Collaborators, y tomé la responsabilidad del Software Deployment Evidence para el Sprint Review. Mi liderazgo aseguró que el proceso de despliegue a producción estuviera estandarizado, documentado y listo para ser presentado sin contratiempos de infraestructura.</p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Actué como líder en la gestión del producto y especificación de requerimientos. Al estructurar el Product Backlog, redactar las User Stories y elaborar el Impact Mapping y Context Mapping, proporcioné al equipo una dirección clara sobre el alcance del proyecto, asegurando que las prioridades de desarrollo estuvieran correctamente alineadas.</p>
 	 <strong>TB1:</strong><br>
 Actué como líder en la organización de la arquitectura de información y en la gestión de configuración del software. Desarrollé los apartados de Organization Systems, Labeling Systems, SEO Tags, Searching Systems y Navigation Systems, además de documentar aspectos como Source Code Management, Source Code Style Guide y Software Deployment Configuration. Mi aporte permitió ordenar la estructura del producto y establecer criterios claros para su desarrollo y mantenimiento.</p>
 <strong>AV2:</strong><br>
                 Tomé el liderazgo en el proceso de validación del producto con el usuario final. Fui el encargado de establecer la ruta de evaluación diseñando las entrevistas y ejecutando el registro detallado de estas interacciones, asegurándome de recolectar insights valiosos directamente de los adultos mayores y sus familias.</p>
+                <strong>TB2:</strong><br>
+                Lideré la estandarización técnica del proyecto al encargarme del Services Documentation Evidence para el Sprint Review. Aseguré que la arquitectura de servicios y las APIs estuvieran documentadas con claridad, guiando a mis compañeros para mantener la interoperabilidad y coherencia en las futuras integraciones del proyecto.</p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Como equipo, demostramos un liderazgo distribuido y complementario donde cada integrante asumió el control de su área de especialidad. Esta autonomía coordinada permitió que las decisiones estratégicas de UX, gestión de producto y arquitectura técnica se integraran orgánicamente. El liderazgo conjunto evidenció una madurez profesional que garantizó la viabilidad y robustez del diseño del proyecto.
@@ -462,6 +532,8 @@ Actué como líder en la organización de la arquitectura de información y en l
                 Como equipo, demostramos liderazgo conjunto al distribuir responsabilidades según las fortalezas de cada integrante y coordinar los avances de diseño, arquitectura, implementación y documentación. Cada miembro asumió el liderazgo de un área específica, pero las decisiones se integraron de forma colaborativa para mantener una visión común del producto. Esta forma de trabajo permitió avanzar de manera organizada, resolver ajustes técnicos y visuales, y consolidar una entrega más completa y coherente.
                 <strong>AV2:</strong><br>
                 Durante el desarrollo de la entrega AV2, el equipo consolidó su capacidad de liderazgo distribuido al ejecutar el Sprint 2 de manera eficiente. La clara delimitación de líderes por aspecto (Aspect Leaders) garantizó que las validaciones de campo con los adultos mayores, la generación de evidencias del flujo IoT y la producción audiovisual transcurrieran paralelamente y con un alto control de calidad para respaldar la propuesta de valor de FOLL.
+                <p><strong>TB2:</strong><br>
+                Para el Sprint 3, el equipo alcanzó una ejecución madura de liderazgo colaborativo. Logramos articular de manera impecable el ciclo de vida de nuestra entrega: mientras se gestionaba la planificación y los roles estratégicos, en paralelo se desarrollaba, probaba, documentaba y desplegaba el código. Esta sinergia aseguró un Sprint Review robusto, profesional y respaldado por evidencias tangibles de cada uno de los involucrados.</p>
             </td>            
         </tr>
                 <tr>
@@ -474,6 +546,8 @@ Actué como líder en la organización de la arquitectura de información y en l
                 </p>
                 <strong>AV2:</strong><br>
                 Fomenté la transparencia y la participación del equipo al redactar los Team Collaboration Insights del Sprint 2. Como responsable del Sprint Planning, fijé metas asertivas y distribuí la carga de trabajo de manera equitativa para que todos aportaran eficientemente al avance del ecosistema de prevención de FOLL.</p>
+                <strong>TB2:</strong><br>
+                Contribuí a la creación de un entorno colaborativo gestionando el Sprint Planning y Backlog, estableciendo metas claras y asignando tareas de manera transparente. Al documentar los Team Collaboration Insights, ayudé al equipo a identificar fortalezas y áreas de mejora en nuestra comunicación, garantizando que el esfuerzo colectivo estuviera siempre enfocado en los objetivos del sprint.</p>
                 <p><strong>Fabiola Saldaña</strong><br> <strong>AV1:</strong><br>
                 Garantice un entorno inclusivo al facilitar los talleres de EventStorming, promoviendo la participación equitativa de todos los integrantes. Planifiqué estas dinámicas para poder definir los segmentos objetivos y los Bounded Context Canvases de manera consensuada, logrando cumplir con el hito de alineación entre negocio y tecnología.</p>
 	 <strong>TB1:</strong><br>
@@ -481,6 +555,8 @@ Participé activamente en la planificación y desarrollo del diseño de la landi
  </p>
  <strong>AV2:</strong><br>
                 Contribuí al análisis colaborativo integrando la visión técnica y de usuario en las evidencias de ejecución. Mediante la evaluación heurística, convertí los errores y fricciones detectadas en tareas documentadas para que el equipo iterara la aplicación de FOLL con un enfoque centrado en la usabilidad inclusiva y la accesibilidad.</p>
+                <strong>TB2:</strong><br>
+                Facilité el trabajo en equipo centralizando de manera rigurosa las evidencias de desarrollo y ejecución. Al hacer visible y accesible el estado real del software construido, permití que mis compañeros pudieran validar sus propios avances e identificar a tiempo cualquier bloqueante técnico, cumpliendo así con las metas de funcionalidad establecidas para el Sprint Review.</p>
                 <p><strong>Claudia Belledonne</strong><br> <strong>AV1:</strong><br>
                 Trabajé de la mano con el equipo para analizar las entrevistas de forma conjunta. Al diseñar los diagramas de arquitectura, planifiqué reuniones de retroalimentación para asegurar que los modelos C4 integraran los requerimientos de todos, cumpliendo con el objetivo de entregar una arquitectura coherente y bien documentada.</p>
 	 	 <strong>TB1:</strong><br>
@@ -488,6 +564,8 @@ Contribuí al entorno colaborativo desde el desarrollo técnico del proyecto, ap
  </p>
  <strong>AV2:</strong><br>
                 Garantice que el conocimiento técnico fuera accesible para todo el equipo de desarrollo mediante la correcta documentación de los servicios creados en el Sprint 2. Mi estandarización permitió que el equipo conectara las interfaces visuales con la lógica backend de las detecciones sin cuellos de botella.</p>
+                <strong>TB2:</strong><br>
+                Apoyé la colaboración y el cumplimiento de metas comunicando proactivamente los resultados de nuestras pruebas mediante el Testing Suite Evidence. Esta transparencia garantizó que todos los integrantes del equipo estuvieran al tanto del nivel de calidad del producto y pudieran enfocar sus esfuerzos en resolver cualquier incidencia antes del Sprint Review final.</p>
                 <p><strong>Mauricio Elera</strong><br> <strong>AV1:</strong><br>
                 Apoyé activamente la recopilación de información mediante el registro detallado de entrevistas, asegurando que todo el equipo tuviera acceso transparente a los datos. En la planificación de mis tareas de Tactical DDD, coordiné constantemente con arquitectura para cumplir los objetivos de diseño de software en los tiempos establecidos, ajustando componentes de manera iterativa.</p>
 	 	 	 <strong>TB1:</strong><br>
@@ -495,6 +573,8 @@ Aporté a la planificación y mejora del trabajo técnico mediante la correcció
  </p>
  <strong>AV2:</strong><br>
                 Aseguré el cumplimiento de los objetivos compartidos de estabilidad planificando y estructurando la suite de pruebas del sistema. Comuniqué activamente las configuraciones del entorno de despliegue para que cualquier miembro probara los avances del Sprint 2 de FOLL en tiempo real y colaborara en la detección de fallos.</p>
+                <strong>TB2:</strong><br>
+                Aporté a la planificación general estructurando los roles del equipo en los Aspect Leaders and Collaborators, dándole claridad a nuestras responsabilidades. Asimismo, mediante la preparación del Software Deployment Evidence, creé un entorno inclusivo donde todos los desarrolladores pudieron visualizar fácilmente el código desplegado, cumpliendo así el objetivo técnico crítico del sprint.</p>
                 <p><strong>Diego Vilca</strong><br> <strong>AV1:</strong><br>
                 Impulsé la colaboración creando el Ubiquitous Language, lo que estandarizó nuestra comunicación interna y evitó ambigüedades. Planifiqué las iteraciones organizando las tareas en el Product Backlog, estableciendo metas claras de cumplimiento para cada integrante, lo que fue clave para presentar los entregables a tiempo.</p>
 	 	 	 <strong>TB1:</strong><br>
@@ -502,6 +582,8 @@ Colaboré en la organización del producto mediante el desarrollo de la arquitec
  </p>
  <strong>AV2:</strong><br>
                 Promoví un entorno empático acercando las opiniones, temores y necesidades reales de los adultos mayores y sus cuidadores a los desarrolladores a través de las sesiones de validación. Puse a disposición de todos el registro de entrevistas, permitiéndonos ajustar nuestras funcionalidades basándonos en retroalimentación real.</p>
+                <strong>TB2:</strong><br>
+                Fomenté la colaboración técnica al mantener altamente accesible la evidencia de documentación de servicios (Services Documentation Evidence). Esta práctica de estandarización evitó bloqueos e incertidumbres dentro del equipo de desarrollo, permitiéndonos cumplir nuestros objetivos de integración de manera ágil y ordenada.</p>
             </td>
             <td style="padding: 10px; vertical-align: top;"> <strong>AV1:</strong><br>
                 Logramos consolidar un entorno de trabajo altamente estructurado e inclusivo. La creación de un Lenguaje Ubicuo común, la comunicación constante de los hallazgos de UX y la rigurosa planificación mediante el Product Backlog y diagramas técnicos, nos permitieron cumplir con todos los objetivos e hitos del proyecto de manera eficiente, cohesionada y sin retrasos.
@@ -511,6 +593,8 @@ Como equipo, logramos crear un entorno colaborativo e inclusivo al distribuir la
 <strong>AV2:</strong><br>
 Nuestra madurez organizativa nos permitió afrontar el Sprint 2 de FOLL cumpliendo a cabalidad las tareas proyectadas. Comprobamos nuestra capacidad de adaptarnos a la retroalimentación continua mediante las entrevistas de validación con nuestro público objetivo y las respectivas evaluaciones heurísticas. El trabajo colaborativo facilitó la rápida integración del código y despliegue del sistema, asegurando entregables a tiempo y con propósito.
 
+<p><strong>TB2:</strong><br>
+                Durante el Sprint 3, consolidamos definitivamente nuestra capacidad de planificación y logro de objetivos. El flujo de trabajo transparente, evidenciado por el constante reporte de pruebas, despliegues y colaboración técnica, nos permitió resolver bloqueantes de manera anticipada. Logramos cerrar el sprint entregando un producto funcional, documentado y validado, demostrando el compromiso absoluto de cada miembro con las metas compartidas.</p>
 </td>
 </tr>
 </tbody>
@@ -8758,120 +8842,125 @@ _Pantallas de la aplicación móvil mostrando el renderizado del código QR úni
 
 Durante el presente Sprint, el equipo de desarrollo enfocó sus esfuerzos en expandir y consolidar las capacidades de la API del sistema, garantizando la interoperabilidad robusta entre las capas de servicios web y las aplicaciones cliente (web y móvil). Los logros clave alcanzados en relación con la documentación de Web Services abarcan:
 
-* **Estandarización de Endpoints con OpenAPI:** Se implementó y actualizó la especificación OpenAPI (Swagger), cubriendo nuevos flujos críticos de negocio como la gestión de accesos e identidades (IAM), la vinculación rápida mediante códigos QR de cuidadores, el desmapeo de personal a cargo y la visibilidad de emergencias públicas mediante tokens de seguridad temporales.
-* **Aseguramiento del Ciclo de Vida del Dato:** Se diseñaron mecanismos para operaciones destructivas seguras (`DELETE`), permitiendo dar de baja cuentas de usuario y pacientes bajo criterios estrictos de consistencia relacional.
-* **Acceso Público Seguro Basado en Tokens:** Se habilitó un canal para servicios de emergencia que permite rastrear la geolocalización de un incidente crítico de forma anónima y controlada por tiempo.
+- **Estandarización de Endpoints con OpenAPI:** Se implementó y actualizó la especificación OpenAPI (Swagger), cubriendo nuevos flujos críticos de negocio como la gestión de accesos e identidades (IAM), la vinculación rápida mediante códigos QR de cuidadores, el desmapeo de personal a cargo y la visibilidad de emergencias públicas mediante tokens de seguridad temporales.
+- **Aseguramiento del Ciclo de Vida del Dato:** Se diseñaron mecanismos para operaciones destructivas seguras (`DELETE`), permitiendo dar de baja cuentas de usuario y pacientes bajo criterios estrictos de consistencia relacional.
+- **Acceso Público Seguro Basado en Tokens:** Se habilitó un canal para servicios de emergencia que permite rastrear la geolocalización de un incidente crítico de forma anónima y controlada por tiempo.
 
 ---
 
 **Tabla Resumen de Endpoints Documentados**
 
-| HTTP Verbo | Endpoint / Sintaxis de Llamada | Acción Implementada / Descripción | Enlace a Documentación Desplegada |
-| :--- | :--- | :--- | :--- |
-| **DELETE** | `/api/iam/auth` | Eliminación definitiva de la cuenta del usuario autenticado tras validación de credenciales. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
-| **POST** | `/api/patients/{patientId}/caregivers/qr` | Vinculación segura de un cuidador a un adulto mayor mediante la lectura de un código QR. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
-| **DELETE** | `/api/patients/{patientId}/caregivers/{caregiverId}` | Desvinculación de un cuidador asignado a un paciente específico. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
-| **DELETE** | `/api/care/patients/{id}` | Eliminación lógica/física del expediente del paciente en el módulo de cuidado integral. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
-| **GET** | `/api/emergency/public-location/{token}` | Consulta pública de la ubicación en tiempo real de un incidente de caída mediante un token seguro. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| HTTP Verbo | Endpoint / Sintaxis de Llamada                       | Acción Implementada / Descripción                                                                  | Enlace a Documentación Desplegada                                                                                                       |
+| :--------- | :--------------------------------------------------- | :------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **DELETE** | `/api/iam/auth`                                      | Eliminación definitiva de la cuenta del usuario autenticado tras validación de credenciales.       | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **POST**   | `/api/patients/{patientId}/caregivers/qr`            | Vinculación segura de un cuidador a un adulto mayor mediante la lectura de un código QR.           | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **DELETE** | `/api/patients/{patientId}/caregivers/{caregiverId}` | Desvinculación de un cuidador asignado a un paciente específico.                                   | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **DELETE** | `/api/care/patients/{id}`                            | Eliminación lógica/física del expediente del paciente en el módulo de cuidado integral.            | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
+| **GET**    | `/api/emergency/public-location/{token}`             | Consulta pública de la ubicación en tiempo real de un incidente de caída mediante un token seguro. | [Ver Documentación Swagger (Producción)](https://foll-backend-iot-h5hkb3czhwedhph0.brazilsouth-01.azurewebsites.net/swagger/index.html) |
 
 ---
 
 **Especificación Detallada de Acciones Soportadas**
 
-**Autenticación e Identidad (IAM)**  
-* **Verbo HTTP:** `DELETE`
-* **Sintaxis de llamada:** `/api/iam/auth`
-* **Especificación de Parámetros:**
-    * *Headers:* `Content-Type: application/json` | `Authorization: Bearer <JWT-Token>` (Requerido para identificar al usuario actual)
-    * *Request Body (JSON):*
-        ```json
-        {
-          "password": "string"
-        }
-        ```
-* **Explicación y Ejemplo del Response:**
-    * **Response 200 OK:** Se devuelve cuando la contraseña coincide y la cuenta es eliminada con éxito del sistema transaccional.
-        ```json
-        {
-          "message": "Cuenta eliminada exitosamente. Adiós."
-        }
-        ```
-    * **Response 400 Bad Request:** Se genera si el usuario implícito en el token de autenticación no se encuentra registrado en la base de datos o los parámetros de validación fallan.
-        ```json
-        {
-          "message": "Usuario no encontrado."
-        }
-        ```
+**Autenticación e Identidad (IAM)**
+
+- **Verbo HTTP:** `DELETE`
+- **Sintaxis de llamada:** `/api/iam/auth`
+- **Especificación de Parámetros:**
+  - _Headers:_ `Content-Type: application/json` | `Authorization: Bearer <JWT-Token>` (Requerido para identificar al usuario actual)
+  - _Request Body (JSON):_
+    ```json
+    {
+      "password": "string"
+    }
+    ```
+- **Explicación y Ejemplo del Response:**
+  - **Response 200 OK:** Se devuelve cuando la contraseña coincide y la cuenta es eliminada con éxito del sistema transaccional.
+    ```json
+    {
+      "message": "Cuenta eliminada exitosamente. Adiós."
+    }
+    ```
+  - **Response 400 Bad Request:** Se genera si el usuario implícito en el token de autenticación no se encuentra registrado en la base de datos o los parámetros de validación fallan.
+    ```json
+    {
+      "message": "Usuario no encontrado."
+    }
+    ```
 
 ---
 
 **Gestión de Relaciones Paciente-Cuidador (PatientCaregivers)**
 
 **Vincular Cuidador vía QR**
-* **Verbo HTTP:** `POST`
-* **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/qr`
-* **Especificación de Parámetros:**
-    * *Path Parameters:* `{patientId}` (Integer, ID único del abuelito/paciente a vincular).
-    * *Request Body (JSON):*
-        ```json
-        {
-          "caregiverId": 0
-        }
-        ```
-* **Explicación y Ejemplo del Response:**
-    * **Response 200 OK:** La aplicación móvil/web procesó correctamente el código QR del cuidador y lo registró en la bitácora de cuidadores secundarios del abuelito.
-        ```json
-        {
-          "message": "Cuidador vinculado exitosamente al paciente a través de QR."
-        }
-        ```
+
+- **Verbo HTTP:** `POST`
+- **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/qr`
+- **Especificación de Parámetros:**
+  - _Path Parameters:_ `{patientId}` (Integer, ID único del abuelito/paciente a vincular).
+  - _Request Body (JSON):_
+    ```json
+    {
+      "caregiverId": 0
+    }
+    ```
+- **Explicación y Ejemplo del Response:**
+  - **Response 200 OK:** La aplicación móvil/web procesó correctamente el código QR del cuidador y lo registró en la bitácora de cuidadores secundarios del abuelito.
+    ```json
+    {
+      "message": "Cuidador vinculado exitosamente al paciente a través de QR."
+    }
+    ```
 
 **Desvincular Cuidador de Paciente**
-* **Verbo HTTP:** `DELETE`
-* **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/{caregiverId}`
-* **Especificación de Parámetros:**
-    * *Path Parameters:* * `{patientId}` (Integer, ID único del paciente).
-        * `{caregiverId}` (Integer, ID único del cuidador que se removerá de la lista de accesos).
-    * *Request Body:* Ninguno (`No Content`).
-* **Explicación y Ejemplo del Response:**
-    * **Response 200 OK:** El cuidador pierde los privilegios de monitoreo sobre el adulto mayor de forma inmediata. Devuelve un cuerpo vacío confirmando el éxito.
-        ```json
-        * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
-        ```
+
+- **Verbo HTTP:** `DELETE`
+- **Sintaxis de llamada:** `/api/patients/{patientId}/caregivers/{caregiverId}`
+- **Especificación de Parámetros:**
+  - _Path Parameters:_ \* `{patientId}` (Integer, ID único del paciente).
+    - `{caregiverId}` (Integer, ID único del cuidador que se removerá de la lista de accesos).
+  - _Request Body:_ Ninguno (`No Content`).
+- **Explicación y Ejemplo del Response:**
+  - **Response 200 OK:** El cuidador pierde los privilegios de monitoreo sobre el adulto mayor de forma inmediata. Devuelve un cuerpo vacío confirmando el éxito.
+    ```json
+    * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
+    ```
 
 ---
 
-**Módulo de Cuidado Médico (Care Module)**  
-* **Verbo HTTP:** `DELETE`
-* **Sintaxis de llamada:** `/api/care/patients/{id}`
-* **Especificación de Parámetros:**
-    * *Path Parameters:* `{id}` (Integer, Identificador numérico único del registro del paciente).
-    * *Request Body:* Ninguno.
-* **Explicación y Ejemplo del Response:**
-    * **Response 200 OK:** El registro médico, historial de caídas asociadas y parámetros del paciente han sido dados de baja del sistema sin afectar la integridad del IAM de sus familiares vinculados.
-        ```json
-        * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
-        ```
+**Módulo de Cuidado Médico (Care Module)**
+
+- **Verbo HTTP:** `DELETE`
+- **Sintaxis de llamada:** `/api/care/patients/{id}`
+- **Especificación de Parámetros:**
+  - _Path Parameters:_ `{id}` (Integer, Identificador numérico único del registro del paciente).
+  - _Request Body:_ Ninguno.
+- **Explicación y Ejemplo del Response:**
+  - **Response 200 OK:** El registro médico, historial de caídas asociadas y parámetros del paciente han sido dados de baja del sistema sin afectar la integridad del IAM de sus familiares vinculados.
+    ```json
+    * (Cuerpo de respuesta vacío / HTTP status 200 OK) *
+    ```
 
 ---
 
 **Gestión de Eventos Críticos y Emergencias (PublicEmergencyLocation)**
-* **Verbo HTTP:** `GET`
-* **Sintaxis de llamada:** `/api/emergency/public-location/{token}`
-* **Especificación de Parámetros:**
-    * *Path Parameters:* `{token}` (String de tipo UUID o hash alfanumérico seguro generado dinámicamente al registrarse una caída). No requiere cabeceras de autorización privadas, pues es un link de uso libre para centrales de auxilio médico externado.
-    * *Request Body:* Ninguno.
-* **Explicación y Ejemplo del Response:**
-    * **Response 200 OK:** Retorna las coordenadas geográficas precisas e información de bitácora esencial para que ambulancias o paramédicos ubiquen al paciente de forma inmediata.
-        ```json
-        {
-          "latitude": -12.087432,
-          "longitude": -76.974321,
-          "patientName": "Ricardo Al Moen",
-          "incidentTime": "2026-07-07T11:50:00Z",
-          "observations": "Caída brusca detectada por acelerómetro en sala principal. Pérdida temporal de verticalidad."
-        }
-        ```
+
+- **Verbo HTTP:** `GET`
+- **Sintaxis de llamada:** `/api/emergency/public-location/{token}`
+- **Especificación de Parámetros:**
+  - _Path Parameters:_ `{token}` (String de tipo UUID o hash alfanumérico seguro generado dinámicamente al registrarse una caída). No requiere cabeceras de autorización privadas, pues es un link de uso libre para centrales de auxilio médico externado.
+  - _Request Body:_ Ninguno.
+- **Explicación y Ejemplo del Response:**
+  - **Response 200 OK:** Retorna las coordenadas geográficas precisas e información de bitácora esencial para que ambulancias o paramédicos ubiquen al paciente de forma inmediata.
+    ```json
+    {
+      "latitude": -12.087432,
+      "longitude": -76.974321,
+      "patientName": "Ricardo Al Moen",
+      "incidentTime": "2026-07-07T11:50:00Z",
+      "observations": "Caída brusca detectada por acelerómetro en sala principal. Pérdida temporal de verticalidad."
+    }
+    ```
 
 ---
 
@@ -8882,31 +8971,30 @@ A continuación, se presentan las capturas de pantalla tomadas directamente desd
 **Interacción 1: Eliminación de Cuenta de Usuario (`DELETE /api/iam/auth`)**  
 Para validar el flujo, se colocó el token JWT asignado en el botón "Authorize" de Swagger y se envió la clave actual para reconfirmar la acción destructiva.
 ![](./img/services-documentation/sprint-3-delete-auth.png)  
-*Figura 3.1: Prueba de respuesta exitosa del servidor ante la eliminación segura de credenciales.*
+_Figura 3.1: Prueba de respuesta exitosa del servidor ante la eliminación segura de credenciales._
 
 **Interacción 2: Vinculación Exitosa vía QR (`POST /api/patients/{patientId}/caregivers/qr`)**  
 Se interactuó con los campos parametrizados ingresando un `patientId` real e inyectando el ID del cuidador simulado desde la carga útil JSON.
 ![](./img/services-documentation/sprint-3-qr.png)
-*Figura 3.2: Registro de un nuevo cuidador secundario empleando el endpoint transaccional del QR.*
+_Figura 3.2: Registro de un nuevo cuidador secundario empleando el endpoint transaccional del QR._
 
 **Interacción 3: Consulta Pública de Alerta Crítica (`GET /api/emergency/public-location/{token}`)**  
 Prueba efectuada simulando un acceso anónimo de emergencia para validar que el endpoint responda sin solicitar tokens del módulo IAM.  
 ![](./img/services-documentation/sprint-3-emergency-location.png)
-*Figura 3.3: Visualización de response el endpoint de emergency location en caso de expiracion.*
+_Figura 3.3: Visualización de response el endpoint de emergency location en caso de expiracion._
 
 ---
 
 Para validar el despliegue e implementación de los artefactos de documentación OpenAPI, se detalla la ubicación oficial del código fuente de los Web Services junto con los identificadores criptográficos SHA de Git correspondientes a las modificaciones de este periodo.
 
-* **URL del Repositorio de Web Services:** `https://github.com/foll-project/foll-backend`
-* **Identificadores de Commits Relacionados (Documentation Logs):**
+- **URL del Repositorio de Web Services:** `https://github.com/foll-project/foll-backend`
+- **Identificadores de Commits Relacionados (Documentation Logs):**
 
-| ID del Commit (SHA-1) | Autor | Fecha | Descripción del Cambio Relacionado a Documentación |
-| :--- | :--- | :--- | :--- |
-| `e632a36829acfd913c6961c6f474c5fe28bbe847` | Claus-tb | 04/07/2026 | feat: delete account completed |
-| `f6e28b2e4fe1849cbc9b7ce3ffd884e7999be391` | Maur1xio | 05/07/2026 | docs: add apigateway configuration |
-| `573900dd0de48fa19173dc173385ac5027e4caa5` | Maur1xio | 07/07/2026 | fix: emergency analytics |
-
+| ID del Commit (SHA-1)                      | Autor    | Fecha      | Descripción del Cambio Relacionado a Documentación |
+| :----------------------------------------- | :------- | :--------- | :------------------------------------------------- |
+| `e632a36829acfd913c6961c6f474c5fe28bbe847` | Claus-tb | 04/07/2026 | feat: delete account completed                     |
+| `f6e28b2e4fe1849cbc9b7ce3ffd884e7999be391` | Maur1xio | 05/07/2026 | docs: add apigateway configuration                 |
+| `573900dd0de48fa19173dc173385ac5027e4caa5` | Maur1xio | 07/07/2026 | fix: emergency analytics                           |
 
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review.
 
