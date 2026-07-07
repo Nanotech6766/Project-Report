@@ -8597,8 +8597,8 @@ Los **Acceptance Tests** bajo enfoque **BDD** fueron elaborados con archivos `.f
 | `foll-backend`          | `test`                    | Unit Tests, Integration Tests y Step Definitions BDD (SpecFlow) |
 | `foll-frontend`         | `test/*`                  | Pruebas de componentes e integración UI (Vitest/Jest)           |
 | `follMobileApp`         | `test/*`                  | Pruebas unitarias Android y renderizado QR (JUnit)              |
-| Features BDD (Gherkin)  | —                         | `Project-Report/testing/sprint/features/`                        |
-| Step Definitions (C#)   | —                         | `Project-Report/testing/sprint/steps/`                          |
+| Features BDD (Gherkin)  | —                         | `foll-backend.Tests/Features/`                                  |
+| Step Definitions (C#)   | —                         | `foll-backend.Tests/Steps/`                                     |
 
 <br>
 
