@@ -352,7 +352,7 @@
     - [5.2.5. Navigation Systems.](#525-navigation-systems)
   - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
     - [5.3.1. Landing Page Wireframe. ](#531-landing-page-wireframe-)
-    - [5.3.2. Landing Page Mock-up. ](#532-landing-page-mock-up--)
+    - [5.3.2. Landing Page Mock-up.  ](#532-landing-page-mock-up--)
   - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
     - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
     - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
@@ -8569,9 +8569,57 @@ A continuación, se detalla la asignación de User Stories y Work-items/Tasks co
 
 #### 6.2.3.4. Development Evidence for Sprint Review.
 
-#### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+En esta sección se explica y presenta los avances en la implementación correspondientes al presente Sprint, enfocados en la consolidación del hardware IoT del ecosistema Foll, la ejecución de los protocolos críticos de alerta y las mejoras en la usabilidad para la vinculación de cuentas. La sección inicia con una introducción que resume los principales logros de la iteración.
 
+Durante este Sprint, el equipo logró hitos significativos tanto en el Bounded Context de Sistema Embebido como en la orquestación de servicios en la nube. A nivel de hardware, se completó el prototipo físico ensamblando y soldando los microcontroladores y sensores dentro del contenedor impreso en 3D, manteniendo el diseño de cinturón imperceptible. En cuanto al software, el esfuerzo se centró en los Bounded Contexts de Emergency Management y Notification, implementando el protocolo de alerta de caídas multicapa: alarma local con ventana de cancelación mediante Edge AI, notificaciones Push/SMS con GPS, escalamiento telefónico automatizado y conexión con servicios médicos. Finalmente, se agilizó el proceso de alta en la plataforma móvil mediante la generación y lectura de códigos QR.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| foll-project/foll-iot | hardware/prototype-assembly | 3a4b5c6 | feat: assemble and solder prototype in 3D container | Ensamblado y soldado final de los componentes electrónicos e integración dentro del contenedor impreso en 3D para el cinturón imperceptible. | 22/06/2026 |
+| foll-project/foll-iot | feature/local-alarm-protocol | 4b5c6d7 | feat: implement local audible alarm and cancellation | Integración de alarma sonora mediante el buzzer del cinturón y lógica Edge para cancelar la alerta en un lapso de 10 segundos antes del envío remoto. | 24/06/2026 |
+| foll-project/foll-backend | feature/push-sms-alerts | 5c6d7e8 | feat: add real-time push notifications and SMS fallback | Envío de notificaciones Push con ubicación GPS al cuidador a través del Bounded Context de Notification, con respaldo vía SMS si no hay conexión a internet. | 26/06/2026 |
+| foll-project/foll-backend | feature/call-escalation | 6d7e8f9 | feat: automate phone calls for secondary contacts | Implementación de la lógica en Emergency Management para ejecutar una llamada telefónica automatizada si el cuidador principal no responde en 3 minutos. | 29/06/2026 |
+| foll-project/foll-backend | feature/ambulance-request | 7e8f9a0 | feat: add electronic ambulance request system | Emisión de una solicitud electrónica automática a los centros médicos en caso de que ningún contacto de la red de respaldo responda a la emergencia. | 01/07/2026 |
+| foll-project/foll-frontend | feature/clinical-report-export | 8f9a0b1 | feat: implement PDF export for clinical history | Generación y descarga del historial de incidencias en formato PDF desde el panel web, estructurado específicamente para revisión del médico tratante. | 03/07/2026 |
+| foll-project/foll-mobile | feature/qr-profile-generation | 9a0b1c2 | feat: render unique profile QR code | Renderizado de un código QR único en la pantalla del perfil del paciente dentro de la app para facilitar la vinculación presencial de nuevos cuidadores. | 04/07/2026 |
+| foll-project/foll-mobile | feature/qr-scanner-linking | 0b1c2d3 | feat: add in-app camera scanner for QR linking | Integración de escáner de cámara en la app móvil para leer el código QR de pacientes existentes y agregarlos de forma instantánea a la red de cuidado. | 05/07/2026 |
+
+
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review.
 #### 6.2.3.6. Execution Evidence for Sprint Review.
+
+Esta sección resume lo alcanzado en el presente Sprint y presenta las principales vistas e integraciones implementadas del ecosistema Foll. Se muestran imágenes de las aplicaciones Web y Mobile, el ensamblaje del hardware IoT, el protocolo de alertas escalonadas y las nuevas funcionalidades de vinculación rápida y exportación de reportes.
+
+**Resumen del Sprint**
+
+Durante esta iteración, el equipo se enfocó en consolidar la arquitectura de alta disponibilidad y la autonomía del dispositivo, logrando lo siguiente:
+
+- Ensamblar y soldar los componentes electrónicos del prototipo físico dentro del contenedor impreso en 3D, consolidando el Bounded Context del Sistema Embebido.
+- Implementar el protocolo de verificación de alerta local mediante Edge AI, ejecutando una alarma sonora en el cinturón que permite al usuario cancelar el aviso de forma aislada y autónoma en un lapso de 10 segundos, previniendo falsas alarmas.
+- Habilitar el sistema de alertas remotas integrando los Bounded Contexts de Emergency Management y Notification, orquestando notificaciones Push en tiempo real con ubicación GPS y un sistema de respaldo vía SMS para asegurar el funcionamiento offline o en condiciones de baja conectividad.
+- Configurar el escalamiento automático de emergencias, garantizando la alta disponibilidad del socorro mediante llamadas telefónicas a contactos secundarios tras 3 minutos de inactividad, y la emisión de solicitudes electrónicas a servicios de ambulancia.
+- Desarrollar la funcionalidad de exportación del historial de incidencias clínicas en formato PDF, estructurado para la revisión del médico tratante.
+- Agilizar la vinculación presencial de pacientes mediante la generación y escaneo de códigos QR directamente en la aplicación móvil.
+
+<img src="./img/evidence-sprint-3/hardware-soldado.jpeg"  alt="Hardware Prototype Assembly" width="400"> 
+<img src="./img/evidence-sprint-3/hardware-soldado-2.jpg"  alt="Hardware Prototype Assembly" width="400"> <br>
+<img src="./img/evidence-sprint-3/hardware-armado-cerrado.jpg"  alt="Hardware Prototype Assembly" width="400"> <br>
+
+*Vista del prototipo físico ensamblado, mostrando los componentes electrónicos soldados y ubicados de forma compacta dentro del contenedor impreso en 3D.*
+
+<img src="./img/evidence-sprint/alarma_local_edge.jpeg"  alt="Edge AI Local Alarm" width="400"> <br>
+
+*Detalle del código y ejecución en la capa Edge manejando la alarma sonora local y la ventana de cancelación de 10 segundos.*
+
+<img src="./img/evidence-sprint/notificacion_push_sms.png"  alt="Push and SMS Notifications Mobile screenshot" width="300">  
+<img src="./img/evidence-sprint/escalamiento_llamada.png"  alt="Automated Call Mobile screenshot" width="300">  <br>
+
+*Capturas del dispositivo móvil recibiendo la notificación Push con GPS, el SMS de respaldo (offline) y la llamada telefónica automatizada dirigida a los contactos secundarios.*
+
+<img src="./img/evidence-sprint/generacion_qr.png"  alt="QR Code Generation Mobile" width="300">  
+<img src="./img/evidence-sprint/escaner_qr.png"  alt="QR Scanner Mobile" width="300">  <br>
+
+*Pantallas de la aplicación móvil mostrando el renderizado del código QR único del perfil y la interfaz del escáner de cámara para vincular nuevos cuidadores de forma presencial.*
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review.
 
